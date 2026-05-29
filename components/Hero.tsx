@@ -18,8 +18,8 @@ export default function Hero() {
           />
         </div>
 
-        <h2 className="mt-8 text-4xl font-bold md:text-6xl">
-          Hei, mitt navn er <span className="text-white/70">Marius</span>
+        <h2 className="mt-8 text-4xl font-bold md:text-4xl">
+          Hei, jeg er <span className="text-white/70">Marius</span>
         </h2>
 
         <p className="mt-5 max-w-xl text-lg text-white/70">

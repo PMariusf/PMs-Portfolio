@@ -16,9 +16,9 @@ const songs = [
     gradient: "from-blue-500/30 via-cyan-500/20 to-black",
   },
   {
-    title: "I'll Hold on to What We Had",
+    title: "I ll Hold on to What We Had",
     artist: "Marius",
-    file: "/media/Ill Hold on to What We Had (Remastered).mp4",
+    file: "/media/I ll Hold on to What We Had.mp4",
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
   {
@@ -28,7 +28,7 @@ const songs = [
     gradient: "from-green-500/30 via-emerald-500/20 to-black",
   },
   {
-    title: "Rolig musikk fyller natten",
+    title: "Rolig musikk fyller natten (Remastered)",
     artist: "Marius",
     file: "/media/Rolig musikk fyller natten, (Remastered).mp4",
     gradient: "from-indigo-500/30 via-violet-500/20 to-black",
