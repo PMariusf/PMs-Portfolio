@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 
 const songs = [
@@ -40,9 +42,9 @@ const songs = [
     gradient: "from-slate-500/30 via-zinc-500/20 to-black",
   },
   {
-    title: "Fire (Extend)",
+    title: "Fire Extend",
     artist: "Marius",
-    file: "/media/Fire (Extend).mp4",
+    file: "/media/fire(extend).mp4",
     gradient: "from-red-600/30 via-orange-500/20 to-black",
   },
   {
@@ -54,7 +56,7 @@ const songs = [
   {
     title: "Light Breaks Through the Night",
     artist: "Marius",
-    file: "/media/Light breaks through the night,.mp4",
+    file: "/media/Light breaks through the night.mp4",
     gradient: "from-cyan-500/30 via-sky-500/20 to-black",
   },
   {
@@ -72,80 +74,81 @@ export default function Music() {
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [bars, setBars] = useState<number[]>(Array(32).fill(10));
+  const [bars, setBars] = useState<number[]>(Array(32).fill(12));
 
   const playerRef = useRef<HTMLVideoElement | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
-  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   const formatTime = (time: number) => {
-    if (!time || Number.isNaN(time)) return "0:00";
-
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60)
+    const min = Math.floor(time / 60);
+    const sec = Math.floor(time % 60)
       .toString()
       .padStart(2, "0");
 
-    return `${minutes}:${seconds}`;
+    return `${min}:${sec}`;
   };
 
-  const setupAudioVisualizer = () => {
+  const setupAudio = () => {
     const player = playerRef.current;
     if (!player || audioContextRef.current) return;
 
-    const AudioContextClass =
-      window.AudioContext ||
-      (window as Window & typeof globalThis & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
-
-    const audioContext = new AudioContextClass();
+    const audioContext = new window.AudioContext();
     const analyser = audioContext.createAnalyser();
-    const source = audioContext.createMediaElementSource(player);
+    const source =
+      audioContext.createMediaElementSource(player);
 
     analyser.fftSize = 64;
 
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
-    audioContextRef.current = audioContext;
     analyserRef.current = analyser;
-    sourceRef.current = source;
+    audioContextRef.current = audioContext;
+
+    animateBars();
   };
 
-  const animateVisualizer = () => {
+  const animateBars = () => {
     const analyser = analyserRef.current;
     if (!analyser) return;
 
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const dataArray = new Uint8Array(
+      analyser.frequencyBinCount
+    );
 
-    const update = () => {
+    const animate = () => {
       analyser.getByteFrequencyData(dataArray);
 
-      const newBars = Array.from(dataArray).slice(0, 32).map((value) => {
-        return Math.max(8, Math.min(46, value / 4));
-      });
+      const newBars = Array.from(dataArray)
+        .slice(0, 32)
+        .map((value) =>
+          Math.max(12, Math.min(58, value / 5))
+        );
 
       setBars(newBars);
 
-      requestAnimationFrame(update);
+      requestAnimationFrame(animate);
     };
 
-    update();
+    animate();
   };
 
   const playSong = async () => {
     const player = playerRef.current;
     if (!player) return;
 
-    setupAudioVisualizer();
+    setupAudio();
 
-    if (audioContextRef.current?.state === "suspended") {
+    if (
+      audioContextRef.current?.state ===
+      "suspended"
+    ) {
       await audioContextRef.current.resume();
     }
 
     await player.play();
     setIsPlaying(true);
-    animateVisualizer();
   };
 
   const togglePlay = async () => {
@@ -162,69 +165,43 @@ export default function Music() {
 
   const selectSong = (index: number) => {
     setCurrentSong(index);
-    setProgress(0);
-    setCurrentTime(0);
 
     setTimeout(() => {
       playSong();
-    }, 120);
+    }, 100);
   };
 
   const nextSong = () => {
-    const next = currentSong === songs.length - 1 ? 0 : currentSong + 1;
+    const next =
+      currentSong === songs.length - 1
+        ? 0
+        : currentSong + 1;
+
     selectSong(next);
   };
 
   const previousSong = () => {
-    const previous = currentSong === 0 ? songs.length - 1 : currentSong - 1;
+    const previous =
+      currentSong === 0
+        ? songs.length - 1
+        : currentSong - 1;
+
     selectSong(previous);
   };
 
-  const handleTimeUpdate = () => {
-    const player = playerRef.current;
-    if (!player) return;
-
-    setCurrentTime(player.currentTime);
-    setDuration(player.duration || 0);
-
-    if (player.duration) {
-      setProgress((player.currentTime / player.duration) * 100);
-    }
-  };
-
-  const handleProgressClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const player = playerRef.current;
-    if (!player || !duration) return;
-
-    const rect = event.currentTarget.getBoundingClientRect();
-    const clickX = event.clientX - rect.left;
-    const percentage = clickX / rect.width;
-
-    player.currentTime = percentage * duration;
-  };
-
   useEffect(() => {
-    const player = playerRef.current;
-    if (!player) return;
-
-    player.load();
-
-    if (isPlaying) {
-      setTimeout(() => {
-        playSong();
-      }, 120);
-    }
+    playerRef.current?.load();
   }, [currentSong]);
 
   return (
     <div className="fixed bottom-5 right-5 z-50 w-[calc(100%-2.5rem)] max-w-[340px] md:bottom-auto md:right-6 md:top-1/2 md:w-[340px] md:-translate-y-1/2">
       <div
-        className={`rounded-[2rem] border border-white/20 bg-gradient-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl transition-all duration-500`}
+        className={`rounded-[2rem] border border-white/20 bg-gradient-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl`}
       >
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-lg text-white"
+            className="text-xl text-white transition active:scale-90"
           >
             🎵
           </button>
@@ -233,34 +210,33 @@ export default function Music() {
             <p className="truncate text-sm font-semibold text-white">
               {songs[currentSong].title}
             </p>
+
             {!isOpen && (
               <p className="text-xs text-white/60">
-                {formatTime(currentTime)} / {formatTime(duration)}
+                {formatTime(currentTime)} /{" "}
+                {formatTime(duration)}
               </p>
             )}
           </div>
 
           <button
             onClick={togglePlay}
-            className="rounded-full bg-white/10 px-3 py-1 text-sm text-white hover:bg-white/20"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-lg text-white shadow-lg transition active:scale-90 hover:bg-white/25"
           >
-            {isPlaying ? "Pause" : "Play"}
+            {isPlaying ? "⏸" : "▶"}
           </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="rounded-full bg-white/10 px-3 py-1 text-sm text-white hover:bg-white/20"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lg text-white transition active:scale-90 hover:bg-white/20"
           >
-            {isOpen ? "×" : "Open"}
+            {isOpen ? "⌄" : "⌃"}
           </button>
         </div>
 
-        <div
-          onClick={handleProgressClick}
-          className="mt-3 h-2 cursor-pointer rounded-full bg-white/10"
-        >
+        <div className="mt-3 h-2 rounded-full bg-white/10">
           <div
-            className="h-full rounded-full bg-white transition-all"
+            className="h-full rounded-full bg-white"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -268,14 +244,30 @@ export default function Music() {
         <video
           ref={playerRef}
           controls={isOpen}
-          className={isOpen ? "mt-4 w-full rounded-xl" : "h-0 w-0 opacity-0"}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedMetadata={handleTimeUpdate}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
+          className={
+            isOpen
+              ? "mt-4 w-full rounded-xl"
+              : "h-0 w-0 opacity-0"
+          }
+          onTimeUpdate={() => {
+            const player = playerRef.current;
+            if (!player) return;
+
+            setCurrentTime(player.currentTime);
+            setDuration(player.duration);
+
+            setProgress(
+              (player.currentTime /
+                player.duration) *
+                100
+            );
+          }}
           onEnded={nextSong}
         >
-          <source src={songs[currentSong].file} type="video/mp4" />
+          <source
+            src={songs[currentSong].file}
+            type="video/mp4"
+          />
         </video>
 
         {isOpen && (
@@ -285,12 +277,14 @@ export default function Music() {
               <span>{formatTime(duration)}</span>
             </div>
 
-            <div className="mt-5 flex h-14 items-end justify-center gap-[3px] overflow-hidden rounded-xl bg-black/20 p-3">
+            <div className="mt-5 flex h-24 items-end justify-center gap-[4px] overflow-hidden rounded-2xl bg-black/20 px-4 py-5">
               {bars.map((height, index) => (
                 <span
                   key={index}
                   className="w-[3px] rounded-full bg-white/80 transition-all duration-100"
-                  style={{ height: `${height}px` }}
+                  style={{
+                    height: `${height}px`,
+                  }}
                 />
               ))}
             </div>
@@ -298,21 +292,21 @@ export default function Music() {
             <div className="mt-4 flex justify-center gap-4">
               <button
                 onClick={previousSong}
-                className="rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-xl text-white transition active:scale-90 hover:bg-white/20"
               >
                 ⏮
               </button>
 
               <button
                 onClick={togglePlay}
-                className="rounded-full bg-white/10 px-5 py-2 text-white hover:bg-white/20"
+                className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-2xl text-white shadow-lg transition active:scale-90 hover:bg-white/25"
               >
-                {isPlaying ? "Pause" : "Play"}
+                {isPlaying ? "⏸" : "▶"}
               </button>
 
               <button
                 onClick={nextSong}
-                className="rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-xl text-white transition active:scale-90 hover:bg-white/20"
               >
                 ⏭
               </button>
@@ -322,7 +316,9 @@ export default function Music() {
               {songs.map((song, index) => (
                 <button
                   key={song.file}
-                  onClick={() => selectSong(index)}
+                  onClick={() =>
+                    selectSong(index)
+                  }
                   className={`w-full rounded-lg px-3 py-2 text-left text-sm transition ${
                     currentSong === index
                       ? "bg-white/20 text-white"

@@ -13,7 +13,7 @@ export default function Hero() {
             alt="Marius"
             width={224}
             height={224}
-            className="h-66 w-66 rounded-3xl object-contain grayscale"
+            className="h-76 w-76 rounded-3xl object-contain grayscale"
             priority
           />
         </div>
