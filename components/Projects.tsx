@@ -35,7 +35,7 @@ const images = [
   },
 ];
 
-export default function ImageCarousel() {
+export default function Projects() {
   const [current, setCurrent] = useState(0);
 
   // AUTO SLIDE
@@ -62,14 +62,16 @@ export default function ImageCarousel() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
-      <div className="relative h-[500px] w-full overflow-hidden rounded-[1.5rem]">
+    <div className="relative mx-auto w-[75%] max-w-4xl overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
+      <div className="relative flex min-h-[500px] w-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-zinc-900/70 to-black/40 p-8">
         <Image
           src={images[current].src}
           alt={images[current].alt}
-          fill
+          width={1400}
+          height={800}
+          
           priority
-          className="object-contain transition-all duration-700"
+          className="h-auto max-h-[500px] w-auto object-contain transition duration-700 hover:scale-[1.02]"
         />
       </div>
 
