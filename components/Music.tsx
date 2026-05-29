@@ -33,6 +33,36 @@ const songs = [
     file: "/media/Rolig musikk fyller natten, (Remastered).mp4",
     gradient: "from-indigo-500/30 via-violet-500/20 to-black",
   },
+  {
+  title: "Final Night",
+  artist: "Marius",
+  file: "/media/final night.mp4",
+  gradient: "from-slate-500/30 via-zinc-500/20 to-black",
+},
+{
+  title: "Fire (Extend)",
+  artist: "Marius",
+  file: "/media/fire(extend).mp4",
+  gradient: "from-red-600/30 via-orange-500/20 to-black",
+},
+{
+  title: "Enter the Dragon",
+  artist: "Marius",
+  file: "/media/Enter the dragon.mp4",
+  gradient: "from-amber-500/30 via-red-500/20 to-black",
+},
+{
+  title: "Light Breaks Through the Night",
+  artist: "Marius",
+  file: "/media/Light breaks through the night,.mp4",
+  gradient: "from-cyan-500/30 via-sky-500/20 to-black",
+},
+{
+  title: "Stund er her",
+  artist: "Marius",
+  file: "/media/stund er her.mp4",
+  gradient: "from-emerald-500/30 via-teal-500/20 to-black",
+},
 ];
 
 export default function Music() {
