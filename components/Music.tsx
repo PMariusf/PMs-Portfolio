@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const songs = [
   {
@@ -28,70 +28,146 @@ const songs = [
     gradient: "from-green-500/30 via-emerald-500/20 to-black",
   },
   {
-    title: "Rolig musikk fyller natten (Remastered)",
+    title: "Rolig musikk fyller natten",
     artist: "Marius",
     file: "/media/Rolig musikk fyller natten, (Remastered).mp4",
     gradient: "from-indigo-500/30 via-violet-500/20 to-black",
   },
   {
-  title: "Final Night",
-  artist: "Marius",
-  file: "/media/final night.mp4",
-  gradient: "from-slate-500/30 via-zinc-500/20 to-black",
-},
-{
-  title: "Fire (Extend)",
-  artist: "Marius",
-  file: "/media/fire(extend).mp4",
-  gradient: "from-red-600/30 via-orange-500/20 to-black",
-},
-{
-  title: "Enter the Dragon",
-  artist: "Marius",
-  file: "/media/Enter the dragon.mp4",
-  gradient: "from-amber-500/30 via-red-500/20 to-black",
-},
-{
-  title: "Light Breaks Through the Night",
-  artist: "Marius",
-  file: "/media/Light breaks through the night,.mp4",
-  gradient: "from-cyan-500/30 via-sky-500/20 to-black",
-},
-{
-  title: "Stund er her",
-  artist: "Marius",
-  file: "/media/stund er her.mp4",
-  gradient: "from-emerald-500/30 via-teal-500/20 to-black",
-},
+    title: "Final Night",
+    artist: "Marius",
+    file: "/media/final night.mp4",
+    gradient: "from-slate-500/30 via-zinc-500/20 to-black",
+  },
+  {
+    title: "Fire (Extend)",
+    artist: "Marius",
+    file: "/media/Fire (Extend).mp4",
+    gradient: "from-red-600/30 via-orange-500/20 to-black",
+  },
+  {
+    title: "Enter the Dragon",
+    artist: "Marius",
+    file: "/media/Enter the dragon.mp4",
+    gradient: "from-amber-500/30 via-red-500/20 to-black",
+  },
+  {
+    title: "Light Breaks Through the Night",
+    artist: "Marius",
+    file: "/media/Light breaks through the night,.mp4",
+    gradient: "from-cyan-500/30 via-sky-500/20 to-black",
+  },
+  {
+    title: "Stund er her",
+    artist: "Marius",
+    file: "/media/stund er her.mp4",
+    gradient: "from-emerald-500/30 via-teal-500/20 to-black",
+  },
 ];
 
 export default function Music() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentSong, setCurrentSong] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [bars, setBars] = useState<number[]>(Array(32).fill(10));
 
   const playerRef = useRef<HTMLVideoElement | null>(null);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
+
+  const formatTime = (time: number) => {
+    if (!time || Number.isNaN(time)) return "0:00";
+
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60)
+      .toString()
+      .padStart(2, "0");
+
+    return `${minutes}:${seconds}`;
+  };
+
+  const setupAudioVisualizer = () => {
+    const player = playerRef.current;
+    if (!player || audioContextRef.current) return;
+
+    const AudioContextClass =
+      window.AudioContext ||
+      (window as Window & typeof globalThis & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+
+    const audioContext = new AudioContextClass();
+    const analyser = audioContext.createAnalyser();
+    const source = audioContext.createMediaElementSource(player);
+
+    analyser.fftSize = 64;
+
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+
+    audioContextRef.current = audioContext;
+    analyserRef.current = analyser;
+    sourceRef.current = source;
+  };
+
+  const animateVisualizer = () => {
+    const analyser = analyserRef.current;
+    if (!analyser) return;
+
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+    const update = () => {
+      analyser.getByteFrequencyData(dataArray);
+
+      const newBars = Array.from(dataArray).slice(0, 32).map((value) => {
+        return Math.max(8, Math.min(46, value / 4));
+      });
+
+      setBars(newBars);
+
+      requestAnimationFrame(update);
+    };
+
+    update();
+  };
+
+  const playSong = async () => {
+    const player = playerRef.current;
+    if (!player) return;
+
+    setupAudioVisualizer();
+
+    if (audioContextRef.current?.state === "suspended") {
+      await audioContextRef.current.resume();
+    }
+
+    await player.play();
+    setIsPlaying(true);
+    animateVisualizer();
+  };
 
   const togglePlay = async () => {
-    if (!playerRef.current) return;
+    const player = playerRef.current;
+    if (!player) return;
 
-    if (playerRef.current.paused) {
-      await playerRef.current.play();
-      setIsPlaying(true);
+    if (player.paused) {
+      await playSong();
     } else {
-      playerRef.current.pause();
+      player.pause();
       setIsPlaying(false);
     }
   };
 
   const selectSong = (index: number) => {
     setCurrentSong(index);
+    setProgress(0);
+    setCurrentTime(0);
 
-    setTimeout(async () => {
-      if (!playerRef.current) return;
-      await playerRef.current.play();
-      setIsPlaying(true);
-    }, 100);
+    setTimeout(() => {
+      playSong();
+    }, 120);
   };
 
   const nextSong = () => {
@@ -104,10 +180,46 @@ export default function Music() {
     selectSong(previous);
   };
 
+  const handleTimeUpdate = () => {
+    const player = playerRef.current;
+    if (!player) return;
+
+    setCurrentTime(player.currentTime);
+    setDuration(player.duration || 0);
+
+    if (player.duration) {
+      setProgress((player.currentTime / player.duration) * 100);
+    }
+  };
+
+  const handleProgressClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const player = playerRef.current;
+    if (!player || !duration) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const percentage = clickX / rect.width;
+
+    player.currentTime = percentage * duration;
+  };
+
+  useEffect(() => {
+    const player = playerRef.current;
+    if (!player) return;
+
+    player.load();
+
+    if (isPlaying) {
+      setTimeout(() => {
+        playSong();
+      }, 120);
+    }
+  }, [currentSong]);
+
   return (
-    <div className="fixed right-6 top-1/2 z-50 w-[320px] -translate-y-1/2">
+    <div className="fixed bottom-5 right-5 z-50 w-[calc(100%-2.5rem)] max-w-[340px] md:bottom-auto md:right-6 md:top-1/2 md:w-[340px] md:-translate-y-1/2">
       <div
-        className={`rounded-[2rem] border border-white/20 bg-gradient-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl`}
+        className={`rounded-[2rem] border border-white/20 bg-gradient-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl transition-all duration-500`}
       >
         <div className="flex items-center justify-between gap-3">
           <button
@@ -117,9 +229,16 @@ export default function Music() {
             🎵
           </button>
 
-          <p className="line-clamp-1 flex-1 text-sm font-semibold text-white">
-            {songs[currentSong].title}
-          </p>
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-sm font-semibold text-white">
+              {songs[currentSong].title}
+            </p>
+            {!isOpen && (
+              <p className="text-xs text-white/60">
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </p>
+            )}
+          </div>
 
           <button
             onClick={togglePlay}
@@ -136,11 +255,22 @@ export default function Music() {
           </button>
         </div>
 
+        <div
+          onClick={handleProgressClick}
+          className="mt-3 h-2 cursor-pointer rounded-full bg-white/10"
+        >
+          <div
+            className="h-full rounded-full bg-white transition-all"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
         <video
           ref={playerRef}
-          key={songs[currentSong].file}
           controls={isOpen}
           className={isOpen ? "mt-4 w-full rounded-xl" : "h-0 w-0 opacity-0"}
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleTimeUpdate}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={nextSong}
@@ -150,12 +280,17 @@ export default function Music() {
 
         {isOpen && (
           <>
-            <div className="mt-5 flex h-12 items-end justify-center gap-[3px] overflow-hidden rounded-xl bg-black/20 p-3">
-              {Array.from({ length: 35 }).map((_, index) => (
+            <div className="mt-3 flex justify-between text-xs text-white/60">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+
+            <div className="mt-5 flex h-14 items-end justify-center gap-[3px] overflow-hidden rounded-xl bg-black/20 p-3">
+              {bars.map((height, index) => (
                 <span
                   key={index}
-                  className="wave-bar-small w-[3px] rounded-full bg-white/80"
-                  style={{ animationDelay: `${index * 0.05}s` }}
+                  className="w-[3px] rounded-full bg-white/80 transition-all duration-100"
+                  style={{ height: `${height}px` }}
                 />
               ))}
             </div>
@@ -169,6 +304,13 @@ export default function Music() {
               </button>
 
               <button
+                onClick={togglePlay}
+                className="rounded-full bg-white/10 px-5 py-2 text-white hover:bg-white/20"
+              >
+                {isPlaying ? "Pause" : "Play"}
+              </button>
+
+              <button
                 onClick={nextSong}
                 className="rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
               >
@@ -176,7 +318,7 @@ export default function Music() {
               </button>
             </div>
 
-            <div className="mt-4 max-h-[130px] overflow-y-auto rounded-xl bg-black/20 p-2">
+            <div className="mt-4 max-h-[150px] overflow-y-auto rounded-xl bg-black/20 p-2">
               {songs.map((song, index) => (
                 <button
                   key={song.file}
