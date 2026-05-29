@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
@@ -5,11 +7,14 @@ export default function Hero() {
       className="mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-28 md:grid-cols-2"
     >
       <div>
-        <div className="w-fit rounded-[2rem] border border-white/30 bg-black/40 p-3 shadow-2xl backdrop-blur-md">
-          <img
-            src="/profile.jpg"
+        <div className="w-fit rounded-4xl border border-white/20 bg-black/20 p-3 shadow-2xl backdrop-blur-md">
+          <Image
+            src="/marius.png"
             alt="Marius"
-            className="h-56 w-56 rounded-[1.5rem] object-cover grayscale"
+            width={224}
+            height={224}
+            className="h-56 w-56 rounded-3xl object-contain grayscale"
+            priority
           />
         </div>
 
