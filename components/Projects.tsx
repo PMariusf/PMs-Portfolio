@@ -1,39 +1,114 @@
-const projects = [
+
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const images = [
   {
-    title: "Portfolio",
-    text: "Min personlige nettside bygget med Next.js og Tailwind.",
+    src: "/projects/fjellveidager.png",
+    alt: "Fjellveidager",
   },
   {
-    title: "Jule Oppgave",
-    text: "Design- og kodeprosjekt fra frontend-undervisning.",
+    src: "/projects/dragongirl.png",
+    alt: "Dragon Girl",
   },
   {
-    title: "Scrimba Læring",
-    text: "Øvelser og små prosjekter fra Scrimba.",
+    src: "/projects/firedragon.png",
+    alt: "Fire Dragon",
   },
   {
-    title: "Høst Oppgave",
-    text: "Semesteroppgave med fokus på struktur og design.",
+    src: "/projects/hyrox.png",
+    alt: "Hyrox",
+  },
+{
+    src: "/projects/trene.png",
+    alt: "Trene",
+  },
+  {
+   src: "/projects/Amazonfighter.png",
+    alt: "Amazon Fighter",
+  },
+{
+    src: "/projects/Elisabeth.png",
+    alt: "Elisabeth",
   },
 ];
 
-export default function Projects() {
-  return (
-    <section id="projects" className="mx-auto max-w-7xl px-6 py-28">
-      <h2 className="font-serif text-5xl drop-shadow-lg">Prosjekter</h2>
+export default function ImageCarousel() {
+  const [current, setCurrent] = useState(0);
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="rounded-[2rem] border border-white/20 bg-black/30 p-8 shadow-2xl backdrop-blur-xl transition hover:-translate-y-2 hover:bg-white/10"
-          >
-            <div className="mb-6 h-48 rounded-2xl bg-white/10" />
-            <h3 className="text-3xl font-bold">{project.title}</h3>
-            <p className="mt-3 text-white/65">{project.text}</p>
-          </article>
+  // AUTO SLIDE
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) =>
+        prev === images.length - 1 ? 0 : prev + 1
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const previousImage = () => {
+    setCurrent((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
+  const nextImage = () => {
+    setCurrent((prev) =>
+      prev === images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  return (
+    <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
+      <div className="relative h-[500px] w-full overflow-hidden rounded-[1.5rem]">
+        <Image
+          src={images[current].src}
+          alt={images[current].alt}
+          fill
+          priority
+          className="object-contain transition-all duration-700"
+        />
+      </div>
+
+      {/* LEFT BUTTON */}
+      <button
+        onClick={previousImage}
+        className="absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
+      >
+        ‹
+      </button>
+
+      {/* RIGHT BUTTON */}
+      <button
+        onClick={nextImage}
+        className="absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
+      >
+        ›
+      </button>
+
+      {/* DOTS */}
+      <div className="mt-6 flex justify-center gap-3">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`h-3 w-3 rounded-full transition-all duration-300 ${
+              current === index
+                ? "scale-125 bg-white"
+                : "bg-white/30"
+            }`}
+            aria-label={`Go to image ${index + 1}`}
+          />
         ))}
       </div>
-    </section>
+    </div>
   );
 }
+
+
+
+
+
