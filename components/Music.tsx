@@ -1,62 +1,145 @@
+"use client";
+
+import { useState } from "react";
+
+const songs = [
+  {
+    title: "Hungry Touch",
+    artist: "Marius",
+    file: "/media/Hungry Touch.mp4",
+  },
+  {
+    title: "Halfway up",
+    artist: "Marius",
+    file: "/media/Halfway up.mp4",
+  },
+  {
+    title: "I'll Hold on to What We Had (Remastered).mp4",
+    artist: "Marius",
+    file: "/media/Ill Hold on to What We Had (Remastered).mp4",
+  },
+  {
+    title: "itj stopp mæ.mp4",
+    artist: "Marius",
+    file: "/media/itj stopp mæ.mp4",
+  },
+  {
+    title: "Rolig musikk fyller natten, (Remastered).mp4",
+    artist: "Marius",
+    file: "/media/Rolig musikk fyller natten, (Remastered).mp4",
+  },
+];
+
 export default function Music() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentSong, setCurrentSong] = useState(0);
+
+  const nextSong = () => {
+    setCurrentSong((prev) =>
+      prev === songs.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const previousSong = () => {
+    setCurrentSong((prev) =>
+      prev === 0 ? songs.length - 1 : prev - 1
+    );
+  };
+
   return (
-    <section className="relative mx-auto max-w-7xl px-6 py-32">
-      <div className="relative mx-auto w-[85%] overflow-hidden rounded-[2.5rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
+    <div className="fixed right-6 top-1/2 z-50 -translate-y-1/2">
+      {!isOpen && (
+        <button
+          onClick={() => setIsOpen(true)}
+          className="rounded-full border border-white/20 bg-black/50 px-5 py-4 text-white shadow-2xl backdrop-blur-xl transition hover:scale-105 hover:bg-white/10"
         >
-          <source src="/media/Hungry Touch.mp4" type="video/mp4" />
-        </video>
+          🎵
+        </button>
+      )}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+      {isOpen && (
+        <div className="w-[320px] rounded-[2rem] border border-white/20 bg-black/40 p-5 shadow-2xl backdrop-blur-2xl">
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">
+              Music
+            </p>
 
-        {/* Content */}
-        <div className="relative z-10">
-          <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-            Music Project
-          </p>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="rounded-full bg-white/10 px-3 py-1 text-white hover:bg-white/20"
+            >
+              ×
+            </button>
+          </div>
 
-          <h2 className="mt-4 text-5xl font-bold text-white">
-            My Song
+          <h2 className="text-2xl font-bold text-white">
+            {songs[currentSong].title}
           </h2>
 
-          <p className="mt-4 max-w-2xl text-lg text-white/70">
-            A creative music project with cinematic visuals and atmospheric sound.
+          <p className="mt-1 text-sm text-white/60">
+            {songs[currentSong].artist}
           </p>
 
-          {/* Spotify/SoundCloud style card */}
-          <div className="mt-10 max-w-xl rounded-[2rem] border border-white/20 bg-black/40 p-6 shadow-2xl backdrop-blur-xl">
-            <div className="flex items-center gap-5">
-              <div className="h-20 w-20 rounded-2xl bg-white/20 shadow-xl" />
+          {/* Sound Waves */}
+          <div className="mt-5 flex h-12 items-end justify-center gap-[3px] overflow-hidden rounded-xl bg-white/5 p-3">
+            {Array.from({ length: 35 }).map((_, index) => (
+              <span
+                key={index}
+                className="wave-bar-small w-[3px] rounded-full bg-white/70"
+                style={{
+                  animationDelay: `${index * 0.05}s`,
+                }}
+              />
+            ))}
+          </div>
 
-              <div>
-                <h3 className="text-2xl font-bold text-white">
-                  My Song Title
-                </h3>
-                <p className="text-white/60">
-                  Marius • Portfolio Track
-                </p>
-              </div>
-            </div>
+          {/* Player */}
+          <video
+            key={songs[currentSong].file}
+            controls
+            className="mt-4 w-full rounded-xl"
+          >
+            <source
+              src={songs[currentSong].file}
+              type="video/mp4"
+            />
+          </video>
 
-           <video
-             controls
-             className="mt-6 w-full rounded-2xl"
->
-             <source
-               src="/media/Hungry Touch.mp4"
-               type="video/mp4"
-             />
-           </video>
+          {/* Controls */}
+          <div className="mt-4 flex justify-center gap-4">
+            <button
+              onClick={previousSong}
+              className="rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+            >
+              ⏮
+            </button>
+
+            <button
+              onClick={nextSong}
+              className="rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+            >
+              ⏭
+            </button>
+          </div>
+
+          {/* Playlist */}
+          <div className="mt-4 max-h-[120px] overflow-y-auto rounded-xl bg-white/5 p-2">
+            {songs.map((song, index) => (
+              <button
+                key={song.title}
+                onClick={() => setCurrentSong(index)}
+                className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left transition ${
+                  currentSong === index
+                    ? "bg-white/20 text-white"
+                    : "text-white/60 hover:bg-white/10"
+                }`}
+              >
+                <span>{song.title}</span>
+              </button>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   );
 }
