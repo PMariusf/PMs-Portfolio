@@ -45,9 +45,15 @@ export default function Music() {
               </div>
             </div>
 
-            <audio controls className="mt-6 w-full">
-              <source src="/media/mysong.mp4" type="audio/mp4" />
-            </audio>
+           <video
+             controls
+             className="mt-6 w-full rounded-2xl"
+>
+             <source
+               src="/media/Hungry Touch.mp4"
+               type="video/mp4"
+             />
+           </video>
           </div>
         </div>
       </div>
