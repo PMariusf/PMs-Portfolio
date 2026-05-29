@@ -5,6 +5,7 @@ import Interests from "../../components/Interests";
 import Contact from "../../components/Contact";
 import Music from "../../components/Music";
 
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
@@ -16,7 +17,9 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Projects />
+       
         <Music />
+        
         <Interests />
         <Contact />
       </div>
