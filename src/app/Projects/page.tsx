@@ -1,6 +1,17 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import Image from "next/image";
+
+const musicVideos = [
+  "/media/Hungry Touch.mp4",
+  "/media/Halfway up.mp4",
+  "/media/final night.mp4",
+  "/media/Enter the dragon.mp4",
+  "/media/Light breaks through the night.mp4",
+];
 
 const projects = [
   {
@@ -49,7 +60,7 @@ const projects = [
     github: "#",
     demo: "#",
   },
- */
+   */
   {
     title: "Fjellveidager Design",
     description:
@@ -57,21 +68,29 @@ const projects = [
     image: "/projects/Varegg-Arena/fjellveidager.png",
     tech: ["Figma", "Design", "Branding"],
     github: "#",
-    demo: "https://fjellveidager-no-two.vercel.app",
+    demo: "#",
   },
 
   {
     title: "AI Music & Creative Projects",
     description:
-      "Music production, AI generated content, cinematic visuals and creative experiments using AI tools.",
+      "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
     image: "/projects/music.png",
-    tech: ["AI", "Music", "Creative"],
+    tech: [
+      "Suno AI",
+      "Music Production",
+      "AI",
+      "Creative Design",
+      "Audio",
+    ],
     github: "#",
-    demo: "#",
+    demo: "https://suno.com",
   },
 ];
 
 export default function ProjectsPage() {
+  const [currentMusic, setCurrentMusic] = useState(0);
+
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
@@ -98,25 +117,82 @@ export default function ProjectsPage() {
             >
               <div className="grid md:grid-cols-2">
                 {/* Media */}
-            <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-black">
-             {project.video ? (
-               <video
-                 src={project.video}
-                 autoPlay
-                 muted
-                 loop
-                 playsInline
-                 className="max-h-full max-w-full object-contain"
+                <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-black">
+                  {project.title ===
+                  "AI Music & Creative Projects" ? (
+                    <div className="relative h-full w-full">
+                      <video
+                        key={musicVideos[currentMusic]}
+                        src={musicVideos[currentMusic]}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls
+                        className="h-full w-full object-contain"
+                      />
+
+                      <button
+                        onClick={() =>
+                          setCurrentMusic((prev) =>
+                            prev === 0
+                              ? musicVideos.length - 1
+                              : prev - 1
+                          )
+                        }
+                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                      >
+                        ‹
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          setCurrentMusic((prev) =>
+                            prev === musicVideos.length - 1
+                              ? 0
+                              : prev + 1
+                          )
+                        }
+                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                      >
+                        ›
+                      </button>
+
+                      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+                        {musicVideos.map((_, index) => (
+                          <button
+                            key={index}
+                            onClick={() =>
+                              setCurrentMusic(index)
+                            }
+                            className={`h-2 w-2 rounded-full transition ${
+                              currentMusic === index
+                                ? "bg-white"
+                                : "bg-white/40"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ) : project.video ? (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="max-h-full max-w-full object-contain"
                     />
                   ) : (
                     <Image
-                                      src={project.image}
+                      src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover"
                     />
                   )}
-</div>
+                </div>
 
                 {/* Content */}
                 <div className="p-8">
@@ -128,7 +204,6 @@ export default function ProjectsPage() {
                     {project.description}
                   </p>
 
-                  {/* Tech Stack */}
                   <div className="mt-5 flex flex-wrap gap-3">
                     {project.tech.map((tech) => (
                       <span
@@ -140,7 +215,6 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  {/* Buttons */}
                   <div className="mt-8 flex gap-4">
                     {project.github !== "#" && (
                       <a
