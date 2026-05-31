@@ -15,73 +15,49 @@ export default function Navbar() {
         </h1>
 
         {/* Pages */}
-        <div className="flex gap-8 text-lg text-white">
-          <Link
-            href="/"
-            className={`transition ${
-              pathname === "/"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            Home
-          </Link>
+       <div className="flex gap-8 text-lg">
+  <Link
+    href="/"
+    className={pathname === "/" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    Home
+  </Link>
 
-          <Link
-            href="/about"
-            className={`transition ${
-              pathname === "/about"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            About Me
-          </Link>
+  <Link
+    href="/About"
+    className={pathname === "/About" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    About Me
+  </Link>
 
-          <Link
-            href="/cv"
-            className={`transition ${
-              pathname === "/cv"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            CV
-          </Link>
+  <Link
+    href="/Cv"
+    className={pathname === "/Cv" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    CV
+  </Link>
 
-          <Link
-            href="/projects"
-            className={`transition ${
-              pathname === "/projects"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            Projects
-          </Link>
+  <Link
+    href="/Projects"
+    className={pathname === "/Projects" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    Projects
+  </Link>
 
-          <Link
-            href="/hobby"
-            className={`transition ${
-              pathname === "/hobby"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            Hobby
-          </Link>
+  <Link
+    href="/hobby"
+    className={pathname === "/hobby" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    Hobby
+  </Link>
 
-          <Link
-            href="/contact"
-            className={`transition ${
-              pathname === "/contact"
-                ? "rounded-full bg-white/20 px-3 py-1"
-                : ""
-            }`}
-          >
-            Contact
-          </Link>
-        </div>
+  <Link
+    href="/Contact"
+    className={pathname === "/Contact" ? "rounded-full bg-white/20 px-3 py-1" : ""}
+  >
+    Contact
+  </Link>
+       </div>
       </div>
     </nav>
   );

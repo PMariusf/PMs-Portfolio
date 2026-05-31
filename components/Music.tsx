@@ -194,9 +194,9 @@ export default function Music() {
   }, [currentSong]);
 
   return (
-    <div className="fixed bottom-6 right-4 z-50 w-[calc(100%-2.5rem)] max-w-[340px] md:bottom-6 md:right-6 md:top-auto md:w-[340px] md:translate-y-0">
+    <div className="fixed bottom-6 right-4 z-50 w-[calc(100%-2.5rem)] max-w-85 md:bottom-6 md:right-6 md:top-auto md:w-85 md:translate-y-0">
       <div
-        className={`rounded-[2rem] border border-white/20 bg-gradient-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl`}
+        className={`rounded-4xl border border-white/20 bg-linear-to-br ${songs[currentSong].gradient} p-4 shadow-2xl backdrop-blur-2xl`}
       >
         <div className="flex items-center gap-3">
           <button
