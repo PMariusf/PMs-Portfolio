@@ -19,16 +19,15 @@ const projects = [
     description:
       "A modern frontend portfolio built with Next.js, React and Tailwind CSS, featuring responsive design, animations and a custom music player.",
     image: "/projects/portfolio.png",
-    tech: ["React", "Next.js", "Tailwind"],
+    tech: ["React", "Next.js", "Tailwind", "VSCode", "Vercel"],
     github: "https://github.com/PMariusf/portfoilio",
     demo: "#",
   },
-
   {
     title: "Varegg Arena",
     description:
       "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.",
-    image: "/projects/varegg.png",
+    image: "/projects/Varegg-Arena/perimeter.png",
     video: "/projects/Varegg-Arena/perimeter.mov",
     tech: [
       "Figma",
@@ -36,41 +35,21 @@ const projects = [
       "Design",
       "AI Visuals",
       "Social Media",
+      "Video Editing"
     ],
     github: "#",
     demo: "#",
   },
-/*
   {
-    title: "HD Footprint Booking System",
-    description:
-      "A booking and calendar system concept for managing Airbnb-like rental properties with calendar integrations and notifications.",
-    image: "/projects/booking.png",
-    tech: ["React", "Supabase", "AI"],
-    github: "#",
-    demo: "#",
-  },
 
-  {
-    title: "Cabin Booking System",
-    description:
-      "A rental booking system for cabins and houses including calendar management and notifications.",
-    image: "/projects/cabin.png",
-    tech: ["Next.js", "Database", "UI/UX"],
-    github: "#",
-    demo: "#",
-  },
-   */
-  {
     title: "Fjellveidager Design",
     description:
       "Creative branding, posters and event visuals for Fjellveidager, including logo work and promotional graphics.",
     image: "/projects/Varegg-Arena/fjellveidager.png",
-    tech: ["Figma", "Design", "Branding"],
+    tech: ["Figma", "Design", "Branding", "AI Visuals", "Frontend", "Video Editing"],
     github: "#",
     demo: "#",
   },
-
   {
     title: "AI Music & Creative Projects",
     description:
@@ -100,13 +79,11 @@ export default function ProjectsPage() {
           Projects
         </p>
 
-        <h1 className="mt-4 text-5xl font-bold">
-          Featured Projects
-        </h1>
+        <h1 className="mt-4 text-5xl font-bold">Featured Projects</h1>
 
         <p className="mt-6 max-w-3xl text-lg text-white/70">
-          A selection of frontend, creative and technical
-          projects I have worked on.
+          A selection of frontend, creative and technical projects I have worked
+          on.
         </p>
 
         <div className="mt-14 grid gap-8">
@@ -118,26 +95,23 @@ export default function ProjectsPage() {
               <div className="grid md:grid-cols-2">
                 {/* Media */}
                 <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-black">
-                  {project.title ===
-                  "AI Music & Creative Projects" ? (
+                  {project.title === "AI Music & Creative Projects" ? (
                     <div className="relative h-full w-full">
                       <video
                         key={musicVideos[currentMusic]}
                         src={musicVideos[currentMusic]}
-                        autoPlay
                         muted
                         loop
                         playsInline
                         controls
+                        preload="metadata"
                         className="h-full w-full object-contain"
                       />
 
                       <button
                         onClick={() =>
                           setCurrentMusic((prev) =>
-                            prev === 0
-                              ? musicVideos.length - 1
-                              : prev - 1
+                            prev === 0 ? musicVideos.length - 1 : prev - 1
                           )
                         }
                         className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
@@ -148,9 +122,7 @@ export default function ProjectsPage() {
                       <button
                         onClick={() =>
                           setCurrentMusic((prev) =>
-                            prev === musicVideos.length - 1
-                              ? 0
-                              : prev + 1
+                            prev === musicVideos.length - 1 ? 0 : prev + 1
                           )
                         }
                         className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
@@ -162,9 +134,7 @@ export default function ProjectsPage() {
                         {musicVideos.map((_, index) => (
                           <button
                             key={index}
-                            onClick={() =>
-                              setCurrentMusic(index)
-                            }
+                            onClick={() => setCurrentMusic(index)}
                             className={`h-2 w-2 rounded-full transition ${
                               currentMusic === index
                                 ? "bg-white"
@@ -177,10 +147,11 @@ export default function ProjectsPage() {
                   ) : project.video ? (
                     <video
                       src={project.video}
-                      autoPlay
                       muted
                       loop
                       playsInline
+                      controls
+                      preload="metadata"
                       className="max-h-full max-w-full object-contain"
                     />
                   ) : (
@@ -196,9 +167,7 @@ export default function ProjectsPage() {
 
                 {/* Content */}
                 <div className="p-8">
-                  <h2 className="text-3xl font-bold">
-                    {project.title}
-                  </h2>
+                  <h2 className="text-3xl font-bold">{project.title}</h2>
 
                   <p className="mt-4 leading-relaxed text-white/70">
                     {project.description}
