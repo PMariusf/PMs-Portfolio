@@ -42,9 +42,9 @@ const songs = [
     gradient: "from-slate-500/30 via-zinc-500/20 to-black",
   },
   {
-    title: "Fire Extend",
+    title: "Fire (Extend)",
     artist: "Marius",
-    file: "/media/fire(extend).mp4",
+    file: "/media/Fire (Extend).mp4",
     gradient: "from-red-600/30 via-orange-500/20 to-black",
   },
   {
@@ -56,7 +56,7 @@ const songs = [
   {
     title: "Light Breaks Through the Night",
     artist: "Marius",
-    file: "/media/Light breaks through the night.mp4",
+    file: "/media/Light breaks through the night,.mp4",
     gradient: "from-cyan-500/30 via-sky-500/20 to-black",
   },
   {
