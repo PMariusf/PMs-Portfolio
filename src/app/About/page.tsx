@@ -30,7 +30,7 @@ export default function About() {
             </h2>
 
             <p className="mt-4 text-white/70 leading-relaxed">
-              I am currently studying frontend development and enjoy working
+              I am working in frontend development and enjoy working
               with React, Next.js, Tailwind CSS and TypeScript. I like creating
               websites that feel modern, interactive and visually polished.
             </p>

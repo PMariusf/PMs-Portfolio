@@ -23,7 +23,7 @@ export default function ContactPage() {
             className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition hover:-translate-y-2 hover:bg-white/15"
           >
             <h2 className="text-2xl font-bold">Email</h2>
-            <p className="mt-3 text-white/60">yourmail@example.com</p>
+            <p className="mt-3 text-white/60">marius28@live.no</p>
           </a>
 
           <a
