@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full bg-white/10 backdrop-blur-xl border-b border-white/20">
@@ -8,10 +9,11 @@ export default function Navbar() {
 
         <div className="flex gap-8 text-lg">
           <Link href="/">Home</Link>
-          <Link href="/about">About Me</Link>
-          <Link href="/cv">CV</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/About">About Me</Link>
+          <Link href="/Cv">CV</Link>
+          <Link href="/Projects">Projects</Link>
+          <Link href="/hobby">Hobby</Link>
+          <Link href="/Contact">Contact</Link>
         </div>
       </div>
     </nav>

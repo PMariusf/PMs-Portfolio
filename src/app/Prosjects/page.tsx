@@ -1,14 +1,17 @@
-import ImageCarousel from "@/components/ImageCarousel";
+import Navbar from "../../../components/Navbar";
+import Contact from "../../../components/Contact";
+import Projects from "../../../components/Projects";
 
-export default function Projects() {
+export default function ProjectsPage() {
   return (
-    <main className="min-h-screen px-6 pt-32 text-white">
-      <h1 className="text-5xl font-bold">Projects</h1>
-      <p className="mt-4 text-white/70">
-        Here are some of my frontend projects.
-      </p>
+    <main className="min-h-screen bg-black text-white">
+      <Navbar />
 
-      <ImageCarousel />
+      <section className="pt-20">
+        <Projects />
+      </section>
+
+      <Contact />
     </main>
   );
 }
