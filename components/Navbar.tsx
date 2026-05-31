@@ -27,11 +27,11 @@ export default function Navbar() {
           className="group flex items-center gap-3 transition"
         >
           <div className="relative">
-            <span className="bg-gradient-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-black tracking-tight text-transparent transition duration-300 group-hover:scale-105">
+            <span className="bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-black tracking-tight text-transparent transition duration-300 group-hover:scale-105">
               PM
             </span>
 
-            <div className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white/60 transition duration-300 group-hover:scale-x-100" />
+            <div className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-white/60 transition duration-300 group-hover:scale-x-100" />
           </div>
 
           {/* Keep visible longer */}
@@ -52,15 +52,15 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link href="/about" className={linkClass("/about")}>
+          <Link href="/About" className={linkClass("/about")}>
             About Me
           </Link>
 
-          <Link href="/cv" className={linkClass("/cv")}>
+          <Link href="/Cv" className={linkClass("/cv")}>
             CV
           </Link>
 
-          <Link href="/projects" className={linkClass("/projects")}>
+          <Link href="/Projects" className={linkClass("/projects")}>
             Projects
           </Link>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
             Hobby
           </Link>
 
-          <Link href="/contact" className={linkClass("/contact")}>
+          <Link href="/Contact" className={linkClass("/contact")}>
             Contact
           </Link>
         </div>
