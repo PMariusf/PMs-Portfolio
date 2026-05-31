@@ -20,7 +20,7 @@ export default function CV() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-2xl font-bold">Skills</h2>
             <p className="mt-3 text-white/60">
               HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind,
