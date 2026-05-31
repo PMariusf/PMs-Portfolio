@@ -23,13 +23,7 @@ export default function Hero() {
         </h2>
       </div>
 
-      <div className="rounded-[3rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
-        <h3 className="mt-4 text-4xl font-bold">Frontend & Design</h3>
-        <p className="mt-5 text-lg leading-8 text-white/70">
-          Moderne, responsive nettsider med et visuelt
-          uttrykk som føles kreativt, tydelig og brukervennlig.
-        </p>
-      </div>
+    
     </section>
   );
 }

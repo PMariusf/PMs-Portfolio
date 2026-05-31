@@ -140,6 +140,8 @@ export default function ProjectsPage() {
                                 ? "bg-white"
                                 : "bg-white/40"
                             }`}
+                            title={`Go to music video ${index + 1}`}
+                            aria-label={`Go to music video ${index + 1}`}
                           />
                         ))}
                       </div>
