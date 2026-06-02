@@ -102,7 +102,7 @@ export default function Home() {
               </div>
 
               <Link
-                href="/projects"
+                href="/Projects"
                 className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white"
               >
                 View all projects
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="grid gap-5 md:grid-cols-3">
               {recentProjects.map((project) => (
                 <Link
-                  href="/projects"
+                  href="/Projects"
                   key={project.title}
                   className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
                 >
