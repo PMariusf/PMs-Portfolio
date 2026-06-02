@@ -59,3 +59,55 @@ body {
     opacity: 1;
   }
 }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease-out both;
+}
+@keyframes matrixFall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.matrix-rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  width: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: monospace;
+  font-size: 0.75rem;
+  line-height: 1.2rem;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  animation-name: matrixFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
