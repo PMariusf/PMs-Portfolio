@@ -106,8 +106,6 @@ body {
   line-height: 1.2rem;
   writing-mode: vertical-rl;
   text-orientation: upright;
-  animation-name: matrixFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  animation: matrixFall linear infinite;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }

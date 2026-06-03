@@ -121,18 +121,28 @@ export default function Home() {
                     {project.title === "PM-portfolio" ? (
                       <div className="absolute inset-0 bg-black">
                         <div className="matrix-rain opacity-80">
-                          {Array.from({ length: 18 }).map((_, index) => (
-                            <span
-                              key={index}
-                              className="matrix-column"
-                              style={{
-                                left: `${index * 6}%`,
-                                animationDelay: `${index * 0.18}s`,
-                                animationDuration: `${
-                                  3 + (index % 5)
-                                }s`,
-                              }}
-                            >
+                          {[
+                            "left-[0%] delay-[0s] duration-[3s]",
+                            "left-[6%] delay-[0.1s] duration-[4s]",
+                            "left-[12%] delay-[0.2s] duration-[5s]",
+                            "left-[18%] delay-[0.3s] duration-[3s]",
+                            "left-[24%] delay-[0.4s] duration-[4s]",
+                            "left-[30%] delay-[0.5s] duration-[5s]",
+                            "left-[36%] delay-[0.6s] duration-[3s]",
+                            "left-[42%] delay-[0.7s] duration-[4s]",
+                            "left-[48%] delay-[0.8s] duration-[5s]",
+                            "left-[54%] delay-[0.9s] duration-[3s]",
+                            "left-[60%] delay-[1s] duration-[4s]",
+                            "left-[66%] delay-[1.1s] duration-[5s]",
+                            "left-[72%] delay-[1.2s] duration-[3s]",
+                            "left-[78%] delay-[1.3s] duration-[4s]",
+                            "left-[84%] delay-[1.4s] duration-[5s]",
+                            "left-[90%] delay-[1.5s] duration-[3s]",
+                          ].map((className, index) => (
+                           <span
+                             key={index}
+                             className={`matrix-column ${className}`}
+                           >
                               {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
                             </span>
                           ))}
