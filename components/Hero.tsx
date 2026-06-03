@@ -8,13 +8,13 @@ export default function Hero() {
     >
       <div>
         {/* Image */}
-        <div className="-mt-10 w-fit rounded-[2rem] border border-white/20 bg-black/20 p-3 shadow-2xl backdrop-blur-md">
+        <div className="-mt-10 w-fit rounded-4xl border border-white/20 bg-black/20 p-3 shadow-2xl backdrop-blur-md">
           <Image
             src="/marius.png"
             alt="Marius"
             width={254}
             height={254}
-            className="h-96 w-96 rounded-[2rem] object-contain object-top grayscale"
+            className="h-96 w-96 rounded-4xl object-contain object-top grayscale"
             priority
           />
         </div>
@@ -27,12 +27,10 @@ export default function Hero() {
 
           <h2 className="mt-3 text-5xl font-black leading-[0.95] md:text-6xl">
             Hei, jeg er{" "}
-            <span className="bg-gradient-to-r from-white via-zinc-300 to-white bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-transparent">
               Marius
             </span>
           </h2>
-
-        
         </div>
       </div>
     </section>

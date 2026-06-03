@@ -16,6 +16,12 @@ const images = [
     src: "/projects/firedragon.png",
     alt: "Project three",
   },
+  {
+    src: "/projects/firedragon.png",
+    alt: "Project three",
+  },
+  
+
 ];
 
 export default function ImageCarousel() {
@@ -30,8 +36,8 @@ export default function ImageCarousel() {
   };
 
   return (
-    <div className="relative mx-auto mt-10 w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-xl">
-      <div className="relative h-[450px] w-full overflow-hidden rounded-[1.5rem]">
+    <div className="relative mx-auto mt-10 w-full max-w-4xl overflow-hidden rounded-4xl border border-white/20 bg-white/10 p-4 shadow-2xl backdrop-blur-xl">
+      <div className="relative h-112.5 w-full overflow-hidden rounded-3xl">
         <Image
           src={images[current].src}
           alt={images[current].alt}

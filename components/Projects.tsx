@@ -33,7 +33,76 @@ const images = [
     src: "/projects/Elisabeth.png",
     alt: "Elisabeth",
   },
+  {
+    src: "/projects/femalebasket.png",
+    alt: "Project female basketball player",
+  },
+  {
+    src: "/projects/demonhunter.png",
+    alt: "Project female demonhunter",
+  },
+  {
+    src: "/projects/femalebasket.png",
+    alt: "Project female basketball player",
+  },
+  {
+    src: "/projects/demonhunter.png",
+    alt: "Project female demonhunter",
+  },
+  {
+    src: "/projects/paladin.png",
+    alt: "Project female paladin",
+  },
+  {
+    src: "/projects/pandamonk.png",
+    alt: "Project female pandamonk",
+  },
+  {
+    src: "/projects/undeadmage.png",
+    alt: "Project male undeadmage",
+  },
+  {
+    src: "/projects/Aniz.png",
+    alt: "Project female Aniz",
+  },
+  {
+    src: "/projects/pandamonk.png",
+    alt: "Project female pandamonk",
+  },
+  {
+    src: "/projects/undeadmage.png",
+    alt: "Project male undeadmage",
+  },
+  {
+    src: "/projects/Anizmini.png",
+    alt: "Project female Anizmini",
+  },
+    {
+    src: "/projects/Crylina.png",
+    alt: "Project female Crylina",
+  },
+  {
+    src: "/projects/cyberpunk.png",
+    alt: "Project female cyberpunk",
+  },
+  {
+    src: "/projects/Viking.png",
+    alt: "Project female Viking",
+  },
+  {
+    src: "/projects/dreamy.jpeg",
+    alt: "Project female Dreamy",
+  },
+  {
+    src: "/projects/undeadmage.png",
+    alt: "Project male undeadmage",
+  },
+  {
+    src: "/projects/Anizmini.png",
+    alt: "Project female Anizmini",
+  },
 ];
+
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
