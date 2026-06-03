@@ -4,31 +4,31 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 const categories = {
-  freehand: {
-    title: "Freehand Images",
-    images: [
-      {
-    src: "/projects/dragongirl.png",
-    alt: "Dragon Girl",
-  },
-  {
-    src: "/projects/firedragon.png",
-    alt: "Fire Dragon",
-  },
-   {
-   src: "/projects/Amazonfighter.png",
-    alt: "Amazon Fighter",
-  },
-{
-    src: "/projects/Elisabeth.png",
-    alt: "Elisabeth",
-  },
-   {
-    src: "/projects/cyberpunk.png",
-    alt: "Project female cyberpunk",
-  },
-    ],
-  },
+freehand: {
+  title: "Freehand Images",
+  images: [
+    {
+      src: "/projects/dragongirl.png",
+      alt: "Dragon Girl",
+    },
+    {
+      src: "/projects/firedragon.png",
+      alt: "Fire Dragon",
+    },
+    {
+      src: "/projects/Amazonfighter.png",
+      alt: "Amazon Fighter",
+    },
+    {
+      src: "/projects/Elisabeth.png",
+      alt: "Elisabeth",
+    },
+    {
+      src: "/projects/cyberpunk.png",
+      alt: "Cyberpunk Female",
+    },
+  ],
+},
 
   digital: {
     title: "Digital Art",
