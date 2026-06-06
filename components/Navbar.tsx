@@ -112,25 +112,25 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/about"
+              href="/About"
               onClick={() => setIsOpen(false)}
-              className={mobileLinkClass("/about")}
+              className={mobileLinkClass("/About")}
             >
               About Me
             </Link>
 
             <Link
-              href="/cv"
+              href="/Cv"
               onClick={() => setIsOpen(false)}
-              className={mobileLinkClass("/cv")}
+              className={mobileLinkClass("/Cv")}
             >
               CV
             </Link>
 
             <Link
-              href="/projects"
+              href="/Projects"
               onClick={() => setIsOpen(false)}
-              className={mobileLinkClass("/projects")}
+              className={mobileLinkClass("/Projects")}
             >
               Projects
             </Link>
@@ -144,9 +144,9 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/Contact"
               onClick={() => setIsOpen(false)}
-              className={mobileLinkClass("/contact")}
+              className={mobileLinkClass("/Contact")}
             >
               Contact
             </Link>
