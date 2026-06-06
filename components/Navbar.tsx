@@ -52,15 +52,15 @@ export default function Navbar() {
             Home
           </Link>
 
-          <Link href="/About" className={linkClass("/about")}>
+          <Link href="/About" className={linkClass("/About")}>
             About Me
           </Link>
 
-          <Link href="/Cv" className={linkClass("/cv")}>
+          <Link href="/Cv" className={linkClass("/Cv")}>
             CV
           </Link>
 
-          <Link href="/Projects" className={linkClass("/projects")}>
+          <Link href="/Projects" className={linkClass("/Projects")}>
             Projects
           </Link>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
             Hobby
           </Link>
 
-          <Link href="/Contact" className={linkClass("/contact")}>
+          <Link href="/Contact" className={linkClass("/Contact")}>
             Contact
           </Link>
         </div>
