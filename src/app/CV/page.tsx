@@ -31,7 +31,7 @@ export default function CV() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-2xl font-bold">Internship / Practice</h2>
             <p className="mt-4 text-white/70">
               During my internship experience, I worked with AI tools,
@@ -39,7 +39,7 @@ export default function CV() {
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-2xl font-bold">Tech Stack</h2>
 
             <div className="mt-4 flex flex-wrap gap-3">
@@ -66,7 +66,7 @@ export default function CV() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-2xl font-bold">Creative Skills</h2>
             <p className="mt-4 text-white/70">
               I also enjoy music creation, image editing, video editing,
@@ -76,7 +76,7 @@ export default function CV() {
           </div>
         </div>
 
-        <div className="mt-10 rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+        <div className="mt-10 rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
           <h2 className="text-2xl font-bold">Goal</h2>
           <p className="mt-4 max-w-4xl text-white/70">
             My goal is to continue growing as a frontend developer and

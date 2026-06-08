@@ -5,6 +5,25 @@ import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import Image from "next/image";
 
+const matrixColumns = [
+  "left-[0%] delay-[0s] duration-[3s]",
+  "left-[6%] delay-[0.1s] duration-[4s]",
+  "left-[12%] delay-[0.2s] duration-[5s]",
+  "left-[18%] delay-[0.3s] duration-[3s]",
+  "left-[24%] delay-[0.4s] duration-[4s]",
+  "left-[30%] delay-[0.5s] duration-[5s]",
+  "left-[36%] delay-[0.6s] duration-[3s]",
+  "left-[42%] delay-[0.7s] duration-[4s]",
+  "left-[48%] delay-[0.8s] duration-[5s]",
+  "left-[54%] delay-[0.9s] duration-[3s]",
+  "left-[60%] delay-[1s] duration-[4s]",
+  "left-[66%] delay-[1.1s] duration-[5s]",
+  "left-[72%] delay-[1.2s] duration-[3s]",
+  "left-[78%] delay-[1.3s] duration-[4s]",
+  "left-[84%] delay-[1.4s] duration-[5s]",
+  "left-[90%] delay-[1.5s] duration-[3s]",
+];
+
 const musicVideos = [
   "/media/Hungry Touch.mp4",
   "/media/Halfway up.mp4",
@@ -15,11 +34,11 @@ const musicVideos = [
 
 const projects = [
   {
-    title: "Portfolio Website",
+    title: "PM Portfolio",
     description:
-      "A modern frontend portfolio built with Next.js, React and Tailwind CSS, featuring responsive design, animations and a custom music player.",
-    image: "/projects/portfolio.png",
-    tech: ["React", "Next.js", "Tailwind", "VSCode", "Vercel"],
+      "A modern portfolio experience combining frontend development, creative design and interactive UI — built with Next.js, React and Tailwind CSS.",
+    image: "/projects/music.png",
+    tech: ["React", "Next.js", "Tailwind", "VSCode", "Vercel", "GitHub"],
     github: "https://github.com/PMariusf/portfoilio",
     demo: "#",
   },
@@ -35,18 +54,24 @@ const projects = [
       "Design",
       "AI Visuals",
       "Social Media",
-      "Video Editing"
+      "Video Editing",
     ],
     github: "#",
     demo: "#",
   },
   {
-
     title: "Fjellveidager Design",
     description:
       "Creative branding, posters and event visuals for Fjellveidager, including logo work and promotional graphics.",
     image: "/projects/Varegg-Arena/fjellveidager.png",
-    tech: ["Figma", "Design", "Branding", "AI Visuals", "Frontend", "Video Editing"],
+    tech: [
+      "Figma",
+      "Design",
+      "Branding",
+      "AI Visuals",
+      "Frontend",
+      "Video Editing",
+    ],
     github: "#",
     demo: "#",
   },
@@ -54,7 +79,7 @@ const projects = [
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
-    image: "/projects/music.png",
+    image: "/projects/Varegg-Arena/fjellveidager.png",
     tech: [
       "Suno AI",
       "Music Production",
@@ -76,14 +101,16 @@ export default function ProjectsPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-32">
         <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-          Projects
+          Selected Work
         </p>
 
-        <h1 className="mt-4 text-5xl font-bold">Featured Projects</h1>
+        <h1 className="mt-4 text-5xl font-bold">
+          Frontend, Creative & Technical Projects
+        </h1>
 
         <p className="mt-6 max-w-3xl text-lg text-white/70">
-          A selection of frontend, creative and technical projects I have worked
-          on.
+          A collection of frontend development, creative concepts and technical
+          projects showcasing design, interactivity and problem solving.
         </p>
 
         <div className="mt-14 grid gap-8">
@@ -95,7 +122,28 @@ export default function ProjectsPage() {
               <div className="grid md:grid-cols-2">
                 {/* Media */}
                 <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-black">
-                  {project.title === "AI Music & Creative Projects" ? (
+                  {project.title === "PM Portfolio" ? (
+                    <div className="absolute inset-0 bg-black">
+                      <div className="matrix-rain opacity-80">
+                        {matrixColumns.map((className, index) => (
+                          <span
+                            key={index}
+                            className={`matrix-column ${className}`}
+                          >
+                            {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <p className="rounded-full border border-white/20 bg-black/50 px-6 py-3 text-sm font-semibold tracking-[0.35em] text-white backdrop-blur-md">
+                          PM PORTFOLIO
+                        </p>
+                      </div>
+                    </div>
+                  ) : project.title === "AI Music & Creative Projects" ? (
                     <div className="relative h-full w-full">
                       <video
                         key={musicVideos[currentMusic]}
@@ -149,10 +197,10 @@ export default function ProjectsPage() {
                   ) : project.video ? (
                     <video
                       src={project.video}
+                      autoPlay
                       muted
                       loop
                       playsInline
-                      controls
                       preload="metadata"
                       className="max-h-full max-w-full object-contain"
                     />
