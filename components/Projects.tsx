@@ -94,11 +94,11 @@ freehand: {
      },
       {
        src: "/projects/femalebasket.png",
-       alt: "Project female basketball player",
+       alt: "Female basketball player",
      },
      {
     src: "/projects/femalepingpong.png",
-    alt: "Project female ping pong player",
+    alt: "Female ping pong player",
   },
     ],
   },
@@ -156,7 +156,7 @@ export default function Projects() {
       </div>
 
       {/* IMAGE */}
-      <div className="relative flex min-h-[500px] items-center justify-center overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-zinc-900/70 to-black/40 p-8">
+      <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl bg-linear-to-br from-zinc-900/70 to-black/40 p-8">
         <Image
           key={activeImage.src}
           src={activeImage.src}
@@ -164,7 +164,7 @@ export default function Projects() {
           width={1400}
           height={800}
           priority
-          className="h-auto max-h-[500px] w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
+          className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
         />
       </div>
       <div className="absolute bottom-5 left-5 rounded-2xl border border-white/20 bg-black/50 px-5 py-3 backdrop-blur-xl">

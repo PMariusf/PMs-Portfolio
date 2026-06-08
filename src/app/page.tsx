@@ -88,18 +88,20 @@ export default function Home() {
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-8">
             <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-                  Recent Work
-                </p>
-
-                <h2 className="mt-3 text-4xl font-bold">
-                  Recent Projects
-                </h2>
-
-                <p className="mt-3 max-w-2xl text-white/60">
-                  A quick look at some of my newest frontend,
-                  design and creative work.
-                </p>
+                 <p className="text-sm uppercase tracking-[0.4em] text-white/50">
+                   Creative Showcase
+                 </p>
+                 
+                 <h2 className="mt-3 text-4xl font-bold">
+                  Frontend, Design & Visual Projects
+                  </h2>
+                 
+                 <p className="mt-3 max-w-2xl text-white/60">
+                   A collection of frontend development,
+                   creative visuals, digital art and
+                  personal projects that reflect my
+                   passion for technology and design.
+                 </p>
               </div>
 
               <Link
@@ -210,3 +212,19 @@ export default function Home() {
     </main>
   );
 }
+
+
+/*
+
+ <p className="text-sm uppercase tracking-[0.4em] text-white/50">
+                  Recent Work
+                </p>
+
+                <h2 className="mt-3 text-4xl font-bold">
+                  Recent Projects
+                </h2>
+
+                <p className="mt-3 max-w-2xl text-white/60">
+                  A quick look at some of my newest frontend,
+                  design and creative work.
+                </p> */
