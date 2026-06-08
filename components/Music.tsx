@@ -283,7 +283,7 @@ export default function Music() {
               {bars.map((height, index) => (
                 <span
                   key={index}
-                  className="w-[2px] rounded-full bg-white/80 transition-all duration-100 sm:w-[3px]"
+                  className="w-0.5 rounded-full bg-white/80 transition-all duration-100 sm:w-0.75"
                   style={{ height: `${height}px` }}
                 />
               ))}
