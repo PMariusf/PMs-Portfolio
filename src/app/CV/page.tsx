@@ -22,7 +22,7 @@ export default function CV() {
         </p>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2">
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-2xl font-bold">Frontend Development</h2>
             <p className="mt-4 text-white/70">
               I work with React, Next.js, Tailwind CSS and TypeScript.
