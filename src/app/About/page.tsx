@@ -16,7 +16,7 @@ export default function About() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-          Hi, I’m Marius — a frontend developer student based in Bergen,
+          Hi, I’m Marius — a frontend developer based in Bergen,
           Norway. I enjoy building modern and visually engaging websites with a
           strong focus on user experience, responsive design and clean UI.
         </p>
