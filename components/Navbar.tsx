@@ -56,7 +56,7 @@ export default function Navbar() {
             About Me
           </Link>
 
-          <Link href="/Cv" className={linkClass("/Cv")}>
+          <Link href="/CV" className={linkClass("/CV")}>
             CV
           </Link>
 
