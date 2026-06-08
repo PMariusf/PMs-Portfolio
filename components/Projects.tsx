@@ -35,40 +35,40 @@ freehand: {
     images: [
     {
     src: "/projects/demonhunter.png",
-    alt: "Project female demonhunter",
+    alt: "Female Demonhunter",
   },
 
   {
     src: "/projects/paladin.png",
-    alt: "Project female paladin",
+    alt: "Female Paladin",
   },
   {
     src: "/projects/pandamonk.png",
-    alt: "Project female pandamonk",
+    alt: "Female Pandamonk",
   },
   {
     src: "/projects/undeadmage.png",
-    alt: "Project male undeadmage",
+    alt: "Undead Mage, Male",
   },
   {
     src: "/projects/Aniz.png",
-    alt: "Project female Aniz",
+    alt: " Female Aniz",
   },
     {
     src: "/projects/Viking.png",
-    alt: "Project female Viking",
+    alt: "Female Viking",
   },
   {
     src: "/projects/dreamy.jpeg",
-    alt: "Project female Dreamy",
+    alt: "Female Dreamy",
   },
   {
     src: "/projects/druid.png",
-    alt: "Project female druid",
+    alt: "Female Druid",
   },
    {
     src: "/projects/femalerogue.png",
-    alt: "Project female rogue",
+    alt: "Female Rogue",
   },
     ],
   },
@@ -81,7 +81,7 @@ freehand: {
         alt: "Fjellveidager",
       },
       {
-        src: "/projects/hyrox.png",
+        src: "/projects/Hyrox.png",
         alt: "HYROX",
       },
       {
