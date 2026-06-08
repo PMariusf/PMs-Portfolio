@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
 import Interests from "../../components/Interests";
 import Contact from "../../components/Contact";
-import Footer from "../../components/Footer";
+
 
 const recentProjects = [
   {
@@ -205,7 +205,7 @@ export default function Home() {
           </div>
         </section>
 
-       <Footer />
+       <Contact />
       </div>
     </main>
   );
