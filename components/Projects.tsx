@@ -212,12 +212,14 @@ export default function Projects() {
             onClick={() =>
               setCurrent(index)
             }
+            aria-label={`Go to image ${index + 1}`}
+            title={`Go to image ${index + 1}`}
             className={`h-3 w-3 rounded-full transition ${
               current === index
                 ? "scale-125 bg-white"
                 : "bg-white/30"
             }`}
-          />
+          ></button>
         ))}
       </div>
     </div>

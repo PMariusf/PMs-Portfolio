@@ -35,10 +35,10 @@ export default function Home() {
 
         {/* HERO */}
         <section className="fade-up mx-auto max-w-[95%] pt-28">
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-xl">
+          <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl">
             <div className="grid items-center gap-10 p-6 lg:grid-cols-2 lg:p-14">
               {/* LEFT IMAGE */}
-              <div className="relative flex items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-black/40 p-4">
+              <div className="relative flex items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-black/40 p-4">
                 <Hero />
               </div>
 
@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* RECENT PROJECTS */}
         <section className="fade-up mx-auto max-w-7xl px-6 pt-16">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-xl md:p-8">
+          <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-8">
             <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.4em] text-white/50">
@@ -115,7 +115,7 @@ export default function Home() {
                 <Link
                   href="/Projects"
                   key={project.title}
-                  className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
+                  className="group overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
                 >
                   {/* IMAGE / VIDEO / MATRIX */}
                   <div className="relative h-44 overflow-hidden bg-black">
@@ -198,7 +198,7 @@ export default function Home() {
 
         {/* INTERESTS */}
         <section className="fade-up mx-auto max-w-7xl px-6 pt-16">
-          <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-xl">
+          <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl">
             <div className="scale-95">
               <Interests />
             </div>
