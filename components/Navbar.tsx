@@ -120,9 +120,9 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/Cv"
+              href="/CV"
               onClick={() => setIsOpen(false)}
-              className={mobileLinkClass("/Cv")}
+              className={mobileLinkClass("/CV")}
             >
               CV
             </Link>
