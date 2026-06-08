@@ -26,7 +26,7 @@ export default function Hero() {
           </p>
 
           <h2 className="mt-3 text-5xl font-black leading-[0.95] md:text-6xl">
-            Hei, jeg er{" "}
+            Hi, My name is{" "}
             <span className="bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-transparent">
               Marius
             </span>
