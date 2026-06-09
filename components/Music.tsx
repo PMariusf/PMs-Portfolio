@@ -12,7 +12,7 @@ const songs = [
   {
     title: "Halfway Up",
     artist: "Marius",
-    file: "/media/Halfway up.mp4",
+    file: "/media/Halfway Up.mp4",
     gradient: "from-blue-500/30 via-cyan-500/20 to-black",
   },
   {
@@ -22,9 +22,9 @@ const songs = [
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
   {
-    title: "Itj stopp mæ",
+    title: "Itj Stopp Mæ",
     artist: "Marius",
-    file: "/media/itj stopp mæ.mp4",
+    file: "/media/Itj Stopp Mæ.mp4",
     gradient: "from-green-500/30 via-emerald-500/20 to-black",
   },
   {
@@ -283,7 +283,7 @@ export default function Music() {
               {bars.map((height, index) => (
                 <span
                   key={index}
-                  className="w-0.5 rounded-full bg-white/80 transition-all duration-100 sm:w-0.75"
+                  className="w-0.5 rounded-full bg-white/80 transition-all duration-100 sm:w-"
                   style={{ height: `${height}px` }}
                 />
               ))}
