@@ -72,7 +72,7 @@ const projects = [
       title: "Åsane Arena",
       description:
        "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
-      image: "/projects/asane.png",
+      image: "/projects/Asanearena.png",
       tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
       github: "#",
       demo: "#",

@@ -40,7 +40,7 @@ const recentProjects = [
   },
   {
     title: "Åsane Arena",
-    image: "/projects/asane.png",
+    image: "/projects/Asanearena.png",
     text: "Sports arena visuals, branding and creative promotional content.",
   },
   {
