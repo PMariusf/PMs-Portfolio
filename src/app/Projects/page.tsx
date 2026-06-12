@@ -121,26 +121,24 @@ export default function ProjectsPage() {
             >
               <div className="grid md:grid-cols-2">
                 {/* Media */}
-                <div className="relative flex h-[320px] items-center justify-center overflow-hidden bg-black">
+                <div className="relative flex h-80 items-center justify-center overflow-hidden bg-black">
                   {project.title === "PM Portfolio" ? (
                     <div className="absolute inset-0 bg-black">
                    <div className="matrix-rain opacity-80">
-                       {matrixColumns.map((column, index) => (
-                         <span
-                           key={index}
-                           className="matrix-column"
-                           style={{
-                             left: column.left,
-                             animationDelay: column.delay,
-                             animationDuration: column.duration,
-                           }}
-                           >
-                           {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
-                         </span>
-                       ))}
+                   {matrixColumns.map((column, index) => (
+                      <span
+                        key={index}
+                        className="matrix-column"
+                        data-left={column.left}
+                        data-delay={column.delay}
+                        data-duration={column.duration}
+                      >
+                        {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
+                      </span>
+                    ))}
                      </div>
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 
                       <div className="absolute inset-0 flex items-center justify-center">
                         <p className="rounded-full border border-white/20 bg-black/50 px-6 py-3 text-sm font-semibold tracking-[0.35em] text-white backdrop-blur-md">
