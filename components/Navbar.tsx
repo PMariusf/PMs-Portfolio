@@ -11,51 +11,53 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/About", label: "About" },
-    { href: "/Services", label: "Services" },
-    { href: "/Gallery", label: "Gallery" },
+    { href: "/About", label: "About Me" },
+    { href: "/CV", label: "CV" },
+    { href: "/Projects", label: "Projects" },
+    { href: "/hobby", label: "Hobby" },
     { href: "/Contact", label: "Contact" },
-    { href: "/Booking", label: "Booking" },
   ];
 
   const desktopLinkClass = (href: string) =>
-    `group relative py-2 text-sm uppercase tracking-[0.18em] transition duration-300 ${
-      pathname === href ? "text-white" : "text-white/60 hover:text-white"
+    `group relative py-2 text-[13px] uppercase tracking-[0.28em] transition duration-300 ${
+      pathname === href
+        ? "text-white"
+        : "text-white/55 hover:text-white"
     }`;
 
   const mobileLinkClass = (href: string) =>
-    `rounded-xl border border-white/10 px-4 py-4 transition duration-300 ${
+    `relative border-b border-white/10 px-1 py-4 text-lg transition duration-300 ${
       pathname === href
-        ? "bg-white/10 text-white"
-        : "text-white/70 hover:bg-white/5 hover:text-white"
+        ? "text-white"
+        : "text-white/60 hover:text-white"
     }`;
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/20 backdrop-blur-2xl">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-6">
+    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/30 shadow-[0_8px_40px_rgba(0,0,0,0.25)] backdrop-blur-2xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-4">
           <div className="relative">
-            <span className="bg-gradient-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-black tracking-tight text-transparent transition duration-300 group-hover:scale-105">
+            <span className="logo-text bg-gradient-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">
               PM
             </span>
 
-            <div className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
+            <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
           </div>
 
           <div className="transition duration-300 group-hover:translate-x-1">
-            <p className="text-lg font-semibold tracking-wide text-white">
-              Studio
+            <p className="logo-text text-[28px] leading-none tracking-wide text-white">
+              Portfolio
             </p>
 
-            <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-              Photo • Video
+            <p className="mt-1 text-xs uppercase tracking-[0.35em] text-white/40">
+              Frontend Developer
             </p>
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-10 lg:flex">
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-14 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -80,7 +82,7 @@ export default function Navbar() {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="relative z-50 flex flex-col gap-1.5 lg:hidden"
-          aria-label="Toggle Menu"
+          aria-label="Toggle menu"
         >
           <span
             className={`h-0.5 w-7 bg-white transition duration-300 ${
@@ -108,8 +110,8 @@ export default function Navbar() {
           isOpen ? "max-h-[500px]" : "max-h-0"
         }`}
       >
-        <div className="border-t border-white/10 bg-black/80 px-6 py-6 backdrop-blur-2xl">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-white/10 bg-black/90 px-6 py-6 backdrop-blur-2xl">
+          <div className="flex flex-col">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -118,6 +120,12 @@ export default function Navbar() {
                 className={mobileLinkClass(link.href)}
               >
                 {link.label}
+
+                <span
+                  className={`absolute bottom-2 left-1 h-[2px] bg-white transition-all duration-300 ${
+                    pathname === link.href ? "w-12" : "w-0"
+                  }`}
+                />
               </Link>
             ))}
           </div>
@@ -126,6 +134,7 @@ export default function Navbar() {
     </nav>
   );
 }
+
 
 
 
