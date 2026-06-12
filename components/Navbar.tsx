@@ -34,30 +34,30 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/30 shadow-[0_8px_40px_rgba(0,0,0,0.25)] backdrop-blur-2xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <div className="flex h-20 items-center justify-between px-12 xl:px-20 2xl:px-28">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-4">
           <div className="relative">
-            <span className="logo-text bg-gradient-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">
+            <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">
               PM
             </span>
 
-            <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
+            <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
           </div>
 
           <div className="transition duration-300 group-hover:translate-x-1">
-            <p className="logo-text text-[28px] leading-none tracking-wide text-white">
+            <p className="logo-text text-[29px] leading-none tracking-wide text-white">
               Portfolio
             </p>
 
-            <p className="mt-1 text-xs uppercase tracking-[0.35em] text-white/40">
+            <p className="mt-1 text-xs uppercase tracking-[0.36em] text-white/50">
               Frontend Developer
             </p>
           </div>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden items-center gap-14 lg:flex">
+        {/* Desktop Navigation */}
+        <div className="ml-auto hidden items-center gap-10 xl:gap-12 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -66,9 +66,9 @@ export default function Navbar() {
             >
               {link.label}
 
-              {/* Underline animation */}
+              {/* Animated underline */}
               <span
-                className={`absolute -bottom-1 left-0 h-[2px] bg-white transition-all duration-300 ${
+                className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === link.href
                     ? "w-full"
                     : "w-0 group-hover:w-full"
@@ -107,7 +107,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={`overflow-hidden transition-all duration-500 lg:hidden ${
-          isOpen ? "max-h-[500px]" : "max-h-0"
+          isOpen ? "max-h-125" : "max-h-0"
         }`}
       >
         <div className="border-t border-white/10 bg-black/90 px-6 py-6 backdrop-blur-2xl">
@@ -122,7 +122,7 @@ export default function Navbar() {
                 {link.label}
 
                 <span
-                  className={`absolute bottom-2 left-1 h-[2px] bg-white transition-all duration-300 ${
+                  className={`absolute bottom-2 left-1 h-0.5 bg-white transition-all duration-300 ${
                     pathname === link.href ? "w-12" : "w-0"
                   }`}
                 />
