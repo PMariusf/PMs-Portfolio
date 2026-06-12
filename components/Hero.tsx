@@ -20,7 +20,7 @@ export default function Hero() {
         </div>
 
         {/* Text */}
-        <div className="mt-8">
+        <div className="mt-8 item-center text-center">
           <p className="text-sm uppercase tracking-[0.35em] text-white/40">
              • Bergen, Norway •
           </p>

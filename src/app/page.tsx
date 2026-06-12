@@ -64,8 +64,10 @@ export default function Home() {
           <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl">
             <div className="grid items-center gap-10 p-6 lg:grid-cols-2 lg:p-14">
               <div className="relative flex items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-black/40 p-4">
+              <div className="-translate-y-20 scale-100">
                 <Hero />
-              </div>
+                </div>
+                </div>
 
               <div>
                 <p className="text-sm uppercase tracking-[0.4em] text-white/50">
