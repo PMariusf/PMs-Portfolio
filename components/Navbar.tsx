@@ -19,7 +19,7 @@ export default function Navbar() {
   ];
 
   const desktopLinkClass = (href: string) =>
-    `group relative py-2 text-[13px] uppercase tracking-[0.28em] transition duration-300 ${
+    `group relative py-2 text-[13px] font-bold uppercase tracking-[0.28em] transition duration-300 ${
       pathname === href
         ? "text-white"
         : "text-white/55 hover:text-white"
@@ -50,14 +50,14 @@ export default function Navbar() {
               Portfolio
             </p>
 
-            <p className="mt-1 text-xs uppercase tracking-[0.36em] text-white/50">
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.36em] text-white/60">
               Frontend Developer
             </p>
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="ml-auto hidden items-center gap-10 xl:gap-12 lg:flex">
+        <div className="ml-auto hidden items-center gap-10 xl:gap-10 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}

@@ -22,11 +22,11 @@ export default function Hero() {
         {/* Text */}
         <div className="mt-8">
           <p className="text-sm uppercase tracking-[0.35em] text-white/40">
-             • Bergen, Norge
+             • Bergen, Norway •
           </p>
 
           <h2 className="mt-3 text-5xl font-black leading-[0.95] md:text-6xl">
-            Hi, My name is{" "}
+            Hi, i am{" "}
             <span className="bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-transparent">
               Marius
             </span>
