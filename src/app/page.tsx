@@ -6,22 +6,22 @@ import Interests from "../../components/Interests";
 import Contact from "../../components/Contact";
 
 const matrixColumns = [
-  "left-[0%] delay-[0s] duration-[3s]",
-  "left-[6%] delay-[0.1s] duration-[4s]",
-  "left-[12%] delay-[0.2s] duration-[5s]",
-  "left-[18%] delay-[0.3s] duration-[3s]",
-  "left-[24%] delay-[0.4s] duration-[4s]",
-  "left-[30%] delay-[0.5s] duration-[5s]",
-  "left-[36%] delay-[0.6s] duration-[3s]",
-  "left-[42%] delay-[0.7s] duration-[4s]",
-  "left-[48%] delay-[0.8s] duration-[5s]",
-  "left-[54%] delay-[0.9s] duration-[3s]",
-  "left-[60%] delay-[1s] duration-[4s]",
-  "left-[66%] delay-[1.1s] duration-[5s]",
-  "left-[72%] delay-[1.2s] duration-[3s]",
-  "left-[78%] delay-[1.3s] duration-[4s]",
-  "left-[84%] delay-[1.4s] duration-[5s]",
-  "left-[90%] delay-[1.5s] duration-[3s]",
+  { left: "0%", delay: "0s", duration: "3s" },
+  { left: "6%", delay: "0.1s", duration: "4s" },
+  { left: "12%", delay: "0.2s", duration: "5s" },
+  { left: "18%", delay: "0.3s", duration: "3.5s" },
+  { left: "24%", delay: "0.4s", duration: "4.5s" },
+  { left: "30%", delay: "0.5s", duration: "5s" },
+  { left: "36%", delay: "0.6s", duration: "3.2s" },
+  { left: "42%", delay: "0.7s", duration: "4.2s" },
+  { left: "48%", delay: "0.8s", duration: "5.2s" },
+  { left: "54%", delay: "0.9s", duration: "3.4s" },
+  { left: "60%", delay: "1s", duration: "4.4s" },
+  { left: "66%", delay: "1.1s", duration: "5.4s" },
+  { left: "72%", delay: "1.2s", duration: "3.6s" },
+  { left: "78%", delay: "1.3s", duration: "4.6s" },
+  { left: "84%", delay: "1.4s", duration: "5.6s" },
+  { left: "90%", delay: "1.5s", duration: "3.8s" },
 ];
 
 const recentProjects = [
@@ -155,12 +155,16 @@ export default function Home() {
                         />
 
                         <div className="absolute inset-0 bg-black/50" />
-
                         <div className="matrix-rain opacity-75">
-                          {matrixColumns.map((className, index) => (
+                          {matrixColumns.map((column, index) => (
                             <span
                               key={index}
-                              className={`matrix-column ${className}`}
+                              className="matrix-column"
+                              style={{
+                                left: column.left,
+                                animationDelay: column.delay,
+                                animationDuration: column.duration,
+                              }}
                             >
                               {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
                             </span>
