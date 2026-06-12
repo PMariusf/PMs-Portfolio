@@ -5,24 +5,7 @@ import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import Image from "next/image";
 
-const matrixColumns = [
-  { left: "0%", delay: "0s", duration: "3s" },
-  { left: "6%", delay: "0.1s", duration: "4s" },
-  { left: "12%", delay: "0.2s", duration: "5s" },
-  { left: "18%", delay: "0.3s", duration: "3.5s" },
-  { left: "24%", delay: "0.4s", duration: "4.5s" },
-  { left: "30%", delay: "0.5s", duration: "5s" },
-  { left: "36%", delay: "0.6s", duration: "3.2s" },
-  { left: "42%", delay: "0.7s", duration: "4.2s" },
-  { left: "48%", delay: "0.8s", duration: "5.2s" },
-  { left: "54%", delay: "0.9s", duration: "3.4s" },
-  { left: "60%", delay: "1s", duration: "4.4s" },
-  { left: "66%", delay: "1.1s", duration: "5.4s" },
-  { left: "72%", delay: "1.2s", duration: "3.6s" },
-  { left: "78%", delay: "1.3s", duration: "4.6s" },
-  { left: "84%", delay: "1.4s", duration: "5.6s" },
-  { left: "90%", delay: "1.5s", duration: "3.8s" },
-];
+const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 const musicVideos = [
   "/media/Hungry Touch.mp4",
@@ -76,6 +59,25 @@ const projects = [
     demo: "#",
   },
   {
+      title: "AdO Arena",
+      description:
+        "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
+      image: "/projects/ado-arena/ado.png",
+      video: "/projects/ADO.mov",
+      tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"],
+      github: "#",
+      demo: "#",
+},
+{
+      title: "Åsane Arena",
+      description:
+       "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
+      image: "/projects/asane.png",
+      tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
+      github: "#",
+      demo: "#",
+},
+  {
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
@@ -125,18 +127,15 @@ export default function ProjectsPage() {
                   {project.title === "PM Portfolio" ? (
                     <div className="absolute inset-0 bg-black">
                    <div className="matrix-rain opacity-80">
-                   {matrixColumns.map((column, index) => (
-                      <span
-                        key={index}
-                        className="matrix-column"
-                        data-left={column.left}
-                        data-delay={column.delay}
-                        data-duration={column.duration}
-                      >
-                        {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
-                      </span>
-                    ))}
-                     </div>
+                     {matrixColumns.map((column) => (
+                       <span
+                         key={column}
+                         className={`matrix-column matrix-column-${column}`}
+                       >
+                         {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
+                       </span>
+                     ))}
+                   </div>
 
                       <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 

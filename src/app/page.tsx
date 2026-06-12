@@ -7,6 +7,14 @@ import Contact from "../../components/Contact";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
+const musicVideos = [
+  "/media/Hungry Touch.mp4",
+  "/media/Halfway up.mp4",
+  "/media/final night.mp4",
+  "/media/Enter the dragon.mp4",
+  "/media/Light breaks through the night.mp4",
+];
+
 const recentProjects = [
   {
     title: "Varegg Arena",
@@ -34,6 +42,12 @@ const recentProjects = [
     title: "Åsane Arena",
     image: "/projects/asane.png",
     text: "Sports arena visuals, branding and creative promotional content.",
+  },
+  {
+    title: "Creative Music",
+    image: "/projects/music.png",
+    video: musicVideos[0],
+    text: "AI music production, cinematic sound design and creative media.",
   },
 ];
 
@@ -120,7 +134,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {recentProjects.map((project) => (
                 <Link
                   href="/Projects"
@@ -174,6 +188,7 @@ export default function Home() {
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={project.title === "Fjellveidager"}
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
                     )}
