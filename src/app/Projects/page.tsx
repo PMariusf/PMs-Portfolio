@@ -51,11 +51,15 @@ const projects = [
       "Figma",
       "Design",
       "Branding",
-      "AI Visuals",
-      "Frontend",
+      "React",
+      "Next.js",
+      "Tailwind",
+      "VSCode",
+      "Vercel", 
+      "GitHub",
       "Video Editing",
     ],
-    github: "#",
+    github: "https://github.com/PMariusf/fjellveidager-no",
     demo: "#",
   },
   {
@@ -92,6 +96,28 @@ const projects = [
     github: "#",
     demo: "https://suno.com",
   },
+
+  {
+  title: "Aiventor",
+  image: "/projects/aiventor.png",
+  text: "Modern responsive website built with SquareSpace.",
+  tech: [
+      "Figma",
+      "Design",
+      "SquareSpace",
+      "VSCode",
+      "Vercel", 
+      "GitHub",
+      "Video Editing",
+    ],
+    demo: "https://www.aivento.no/"
+},
+{
+  title: "Web Project Two",
+  image: "/projects/web-project-two.png",
+  text: "Clean frontend webpage focused on layout, design and user experience.",
+  demo: "https://www.aivento.no/",
+},
 ];
 
 export default function ProjectsPage() {
