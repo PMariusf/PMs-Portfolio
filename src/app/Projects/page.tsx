@@ -4,6 +4,8 @@ import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import Image from "next/image";
+import { Settings } from "lucide-react";
+
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
@@ -112,11 +114,13 @@ const projects = [
     ],
     demo: "https://www.aivento.no/"
 },
+
 {
-  title: "Future project",
+  title: "Web Project Two",
+  description:
+    "Clean frontend webpage focused on layout, design and user experience.",
   image: "/projects/web-project-two.png",
-  text: "Clean frontend webpage focused on layout, design and user experience.",
-    tech: [
+  tech: [
     "React",
     "Tailwind",
     "UI/UX",
@@ -125,7 +129,7 @@ const projects = [
   ],
   github: "#",
   demo: "#",
-
+  underConstruction: true,
 },
 ];
 
@@ -170,6 +174,21 @@ export default function ProjectsPage() {
                          {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
                        </span>
                      ))}
+                     {project.underConstruction && (
+                       <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
+                         {/* Spinning Cog */}
+                         <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
+                           <Settings className="h-12 w-12 animate-spin text-yellow-300" />
+                         </div>
+
+                         {/* Label */}
+                         <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-6 py-3 backdrop-blur-xl">
+                           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-300">
+                             Under Construction
+                           </p>
+                         </div>
+                       </div>
+                     )}
                    </div>
 
                       <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
