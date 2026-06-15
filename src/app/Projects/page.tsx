@@ -98,8 +98,8 @@ const projects = [
   },
 
   {
-  title: "Aiventor",
-  image: "/projects/aiventor.png",
+  title: "Aivento",
+  image: "/projects/Aivento.png",
   text: "Modern responsive website built with SquareSpace.",
   tech: [
       "Figma",
@@ -116,7 +116,16 @@ const projects = [
   title: "Web Project Two",
   image: "/projects/web-project-two.png",
   text: "Clean frontend webpage focused on layout, design and user experience.",
-  demo: "https://www.aivento.no/",
+    tech: [
+    "React",
+    "Tailwind",
+    "UI/UX",
+    "Frontend",
+    "Responsive Design",
+  ],
+  github: "#",
+  demo: "#",
+
 },
 ];
 
@@ -145,7 +154,7 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <div
               key={project.title}
-              className="overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2"
+              className="overflow-hidden rounded-4xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2"
             >
               <div className="grid md:grid-cols-2">
                 {/* Media */}
@@ -250,9 +259,8 @@ export default function ProjectsPage() {
                   <p className="mt-4 leading-relaxed text-white/70">
                     {project.description}
                   </p>
-
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {project.tech.map((tech) => (
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {project.tech?.map((tech) => (
                       <span
                         key={tech}
                         className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"

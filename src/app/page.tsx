@@ -43,6 +43,36 @@ const recentProjects = [
     image: "/projects/Asanearena.png",
     text: "Sports arena visuals, branding and creative promotional content.",
   },
+    {
+  title: "Aivento",
+  image: "/projects/Aivento.png",
+  text: "Modern responsive website built with SquareSpace.",
+  tech: [
+      "Figma",
+      "Design",
+      "SquareSpace",
+      "VSCode",
+      "Vercel", 
+      "GitHub",
+      "Video Editing",
+    ],
+    demo: "https://www.aivento.no/"
+},
+{
+  title: "Web Project Two",
+  image: "/projects/web-project-two.png",
+  text: "Clean frontend webpage focused on layout, design and user experience.",
+    tech: [
+    "React",
+    "Tailwind",
+    "UI/UX",
+    "Frontend",
+    "Responsive Design",
+  ],
+  github: "#",
+  demo: "#",
+
+},
   {
     title: "Creative Music",
     image: "/projects/music.png",
@@ -136,7 +166,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
               {recentProjects.map((project) => (
                 <Link
                   href="/Projects"
