@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
 import Interests from "../../components/Interests";
 import Contact from "../../components/Contact";
+import { Settings } from "lucide-react";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
@@ -43,41 +44,23 @@ const recentProjects = [
     image: "/projects/Asanearena.png",
     text: "Sports arena visuals, branding and creative promotional content.",
   },
-    {
-  title: "Aivento",
-  image: "/projects/Aivento.png",
-  text: "Modern responsive website built with SquareSpace.",
-  tech: [
-      "Figma",
-      "Design",
-      "SquareSpace",
-      "VSCode",
-      "Vercel", 
-      "GitHub",
-      "Video Editing",
-    ],
-    demo: "https://www.aivento.no/"
-},
-{
-  title: "Web Project Two",
-  image: "/projects/web-project-two.png",
-  text: "Clean frontend webpage focused on layout, design and user experience.",
-    tech: [
-    "React",
-    "Tailwind",
-    "UI/UX",
-    "Frontend",
-    "Responsive Design",
-  ],
-  github: "#",
-  demo: "#",
-
-},
+  {
+    title: "Aivento",
+    image: "/projects/Aivento.png",
+    text: "Modern responsive website built with Squarespace.",
+  },
   {
     title: "Creative Music",
     image: "/projects/music.png",
     video: musicVideos[0],
     text: "AI music production, cinematic sound design and creative media.",
+  },
+
+  {
+    title: "Future project",
+    image: "/projects/web-project-two.png",
+    text: "Clean frontend webpage focused on layout, design and user experience.",
+    underConstruction: true,
   },
 ];
 
@@ -94,10 +77,10 @@ export default function Home() {
           <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl">
             <div className="grid items-center gap-10 p-6 lg:grid-cols-2 lg:p-14">
               <div className="relative flex items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-black/40 p-4">
-              <div className="-translate-y-20 scale-100">
-                <Hero />
+                <div className="-translate-y-20 scale-100">
+                  <Hero />
                 </div>
-                </div>
+              </div>
 
               <div>
                 <p className="text-sm uppercase tracking-[0.4em] text-white/50">
@@ -224,6 +207,22 @@ export default function Home() {
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
                     )}
+
+                {project.underConstruction && (
+                        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-black/60 backdrop-blur-md">
+                          {/* Spinning Cogwheel */}
+                          <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
+                            <Settings className="h-10 w-10 animate-spin text-yellow-300" />
+                          </div>
+
+                          {/* Text */}
+                          <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-5 py-2 backdrop-blur-xl">
+                            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-300">
+                              Under Construction
+                            </p>
+                          </div>
+                        </div>
+                      )}
                   </div>
 
                   <div className="p-5">
