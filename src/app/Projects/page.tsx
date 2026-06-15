@@ -6,7 +6,6 @@ import Contact from "../../../components/Contact";
 import Image from "next/image";
 import { Settings } from "lucide-react";
 
-
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 const musicVideos = [
@@ -57,7 +56,7 @@ const projects = [
       "Next.js",
       "Tailwind",
       "VSCode",
-      "Vercel", 
+      "Vercel",
       "GitHub",
       "Video Editing",
     ],
@@ -65,24 +64,24 @@ const projects = [
     demo: "#",
   },
   {
-      title: "AdO Arena",
-      description:
-        "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
-      image: "/projects/ado-arena/ado.png",
-      video: "/projects/ADO.mov",
-      tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"],
-      github: "#",
-      demo: "#",
-},
-{
-      title: "Åsane Arena",
-      description:
-       "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
-      image: "/projects/Asanearena.png",
-      tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
-      github: "#",
-      demo: "#",
-},
+    title: "AdO Arena",
+    description:
+      "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
+    image: "/projects/ado-arena/ado.png",
+    video: "/projects/ADO.mov",
+    tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"],
+    github: "#",
+    demo: "#",
+  },
+  {
+    title: "Åsane Arena",
+    description:
+      "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
+    image: "/projects/Asanearena.png",
+    tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
+    github: "#",
+    demo: "#",
+  },
   {
     title: "AI Music & Creative Projects",
     description:
@@ -98,39 +97,39 @@ const projects = [
     github: "#",
     demo: "https://suno.com",
   },
-
   {
-  title: "Aivento",
-  image: "/projects/Aivento.png",
-  text: "Modern responsive website built with SquareSpace.",
-  tech: [
+    title: "Aivento",
+    description:
+      "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
+    image: "/projects/Aivento.png",
+    tech: [
       "Figma",
       "Design",
-      "SquareSpace",
+      "Squarespace",
       "VSCode",
-      "Vercel", 
+      "Vercel",
       "GitHub",
       "Video Editing",
     ],
-    demo: "https://www.aivento.no/"
-},
-
-{
-  title: "Web Project Two",
-  description:
-    "Clean frontend webpage focused on layout, design and user experience.",
-  image: "/projects/web-project-two.png",
-  tech: [
-    "React",
-    "Tailwind",
-    "UI/UX",
-    "Frontend",
-    "Responsive Design",
-  ],
-  github: "#",
-  demo: "#",
-  underConstruction: true,
-},
+    github: "#",
+    demo: "https://www.aivento.no/",
+  },
+  {
+    title: "Web Project Two",
+    description:
+      "Clean frontend webpage focused on layout, design and user experience.",
+    image: "/projects/web-project-two.png",
+    tech: [
+      "React",
+      "Tailwind",
+      "UI/UX",
+      "Frontend",
+      "Responsive Design",
+    ],
+    github: "#",
+    demo: "#",
+    underConstruction: true,
+  },
 ];
 
 export default function ProjectsPage() {
@@ -165,31 +164,16 @@ export default function ProjectsPage() {
                 <div className="relative flex h-80 items-center justify-center overflow-hidden bg-black">
                   {project.title === "PM Portfolio" ? (
                     <div className="absolute inset-0 bg-black">
-                   <div className="matrix-rain opacity-80">
-                     {matrixColumns.map((column) => (
-                       <span
-                         key={column}
-                         className={`matrix-column matrix-column-${column}`}
-                       >
-                         {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
-                       </span>
-                     ))}
-                     {project.underConstruction && (
-                       <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
-                         {/* Spinning Cog */}
-                         <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
-                           <Settings className="h-12 w-12 animate-spin text-yellow-300" />
-                         </div>
-
-                         {/* Label */}
-                         <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-6 py-3 backdrop-blur-xl">
-                           <p className="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-300">
-                             Under Construction
-                           </p>
-                         </div>
-                       </div>
-                     )}
-                   </div>
+                      <div className="matrix-rain opacity-80">
+                        {matrixColumns.map((column) => (
+                          <span
+                            key={column}
+                            className={`matrix-column matrix-column-${column}`}
+                          >
+                            {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
+                          </span>
+                        ))}
+                      </div>
 
                       <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 
@@ -269,6 +253,20 @@ export default function ProjectsPage() {
                       className="object-cover"
                     />
                   )}
+
+                  {project.underConstruction && (
+                    <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
+                      <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
+                        <Settings className="h-12 w-12 animate-spin text-yellow-300" />
+                      </div>
+
+                      <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-6 py-3 backdrop-blur-xl">
+                        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-300">
+                          Under Construction
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}
@@ -278,8 +276,9 @@ export default function ProjectsPage() {
                   <p className="mt-4 leading-relaxed text-white/70">
                     {project.description}
                   </p>
-                    <div className="mt-5 flex flex-wrap gap-3">
-                      {project.tech?.map((tech) => (
+
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {project.tech?.map((tech) => (
                       <span
                         key={tech}
                         className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"
