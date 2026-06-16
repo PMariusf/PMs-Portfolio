@@ -3,73 +3,89 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-const categories = {
-freehand: {
-  title: "Freehand Images",
-  images: [
-    {
-      src: "/projects/dragongirl.png",
-      alt: "Dragon Girl",
-    },
-    {
-      src: "/projects/firedragon.png",
-      alt: "Fire Dragon",
-    },
-    {
-      src: "/projects/Amazonfighter.png",
-      alt: "Amazon Fighter",
-    },
-    {
-      src: "/projects/Elisabeth.png",
-      alt: "Elisabeth",
-    },
-    {
-      src: "/projects/cyberpunk.png",
-      alt: "Cyberpunk Female",
-    },
-  ],
-},
+type GalleryItem = {
+  src: string;
+  alt: string;
+  type?: "image" | "video";
+};
+
+const categories: Record<
+  string,
+  {
+    title: string;
+    images: GalleryItem[];
+  }
+> = {
+  freehand: {
+    title: "Freehand Images",
+    images: [
+      {
+        src: "/projects/dragongirl.png",
+        alt: "Dragon Girl",
+      },
+      {
+        src: "/projects/firedragon.png",
+        alt: "Fire Dragon",
+      },
+      {
+        src: "/projects/Amazonfighter.png",
+        alt: "Amazon Fighter",
+      },
+      {
+        src: "/projects/Elisabeth.png",
+        alt: "Elisabeth",
+      },
+      {
+        src: "/projects/cyberpunk.png",
+        alt: "Cyberpunk Female",
+      },
+    ],
+  },
 
   digital: {
     title: "Digital Art",
     images: [
-    {
-    src: "/projects/demonhunter.png",
-    alt: "Female Demonhunter",
-  },
-
-  {
-    src: "/projects/paladin.png",
-    alt: "Female Paladin",
-  },
-  {
-    src: "/projects/pandamonk.png",
-    alt: "Female Pandamonk",
-  },
-  {
-    src: "/projects/undeadmage.png",
-    alt: "Undead Mage, Male",
-  },
-  {
-    src: "/projects/Aniz.png",
-    alt: " Female Aniz",
-  },
-    {
-    src: "/projects/Viking.png",
-    alt: "Female Viking",
-  },
-  {
-    src: "/projects/dreamy.jpeg",
-    alt: "Female Dreamy",
-  },
-  {
-    src: "/projects/druid.png",
-    alt: "Female Druid",
-  },
-   {
-    src: "/projects/femalerogue.png",
-    alt: "Female Rogue",
-  },
+      {
+        src: "/projects/demonhunter.png",
+        alt: "Female Demonhunter",
+      },
+      {
+        src: "/projects/paladin.png",
+        alt: "Female Paladin",
+      },
+      {
+        src: "/projects/pandamonk.png",
+        alt: "Female Pandamonk",
+      },
+      {
+        src: "/projects/undeadmage.png",
+        alt: "Undead Mage, Male",
+      },
+      {
+        src: "/projects/Aniz.png",
+        alt: "Female Aniz",
+      },
+      {
+        src: "/projects/Viking.png",
+        alt: "Female Viking",
+      },
+      {
+        src: "/projects/dreamy.jpeg",
+        alt: "Female Dreamy",
+      },
+      {
+        src: "/projects/druid.png",
+        alt: "Female Druid",
+      },
+      {
+        src: "/projects/femalerogue.png",
+        alt: "Female Rogue",
+      },
+      {
+        src: "/media/Musicvideo.mov",
+        alt: "Digital Art Music Video",
+        type: "video",
+      },
     ],
   },
 
@@ -88,85 +104,98 @@ freehand: {
         src: "/projects/trene.png",
         alt: "Training",
       },
-         {
+      {
         src: "/projects/Ado.png",
         alt: "Ado bade arena",
-     },
+      },
       {
-       src: "/projects/femalebasket.png",
-       alt: "Female basketball player",
-     },
-     {
-    src: "/projects/femalepingpong.png",
-    alt: "Female ping pong player",
+        src: "/projects/femalebasket.png",
+        alt: "Female basketball player",
+      },
+      {
+        src: "/projects/femalepingpong.png",
+        alt: "Female ping pong player",
+      },
+    ],
   },
+  music: {
+    title: "Music Video",
+    images: [
+      {
+        src: "https://youtu.be/ttnJ9YsdpZs",
+        alt: "Digital Art Music Video",
+        type: "video",
+      },
     ],
   },
 };
 
+
 type CategoryKey = keyof typeof categories;
 
 export default function Projects() {
-  const [selected, setSelected] =
-    useState<CategoryKey>("digital");
-
+  const [selected, setSelected] = useState<CategoryKey>("digital");
   const [current, setCurrent] = useState(0);
 
-  const images = useMemo(
-    () => categories[selected].images,
-    [selected]
-  );
+  const images = useMemo(() => categories[selected].images, [selected]);
 
-  const activeImage =
-    images[current] ?? images[0];
-
-
+  const activeImage = images[current] ?? images[0];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) =>
-        prev === images.length - 1
-          ? 0
-          : prev + 1
-      );
-    }, 4000);
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, activeImage?.type === "video" ? 9000 : 4000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length, activeImage?.type]);
 
   return (
     <div className="relative mx-auto w-full max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
-      {/* CATEGORY BUTTONS */}
-      <div className="mb-6 flex flex-wrap justify-center gap-3">
-        {(
-          Object.keys(categories) as CategoryKey[]
-        ).map((key) => (
-          <button
-            key={key}
-            onClick={() => setSelected(key)}
-            className={`rounded-full px-5 py-3 text-sm font-medium transition ${
-              selected === key
-                ? "scale-105 bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.35)]"
-                : "border border-white/20 bg-white/10 text-white hover:bg-white/20"
-            }`}
-          >
-            {categories[key].title}
-          </button>
-        ))}
+  {/* CATEGORY BUTTONS */}
+<div className="mb-6 flex flex-wrap justify-center gap-3">
+  {(Object.keys(categories) as CategoryKey[]).map((key) => (
+    <button
+      key={key}
+      onClick={() => {
+        setSelected(key);
+        setCurrent(0);
+      }}
+      className={`rounded-full px-5 py-3 text-sm font-medium transition ${
+        selected === key
+          ? "scale-105 bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.35)]"
+          : "border border-white/20 bg-white/10 text-white hover:bg-white/20"
+      }`}
+    >
+      {categories[key].title}
+    </button>
+  ))}
+</div>
+      {/* MEDIA */}
+      <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl bg-linear-to-br from-zinc-900/70 to-black/40 p-8">
+        {activeImage.type === "video" ? (
+          <video
+            key={activeImage.src}
+            src={activeImage.src}
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls
+            className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
+          />
+        ) : (
+          <Image
+            key={activeImage.src}
+            src={activeImage.src}
+            alt={activeImage.alt}
+            width={1400}
+            height={800}
+            priority
+            className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
+          />
+        )}
       </div>
 
-      {/* IMAGE */}
-      <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl bg-linear-to-br from-zinc-900/70 to-black/40 p-8">
-        <Image
-          key={activeImage.src}
-          src={activeImage.src}
-          alt={activeImage.alt}
-          width={1400}
-          height={800}
-          priority
-          className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
-        />
-      </div>
       <div className="absolute bottom-5 left-5 rounded-2xl border border-white/20 bg-black/50 px-5 py-3 backdrop-blur-xl">
         <p className="text-sm uppercase tracking-[0.25em] text-white/40">
           {categories[selected].title}
@@ -176,14 +205,11 @@ export default function Projects() {
           {activeImage.alt}
         </h3>
       </div>
+
       {/* PREVIOUS */}
       <button
         onClick={() =>
-          setCurrent((prev) =>
-            prev === 0
-              ? images.length - 1
-              : prev - 1
-          )
+          setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
         }
         className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
       >
@@ -193,11 +219,7 @@ export default function Projects() {
       {/* NEXT */}
       <button
         onClick={() =>
-          setCurrent((prev) =>
-            prev === images.length - 1
-              ? 0
-              : prev + 1
-          )
+          setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
         }
         className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
       >
@@ -209,21 +231,15 @@ export default function Projects() {
         {images.map((_, index) => (
           <button
             key={index}
-            onClick={() =>
-              setCurrent(index)
-            }
+            onClick={() => setCurrent(index)}
             aria-label={`Go to image ${index + 1}`}
             title={`Go to image ${index + 1}`}
             className={`h-3 w-3 rounded-full transition ${
-              current === index
-                ? "scale-125 bg-white"
-                : "bg-white/30"
+              current === index ? "scale-125 bg-white" : "bg-white/30"
             }`}
-          ></button>
+          />
         ))}
       </div>
     </div>
   );
 }
-
-

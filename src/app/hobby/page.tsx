@@ -37,26 +37,26 @@ export default function Hobby() {
             >
               {/* Top left corner */}
               <div className="pointer-events-none absolute left-0 top-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute left-0 top-0 h-[2px] w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute left-0 top-0 h-14 w-[2px] bg-white/70 blur-[1px]" />
+                <div className="absolute left-0 top-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
+                <div className="absolute left-0 top-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
               </div>
 
               {/* Top right corner */}
               <div className="pointer-events-none absolute right-0 top-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute right-0 top-0 h-[2px] w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute right-0 top-0 h-14 w-[2px] bg-white/70 blur-[1px]" />
+                <div className="absolute right-0 top-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
+                <div className="absolute right-0 top-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
               </div>
 
               {/* Bottom left corner */}
               <div className="pointer-events-none absolute bottom-0 left-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute bottom-0 left-0 h-[2px] w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute bottom-0 left-0 h-14 w-[2px] bg-white/70 blur-[1px]" />
+                <div className="absolute bottom-0 left-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
+                <div className="absolute bottom-0 left-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
               </div>
 
               {/* Bottom right corner */}
               <div className="pointer-events-none absolute bottom-0 right-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute bottom-0 right-0 h-[2px] w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute bottom-0 right-0 h-14 w-[2px] bg-white/70 blur-[1px]" />
+                <div className="absolute bottom-0 right-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
+                <div className="absolute bottom-0 right-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
               </div>
 
               {/* Cursor glow / light strobe */}
