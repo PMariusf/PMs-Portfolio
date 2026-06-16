@@ -123,7 +123,7 @@ const categories: Record<
     images: [
       {
         src: "https://youtu.be/ttnJ9YsdpZs",
-        alt: "Digital Art Music Video",
+        alt: "Digital Art Music Vide",
         type: "video",
       },
     ],
