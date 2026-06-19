@@ -20,7 +20,10 @@ const images = [
     src: "/projects/firedragon.png",
     alt: "Project three",
   },
-  
+   {
+    src: "/projects/Deadpool.jpeg",
+    alt: "Project three",
+  },
 
 ];
 

@@ -39,6 +39,10 @@ const categories: Record<
         src: "/projects/cyberpunk.png",
         alt: "Cyberpunk Female",
       },
+       {
+        src: "/projects/Deadpool.jpeg",
+        alt: "Deadpool",
+      },
     ],
   },
 
