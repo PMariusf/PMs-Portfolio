@@ -122,7 +122,7 @@ const categories: Record<
     title: "Music Video",
     images: [
       {
-        src: "https://youtu.be/ttnJ9YsdpZs",
+        src: "media/Musicvideo.mp4",
         alt: "Digital Art Music Video",
         type: "video",
       },
