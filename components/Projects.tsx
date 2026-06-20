@@ -126,7 +126,7 @@ const categories: Record<
     title: "Music Video",
     images: [
       {
-        src: "media/Musicvideo.mp4",
+        src: "media/MusicVideo.mp4",
         alt: "Digital Art Music Video",
         type: "video",
       },
