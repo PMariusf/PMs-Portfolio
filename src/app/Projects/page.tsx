@@ -77,7 +77,7 @@ const projects = [
     title: "Åsane Arena",
     description:
       "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
-    image: "/projects/Asanearena.png",
+    image: "/projects/Varegg-Arena/Asanearena.png",
     tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
     github: "#",
     demo: "#",
@@ -101,7 +101,7 @@ const projects = [
     title: "Aivento",
     description:
       "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
-    image: "/projects/Aivento.png",
+    image: "/projects/Varegg-ArenaAivento.png",
     tech: [
       "Figma",
       "Design",
