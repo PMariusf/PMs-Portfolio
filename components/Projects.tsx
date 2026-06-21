@@ -71,7 +71,7 @@ const categories: Record<
       },
       {
         src: "/projects/pandamonk.png",
-        alt: "Female Pandamonk",
+        alt: "Female Pandaren Monk",
       },
       {
         src: "/projects/undeadmage.png",
@@ -79,7 +79,7 @@ const categories: Record<
       },
       {
         src: "/projects/Aniz.png",
-        alt: "Female pandaren monk",
+        alt: "Female Harendar Monk",
       },
       {
         src: "/projects/Viking.png",
