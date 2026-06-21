@@ -67,7 +67,7 @@ const categories: Record<
       },
       {
         src: "/projects/paladin.png",
-        alt: "Female AlliancePaladin",
+        alt: "Female Alliance Paladin",
       },
       {
         src: "/projects/pandamonk.png",
@@ -100,15 +100,6 @@ const categories: Record<
       {
         src: "/projects/deathknight.png",
         alt: "Orc Death Knight",
-      },
-      {
-        src: "/projects/anizmini.png",
-        alt: "Aniz Mini",
-      },
-      {
-        src: "/media/MusicVideo.mp4",
-        alt: "Digital Art Music Video",
-        type: "video",
       },
     ],
   },
