@@ -101,7 +101,7 @@ const projects = [
     title: "Aivento",
     description:
       "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
-    image: "/projects/Varegg-ArenaAivento.png",
+    image: "/projects/Varegg-Arena/Aivento.png",
     tech: [
       "Figma",
       "Design",
