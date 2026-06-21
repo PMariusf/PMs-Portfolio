@@ -20,40 +20,44 @@ const categories: Record<
     title: "Freehand Images",
     images: [
       {
-        src: "/projects/dragongirl.png",
+        src: "/projects/Drawing/dragongirl.png",
         alt: "Dragon Girl",
       },
       {
-        src: "/projects/firedragon.png",
+        src: "/projects/Drawing/firedragon.png",
         alt: "Fire Dragon",
       },
       {
-        src: "/projects/Amazonfighter.png",
+        src: "/projects/Drawing/Amazonfighter.png",
         alt: "Amazon Fighter",
       },
       {
-        src: "/projects/Elisabeth.png",
+        src: "/projects/Drawing/Elisabeth.png",
         alt: "female potrait",
       },
       {
-        src: "/projects/cyberpunk.png",
+        src: "/projects/Drawing/cyberpunk.png",
         alt: "Cyberpunk Female",
       },
        {
-        src: "/projects/Deadpool.jpeg",
+        src: "/projects/Drawing/Deadpool.jpeg",
         alt: "Deadpool",
       },
       {
-        src: "/projects/dolphine.jpeg",
+        src: "/projects/Drawing/dolphine.jpeg",
         alt: "Dolphine",
       },
       {
-        src: "/projects/Elise.jpg",
+        src: "/projects/Drawing/Elise.jpg",
         alt: "Elise",
       },
       {
-        src: "/projects/Vaiana.jpg",
+        src: "/projects/Drawing/Vaiana.jpg",
         alt: "Vaiana",
+      },
+      {
+        src: "/projects/Drawing/elsaupdatepng.png",
+        alt: "Elsa",
       },
     ],
   },
@@ -62,44 +66,52 @@ const categories: Record<
     title: "Digital Art",
     images: [
       {
-        src: "/projects/demonhunter.png",
+        src: "/projects/Digital/demonhunter.png",
         alt: "Female Horde Demonhunter",
       },
       {
-        src: "/projects/paladin.png",
+        src: "/projects/Digital/paladin.png",
         alt: "Female Alliance Paladin",
       },
       {
-        src: "/projects/pandamonk.png",
+        src: "/projects/Digital/pandamonk.png",
         alt: "Female Pandaren Monk",
       },
       {
-        src: "/projects/undeadmage.png",
+        src: "/projects/Digital/undeadmage.png",
         alt: "Undead Mage, Male",
       },
       {
-        src: "/projects/Aniz.png",
+        src: "/projects/Digital/Aniz.png",
         alt: "Female Harendar Monk",
       },
       {
-        src: "/projects/Viking.png",
+        src: "/projects/Digital/Viking.png",
         alt: "Female Viking",
       },
       {
-        src: "/projects/dreamy.jpeg",
+        src: "/projects/Digital/dreamy.jpeg",
         alt: "Female dynasty warrior",
       },
       {
-        src: "/projects/druid.png",
+        src: "/projects/Digital/druid.png",
         alt: "Female Druid",
       },
       {
-        src: "/projects/femalerogue.png",
+        src: "/projects/Digital/femalerogue.png",
         alt: "Female Alliance Rogue",
       },
       {
-        src: "/projects/deathknight.png",
+        src: "/projects/Digital/deathknight.png",
         alt: "Orc Death Knight",
+      },
+       {
+        src: "/projects/Digital/Group 50.png",
+        alt: "Army of alts WoW characters",
+      },
+      {
+        src: "/projects/Digital/Group 33.png",
+        alt: "little league WoW characters",
       },
     ],
   },
@@ -109,27 +121,27 @@ const categories: Record<
     title: "Projects",
     images: [
       {
-        src: "/projects/fjellveidager.png",
+        src: "/projects/Varegg-Arena/fjellveidager.png",
         alt: "Fjellveidager",
       },
       {
-        src: "/projects/Hyrox.png",
+        src: "/projects/Varegg-Arena/Hyrox.png",
         alt: "HYROX",
       },
       {
-        src: "/projects/trene.png",
+        src: "/projects/Varegg-Arena/trene.png",
         alt: "Training",
       },
       {
-        src: "/projects/Ado.png",
+        src: "/projects/Varegg-Arena/Ado.png",
         alt: "Ado bade arena",
       },
       {
-        src: "/projects/femalebasket.png",
+        src: "/projects/Varegg-Arena/femalebasket.png",
         alt: "Female basketball player",
       },
       {
-        src: "/projects/femalepingpong.png",
+        src: "/projects/Varegg-Arena/femalepingpong.png",
         alt: "Female ping pong player",
       },
     ],
@@ -148,8 +160,23 @@ const categories: Record<
       type: "video",
     },
     {
-      src: "/media/Halfway up.mp4",
+      src: "/media/Halfway Up.mp4",
       alt: "Halfway Up",
+      type: "video",
+    },
+    {
+      src: "/media/Light Breaks Through the Night.mp4",
+      alt: "Light Breaks Through the Night",
+      type: "video",
+    },
+    {
+      src: "/media/Itj Stopp Mæ.mp4",
+      alt: "Itj Stopp Mæ",
+      type: "video",
+    },
+    {
+      src: "/media/Rolig musikk fyller natten, (Remastered).mp4",
+      alt: "Rolig musikk fyller natten, (Remastered)",
       type: "video",
     },
     {
