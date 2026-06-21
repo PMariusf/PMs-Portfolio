@@ -257,7 +257,7 @@ export default function ProjectsPage() {
                   {project.underConstruction && (
                     <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
                       <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
-                        <Settings className="h-12 w-12 animate-spin text-yellow-300" />
+                        <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
                       </div>
 
                       <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-6 py-3 backdrop-blur-xl">

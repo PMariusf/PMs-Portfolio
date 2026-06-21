@@ -212,7 +212,7 @@ export default function Home() {
                         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-black/60 backdrop-blur-md">
                           {/* Spinning Cogwheel */}
                           <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
-                            <Settings className="h-10 w-10 animate-spin text-yellow-300" />
+                            <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
                           </div>
 
                           {/* Text */}

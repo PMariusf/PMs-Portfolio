@@ -165,7 +165,7 @@ export default function Projects() {
   }, [images.length, activeImage?.type]);
 
   return (
-    <div className="relative mx-auto w-full max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
+    <div className="relative mx-auto w-full max-w-5xl rounded-4xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
   {/* CATEGORY BUTTONS */}
 <div className="mb-6 flex flex-wrap justify-center gap-3">
   {(Object.keys(categories) as CategoryKey[]).map((key) => (
