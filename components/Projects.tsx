@@ -103,6 +103,7 @@ const categories: Record<
       },
     ],
   },
+ 
 
   projects: {
     title: "Projects",
@@ -134,6 +135,32 @@ const categories: Record<
     ],
   },
   music: {
+  title: "Music",
+  images: [
+    {
+      src: "/media/Enter the dragon.mp4",
+      alt: "Creative Music",
+      type: "video",
+    },
+    {
+      src: "/media/Hungry Touch.mp4",
+      alt: "Hungry Touch",
+      type: "video",
+    },
+    {
+      src: "/media/Halfway up.mp4",
+      alt: "Halfway Up",
+      type: "video",
+    },
+    {
+      src: "/media/final night.mp4",
+      alt: "Final Night",
+      type: "video",
+    },
+  ],
+},
+
+  musicVideo: {
     title: "Music Video",
     images: [
       {
@@ -196,7 +223,7 @@ export default function Projects() {
             loop
             playsInline
             controls
-            className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
+            className="h-auto max-h-125 w-auto object-contain"
           />
         ) : (
           <Image
