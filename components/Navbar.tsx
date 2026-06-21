@@ -38,7 +38,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-4">
           <div className="relative">
-            <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-5xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">
+            <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-6xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">
               PM
             </span>
 
@@ -46,11 +46,11 @@ export default function Navbar() {
           </div>
 
           <div className="transition duration-300 group-hover:translate-x-1">
-            <p className="logo-text text-[29px] leading-none tracking-wide text-white">
+            <p className="logo-text text-[32px] leading-none tracking-wide text-white">
               Portfolio
             </p>
 
-            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.36em] text-white/60">
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.36em] text-white/75">
               Frontend Developer
             </p>
           </div>

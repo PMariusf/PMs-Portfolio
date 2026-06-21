@@ -113,7 +113,7 @@ export default function Home() {
                   </Link>
                 </div>
 
-                <p className="mt-5 text-sm uppercase tracking-[0.25em] text-white/40">
+                <p className="mt-5 text-sm uppercase tracking-[0.25em] text-white/55">
                   Available for internship / frontend opportunities
                 </p>
               </div>
@@ -126,7 +126,7 @@ export default function Home() {
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-8">
             <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.4em] text-white/50">
+                <p className="text-sm uppercase tracking-[0.4em] text-white/60">
                   Creative Showcase
                 </p>
 
@@ -134,7 +134,7 @@ export default function Home() {
                   Frontend, Design & Visual Projects
                 </h2>
 
-                <p className="mt-3 max-w-2xl text-white/60">
+                <p className="mt-4 max-w-2xl text-white/60">
                   A collection of frontend development, creative visuals,
                   digital art and personal projects that reflect my passion for
                   technology and design.
@@ -149,7 +149,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
               {recentProjects.map((project) => (
                 <Link
                   href="/Projects"

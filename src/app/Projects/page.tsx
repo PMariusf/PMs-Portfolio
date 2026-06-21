@@ -115,7 +115,7 @@ const projects = [
     demo: "https://www.aivento.no/",
   },
   {
-    title: "Web Project Two",
+    title: "Future project",
     description:
       "Clean frontend webpage focused on layout, design and user experience.",
     image: "/projects/web-project-two.png",
