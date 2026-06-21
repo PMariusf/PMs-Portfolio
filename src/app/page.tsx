@@ -182,11 +182,11 @@ export default function Home() {
 
                         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <p className="rounded-full border border-white/20 bg-black/50 px-5 py-2 text-sm font-semibold tracking-[0.3em] text-white backdrop-blur-md">
-                            PM PORTFOLIO
-                          </p>
-                        </div>
+                       <div className="absolute inset-0 flex items-center justify-center">
+                        <h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                          PM PORTFOLIO
+                        </h3>
+                      </div>
                       </div>
                     ) : project.video ? (
                       <video
@@ -216,11 +216,15 @@ export default function Home() {
                           </div>
 
                           {/* Text */}
-                          <div className="rounded-full border border-yellow-400/20 bg-yellow-500/10 px-5 py-2 backdrop-blur-xl">
-                            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-300">
-                              Under Construction
-                            </p>
-                          </div>
+                        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5 bg-black/60 backdrop-blur-md">
+                         <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
+                           <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
+                         </div>
+
+                         <h2 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
+                           UNDER CONSTRUCTION
+                         </h2>
+                       </div>
                         </div>
                       )}
                   </div>
@@ -228,11 +232,11 @@ export default function Home() {
                   <div className="p-5">
                     <h3 className="text-xl font-bold">{project.title}</h3>
 
-                    <p className="mt-2 text-sm leading-relaxed text-white/60">
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">
                       {project.text}
                     </p>
 
-                    <p className="mt-4 text-sm font-medium text-white/80">
+                    <p className="mt-4 text-sm font-bold text-white/80">
                       View project →
                     </p>
                   </div>
