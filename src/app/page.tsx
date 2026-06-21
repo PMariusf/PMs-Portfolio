@@ -41,12 +41,12 @@ const recentProjects = [
   },
   {
     title: "Åsane Arena",
-    image: "/projects/Asanearena.png",
+    image: "/projects/Varegg-Arena/Asanearena.png",
     text: "Sports arena visuals, branding and creative promotional content.",
   },
   {
     title: "Aivento",
-    image: "/projects/Aivento.png",
+    image: "/projects/Varegg-Arena/Aivento.png",
     text: "Modern responsive website built with Squarespace.",
   },
   {
