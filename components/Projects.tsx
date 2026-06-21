@@ -33,7 +33,7 @@ const categories: Record<
       },
       {
         src: "/projects/Elisabeth.png",
-        alt: "Elisabeth",
+        alt: "female potrait",
       },
       {
         src: "/projects/cyberpunk.png",
@@ -43,6 +43,18 @@ const categories: Record<
         src: "/projects/Deadpool.jpeg",
         alt: "Deadpool",
       },
+      {
+        src: "/projects/dolphine.jpeg",
+        alt: "Dolphine",
+      },
+      {
+        src: "/projects/Elise.jpg",
+        alt: "Elise",
+      },
+      {
+        src: "/projects/Vaiana.jpg",
+        alt: "Vaiana",
+      },
     ],
   },
 
@@ -51,11 +63,11 @@ const categories: Record<
     images: [
       {
         src: "/projects/demonhunter.png",
-        alt: "Female Demonhunter",
+        alt: "Female Horde Demonhunter",
       },
       {
         src: "/projects/paladin.png",
-        alt: "Female Paladin",
+        alt: "Female AlliancePaladin",
       },
       {
         src: "/projects/pandamonk.png",
@@ -67,7 +79,7 @@ const categories: Record<
       },
       {
         src: "/projects/Aniz.png",
-        alt: "Female Aniz",
+        alt: "Female pandaren monk",
       },
       {
         src: "/projects/Viking.png",
@@ -75,7 +87,7 @@ const categories: Record<
       },
       {
         src: "/projects/dreamy.jpeg",
-        alt: "Female Dreamy",
+        alt: "Female dynasty warrior",
       },
       {
         src: "/projects/druid.png",
@@ -83,10 +95,18 @@ const categories: Record<
       },
       {
         src: "/projects/femalerogue.png",
-        alt: "Female Rogue",
+        alt: "Female Alliance Rogue",
       },
       {
-        src: "/media/Musicvideo.mov",
+        src: "/projects/deathknight.png",
+        alt: "Orc Death Knight",
+      },
+      {
+        src: "/projects/anizmini.png",
+        alt: "Aniz Mini",
+      },
+      {
+        src: "/media/MusicVideo.mp4",
         alt: "Digital Art Music Video",
         type: "video",
       },
