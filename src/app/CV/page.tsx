@@ -29,7 +29,7 @@ const timeline = [
   {
     title: "Internship / Practice",
     place: "Gavne",
-    text: "Worked with AI tools, Supabase, frontend development and modern digital workflows.",
+    text: "Worked with AI tools, Supabase, frontend development, backend and modern digital workflows.",
   },
   {
     title: "Security / Operations",
@@ -51,7 +51,7 @@ export default function CV() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-          Frontend developer student based in Bergen, Norway. I enjoy building
+          Frontend developer based in Bergen, Norway. I enjoy building
           modern, responsive and visually polished websites where design,
           functionality and user experience work together.
         </p>

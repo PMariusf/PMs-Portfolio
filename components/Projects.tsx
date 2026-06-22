@@ -39,7 +39,7 @@ const categories: Record<
         src: "/projects/Drawing/cyberpunk.png",
         alt: "Cyberpunk Female",
       },
-       {
+      {
         src: "/projects/Drawing/Deadpool.jpeg",
         alt: "Deadpool",
       },
@@ -105,7 +105,7 @@ const categories: Record<
         src: "/projects/Digital/deathknight.png",
         alt: "Orc Death Knight",
       },
-       {
+      {
         src: "/projects/Digital/Group 50.png",
         alt: "Army of alts WoW characters",
       },
@@ -115,7 +115,6 @@ const categories: Record<
       },
     ],
   },
- 
 
   projects: {
     title: "Projects",
@@ -146,46 +145,47 @@ const categories: Record<
       },
     ],
   },
+
   music: {
-  title: "Music",
-  images: [
-    {
-      src: "/media/Enter the dragon.mp4",
-      alt: "Creative Music",
-      type: "video",
-    },
-    {
-      src: "/media/Hungry Touch.mp4",
-      alt: "Hungry Touch",
-      type: "video",
-    },
-    {
-      src: "/media/Halfway Up.mp4",
-      alt: "Halfway Up",
-      type: "video",
-    },
-    {
-      src: "/media/Light Breaks Through the Night.mp4",
-      alt: "Light Breaks Through the Night",
-      type: "video",
-    },
-    {
-      src: "/media/Itj Stopp Mæ.mp4",
-      alt: "Itj Stopp Mæ",
-      type: "video",
-    },
-    {
-      src: "/media/Rolig musikk fyller natten, (Remastered).mp4",
-      alt: "Rolig musikk fyller natten, (Remastered)",
-      type: "video",
-    },
-    {
-      src: "/media/final night.mp4",
-      alt: "Final Night",
-      type: "video",
-    },
-  ],
-},
+    title: "Music",
+    images: [
+      {
+        src: "/media/Enter the dragon.mp4",
+        alt: "Creative Music",
+        type: "video",
+      },
+      {
+        src: "/media/Hungry Touch.mp4",
+        alt: "Hungry Touch",
+        type: "video",
+      },
+      {
+        src: "/media/Halfway Up.mp4",
+        alt: "Halfway Up",
+        type: "video",
+      },
+      {
+        src: "/media/Light Breaks Through the Night.mp4",
+        alt: "Light Breaks Through the Night",
+        type: "video",
+      },
+      {
+        src: "/media/Itj Stopp Mæ.mp4",
+        alt: "Itj Stopp Mæ",
+        type: "video",
+      },
+      {
+        src: "/media/Rolig musikk fyller natten, (Remastered).mp4",
+        alt: "Rolig musikk fyller natten, (Remastered)",
+        type: "video",
+      },
+      {
+        src: "/media/final night.mp4",
+        alt: "Final Night",
+        type: "video",
+      },
+    ],
+  },
 
   musicVideo: {
     title: "Music Video",
@@ -198,7 +198,6 @@ const categories: Record<
     ],
   },
 };
-
 
 type CategoryKey = keyof typeof categories;
 
@@ -219,95 +218,110 @@ export default function Projects() {
   }, [images.length, activeImage?.type]);
 
   return (
-    <div className="relative mx-auto w-full max-w-5xl rounded-4xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl">
-  {/* CATEGORY BUTTONS */}
-<div className="mb-6 flex flex-wrap justify-center gap-3">
-  {(Object.keys(categories) as CategoryKey[]).map((key) => (
-    <button
-      key={key}
-      onClick={() => {
-        setSelected(key);
-        setCurrent(0);
-      }}
-      className={`rounded-full px-5 py-3 text-sm font-medium transition ${
-        selected === key
-          ? "scale-105 bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.35)]"
-          : "border border-white/20 bg-white/10 text-white hover:bg-white/20"
-      }`}
-    >
-      {categories[key].title}
-    </button>
-  ))}
-</div>
-      {/* MEDIA */}
-      <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl bg-linear-to-br from-zinc-900/70 to-black/40 p-8">
-        {activeImage.type === "video" ? (
-          <video
-            key={activeImage.src}
-            src={activeImage.src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            className="h-auto max-h-125 w-auto object-contain"
-          />
-        ) : (
-          <Image
-            key={activeImage.src}
-            src={activeImage.src}
-            alt={activeImage.alt}
-            width={1400}
-            height={800}
-            priority
-            className="h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
-          />
-        )}
-      </div>
+    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-4xl border border-white/15 bg-white/[0.07] p-5 shadow-[0_25px_90px_rgba(0,0,0,0.55)] backdrop-blur-3xl">
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/12 via-transparent to-white/5" />
+      <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-linear-to-r from-transparent via-white/70 to-transparent" />
 
-      <div className="absolute bottom-5 left-5 rounded-2xl border border-white/20 bg-black/50 px-5 py-3 backdrop-blur-xl">
-        <p className="text-sm uppercase tracking-[0.25em] text-white/40">
-          {categories[selected].title}
-        </p>
+      <div className="relative z-10">
+        {/* CATEGORY BUTTONS */}
+        <div className="mb-6 flex flex-wrap justify-center gap-3">
+          {(Object.keys(categories) as CategoryKey[]).map((key) => (
+            <button
+              key={key}
+              onClick={() => {
+                setSelected(key);
+                setCurrent(0);
+              }}
+              className={`rounded-full px-5 py-3 text-sm font-medium backdrop-blur-xl transition ${
+                selected === key
+                  ? "scale-105 border border-white/40 bg-white text-black shadow-[0_0_35px_rgba(255,255,255,0.35)]"
+                  : "border border-white/15 bg-white/8 text-white/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] hover:bg-white/[0.14] hover:text-white"
+              }`}
+            >
+              {categories[key].title}
+            </button>
+          ))}
+        </div>
 
-        <h3 className="mt-1 text-2xl font-bold text-white">
-          {activeImage.alt}
-        </h3>
-      </div>
+        {/* MEDIA */}
+        <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-linear-to-br from-white/8 via-zinc-900/50 to-black/50 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/30" />
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/45 to-transparent" />
 
-      {/* PREVIOUS */}
-      <button
-        onClick={() =>
-          setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-        }
-        className="absolute left-6 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
-      >
-        ‹
-      </button>
+          {activeImage.type === "video" ? (
+            <video
+              key={activeImage.src}
+              src={activeImage.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="relative z-10 h-auto max-h-125 w-auto object-contain"
+            />
+          ) : (
+            <Image
+              key={activeImage.src}
+              src={activeImage.src}
+              alt={activeImage.alt}
+              width={1400}
+              height={800}
+              priority
+              className="relative z-10 h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
+            />
+          )}
+        </div>
 
-      {/* NEXT */}
-      <button
-        onClick={() =>
-          setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-        }
-        className="absolute right-6 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-5 py-3 text-3xl text-white backdrop-blur-md transition hover:bg-black/80"
-      >
-        ›
-      </button>
+        <div className="absolute bottom-16 left-5 rounded-2xl border border-white/15 bg-black/40 px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+          <p className="text-sm uppercase tracking-[0.25em] text-white/45">
+            {categories[selected].title}
+          </p>
 
-      {/* DOTS */}
-      <div className="mt-6 flex justify-center gap-3">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            aria-label={`Go to image ${index + 1}`}
-            title={`Go to image ${index + 1}`}
-            className={`h-3 w-3 rounded-full transition ${
-              current === index ? "scale-125 bg-white" : "bg-white/30"
-            }`}
-          />
-        ))}
+          <h3 className="mt-1 text-2xl font-bold text-white">
+            {activeImage.alt}
+          </h3>
+        </div>
+
+        {/* PREVIOUS */}
+        <button
+          onClick={() =>
+            setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
+          }
+          className="absolute left-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
+          aria-label="Previous item"
+          title="Previous item"
+        >
+          ‹
+        </button>
+
+        {/* NEXT */}
+        <button
+          onClick={() =>
+            setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+          }
+          className="absolute right-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
+          aria-label="Next item"
+          title="Next item"
+        >
+          ›
+        </button>
+
+        {/* DOTS */}
+        <div className="mt-6 flex justify-center gap-3">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              aria-label={`Go to image ${index + 1}`}
+              title={`Go to image ${index + 1}`}
+              className={`h-3 w-3 rounded-full transition ${
+                current === index
+                  ? "scale-125 bg-white shadow-[0_0_15px_rgba(255,255,255,0.45)]"
+                  : "bg-white/30 hover:bg-white/60"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
