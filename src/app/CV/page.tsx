@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
+import Image from "next/image";
 
+
+const cvFile = "/cv/Per_Marius_Foyner_CV.pdf";
 
 const skills = [
   "HTML",
@@ -17,7 +23,7 @@ const skills = [
   "Figma",
   "AI Tools",
   "Responsive Design",
-  "VScode"
+  "VS Code",
 ];
 
 const timeline = [
@@ -39,6 +45,8 @@ const timeline = [
 ];
 
 export default function CV() {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
@@ -51,18 +59,26 @@ export default function CV() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
-          Frontend developer based in Bergen, Norway. I enjoy building
-          modern, responsive and visually polished websites where design,
-          functionality and user experience work together.
+          Frontend developer based in Bergen, Norway. I enjoy building modern,
+          responsive and visually polished websites where design, functionality
+          and user experience work together.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
           <a
-            href="/Marius-CV.pdf"
+            href={cvFile}
+            download
             className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:scale-105"
           >
             Download CV
           </a>
+
+          <button
+            onClick={() => setIsPreviewOpen(true)}
+            className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white transition hover:bg-white/20"
+          >
+            Preview CV
+          </button>
 
           <a
             href="/Contact"
@@ -81,7 +97,9 @@ export default function CV() {
               <p className="text-sm uppercase tracking-[0.3em] text-white/40">
                 {item.place}
               </p>
+
               <h2 className="mt-4 text-3xl font-bold">{item.title}</h2>
+
               <p className="mt-4 leading-relaxed text-white/70">{item.text}</p>
             </div>
           ))}
@@ -105,11 +123,12 @@ export default function CV() {
 
           <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <h2 className="text-3xl font-bold">Creative Skills</h2>
+
             <p className="mt-4 leading-relaxed text-white/70">
-                I enjoy combining frontend development with creativity through image
-                editing, video editing, AI visuals, music creation and digital design.
-                I also have experience building and maintaining websites using
-                Squarespace, WordPress, HTML, CSS and JavaScript.
+              I enjoy combining frontend development with creativity through
+              image editing, video editing, AI visuals, music creation and
+              digital design. I also have experience building and maintaining
+              websites using Squarespace, WordPress, HTML, CSS and JavaScript.
             </p>
           </div>
         </div>
@@ -127,11 +146,62 @@ export default function CV() {
             My goal is to keep growing as a frontend developer and work on
             projects where design, accessibility, interactivity and performance
             come together. I am especially interested in modern web development,
-            creative UI, AI-assisted workflows and digital products with a strong
-            visual identity.
+            creative UI, AI-assisted workflows and digital products with a
+            strong visual identity.
           </p>
         </div>
       </section>
+
+    {/* CV SLIDE PREVIEW */}
+<div
+  className={`fixed inset-0 z-100 transition ${
+    isPreviewOpen ? "pointer-events-auto" : "pointer-events-none"
+  }`}
+>
+  <div
+    onClick={() => setIsPreviewOpen(false)}
+    className={`absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity ${
+      isPreviewOpen ? "opacity-100" : "opacity-0"
+    }`}
+  />
+
+  <aside
+    className={`absolute right-0 top-0 h-full w-full border-l border-white/10 bg-black/95 shadow-2xl backdrop-blur-2xl transition-transform duration-500 md:w-[72vw] lg:w-[58vw] ${
+      isPreviewOpen ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
+    <div className="flex h-20 items-center justify-between border-b border-white/10 px-4 md:px-6">
+      <div>
+        <p className="text-xs uppercase tracking-[0.35em] text-white/40">
+          Preview
+        </p>
+        <h2 className="mt-1 text-lg font-bold md:text-2xl">
+          Per Marius Føyner CV
+        </h2>
+      </div>
+
+      <button
+        onClick={() => setIsPreviewOpen(false)}
+        className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
+      >
+        Close
+      </button>
+    </div>
+
+    <div className="h-[calc(100vh-5rem)] overflow-y-auto p-3 md:p-5">
+      <div className="flex min-h-full items-start justify-center">
+        <Image
+          src="/cv/Marius-CV.png"
+          alt="CV Preview"
+          width={1200}
+          height={1700}
+          className="h-auto w-full max-w-[1000px] rounded-2xl border border-white/10 object-contain"
+          priority
+        />
+      </div>
+    </div>
+  </aside>
+</div>
 
       <Contact />
     </main>
