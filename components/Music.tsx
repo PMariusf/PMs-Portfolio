@@ -54,13 +54,13 @@ const songs = [
   {
     title: "Light Breaks Through the Night",
     artist: "Marius",
-    file: "/media/Light breaks through the night,.mp4",
+    file: "/media/Light breaks through the night.mp4",
     gradient: "from-cyan-500/30 via-sky-500/20 to-black",
   },
   {
     title: "Stund er her",
     artist: "Marius",
-    file: "/media/stund er her.mp4",
+    file: "/media/Stund er her.mp4",
     gradient: "from-emerald-500/30 via-teal-500/20 to-black",
   },
 ];
