@@ -35,7 +35,7 @@ const timeline = [
   {
     title: "Internship / Practice",
     place: "Gavne",
-    text: "Worked with AI tools, Supabase, frontend development, backend and modern digital workflows.",
+    text: "Worked with AI tools, Lovable, Supabase, frontend development, backend and modern digital workflows.",
   },
   {
     title: "Security / Operations",
@@ -188,14 +188,14 @@ export default function CV() {
       </button>
     </div>
 
-    <div className="h-[calc(100vh-5rem)] overflow-y-auto p-3 md:p-5">
+    <div className="h-[calc(100vh-80px)] overflow-y-auto p-3 md:p-5">
       <div className="flex min-h-full items-start justify-center">
         <Image
           src="/cv/Marius-CV.png"
           alt="CV Preview"
           width={1200}
           height={1700}
-          className="h-auto w-full max-w-[1000px] rounded-2xl border border-white/10 object-contain"
+          className="h-auto w-full max-w-[62.5rem] rounded-2xl border border-white/10 object-contain"
           priority
         />
       </div>
