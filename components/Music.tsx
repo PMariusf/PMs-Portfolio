@@ -22,9 +22,9 @@ const songs = [
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
   {
-    title: "Midnight lingers",
+    title: "Midnight Lingers",
     artist: "Marius",
-    file: "/media/Midnight lingers.mp4",
+    file: "/media/Midnight Lingers.mp4",
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
   {
