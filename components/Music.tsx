@@ -16,7 +16,19 @@ const songs = [
     gradient: "from-blue-500/30 via-cyan-500/20 to-black",
   },
   {
-    title: "I ll Hold on to What We Had",
+    title: "Light me up again",
+    artist: "Marius",
+    file: "/media/Light me up again.mp4",
+    gradient: "from-red-500/30 via-orange-500/20 to-black",
+  },
+  {
+    title: "Midnight lingers",
+    artist: "Marius",
+    file: "/media/Midnight lingers.mp4",
+    gradient: "from-red-500/30 via-orange-500/20 to-black",
+  },
+  {
+    title: "I'll Hold on to What We Had",
     artist: "Marius",
     file: "/media/I ll Hold on to What We Had.mp4",
     gradient: "from-red-500/30 via-orange-500/20 to-black",
