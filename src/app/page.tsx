@@ -19,7 +19,7 @@ const musicVideos = [
 const recentProjects = [
   {
     title: "Nordhordaland Kampsport",
-    image: "/projects/nordhordaland-Kampsport.png",
+    image: "/projects/nordhordaland-kampsport.png",
     text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.",
     href: "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
     external: true,
