@@ -18,6 +18,13 @@ const musicVideos = [
 
 const recentProjects = [
   {
+    title: "Nordhordaland Kampsport",
+    image: "/projects/nordhordaland-Kampsport.png",
+    text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.",
+    href: "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
+    external: true,
+  },
+  {
     title: "Varegg Arena",
     image: "/projects/Varegg-Arena/varegg.png",
     video: "/projects/Varegg-Arena/perimeter.mov",
@@ -152,8 +159,10 @@ export default function Home() {
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
               {recentProjects.map((project) => (
                 <Link
-                  href="/Projects"
+                  href={project.href ?? "/Projects"}
                   key={project.title}
+                  target={project.external ? "_blank" : undefined}
+                  rel={project.external ? "noopener noreferrer" : undefined}
                   className="group overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
                 >
                   <div className="relative h-44 overflow-hidden bg-black">
@@ -182,11 +191,11 @@ export default function Home() {
 
                         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 
-                       <div className="absolute inset-0 flex items-center justify-center">
-                        <h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                          PM PORTFOLIO
-                        </h3>
-                      </div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                            PM PORTFOLIO
+                          </h3>
+                        </div>
                       </div>
                     ) : project.video ? (
                       <video
@@ -203,30 +212,28 @@ export default function Home() {
                         alt={project.title}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={project.title === "Fjellveidager"}
+                        priority={project.title === "Nordhordaland Kampsport"}
                         className="object-cover transition duration-500 group-hover:scale-105"
                       />
                     )}
 
-                {project.underConstruction && (
-                        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-black/60 backdrop-blur-md">
-                          {/* Spinning Cogwheel */}
+                    {project.underConstruction && (
+                      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-4 bg-black/60 backdrop-blur-md">
+                        <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
+                          <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
+                        </div>
+
+                        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5 bg-black/60 backdrop-blur-md">
                           <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
                             <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
                           </div>
 
-                          {/* Text */}
-                        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5 bg-black/60 backdrop-blur-md">
-                         <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
-                           <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
-                         </div>
-
-                         <h2 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
-                           UNDER CONSTRUCTION
-                         </h2>
-                       </div>
+                          <h2 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
+                            UNDER CONSTRUCTION
+                          </h2>
                         </div>
-                      )}
+                      </div>
+                    )}
                   </div>
 
                   <div className="p-5">
@@ -237,7 +244,7 @@ export default function Home() {
                     </p>
 
                     <p className="mt-4 text-sm font-bold text-white/80">
-                      View project →
+                      {project.external ? "Visit live site →" : "View project →"}
                     </p>
                   </div>
                 </Link>
@@ -260,18 +267,3 @@ export default function Home() {
     </main>
   );
 }
-
-/*
-
- <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-                  Recent Work
-                </p>
-
-                <h2 className="mt-3 text-4xl font-bold">
-                  Recent Projects
-                </h2>
-
-                <p className="mt-3 max-w-2xl text-white/60">
-                  A quick look at some of my newest frontend,
-                  design and creative work.
-                </p> */
