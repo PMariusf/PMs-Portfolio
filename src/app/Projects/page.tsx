@@ -83,6 +83,23 @@ const projects = [
     demo: "#",
   },
   {
+  title: "Nordhordaland Kampsport",
+  description:
+    "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
+  image: "/projects/nordhordaland-kampsport.png",
+  tech: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Responsive Design",
+    "Vercel",
+  ],
+  github: "#",
+  demo:
+    "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
+},
+  {
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
