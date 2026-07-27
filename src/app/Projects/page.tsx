@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "../../../components/Navbar";
-import Contact from "../../../components/Contact";
 import Image from "next/image";
 import { Settings } from "lucide-react";
+import Navbar from "../../../components/Navbar";
+import Contact from "../../../components/Contact";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
@@ -83,34 +83,28 @@ const projects = [
     demo: "#",
   },
   {
-  title: "Nordhordaland Kampsport",
-  description:
-    "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
-  image: "/projects/nordhordaland-Kampsport.png",
-  tech: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Responsive Design",
-    "Vercel",
-  ],
-  github: "#",
-  demo:
-    "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
-},
+    title: "Nordhordaland Kampsport",
+    description:
+      "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
+    image: "/projects/nordhordaland-kampsport.svg",
+    tech: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Vercel",
+    ],
+    github: "#",
+    demo:
+      "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
+  },
   {
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
     image: "/projects/Varegg-Arena/fjellveidager.png",
-    tech: [
-      "Suno AI",
-      "Music Production",
-      "AI",
-      "Creative Design",
-      "Audio",
-    ],
+    tech: ["Suno AI", "Music Production", "AI", "Creative Design", "Audio"],
     github: "#",
     demo: "https://suno.com",
   },
@@ -136,13 +130,7 @@ const projects = [
     description:
       "Clean frontend webpage focused on layout, design and user experience.",
     image: "/projects/web-project-two.png",
-    tech: [
-      "React",
-      "Tailwind",
-      "UI/UX",
-      "Frontend",
-      "Responsive Design",
-    ],
+    tech: ["React", "Tailwind", "UI/UX", "Frontend", "Responsive Design"],
     github: "#",
     demo: "#",
     underConstruction: true,
@@ -177,7 +165,6 @@ export default function ProjectsPage() {
               className="overflow-hidden rounded-4xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2"
             >
               <div className="grid md:grid-cols-2">
-                {/* Media */}
                 <div className="relative flex h-80 items-center justify-center overflow-hidden bg-black">
                   {project.title === "PM Portfolio" ? (
                     <div className="absolute inset-0 bg-black">
@@ -194,11 +181,11 @@ export default function ProjectsPage() {
 
                       <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
 
-                     <div className="absolute inset-0 flex items-center justify-center">
-                       <h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                         PM PORTFOLIO
-                       </h3>
-                     </div>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                          PM PORTFOLIO
+                        </h3>
+                      </div>
                     </div>
                   ) : project.title === "AI Music & Creative Projects" ? (
                     <div className="relative h-full w-full">
@@ -215,22 +202,24 @@ export default function ProjectsPage() {
 
                       <button
                         onClick={() =>
-                          setCurrentMusic((prev) =>
-                            prev === 0 ? musicVideos.length - 1 : prev - 1
+                          setCurrentMusic((previous) =>
+                            previous === 0 ? musicVideos.length - 1 : previous - 1,
                           )
                         }
                         className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                        aria-label="Previous music video"
                       >
                         ‹
                       </button>
 
                       <button
                         onClick={() =>
-                          setCurrentMusic((prev) =>
-                            prev === musicVideos.length - 1 ? 0 : prev + 1
+                          setCurrentMusic((previous) =>
+                            previous === musicVideos.length - 1 ? 0 : previous + 1,
                           )
                         }
                         className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                        aria-label="Next music video"
                       >
                         ›
                       </button>
@@ -241,11 +230,8 @@ export default function ProjectsPage() {
                             key={index}
                             onClick={() => setCurrentMusic(index)}
                             className={`h-2 w-2 rounded-full transition ${
-                              currentMusic === index
-                                ? "bg-white"
-                                : "bg-white/40"
+                              currentMusic === index ? "bg-white" : "bg-white/40"
                             }`}
-                            title={`Go to music video ${index + 1}`}
                             aria-label={`Go to music video ${index + 1}`}
                           />
                         ))}
@@ -273,22 +259,14 @@ export default function ProjectsPage() {
 
                   {project.underConstruction && (
                     <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
-                      <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
-                        <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
-                      </div>
-
-                      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5 bg-black/60 backdrop-blur-md">
                       <Settings className="h-16 w-16 animate-[spin_8s_linear_infinite] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.45)]" />
-
                       <h3 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
                         UNDER CONSTRUCTION
                       </h3>
                     </div>
-                    </div>
                   )}
                 </div>
 
-                {/* Content */}
                 <div className="p-8">
                   <h2 className="text-3xl font-bold">{project.title}</h2>
 
@@ -297,7 +275,7 @@ export default function ProjectsPage() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-3">
-                    {project.tech?.map((tech) => (
+                    {project.tech.map((tech) => (
                       <span
                         key={tech}
                         className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"
