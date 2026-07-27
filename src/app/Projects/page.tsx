@@ -86,7 +86,7 @@ const projects = [
     title: "Nordhordaland Kampsport",
     description:
       "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
-    image: "/projects/nordhordaland-kampsport.svg",
+    image: "/projects/nordhordaland-kampsport.png",
     tech: [
       "React",
       "Next.js",
