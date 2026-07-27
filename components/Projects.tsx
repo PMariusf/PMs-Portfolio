@@ -143,6 +143,10 @@ const categories: Record<
         src: "/projects/Varegg-Arena/femalepingpong.png",
         alt: "Female ping pong player",
       },
+        {
+        src: "/projects/nordhordaland-kampsport.png",
+        alt: "Nordhordaland Kampsport",
+      },
     ],
   },
 
