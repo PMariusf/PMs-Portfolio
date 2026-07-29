@@ -99,6 +99,25 @@ const projects = [
     demo:
       "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
   },
+  
+{
+  title: "Solar System Explorer",
+  description:
+    "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.",
+  image: "/projects/solar-system/hero.webp",
+  tech: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Three.js",
+    "React Three Fiber",
+    "Tailwind CSS",
+    "GLTF Models",
+    "Vercel",
+  ],
+  github: "https://github.com/PMariusf/solsystem",
+  demo: "https://solsystem-peach.vercel.app",
+},
   {
     title: "AI Music & Creative Projects",
     description:
