@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 type GalleryItem = {
   src: string;
   alt: string;
+  year?: number;
   type?: "image" | "video";
 };
 
@@ -22,42 +23,52 @@ const categories: Record<
       {
         src: "/projects/Drawing/dragongirl.png",
         alt: "Dragon Girl",
+        year: 2025,
       },
       {
         src: "/projects/Drawing/firedragon.png",
         alt: "Fire Dragon",
+        year: 2025,
       },
       {
         src: "/projects/Drawing/Amazonfighter.png",
         alt: "Amazon Fighter",
+        year: 2025,
       },
       {
         src: "/projects/Drawing/Elisabeth.png",
         alt: "female potrait",
+        year: 2025,
       },
       {
         src: "/projects/Drawing/cyberpunk.png",
         alt: "Cyberpunk Female",
+        year: 2025,
       },
       {
         src: "/projects/Drawing/Deadpool.jpeg",
         alt: "Deadpool",
+        year: 2023,
       },
       {
         src: "/projects/Drawing/dolphine.jpeg",
         alt: "Dolphine",
+        year: 2023,
       },
       {
         src: "/projects/Drawing/Elise.jpg",
         alt: "Elise",
+        year: 2023,
       },
       {
         src: "/projects/Drawing/Vaiana.jpg",
         alt: "Vaiana",
+        year: 2024, 
       },
       {
         src: "/projects/Drawing/elsaupdatepng.png",
         alt: "Elsa",
+        year: 2024,
       },
     ],
   },
@@ -277,13 +288,19 @@ export default function Projects() {
         </div>
 
         <div className="absolute bottom-16 left-5 rounded-2xl border border-white/15 bg-black/40 px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-white/45">
-            {categories[selected].title}
-          </p>
+       <p className="text-sm uppercase tracking-[0.25em] text-white/45">
+          {categories[selected].title}
+        </p>
 
-          <h3 className="mt-1 text-2xl font-bold text-white">
-            {activeImage.alt}
-          </h3>
+        <h3 className="mt-1 text-2xl font-bold text-white">
+          {activeImage.alt}
+        </h3>
+
+          {activeImage.year && (
+            <p className="mt-1 text-sm text-white/55">
+              Drawn in {activeImage.year}
+            </p>
+          )}
         </div>
 
         {/* PREVIOUS */}
