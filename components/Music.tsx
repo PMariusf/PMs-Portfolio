@@ -3,19 +3,59 @@
 import { useEffect, useRef, useState } from "react";
 
 const songs = [
-  { title: "Hungry Touch", artist: "Marius", file: "/media/Hungry Touch.mp4", gradient: "from-pink-500/25 via-purple-500/15 to-black" },
-  { title: "Halfway Up", artist: "Marius", file: "/media/Halfway Up.mp4", gradient: "from-blue-500/25 via-cyan-500/15 to-black" },
-  { title: "Light me up again", artist: "Marius", file: "/media/Light me up again.mp4", gradient: "from-red-500/25 via-orange-500/15 to-black" },
-  { title: "Set the Dark on Fire", artist: "Marius", file: "/media/Set the Dark on Fire.mp3", gradient: "from-red-500/25 via-orange-500/15 to-black" },
-  { title: "Midnight Lingers", artist: "Marius", file: "/media/Midnight Lingers.mp4", gradient: "from-violet-500/25 via-fuchsia-500/15 to-black" },
-  { title: "I'll Hold on to What We Had", artist: "Marius", file: "/media/I ll Hold on to What We Had.mp4", gradient: "from-rose-500/25 via-purple-500/15 to-black" },
-  { title: "Itj Stopp Mæ", artist: "Marius", file: "/media/Itj Stopp Mæ.mp4", gradient: "from-green-500/25 via-emerald-500/15 to-black" },
-  { title: "Rolig musikk fyller natten", artist: "Marius", file: "/media/Rolig musikk fyller natten, (Remastered).mp4", gradient: "from-indigo-500/25 via-violet-500/15 to-black" },
-  { title: "Final Night", artist: "Marius", file: "/media/final night.mp4", gradient: "from-slate-500/25 via-zinc-500/15 to-black" },
-  { title: "Fire (Extend)", artist: "Marius", file: "/media/Fire (Extend).mp4", gradient: "from-red-600/25 via-orange-500/15 to-black" },
-  { title: "Enter the Dragon", artist: "Marius", file: "/media/Enter the dragon.mp4", gradient: "from-amber-500/25 via-red-500/15 to-black" },
-  { title: "Light Breaks Through the Night", artist: "Marius", file: "/media/Light breaks through the night.mp4", gradient: "from-cyan-500/25 via-sky-500/15 to-black" },
-  { title: "Stund er her", artist: "Marius", file: "/media/Stund er her.mp4", gradient: "from-emerald-500/25 via-teal-500/15 to-black" },
+  { title: "Hungry Touch",
+     artist: "Marius", 
+     file: "/media/Hungry Touch.mp4", 
+     gradient: "from-pink-500/25 via-purple-500/15 to-black" 
+    },
+  { title: "Halfway Up", artist: "Marius", 
+     file: "/media/Halfway Up.mp4", 
+     gradient: "from-blue-500/25 via-cyan-500/15 to-black" 
+  },
+  { title: "Light me up again", artist: "Marius", 
+     file: "/media/Light me up again.mp4", 
+     gradient: "from-red-500/25 via-orange-500/15 to-black" 
+  },
+  { title: "Set the Dark on Fire", artist: "Marius", 
+     file: "/media/Set the Dark on Fire.mp4", 
+     gradient: "from-red-500/25 via-orange-500/15 to-black" 
+},
+  { title: "Midnight Lingers", artist: "Marius", 
+     file: "/media/Midnight Lingers.mp4", 
+     gradient: "from-violet-500/25 via-fuchsia-500/15 to-black" 
+  },
+  { title: "I'll Hold on to What We Had", artist: "Marius", 
+     file: "/media/I ll Hold on to What We Had.mp4", 
+     gradient: "from-rose-500/25 via-purple-500/15 to-black" 
+  },
+  { title: "Itj Stopp Mæ", artist: "Marius", 
+     file: "/media/Itj Stopp Mæ.mp4", 
+     gradient: "from-green-500/25 via-emerald-500/15 to-black" 
+  },
+  { title: "Rolig musikk fyller natten", artist: "Marius", 
+     file: "/media/Rolig musikk fyller natten, (Remastered).mp4", 
+     gradient: "from-indigo-500/25 via-violet-500/15 to-black"
+ },
+  { title: "Final Night", artist: "Marius", 
+     file: "/media/final night.mp4", 
+     gradient: "from-slate-500/25 via-zinc-500/15 to-black"
+  },
+  { title: "Fire (Extend)", artist: "Marius", 
+     file: "/media/Fire (Extend).mp4", 
+     gradient: "from-red-600/25 via-orange-500/15 to-black"
+  },
+  { title: "Enter the Dragon", artist: "Marius", 
+     file: "/media/Enter the dragon.mp4", 
+     gradient: "from-amber-500/25 via-red-500/15 to-black" 
+  },
+  { title: "Light Breaks Through the Night", artist: "Marius", 
+     file: "/media/Light breaks through the night.mp4", 
+     gradient: "from-cyan-500/25 via-sky-500/15 to-black" 
+  },
+  { title: "Stund er her", artist: "Marius", 
+     file: "/media/Stund er her.mp4", 
+     gradient: "from-emerald-500/25 via-teal-500/15 to-black" 
+  },
 ];
 
 export default function Music() {
