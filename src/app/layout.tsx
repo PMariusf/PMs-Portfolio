@@ -44,10 +44,10 @@ export default function RootLayout({
               transform: translate3d(0, 0, 0) scale(1);
             }
             33% {
-              transform: translate3d(7vw, 5vh, 0) scale(1.08);
+              transform: translate3d(5vw, 4vh, 0) scale(1.05);
             }
             66% {
-              transform: translate3d(-4vw, 10vh, 0) scale(0.94);
+              transform: translate3d(-3vw, 7vh, 0) scale(0.97);
             }
           }
 
@@ -56,27 +56,27 @@ export default function RootLayout({
               transform: translate3d(0, 0, 0) scale(1);
             }
             33% {
-              transform: translate3d(-6vw, -4vh, 0) scale(0.95);
+              transform: translate3d(-4vw, -3vh, 0) scale(0.97);
             }
             66% {
-              transform: translate3d(5vw, -8vh, 0) scale(1.07);
+              transform: translate3d(4vw, -6vh, 0) scale(1.04);
             }
           }
 
           .animate-liquid {
-            animation: liquidFloat 26s ease-in-out infinite;
+            animation: liquidFloat 40s ease-in-out infinite;
             will-change: transform;
           }
 
           .animate-liquid-delay {
-            animation: liquidFloatReverse 32s ease-in-out infinite;
-            animation-delay: -9s;
+            animation: liquidFloatReverse 52s ease-in-out infinite;
+            animation-delay: -14s;
             will-change: transform;
           }
 
           .animate-liquid-slow {
-            animation: liquidFloat 40s ease-in-out infinite;
-            animation-delay: -18s;
+            animation: liquidFloat 65s ease-in-out infinite;
+            animation-delay: -24s;
             will-change: transform;
           }
 
@@ -91,11 +91,10 @@ export default function RootLayout({
 
         {/* GLOBAL ANIMATED GRADIENT BACKGROUND */}
         <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[linear-gradient(180deg,#030407_0%,#070b12_48%,#030405_100%)]">
-          <div className="absolute left-[-12%] top-[-15%] h-150 w-150 animate-liquid rounded-full bg-purple-500/30 blur-[110px]" />
-          <div className="absolute bottom-[-15%] right-[-8%] h-150 w-137.5 animate-liquid-delay rounded-full bg-cyan-500/30 blur-[110px]" />
-          <div className="absolute left-[35%] top-[22%] h-150 w-112.5 animate-liquid-slow rounded-full bg-pink-500/20 blur-[120px]" />
-          <div className="absolute bottom-[15%] left-[2%] h-150 w-95 animate-liquid-delay rounded-full bg-indigo-500/24 blur-[100px]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.18)_72%,rgba(0,0,0,0.48)_100%)]" />
+          <div className="absolute left-[-12%] top-[-15%] h-150 w-150 animate-liquid rounded-full bg-blue-500/8 blur-[170px]" />
+          <div className="absolute bottom-[-15%] right-[-8%] h-150 w-137.5 animate-liquid-delay rounded-full bg-cyan-500/8 blur-[170px]" />
+          <div className="absolute bottom-[12%] left-[5%] h-150 w-95 animate-liquid-slow rounded-full bg-indigo-500/6 blur-[180px]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.15)_70%,rgba(0,0,0,0.42)_100%)]" />
         </div>
 
         {/* PAGE CONTENT */}
