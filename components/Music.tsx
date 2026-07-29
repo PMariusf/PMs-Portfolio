@@ -22,6 +22,13 @@ const songs = [
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
   {
+    title: "Set the Dark on Fire",
+    artist: "Marius",
+    file: "/media/Set the Dark on Fire.mp4",
+    gradient: "from-red-500/30 via-orange-500/20 to-black",
+  },
+  
+  {
     title: "Midnight Lingers",
     artist: "Marius",
     file: "/media/Midnight Lingers.mp4",
