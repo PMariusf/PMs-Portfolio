@@ -16,32 +16,41 @@ const musicVideos = [
   "/media/Light breaks through the night.mp4",
 ];
 
-const projects = [
+const developmentProjects = [
   {
-    title: "PM Portfolio",
+    title: "Nordhordaland Kampsport",
     description:
-      "A modern portfolio experience combining frontend development, creative design and interactive UI — built with Next.js, React and Tailwind CSS.",
-    image: "/projects/music.png",
-    tech: ["React", "Next.js", "Tailwind", "VSCode", "Vercel", "GitHub"],
-    github: "https://github.com/PMariusf/portfoilio",
-    demo: "#",
-  },
-  {
-    title: "Varegg Arena",
-    description:
-      "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.",
-    image: "/projects/Varegg-Arena/perimeter.png",
-    video: "/projects/Varegg-Arena/perimeter.mov",
+      "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
+    image: "/projects/nordhordaland-kampsport.png",
     tech: [
-      "Figma",
-      "Branding",
-      "Design",
-      "AI Visuals",
-      "Social Media",
-      "Video Editing",
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Vercel",
     ],
     github: "#",
-    demo: "#",
+    demo:
+      "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
+  },
+  {
+    title: "Solar System Explorer",
+    description:
+      "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.",
+    image: "/projects/solarsystem.png",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Three.js",
+      "React Three Fiber",
+      "Tailwind CSS",
+      "GLTF Models",
+      "Vercel",
+    ],
+    github: "https://github.com/PMariusf/solsystem",
+    demo: "https://solsystem-peach.vercel.app",
   },
   {
     title: "Fjellveidager Design",
@@ -64,6 +73,62 @@ const projects = [
     demo: "#",
   },
   {
+    title: "Aivento",
+    description:
+      "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
+    image: "/projects/Varegg-Arena/Aivento.png",
+    tech: [
+      "Figma",
+      "Design",
+      "Squarespace",
+      "VSCode",
+      "Vercel",
+      "GitHub",
+      "Video Editing",
+    ],
+    github: "#",
+    demo: "https://www.aivento.no/",
+  },
+  {
+    title: "PM Portfolio",
+    description:
+      "A modern portfolio experience combining frontend development, creative design and interactive UI — built with Next.js, React and Tailwind CSS.",
+    image: "/projects/music.png",
+    tech: ["React", "Next.js", "Tailwind", "VSCode", "Vercel", "GitHub"],
+    github: "https://github.com/PMariusf/portfoilio",
+    demo: "#",
+  },
+  {
+    title: "Future project",
+    description:
+      "Clean frontend webpage focused on layout, design and user experience.",
+    image: "/projects/web-project-two.png",
+    tech: ["React", "Tailwind", "UI/UX", "Frontend", "Responsive Design"],
+    github: "#",
+    demo: "#",
+    underConstruction: true,
+  },
+];
+
+const creativeProjects = [
+  {
+    title: "Varegg Arena",
+    description:
+      "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.",
+    image: "/projects/Varegg-Arena/perimeter.png",
+    video: "/projects/Varegg-Arena/perimeter.mov",
+    tech: [
+      "Figma",
+      "Branding",
+      "Design",
+      "AI Visuals",
+      "Social Media",
+      "Video Editing",
+    ],
+    github: "#",
+    demo: "#",
+  },
+  {
     title: "AdO Arena",
     description:
       "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
@@ -83,42 +148,6 @@ const projects = [
     demo: "#",
   },
   {
-    title: "Nordhordaland Kampsport",
-    description:
-      "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
-    image: "/projects/nordhordaland-kampsport.png",
-    tech: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Responsive Design",
-      "Vercel",
-    ],
-    github: "#",
-    demo:
-      "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
-  },
-  
-{
-  title: "Solar System Explorer",
-  description:
-    "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.",
-  image: "/projects/solarsystem.png",
-  tech: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Three.js",
-    "React Three Fiber",
-    "Tailwind CSS",
-    "GLTF Models",
-    "Vercel",
-  ],
-  github: "https://github.com/PMariusf/solsystem",
-  demo: "https://solsystem-peach.vercel.app",
-},
-  {
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
@@ -127,37 +156,175 @@ const projects = [
     github: "#",
     demo: "https://suno.com",
   },
-  {
-    title: "Aivento",
-    description:
-      "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
-    image: "/projects/Varegg-Arena/Aivento.png",
-    tech: [
-      "Figma",
-      "Design",
-      "Squarespace",
-      "VSCode",
-      "Vercel",
-      "GitHub",
-      "Video Editing",
-    ],
-    github: "#",
-    demo: "https://www.aivento.no/",
-  },
-  {
-    title: "Future project",
-    description:
-      "Clean frontend webpage focused on layout, design and user experience.",
-    image: "/projects/web-project-two.png",
-    tech: ["React", "Tailwind", "UI/UX", "Frontend", "Responsive Design"],
-    github: "#",
-    demo: "#",
-    underConstruction: true,
-  },
 ];
+
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  github: string;
+  demo: string;
+  video?: string;
+  underConstruction?: boolean;
+};
 
 export default function ProjectsPage() {
   const [currentMusic, setCurrentMusic] = useState(0);
+
+  const renderProject = (project: Project) => (
+    <div
+      key={project.title}
+      className="overflow-hidden rounded-4xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2"
+    >
+      <div className="grid md:grid-cols-2">
+        <div className="relative flex h-80 items-center justify-center overflow-hidden bg-black">
+          {project.title === "PM Portfolio" ? (
+            <div className="absolute inset-0 bg-black">
+              <div className="matrix-rain opacity-80">
+                {matrixColumns.map((column) => (
+                  <span
+                    key={column}
+                    className={`matrix-column matrix-column-${column}`}
+                  >
+                    {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
+                  </span>
+                ))}
+              </div>
+
+              <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                  PM PORTFOLIO
+                </h3>
+              </div>
+            </div>
+          ) : project.title === "AI Music & Creative Projects" ? (
+            <div className="relative h-full w-full">
+              <video
+                key={musicVideos[currentMusic]}
+                src={musicVideos[currentMusic]}
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+                className="h-full w-full object-contain"
+              />
+
+              <button
+                onClick={() =>
+                  setCurrentMusic((previous) =>
+                    previous === 0 ? musicVideos.length - 1 : previous - 1,
+                  )
+                }
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                aria-label="Previous music video"
+              >
+                ‹
+              </button>
+
+              <button
+                onClick={() =>
+                  setCurrentMusic((previous) =>
+                    previous === musicVideos.length - 1 ? 0 : previous + 1,
+                  )
+                }
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
+                aria-label="Next music video"
+              >
+                ›
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+                {musicVideos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentMusic(index)}
+                    className={`h-2 w-2 rounded-full transition ${
+                      currentMusic === index ? "bg-white" : "bg-white/40"
+                    }`}
+                    aria-label={`Go to music video ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="max-h-full max-w-full object-contain"
+            />
+          ) : (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          )}
+
+          {project.underConstruction && (
+            <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
+              <Settings className="h-16 w-16 animate-[spin_8s_linear_infinite] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.45)]" />
+              <h3 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
+                UNDER CONSTRUCTION
+              </h3>
+            </div>
+          )}
+        </div>
+
+        <div className="p-8">
+          <h2 className="text-3xl font-bold">{project.title}</h2>
+
+          <p className="mt-4 leading-relaxed text-white/70">
+            {project.description}
+          </p>
+
+          <div className="mt-5 flex flex-wrap gap-3">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-8 flex gap-4">
+            {project.github !== "#" && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/20 bg-white/10 px-5 py-3 transition hover:bg-white/20"
+              >
+                GitHub
+              </a>
+            )}
+
+            {project.demo !== "#" && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-white px-5 py-3 text-black transition hover:scale-105"
+              >
+                Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -177,160 +344,18 @@ export default function ProjectsPage() {
           projects showcasing design, interactivity and problem solving.
         </p>
 
-        <div className="mt-14 grid gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="overflow-hidden rounded-4xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2"
-            >
-              <div className="grid md:grid-cols-2">
-                <div className="relative flex h-80 items-center justify-center overflow-hidden bg-black">
-                  {project.title === "PM Portfolio" ? (
-                    <div className="absolute inset-0 bg-black">
-                      <div className="matrix-rain opacity-80">
-                        {matrixColumns.map((column) => (
-                          <span
-                            key={column}
-                            className={`matrix-column matrix-column-${column}`}
-                          >
-                            {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
-                          </span>
-                        ))}
-                      </div>
+        <div className="mt-14">
+          <h2 className="mb-8 text-4xl font-bold">Development</h2>
+          <div className="grid gap-8">
+            {developmentProjects.map(renderProject)}
+          </div>
+        </div>
 
-                      <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
-
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
-                          PM PORTFOLIO
-                        </h3>
-                      </div>
-                    </div>
-                  ) : project.title === "AI Music & Creative Projects" ? (
-                    <div className="relative h-full w-full">
-                      <video
-                        key={musicVideos[currentMusic]}
-                        src={musicVideos[currentMusic]}
-                        muted
-                        loop
-                        playsInline
-                        controls
-                        preload="metadata"
-                        className="h-full w-full object-contain"
-                      />
-
-                      <button
-                        onClick={() =>
-                          setCurrentMusic((previous) =>
-                            previous === 0 ? musicVideos.length - 1 : previous - 1,
-                          )
-                        }
-                        className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
-                        aria-label="Previous music video"
-                      >
-                        ‹
-                      </button>
-
-                      <button
-                        onClick={() =>
-                          setCurrentMusic((previous) =>
-                            previous === musicVideos.length - 1 ? 0 : previous + 1,
-                          )
-                        }
-                        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
-                        aria-label="Next music video"
-                      >
-                        ›
-                      </button>
-
-                      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-                        {musicVideos.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentMusic(index)}
-                            className={`h-2 w-2 rounded-full transition ${
-                              currentMusic === index ? "bg-white" : "bg-white/40"
-                            }`}
-                            aria-label={`Go to music video ${index + 1}`}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  ) : project.video ? (
-                    <video
-                      src={project.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                  )}
-
-                  {project.underConstruction && (
-                    <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-black/70 backdrop-blur-md">
-                      <Settings className="h-16 w-16 animate-[spin_8s_linear_infinite] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.45)]" />
-                      <h3 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
-                        UNDER CONSTRUCTION
-                      </h3>
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-8">
-                  <h2 className="text-3xl font-bold">{project.title}</h2>
-
-                  <p className="mt-4 leading-relaxed text-white/70">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-8 flex gap-4">
-                    {project.github !== "#" && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full border border-white/20 bg-white/10 px-5 py-3 transition hover:bg-white/20"
-                      >
-                        GitHub
-                      </a>
-                    )}
-
-                    {project.demo !== "#" && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full bg-white px-5 py-3 text-black transition hover:scale-105"
-                      >
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="mt-20 border-t border-white/10 pt-14">
+          <h2 className="mb-8 text-4xl font-bold">Creative Visual</h2>
+          <div className="grid gap-8">
+            {creativeProjects.map(renderProject)}
+          </div>
         </div>
       </section>
 
