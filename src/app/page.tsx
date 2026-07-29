@@ -23,32 +23,38 @@ const developmentProjects = [
     text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.",
     href: "https://norhordaland-kampsport.vercel.app",
     external: true,
+    glow: "green",
   },
   {
     title: "Solar System Explorer",
     image: "/projects/Solarsystem.png",
     text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.",
+    glow: "blue",
   },
   {
     title: "Fjellveidager",
     image: "/projects/Varegg-Arena/fjellveidager.png",
     text: "Creative branding, posters and event visuals.",
+    glow: "amber",
   },
   {
     title: "Aivento",
     image: "/projects/Varegg-Arena/Aivento.png",
     text: "Modern responsive website built with Squarespace.",
+    glow: "violet",
   },
   {
     title: "PM-portfolio",
     image: "/projects/music.png",
     text: "Coding is Life.",
+    glow: "purple",
   },
   {
     title: "Future project",
     image: "/projects/web-project-two.png",
     text: "Clean frontend webpage focused on layout, design and user experience.",
     underConstruction: true,
+    glow: "neutral",
   },
 ];
 
@@ -58,25 +64,40 @@ const creativeProjects = [
     image: "/projects/Varegg-Arena/varegg.png",
     video: "/projects/Varegg-Arena/perimeter.mov",
     text: "Sports visuals, branding and event graphics.",
+    glow: "red",
   },
   {
     title: "AdO Arena",
     image: "/projects/ado-arena/ado.png",
     video: "/projects/ADO.mov",
     text: "Cinematic arena visuals, water, diving and event promotion.",
+    glow: "cyan",
   },
   {
     title: "Åsane Arena",
     image: "/projects/Varegg-Arena/Asanearena.png",
     text: "Sports arena visuals, branding and creative promotional content.",
+    glow: "blue",
   },
   {
     title: "Creative Music",
     image: "/projects/music.png",
     video: musicVideos[0],
     text: "AI music production, cinematic sound design and creative media.",
+    glow: "orange",
   },
 ];
+
+type GlowTone =
+  | "green"
+  | "blue"
+  | "amber"
+  | "violet"
+  | "purple"
+  | "red"
+  | "cyan"
+  | "orange"
+  | "neutral";
 
 type HomeProject = {
   title: string;
@@ -86,6 +107,40 @@ type HomeProject = {
   external?: boolean;
   video?: string;
   underConstruction?: boolean;
+  glow: GlowTone;
+};
+
+const glowStyles: Record<GlowTone, string> = {
+  green:
+    "hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  blue:
+    "hover:border-blue-300/25 hover:shadow-[0_24px_70px_rgba(59,130,246,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  amber:
+    "hover:border-amber-300/25 hover:shadow-[0_24px_70px_rgba(245,158,11,0.16),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  violet:
+    "hover:border-violet-300/25 hover:shadow-[0_24px_70px_rgba(139,92,246,0.17),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  purple:
+    "hover:border-fuchsia-300/25 hover:shadow-[0_24px_70px_rgba(168,85,247,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  red:
+    "hover:border-red-300/25 hover:shadow-[0_24px_70px_rgba(239,68,68,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  cyan:
+    "hover:border-cyan-300/25 hover:shadow-[0_24px_70px_rgba(34,211,238,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  orange:
+    "hover:border-orange-300/25 hover:shadow-[0_24px_70px_rgba(249,115,22,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  neutral:
+    "hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08),inset_0_1px_0_rgba(255,255,255,0.12)]",
+};
+
+const gradientStyles: Record<GlowTone, string> = {
+  green: "from-emerald-400/10 via-transparent to-black/80",
+  blue: "from-blue-400/10 via-transparent to-black/80",
+  amber: "from-amber-400/10 via-transparent to-black/80",
+  violet: "from-violet-400/10 via-transparent to-black/80",
+  purple: "from-fuchsia-400/10 via-transparent to-black/80",
+  red: "from-red-400/10 via-transparent to-black/80",
+  cyan: "from-cyan-400/10 via-transparent to-black/80",
+  orange: "from-orange-400/10 via-transparent to-black/80",
+  neutral: "from-white/5 via-transparent to-black/80",
 };
 
 function ProjectCard({ project }: { project: HomeProject }) {
@@ -94,8 +149,10 @@ function ProjectCard({ project }: { project: HomeProject }) {
       href={project.href ?? "/Projects"}
       target={project.external ? "_blank" : undefined}
       rel={project.external ? "noopener noreferrer" : undefined}
-      className="group block h-full overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
+      className={`group relative block h-full overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}
     >
+      <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-1 ring-inset ring-white/[0.035]" />
+
       <div className="relative h-44 overflow-hidden bg-black">
         {project.title === "PM-portfolio" ? (
           <div className="absolute inset-0 bg-black">
@@ -104,7 +161,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
               alt={project.title}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover opacity-35 transition duration-500 group-hover:scale-105"
+              className="object-cover opacity-35 transition duration-700 group-hover:scale-[1.04]"
             />
             <div className="absolute inset-0 bg-black/50" />
             <div className="matrix-rain opacity-75">
@@ -131,7 +188,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
             muted
             loop
             playsInline
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
           />
         ) : (
           <Image
@@ -140,9 +197,15 @@ function ProjectCard({ project }: { project: HomeProject }) {
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             priority={project.title === "Nordhordaland Kampsport"}
-            className="object-cover transition duration-500 group-hover:scale-105"
+            className="object-cover transition duration-700 group-hover:scale-[1.04]"
           />
         )}
+
+        <div
+          className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75 transition-opacity duration-500 group-hover:opacity-100`}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-white/[0.035]" />
+        <div className="pointer-events-none absolute -left-[70%] top-0 h-full w-1/2 skew-x-[-20deg] bg-linear-to-r from-transparent via-white/[0.13] to-transparent opacity-0 blur-sm transition-all duration-700 group-hover:left-[125%] group-hover:opacity-100" />
 
         {project.underConstruction && (
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-5 bg-black/60 backdrop-blur-md">
@@ -156,12 +219,13 @@ function ProjectCard({ project }: { project: HomeProject }) {
         )}
       </div>
 
-      <div className="p-5">
+      <div className="relative z-20 border-t border-white/[0.06] bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5 backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-0.5">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
         <h3 className="text-xl font-bold">{project.title}</h3>
         <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">
           {project.text}
         </p>
-        <p className="mt-4 text-sm font-bold text-white/80">
+        <p className="mt-4 text-sm font-bold text-white/80 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white">
           {project.external ? "Visit live site →" : "View project →"}
         </p>
       </div>
