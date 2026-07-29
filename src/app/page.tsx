@@ -9,7 +9,7 @@ import { Settings } from "lucide-react";
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 const musicVideos = [
-  "/media/Hungry Touch.mp4",
+  "/media/Set the Dark on Fire.mp4",
   "/media/Halfway up.mp4",
   "/media/final night.mp4",
   "/media/Enter the dragon.mp4",
