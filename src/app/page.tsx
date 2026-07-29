@@ -94,7 +94,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
       href={project.href ?? "/Projects"}
       target={project.external ? "_blank" : undefined}
       rel={project.external ? "noopener noreferrer" : undefined}
-      className="group overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
+      className="group block h-full overflow-hidden rounded-3xl border border-white/10 bg-black/30 transition duration-300 hover:-translate-y-2 hover:border-white/30 hover:bg-white/10"
     >
       <div className="relative h-44 overflow-hidden bg-black">
         {project.title === "PM-portfolio" ? (
@@ -169,10 +169,35 @@ function ProjectCard({ project }: { project: HomeProject }) {
   );
 }
 
+function ProjectGrid({ projects }: { projects: HomeProject[] }) {
+  return (
+    <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
+      {projects.map((project, index) => {
+        const mobileDivider = index > 0 ? "border-t border-white/10" : "";
+        const tabletDivider = `${index >= 2 ? "md:border-t" : "md:border-t-0"} ${
+          index % 2 !== 0 ? "md:border-l" : "md:border-l-0"
+        }`;
+        const desktopDivider = `${index >= 4 ? "lg:border-t" : "lg:border-t-0"} ${
+          index % 4 !== 0 ? "lg:border-l" : "lg:border-l-0"
+        }`;
+
+        return (
+          <div
+            key={project.title}
+            className={`border-white/10 p-4 sm:p-5 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
+          >
+            <ProjectCard project={project} />
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function SectionDivider() {
   return (
     <div className="flex items-center justify-center py-16" aria-hidden="true">
-      <div className="h-px w-36 bg-linear-to-r from-transparent via-white/20 to-transparent sm:w-44" />
+      <div className="h-px w-1/2 max-w-2xl bg-linear-to-r from-transparent via-white/25 to-transparent" />
     </div>
   );
 }
@@ -265,11 +290,7 @@ export default function Home() {
                 </h3>
               </div>
 
-              <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-                {developmentProjects.map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
-              </div>
+              <ProjectGrid projects={developmentProjects} />
             </div>
 
             <SectionDivider />
@@ -284,11 +305,7 @@ export default function Home() {
                 </h3>
               </div>
 
-              <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-                {creativeProjects.map((project) => (
-                  <ProjectCard key={project.title} project={project} />
-                ))}
-              </div>
+              <ProjectGrid projects={creativeProjects} />
             </div>
           </div>
         </section>
