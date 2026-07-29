@@ -149,7 +149,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
       href={project.href ?? "/Projects"}
       target={project.external ? "_blank" : undefined}
       rel={project.external ? "noopener noreferrer" : undefined}
-      className={`group relative block h-full overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}
+      className={`group relative block h-full overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-xl transition-[border-color,background-color,box-shadow] duration-500 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}
     >
       <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-1 ring-inset ring-white/[0.035]" />
 
