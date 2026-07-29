@@ -52,6 +52,11 @@ const recentProjects = [
     text: "Sports arena visuals, branding and creative promotional content.",
   },
   {
+     title: "Solar System Explorer",
+     image: "/projects/solarsystem.png",
+     text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.",
+  },
+  {
     title: "Aivento",
     image: "/projects/Varegg-Arena/Aivento.png",
     text: "Modern responsive website built with Squarespace.",
