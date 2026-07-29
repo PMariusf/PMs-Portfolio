@@ -29,6 +29,7 @@ const developmentProjects = [
       "Tailwind CSS",
       "Responsive Design",
       "Vercel",
+      "Visual Image Creation",
     ],
     github: "#",
     demo:
