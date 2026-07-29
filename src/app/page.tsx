@@ -26,7 +26,7 @@ const developmentProjects = [
   },
   {
     title: "Solar System Explorer",
-    image: "/projects/solarsystem.png",
+    image: "/projects/Solarsystem.png",
     text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.",
   },
   {
