@@ -32,7 +32,7 @@ const developmentProjects = [
     ],
     github: "#",
     demo:
-      "https://norhordaland-kampsport-oqu0iw3va-per-marius-foyner.vercel.app",
+      "https://norhordaland-kampsport.vercel.app",
   },
   {
     title: "Solar System Explorer",
