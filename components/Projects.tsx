@@ -63,7 +63,7 @@ const categories: Record<
       {
         src: "/projects/Drawing/Vaiana.jpg",
         alt: "Vaiana",
-        year: 2024, 
+        year: 2024,
       },
       {
         src: "/projects/Drawing/elsaupdatepng.png",
@@ -154,7 +154,7 @@ const categories: Record<
         src: "/projects/Varegg-Arena/femalepingpong.png",
         alt: "Female ping pong player",
       },
-        {
+      {
         src: "/projects/nordhordaland-kampsport.png",
         alt: "Nordhordaland Kampsport",
       },
@@ -165,8 +165,13 @@ const categories: Record<
     title: "Music",
     images: [
       {
+        src: "/media/Set the Dark on Fire.mp4",
+        alt: "Set the Dark on Fire",
+        type: "video",
+      },
+      {
         src: "/media/Enter the dragon.mp4",
-        alt: "Creative Music",
+        alt: "Enter the Dragon",
         type: "video",
       },
       {
@@ -175,12 +180,12 @@ const categories: Record<
         type: "video",
       },
       {
-        src: "/media/Halfway Up.mp4",
+        src: "/media/Halfway up.mp4",
         alt: "Halfway Up",
         type: "video",
       },
       {
-        src: "/media/Light Breaks Through the Night.mp4",
+        src: "/media/Light breaks through the night.mp4",
         alt: "Light Breaks Through the Night",
         type: "video",
       },
@@ -206,7 +211,7 @@ const categories: Record<
     title: "Music Video",
     images: [
       {
-        src: "media/MusicVideo.mp4",
+        src: "/media/MusicVideo.mp4",
         alt: "Digital Art Music Video",
         type: "video",
       },
@@ -288,13 +293,13 @@ export default function Projects() {
         </div>
 
         <div className="absolute bottom-16 left-5 rounded-2xl border border-white/15 bg-black/40 px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-       <p className="text-sm uppercase tracking-[0.25em] text-white/45">
-          {categories[selected].title}
-        </p>
+          <p className="text-sm uppercase tracking-[0.25em] text-white/45">
+            {categories[selected].title}
+          </p>
 
-        <h3 className="mt-1 text-2xl font-bold text-white">
-          {activeImage.alt}
-        </h3>
+          <h3 className="mt-1 text-2xl font-bold text-white">
+            {activeImage.alt}
+          </h3>
 
           {activeImage.year && (
             <p className="mt-1 text-sm text-white/55">
