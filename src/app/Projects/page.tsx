@@ -104,7 +104,7 @@ const projects = [
   title: "Solar System Explorer",
   description:
     "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.",
-  image: "/projects/solar-system/hero.webp",
+  image: "/projects/solarsystem.png",
   tech: [
     "Next.js",
     "React",
