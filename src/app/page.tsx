@@ -106,9 +106,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
               sizes="(max-width: 768px) 100vw, 33vw"
               className="object-cover opacity-35 transition duration-500 group-hover:scale-105"
             />
-
             <div className="absolute inset-0 bg-black/50" />
-
             <div className="matrix-rain opacity-75">
               {matrixColumns.map((column) => (
                 <span
@@ -119,9 +117,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
                 </span>
               ))}
             </div>
-
             <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
-
             <div className="absolute inset-0 flex items-center justify-center">
               <h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                 PM PORTFOLIO
@@ -153,7 +149,6 @@ function ProjectCard({ project }: { project: HomeProject }) {
             <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 shadow-[0_0_40px_rgba(255,255,255,0.08)] backdrop-blur-xl">
               <Settings className="h-10 w-10 animate-[spin_8s_linear_infinite] text-yellow-300" />
             </div>
-
             <h2 className="text-center text-xl font-black uppercase tracking-[0.45em] text-yellow-300 drop-shadow-[0_0_20px_rgba(253,224,71,0.55)]">
               UNDER CONSTRUCTION
             </h2>
@@ -163,16 +158,22 @@ function ProjectCard({ project }: { project: HomeProject }) {
 
       <div className="p-5">
         <h3 className="text-xl font-bold">{project.title}</h3>
-
         <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">
           {project.text}
         </p>
-
         <p className="mt-4 text-sm font-bold text-white/80">
           {project.external ? "Visit live site →" : "View project →"}
         </p>
       </div>
     </Link>
+  );
+}
+
+function SectionDivider() {
+  return (
+    <div className="flex items-center justify-center py-16" aria-hidden="true">
+      <div className="h-px w-36 bg-linear-to-r from-transparent via-white/20 to-transparent sm:w-44" />
+    </div>
   );
 }
 
@@ -184,7 +185,6 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
 
-        {/* HERO */}
         <section className="fade-up mx-auto max-w-[95%] pt-28">
           <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl">
             <div className="grid items-center gap-10 p-6 lg:grid-cols-2 lg:p-14">
@@ -198,15 +198,13 @@ export default function Home() {
                 <p className="text-sm uppercase tracking-[0.4em] text-white/50">
                   Frontend Developer
                 </p>
-
                 <h1 className="mt-5 text-5xl font-bold leading-tight md:text-7xl">
                   Modern Web Design with a Creative Edge
                 </h1>
-
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-                  I build modern, responsive and visually engaging websites
-                  using React, Next.js and Tailwind CSS — with a strong interest
-                  in design, AI and creative digital experiences.
+                  I build modern, responsive and visually engaging websites using
+                  React, Next.js and Tailwind CSS — with a strong interest in
+                  design, AI and creative digital experiences.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -216,7 +214,6 @@ export default function Home() {
                   >
                     View Projects
                   </Link>
-
                   <Link
                     href="/About"
                     className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white transition hover:bg-white/20"
@@ -233,23 +230,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RECENT PROJECTS */}
-        <section className="fade-up mx-auto max-w-7xl px-6 pt-16">
-          <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-8">
-            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
+          <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
+            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-sm uppercase tracking-[0.4em] text-white/60">
                   Creative Showcase
                 </p>
-
-                <h2 className="mt-3 text-4xl font-bold">
+                <h2 className="mt-3 text-4xl font-bold md:text-5xl">
                   Frontend, Design & Visual Projects
                 </h2>
-
                 <p className="mt-4 max-w-2xl text-white/60">
-                  A collection of frontend development, creative visuals,
-                  digital art and personal projects that reflect my passion for
-                  technology and design.
+                  A collection of frontend development, creative visuals, digital
+                  art and personal projects that reflect my passion for technology
+                  and design.
                 </p>
               </div>
 
@@ -262,7 +256,15 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="mb-6 text-2xl font-bold">Development</h3>
+              <div className="mb-8">
+                <p className="text-xs uppercase tracking-[0.38em] text-white/40">
+                  Selected work
+                </p>
+                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+                  Development
+                </h3>
+              </div>
+
               <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                 {developmentProjects.map((project) => (
                   <ProjectCard key={project.title} project={project} />
@@ -270,8 +272,18 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-14 border-t border-white/10 pt-10">
-              <h3 className="mb-6 text-2xl font-bold">Creative Visual</h3>
+            <SectionDivider />
+
+            <div>
+              <div className="mb-8">
+                <p className="text-xs uppercase tracking-[0.38em] text-white/40">
+                  Design & media
+                </p>
+                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
+                  Creative Visual
+                </h3>
+              </div>
+
               <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                 {creativeProjects.map((project) => (
                   <ProjectCard key={project.title} project={project} />
@@ -281,8 +293,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* INTERESTS */}
-        <section className="fade-up mx-auto max-w-7xl px-6 pt-16">
+        <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl">
             <div className="scale-95">
               <Interests />
