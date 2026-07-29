@@ -153,7 +153,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
     >
       <div className="pointer-events-none absolute inset-0 z-30 rounded-3xl ring-1 ring-inset ring-white/[0.035]" />
 
-      <div className="relative h-44 overflow-hidden bg-black">
+      <div className="relative h-44 overflow-hidden bg-black [transform:translateZ(0)]">
         {project.title === "PM-portfolio" ? (
           <div className="absolute inset-0 bg-black">
             <Image
@@ -161,7 +161,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
               alt={project.title}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover opacity-35 transition duration-700 group-hover:scale-[1.04]"
+              className="object-cover opacity-35 transition-transform duration-700 will-change-transform group-hover:scale-[1.04]"
             />
             <div className="absolute inset-0 bg-black/50" />
             <div className="matrix-rain opacity-75">
@@ -188,7 +188,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
             muted
             loop
             playsInline
-            className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+            className="h-full w-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]"
           />
         ) : (
           <Image
@@ -197,7 +197,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             priority={project.title === "Nordhordaland Kampsport"}
-            className="object-cover transition duration-700 group-hover:scale-[1.04]"
+            className="object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]"
           />
         )}
 
@@ -219,8 +219,8 @@ function ProjectCard({ project }: { project: HomeProject }) {
         )}
       </div>
 
-      <div className="relative z-20 border-t border-white/[0.06] bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5 backdrop-blur-2xl transition-transform duration-500 group-hover:-translate-y-0.5">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent" />
+      <div className="relative z-20 -mt-px bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5 backdrop-blur-2xl">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/15 to-transparent" />
         <h3 className="text-xl font-bold">{project.title}</h3>
         <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">
           {project.text}
