@@ -21,7 +21,7 @@ const developmentProjects = [
     title: "Nordhordaland Kampsport",
     image: "/projects/nordhordaland-kampsport.png",
     text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.",
-    href: "https://norhordaland-kampsport.vercel.app.app",
+    href: "https://norhordaland-kampsport.vercel.app",
     external: true,
   },
   {
