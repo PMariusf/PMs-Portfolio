@@ -27,7 +27,6 @@ const songs = [
     file: "/media/Set the Dark on Fire.mp3",
     gradient: "from-red-500/30 via-orange-500/20 to-black",
   },
-  
   {
     title: "Midnight Lingers",
     artist: "Marius",
@@ -98,6 +97,11 @@ export default function Music() {
   const audioContextRef = useRef<AudioContext | null>(null);
   const animationRef = useRef<number | null>(null);
 
+  const currentTrack = songs[currentSong];
+  const sourceType = currentTrack.file.toLowerCase().endsWith(".mp3")
+    ? "audio/mpeg"
+    : "video/mp4";
+
   const formatTime = (time: number) => {
     if (!Number.isFinite(time)) return "0:00";
 
@@ -123,7 +127,6 @@ export default function Music() {
         .map((value) => Math.max(8, Math.min(42, value / 6)));
 
       setBars(newBars);
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -139,7 +142,6 @@ export default function Music() {
     const source = audioContext.createMediaElementSource(player);
 
     analyser.fftSize = 64;
-
     source.connect(analyser);
     analyser.connect(audioContext.destination);
 
@@ -199,6 +201,9 @@ export default function Music() {
 
   useEffect(() => {
     playerRef.current?.load();
+    setProgress(0);
+    setCurrentTime(0);
+    setDuration(0);
   }, [currentSong]);
 
   useEffect(() => {
@@ -214,7 +219,7 @@ export default function Music() {
   return (
     <div className="fixed bottom-3 right-3 z-50 w-62.5 sm:w-67.5 md:w-72.5">
       <div
-        className={`rounded-3xl border border-white/20 bg-linear-to-br ${songs[currentSong].gradient} p-3 shadow-2xl backdrop-blur-2xl sm:rounded-4xl sm:p-4`}
+        className={`rounded-3xl border border-white/20 bg-linear-to-br ${currentTrack.gradient} p-3 shadow-2xl backdrop-blur-2xl sm:rounded-4xl sm:p-4`}
       >
         <div className="flex items-center gap-2 sm:gap-3">
           <button
@@ -227,7 +232,7 @@ export default function Music() {
 
           <div className="min-w-0 flex-1">
             <p className="truncate text-xs font-semibold text-white sm:text-sm">
-              {songs[currentSong].title}
+              {currentTrack.title}
             </p>
 
             {!isOpen && (
@@ -269,6 +274,11 @@ export default function Music() {
               ? "mt-2 max-h-[110px] w-full rounded-xl object-cover"
               : "h-0 w-0 opacity-0"
           }
+          onLoadedMetadata={() => {
+            const player = playerRef.current;
+            if (!player) return;
+            setDuration(Number.isFinite(player.duration) ? player.duration : 0);
+          }}
           onTimeUpdate={() => {
             const player = playerRef.current;
             if (!player) return;
@@ -279,7 +289,6 @@ export default function Music() {
 
             setCurrentTime(player.currentTime);
             setDuration(safeDuration);
-
             setProgress(
               safeDuration > 0
                 ? (player.currentTime / safeDuration) * 100
@@ -288,7 +297,7 @@ export default function Music() {
           }}
           onEnded={nextSong}
         >
-          <source src={songs[currentSong].file} type="video/mp4" />
+          <source src={currentTrack.file} type={sourceType} />
         </video>
 
         {isOpen && (
@@ -302,7 +311,7 @@ export default function Music() {
               {bars.map((height, index) => (
                 <span
                   key={index}
-                  className="w-0.5 rounded-full bg-white/80 transition-all duration-100 sm:w-"
+                  className="w-0.5 rounded-full bg-white/80 transition-all duration-100 sm:w-1"
                   style={{ height: `${height}px` }}
                 />
               ))}
@@ -344,7 +353,7 @@ export default function Music() {
                       ? "bg-white/20 text-white"
                       : "text-white/70 hover:bg-white/10"
                   }`}
-                > 
+                >
                   {song.title}
                 </button>
               ))}
