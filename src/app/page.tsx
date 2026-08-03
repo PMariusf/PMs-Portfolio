@@ -17,7 +17,29 @@ const musicVideos = [
   "/media/Light breaks through the night.mp4",
 ];
 
-const developmentProjects = [
+type GlowTone =
+  | "green"
+  | "blue"
+  | "amber"
+  | "violet"
+  | "purple"
+  | "red"
+  | "cyan"
+  | "orange"
+  | "neutral";
+
+type HomeProject = {
+  title: string;
+  image: string;
+  text: string;
+  href?: string;
+  external?: boolean;
+  video?: string;
+  underConstruction?: boolean;
+  glow: GlowTone;
+};
+
+const developmentProjects: HomeProject[] = [
   {
     title: "Foyner",
     image: "/projects/foyner-page.png",
@@ -67,7 +89,7 @@ const developmentProjects = [
   },
 ];
 
-const creativeProjects = [
+const creativeProjects: HomeProject[] = [
   {
     title: "Varegg Arena",
     image: "/projects/Varegg-Arena/varegg.png",
@@ -96,28 +118,6 @@ const creativeProjects = [
     glow: "orange",
   },
 ];
-
-type GlowTone =
-  | "green"
-  | "blue"
-  | "amber"
-  | "violet"
-  | "purple"
-  | "red"
-  | "cyan"
-  | "orange"
-  | "neutral";
-
-type HomeProject = {
-  title: string;
-  image: string;
-  text: string;
-  href?: string;
-  external?: boolean;
-  video?: string;
-  underConstruction?: boolean;
-  glow: GlowTone;
-};
 
 const glowStyles: Record<GlowTone, string> = {
   green: "hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
