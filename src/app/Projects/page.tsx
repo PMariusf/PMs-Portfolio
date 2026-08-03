@@ -9,6 +9,8 @@ import Contact from "../../../components/Contact";
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 const musicVideos = [
+  "/media/Far From Me.mp4",
+  "/media/Set the Dark on Fire.mp4",
   "/media/Hungry Touch.mp4",
   "/media/Halfway up.mp4",
   "/media/final night.mp4",
@@ -18,38 +20,29 @@ const musicVideos = [
 
 const developmentProjects = [
   {
+    title: "Foyner",
+    description:
+      "A modern photography portfolio built with Next.js, React and Tailwind CSS, focusing on elegant typography, responsive layouts and smooth user interactions.",
+    image: "/projects/foyner-page.webp",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Vercel"],
+    github: "https://github.com/PMariusf/foyner",
+    demo: "https://www.foyner.no/",
+  },
+  {
     title: "Nordhordaland Kampsport",
     description:
       "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.",
     image: "/projects/nordhordaland-kampsport.png",
-    tech: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Responsive Design",
-      "Vercel",
-      "Visual Image Creation",
-    ],
+    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Responsive Design", "Vercel", "Visual Image Creation"],
     github: "#",
-    demo:
-      "https://norhordaland-kampsport.vercel.app",
+    demo: "https://norhordaland-kampsport.vercel.app",
   },
   {
     title: "Solar System Explorer",
     description:
       "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.",
     image: "/projects/Solarsystem.png",
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Three.js",
-      "React Three Fiber",
-      "Tailwind CSS",
-      "GLTF Models",
-      "Vercel",
-    ],
+    tech: ["Next.js", "React", "TypeScript", "Three.js", "React Three Fiber", "Tailwind CSS", "GLTF Models", "Vercel"],
     github: "https://github.com/PMariusf/solsystem",
     demo: "https://solsystem-peach.vercel.app",
   },
@@ -58,18 +51,7 @@ const developmentProjects = [
     description:
       "Creative branding, posters and event visuals for Fjellveidager, including logo work and promotional graphics.",
     image: "/projects/Varegg-Arena/fjellveidager.png",
-    tech: [
-      "Figma",
-      "Design",
-      "Branding",
-      "React",
-      "Next.js",
-      "Tailwind",
-      "VSCode",
-      "Vercel",
-      "GitHub",
-      "Video Editing",
-    ],
+    tech: ["Figma", "Design", "Branding", "React", "Next.js", "Tailwind", "VSCode", "Vercel", "GitHub", "Video Editing"],
     github: "https://github.com/PMariusf/fjellveidager-no",
     demo: "#",
   },
@@ -78,15 +60,7 @@ const developmentProjects = [
     description:
       "Modern responsive website built with Squarespace, focused on clean design, layout and visual communication.",
     image: "/projects/Varegg-Arena/Aivento.png",
-    tech: [
-      "Figma",
-      "Design",
-      "Squarespace",
-      "VSCode",
-      "Vercel",
-      "GitHub",
-      "Video Editing",
-    ],
+    tech: ["Figma", "Design", "Squarespace", "VSCode", "Vercel", "GitHub", "Video Editing"],
     github: "#",
     demo: "https://www.aivento.no/",
   },
@@ -101,8 +75,7 @@ const developmentProjects = [
   },
   {
     title: "Future project",
-    description:
-      "Clean frontend webpage focused on layout, design and user experience.",
+    description: "Clean frontend webpage focused on layout, design and user experience.",
     image: "/projects/web-project-two.png",
     tech: ["React", "Tailwind", "UI/UX", "Frontend", "Responsive Design"],
     github: "#",
@@ -118,21 +91,13 @@ const creativeProjects = [
       "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.",
     image: "/projects/Varegg-Arena/perimeter.png",
     video: "/projects/Varegg-Arena/perimeter.mov",
-    tech: [
-      "Figma",
-      "Branding",
-      "Design",
-      "AI Visuals",
-      "Social Media",
-      "Video Editing",
-    ],
+    tech: ["Figma", "Branding", "Design", "AI Visuals", "Social Media", "Video Editing"],
     github: "#",
     demo: "#",
   },
   {
     title: "AdO Arena",
-    description:
-      "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
+    description: "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.",
     image: "/projects/ado-arena/ado.png",
     video: "/projects/ADO.mov",
     tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"],
@@ -141,8 +106,7 @@ const creativeProjects = [
   },
   {
     title: "Åsane Arena",
-    description:
-      "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
+    description: "Sports arena visuals, branding and creative promotional content for Åsane Arena.",
     image: "/projects/Varegg-Arena/Asanearena.png",
     tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"],
     github: "#",
@@ -152,7 +116,7 @@ const creativeProjects = [
     title: "AI Music & Creative Projects",
     description:
       "Creative music production using Suno AI, cinematic sound design, custom lyrics, EDM, Eurodance, soft rock and experimental music creation. Also includes AI visuals, image editing and creative digital concepts.",
-    image: "/projects/Varegg-Arena/fjellveidager.png",
+    image: "/projects/music.png",
     tech: ["Suno AI", "Music Production", "AI", "Creative Design", "Audio"],
     github: "#",
     demo: "https://suno.com",
@@ -184,17 +148,12 @@ export default function ProjectsPage() {
             <div className="absolute inset-0 bg-black">
               <div className="matrix-rain opacity-80">
                 {matrixColumns.map((column) => (
-                  <span
-                    key={column}
-                    className={`matrix-column matrix-column-${column}`}
-                  >
+                  <span key={column} className={`matrix-column matrix-column-${column}`}>
                     {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
                   </span>
                 ))}
               </div>
-
               <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40" />
-
               <div className="absolute inset-0 flex items-center justify-center">
                 <h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em] text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                   PM PORTFOLIO
@@ -215,11 +174,7 @@ export default function ProjectsPage() {
               />
 
               <button
-                onClick={() =>
-                  setCurrentMusic((previous) =>
-                    previous === 0 ? musicVideos.length - 1 : previous - 1,
-                  )
-                }
+                onClick={() => setCurrentMusic((previous) => previous === 0 ? musicVideos.length - 1 : previous - 1)}
                 className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
                 aria-label="Previous music video"
               >
@@ -227,11 +182,7 @@ export default function ProjectsPage() {
               </button>
 
               <button
-                onClick={() =>
-                  setCurrentMusic((previous) =>
-                    previous === musicVideos.length - 1 ? 0 : previous + 1,
-                  )
-                }
+                onClick={() => setCurrentMusic((previous) => previous === musicVideos.length - 1 ? 0 : previous + 1)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/60 px-4 py-2 text-2xl text-white backdrop-blur-md transition hover:bg-black/80"
                 aria-label="Next music video"
               >
@@ -243,9 +194,7 @@ export default function ProjectsPage() {
                   <button
                     key={index}
                     onClick={() => setCurrentMusic(index)}
-                    className={`h-2 w-2 rounded-full transition ${
-                      currentMusic === index ? "bg-white" : "bg-white/40"
-                    }`}
+                    className={`h-2 w-2 rounded-full transition ${currentMusic === index ? "bg-white" : "bg-white/40"}`}
                     aria-label={`Go to music video ${index + 1}`}
                   />
                 ))}
@@ -283,17 +232,11 @@ export default function ProjectsPage() {
 
         <div className="p-8">
           <h2 className="text-3xl font-bold">{project.title}</h2>
-
-          <p className="mt-4 leading-relaxed text-white/70">
-            {project.description}
-          </p>
+          <p className="mt-4 leading-relaxed text-white/70">{project.description}</p>
 
           <div className="mt-5 flex flex-wrap gap-3">
             {project.tech.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80"
-              >
+              <span key={tech} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80">
                 {tech}
               </span>
             ))}
@@ -301,23 +244,12 @@ export default function ProjectsPage() {
 
           <div className="mt-8 flex gap-4">
             {project.github !== "#" && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-white/20 bg-white/10 px-5 py-3 transition hover:bg-white/20"
-              >
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/20 bg-white/10 px-5 py-3 transition hover:bg-white/20">
                 GitHub
               </a>
             )}
-
             {project.demo !== "#" && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-white px-5 py-3 text-black transition hover:scale-105"
-              >
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-5 py-3 text-black transition hover:scale-105">
                 Live Demo
               </a>
             )}
@@ -330,36 +262,23 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
-
       <section className="mx-auto max-w-7xl px-6 py-32">
-        <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-          Selected Work
-        </p>
-
-        <h1 className="mt-4 text-5xl font-bold">
-          Frontend, Creative & Technical Projects
-        </h1>
-
+        <p className="text-sm uppercase tracking-[0.4em] text-white/50">Selected Work</p>
+        <h1 className="mt-4 text-5xl font-bold">Frontend, Creative & Technical Projects</h1>
         <p className="mt-6 max-w-3xl text-lg text-white/70">
-          A collection of frontend development, creative concepts and technical
-          projects showcasing design, interactivity and problem solving.
+          A collection of frontend development, creative concepts and technical projects showcasing design, interactivity and problem solving.
         </p>
 
         <div className="mt-14">
           <h2 className="mb-8 text-4xl font-bold">Development</h2>
-          <div className="grid gap-8">
-            {developmentProjects.map(renderProject)}
-          </div>
+          <div className="grid gap-8">{developmentProjects.map(renderProject)}</div>
         </div>
 
         <div className="mt-20 border-t border-white/10 pt-14">
           <h2 className="mb-8 text-4xl font-bold">Creative Visual</h2>
-          <div className="grid gap-8">
-            {creativeProjects.map(renderProject)}
-          </div>
+          <div className="grid gap-8">{creativeProjects.map(renderProject)}</div>
         </div>
       </section>
-
       <Contact />
     </main>
   );
