@@ -20,201 +20,69 @@ const categories: Record<
   freehand: {
     title: "Freehand Images",
     images: [
-      {
-        src: "/projects/Drawing/dragongirl.png",
-        alt: "Dragon Girl",
-        year: 2025,
-      },
-      {
-        src: "/projects/Drawing/firedragon.png",
-        alt: "Fire Dragon",
-        year: 2025,
-      },
-      {
-        src: "/projects/Drawing/Amazonfighter.png",
-        alt: "Amazon Fighter",
-        year: 2025,
-      },
-      {
-        src: "/projects/Drawing/Elisabeth.png",
-        alt: "female potrait",
-        year: 2025,
-      },
-      {
-        src: "/projects/Drawing/cyberpunk.png",
-        alt: "Cyberpunk Female",
-        year: 2025,
-      },
-      {
-        src: "/projects/Drawing/Deadpool.jpeg",
-        alt: "Deadpool",
-        year: 2023,
-      },
-      {
-        src: "/projects/Drawing/dolphine.jpeg",
-        alt: "Dolphine",
-        year: 2023,
-      },
-      {
-        src: "/projects/Drawing/Elise.jpg",
-        alt: "Elise",
-        year: 2023,
-      },
-      {
-        src: "/projects/Drawing/Vaiana.jpg",
-        alt: "Vaiana",
-        year: 2024,
-      },
-      {
-        src: "/projects/Drawing/elsaupdatepng.png",
-        alt: "Elsa",
-        year: 2024,
-      },
+      { src: "/projects/Drawing/dragongirl.png", alt: "Dragon Girl", year: 2025 },
+      { src: "/projects/Drawing/firedragon.png", alt: "Fire Dragon", year: 2025 },
+      { src: "/projects/Drawing/Amazonfighter.png", alt: "Amazon Fighter", year: 2025 },
+      { src: "/projects/Drawing/Elisabeth.png", alt: "female potrait", year: 2025 },
+      { src: "/projects/Drawing/cyberpunk.png", alt: "Cyberpunk Female", year: 2025 },
+      { src: "/projects/Drawing/Deadpool.jpeg", alt: "Deadpool", year: 2023 },
+      { src: "/projects/Drawing/dolphine.jpeg", alt: "Dolphine", year: 2023 },
+      { src: "/projects/Drawing/Elise.jpg", alt: "Elise", year: 2023 },
+      { src: "/projects/Drawing/Vaiana.jpg", alt: "Vaiana", year: 2024 },
+      { src: "/projects/Drawing/elsaupdatepng.png", alt: "Elsa", year: 2024 },
     ],
   },
 
   digital: {
     title: "Digital Art",
     images: [
-      {
-        src: "/projects/Digital/demonhunter.png",
-        alt: "Female Horde Demonhunter",
-      },
-      {
-        src: "/projects/Digital/paladin.png",
-        alt: "Female Alliance Paladin",
-      },
-      {
-        src: "/projects/Digital/pandamonk.png",
-        alt: "Female Pandaren Monk",
-      },
-      {
-        src: "/projects/Digital/undeadmage.png",
-        alt: "Undead Mage, Male",
-      },
-      {
-        src: "/projects/Digital/Aniz.png",
-        alt: "Female Harendar Monk",
-      },
-      {
-        src: "/projects/Digital/Viking.png",
-        alt: "Female Viking",
-      },
-      {
-        src: "/projects/Digital/dreamy.jpeg",
-        alt: "Female dynasty warrior",
-      },
-      {
-        src: "/projects/Digital/druid.png",
-        alt: "Female Druid",
-      },
-      {
-        src: "/projects/Digital/femalerogue.png",
-        alt: "Female Alliance Rogue",
-      },
-      {
-        src: "/projects/Digital/deathknight.png",
-        alt: "Orc Death Knight",
-      },
-      {
-        src: "/projects/Digital/Group 50.png",
-        alt: "Army of alts WoW characters",
-      },
-      {
-        src: "/projects/Digital/Group 33.png",
-        alt: "little league WoW characters",
-      },
+      { src: "/projects/Digital/demonhunter.png", alt: "Female Horde Demonhunter" },
+      { src: "/projects/Digital/paladin.png", alt: "Female Alliance Paladin" },
+      { src: "/projects/Digital/pandamonk.png", alt: "Female Pandaren Monk" },
+      { src: "/projects/Digital/undeadmage.png", alt: "Undead Mage, Male" },
+      { src: "/projects/Digital/Aniz.png", alt: "Female Harendar Monk" },
+      { src: "/projects/Digital/Viking.png", alt: "Female Viking" },
+      { src: "/projects/Digital/dreamy.jpeg", alt: "Female dynasty warrior" },
+      { src: "/projects/Digital/druid.png", alt: "Female Druid" },
+      { src: "/projects/Digital/femalerogue.png", alt: "Female Alliance Rogue" },
+      { src: "/projects/Digital/deathknight.png", alt: "Orc Death Knight" },
+      { src: "/projects/Digital/Group 50.png", alt: "Army of alts WoW characters" },
+      { src: "/projects/Digital/Group 33.png", alt: "little league WoW characters" },
     ],
   },
 
   projects: {
     title: "Projects",
     images: [
-      {
-        src: "/projects/Varegg-Arena/fjellveidager.png",
-        alt: "Fjellveidager",
-      },
-      {
-        src: "/projects/Varegg-Arena/Hyrox.png",
-        alt: "HYROX",
-      },
-      {
-        src: "/projects/Varegg-Arena/trene.png",
-        alt: "Training",
-      },
-      {
-        src: "/projects/Varegg-Arena/Ado.png",
-        alt: "Ado bade arena",
-      },
-      {
-        src: "/projects/Varegg-Arena/femalebasket.png",
-        alt: "Female basketball player",
-      },
-      {
-        src: "/projects/Varegg-Arena/femalepingpong.png",
-        alt: "Female ping pong player",
-      },
-      {
-        src: "/projects/nordhordaland-kampsport.png",
-        alt: "Nordhordaland Kampsport",
-      },
+      { src: "/projects/Varegg-Arena/fjellveidager.png", alt: "Fjellveidager" },
+      { src: "/projects/Varegg-Arena/Hyrox.png", alt: "HYROX" },
+      { src: "/projects/Varegg-Arena/trene.png", alt: "Training" },
+      { src: "/projects/Varegg-Arena/Ado.png", alt: "Ado bade arena" },
+      { src: "/projects/Varegg-Arena/femalebasket.png", alt: "Female basketball player" },
+      { src: "/projects/Varegg-Arena/femalepingpong.png", alt: "Female ping pong player" },
+      { src: "/projects/nordhordaland-kampsport.png", alt: "Nordhordaland Kampsport" },
     ],
   },
 
   music: {
     title: "Music",
     images: [
-      {
-        src: "/media/Set the Dark on Fire.mp4",
-        alt: "Set the Dark on Fire",
-        type: "video",
-      },
-      {
-        src: "/media/Enter the dragon.mp4",
-        alt: "Enter the Dragon",
-        type: "video",
-      },
-      {
-        src: "/media/Hungry Touch.mp4",
-        alt: "Hungry Touch",
-        type: "video",
-      },
-      {
-        src: "/media/Halfway up.mp4",
-        alt: "Halfway Up",
-        type: "video",
-      },
-      {
-        src: "/media/Light breaks through the night.mp4",
-        alt: "Light Breaks Through the Night",
-        type: "video",
-      },
-      {
-        src: "/media/Itj Stopp Mæ.mp4",
-        alt: "Itj Stopp Mæ",
-        type: "video",
-      },
-      {
-        src: "/media/Rolig musikk fyller natten, (Remastered).mp4",
-        alt: "Rolig musikk fyller natten, (Remastered)",
-        type: "video",
-      },
-      {
-        src: "/media/final night.mp4",
-        alt: "Final Night",
-        type: "video",
-      },
+      { src: "/media/Far From Me.mp4", alt: "Far From Me", type: "video" },
+      { src: "/media/Set the Dark on Fire.mp4", alt: "Set the Dark on Fire", type: "video" },
+      { src: "/media/Enter the dragon.mp4", alt: "Enter the Dragon", type: "video" },
+      { src: "/media/Hungry Touch.mp4", alt: "Hungry Touch", type: "video" },
+      { src: "/media/Halfway up.mp4", alt: "Halfway Up", type: "video" },
+      { src: "/media/Light breaks through the night.mp4", alt: "Light Breaks Through the Night", type: "video" },
+      { src: "/media/Itj Stopp Mæ.mp4", alt: "Itj Stopp Mæ", type: "video" },
+      { src: "/media/Rolig musikk fyller natten, (Remastered).mp4", alt: "Rolig musikk fyller natten, (Remastered)", type: "video" },
+      { src: "/media/final night.mp4", alt: "Final Night", type: "video" },
     ],
   },
 
   musicVideo: {
     title: "Music Video",
     images: [
-      {
-        src: "/media/MusicVideo.mp4",
-        alt: "Digital Art Music Video",
-        type: "video",
-      },
+      { src: "/media/MusicVideo.mp4", alt: "Digital Art Music Video", type: "video" },
     ],
   },
 };
@@ -224,9 +92,7 @@ type CategoryKey = keyof typeof categories;
 export default function Projects() {
   const [selected, setSelected] = useState<CategoryKey>("digital");
   const [current, setCurrent] = useState(0);
-
   const images = useMemo(() => categories[selected].images, [selected]);
-
   const activeImage = images[current] ?? images[0];
 
   useEffect(() => {
@@ -243,7 +109,6 @@ export default function Projects() {
       <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-linear-to-r from-transparent via-white/70 to-transparent" />
 
       <div className="relative z-10">
-        {/* CATEGORY BUTTONS */}
         <div className="mb-6 flex flex-wrap justify-center gap-3">
           {(Object.keys(categories) as CategoryKey[]).map((key) => (
             <button
@@ -263,7 +128,6 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* MEDIA */}
         <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-linear-to-br from-white/8 via-zinc-900/50 to-black/50 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/30" />
           <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/45 to-transparent" />
@@ -296,23 +160,14 @@ export default function Projects() {
           <p className="text-sm uppercase tracking-[0.25em] text-white/45">
             {categories[selected].title}
           </p>
-
-          <h3 className="mt-1 text-2xl font-bold text-white">
-            {activeImage.alt}
-          </h3>
-
+          <h3 className="mt-1 text-2xl font-bold text-white">{activeImage.alt}</h3>
           {activeImage.year && (
-            <p className="mt-1 text-sm text-white/55">
-              Drawn in {activeImage.year}
-            </p>
+            <p className="mt-1 text-sm text-white/55">Drawn in {activeImage.year}</p>
           )}
         </div>
 
-        {/* PREVIOUS */}
         <button
-          onClick={() =>
-            setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-          }
+          onClick={() => setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
           className="absolute left-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
           aria-label="Previous item"
           title="Previous item"
@@ -320,11 +175,8 @@ export default function Projects() {
           ‹
         </button>
 
-        {/* NEXT */}
         <button
-          onClick={() =>
-            setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
-          }
+          onClick={() => setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
           className="absolute right-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
           aria-label="Next item"
           title="Next item"
@@ -332,7 +184,6 @@ export default function Projects() {
           ›
         </button>
 
-        {/* DOTS */}
         <div className="mt-6 flex justify-center gap-3">
           {images.map((_, index) => (
             <button

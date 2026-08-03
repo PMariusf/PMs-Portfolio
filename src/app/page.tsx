@@ -9,6 +9,7 @@ import { Settings } from "lucide-react";
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 const musicVideos = [
+  "/media/Far From Me.mp4",
   "/media/Set the Dark on Fire.mp4",
   "/media/Halfway up.mp4",
   "/media/final night.mp4",
@@ -17,6 +18,14 @@ const musicVideos = [
 ];
 
 const developmentProjects = [
+  {
+    title: "Foyner",
+    image: "/projects/foyner-page.webp",
+    text: "Modern photography portfolio built with Next.js, React and Tailwind CSS.",
+    href: "https://www.foyner.no/",
+    external: true,
+    glow: "amber",
+  },
   {
     title: "Nordhordaland Kampsport",
     image: "/projects/nordhordaland-kampsport.png",
@@ -111,24 +120,15 @@ type HomeProject = {
 };
 
 const glowStyles: Record<GlowTone, string> = {
-  green:
-    "hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  blue:
-    "hover:border-blue-300/25 hover:shadow-[0_24px_70px_rgba(59,130,246,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  amber:
-    "hover:border-amber-300/25 hover:shadow-[0_24px_70px_rgba(245,158,11,0.16),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  violet:
-    "hover:border-violet-300/25 hover:shadow-[0_24px_70px_rgba(139,92,246,0.17),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  purple:
-    "hover:border-fuchsia-300/25 hover:shadow-[0_24px_70px_rgba(168,85,247,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  red:
-    "hover:border-red-300/25 hover:shadow-[0_24px_70px_rgba(239,68,68,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  cyan:
-    "hover:border-cyan-300/25 hover:shadow-[0_24px_70px_rgba(34,211,238,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  orange:
-    "hover:border-orange-300/25 hover:shadow-[0_24px_70px_rgba(249,115,22,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
-  neutral:
-    "hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  green: "hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  blue: "hover:border-blue-300/25 hover:shadow-[0_24px_70px_rgba(59,130,246,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  amber: "hover:border-amber-300/25 hover:shadow-[0_24px_70px_rgba(245,158,11,0.16),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  violet: "hover:border-violet-300/25 hover:shadow-[0_24px_70px_rgba(139,92,246,0.17),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  purple: "hover:border-fuchsia-300/25 hover:shadow-[0_24px_70px_rgba(168,85,247,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  red: "hover:border-red-300/25 hover:shadow-[0_24px_70px_rgba(239,68,68,0.18),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  cyan: "hover:border-cyan-300/25 hover:shadow-[0_24px_70px_rgba(34,211,238,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  orange: "hover:border-orange-300/25 hover:shadow-[0_24px_70px_rgba(249,115,22,0.2),inset_0_1px_0_rgba(255,255,255,0.12)]",
+  neutral: "hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08),inset_0_1px_0_rgba(255,255,255,0.12)]",
 };
 
 const gradientStyles: Record<GlowTone, string> = {
@@ -166,10 +166,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
             <div className="absolute inset-0 bg-black/50" />
             <div className="matrix-rain opacity-75">
               {matrixColumns.map((column) => (
-                <span
-                  key={column}
-                  className={`matrix-column matrix-column-${column}`}
-                >
+                <span key={column} className={`matrix-column matrix-column-${column}`}>
                   {"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}
                 </span>
               ))}
@@ -196,14 +193,12 @@ function ProjectCard({ project }: { project: HomeProject }) {
             alt={project.title}
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            priority={project.title === "Nordhordaland Kampsport"}
+            priority={project.title === "Foyner" || project.title === "Nordhordaland Kampsport"}
             className="object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]"
           />
         )}
 
-        <div
-          className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75 transition-opacity duration-500 group-hover:opacity-100`}
-        />
+        <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75 transition-opacity duration-500 group-hover:opacity-100`} />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-white/[0.035]" />
         <div className="pointer-events-none absolute -left-[70%] top-0 h-full w-1/2 skew-x-[-20deg] bg-linear-to-r from-transparent via-white/[0.13] to-transparent opacity-0 blur-sm transition-all duration-700 group-hover:left-[125%] group-hover:opacity-100" />
 
@@ -222,9 +217,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
       <div className="relative z-20 -mt-px bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5 backdrop-blur-2xl">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/15 to-transparent" />
         <h3 className="text-xl font-bold">{project.title}</h3>
-        <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">
-          {project.text}
-        </p>
+        <p className="mt-2 text-sm font-semibold leading-relaxed text-white/70">{project.text}</p>
         <p className="mt-4 text-sm font-bold text-white/80 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white">
           {project.external ? "Visit live site →" : "View project →"}
         </p>
@@ -238,18 +231,11 @@ function ProjectGrid({ projects }: { projects: HomeProject[] }) {
     <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
       {projects.map((project, index) => {
         const mobileDivider = index > 0 ? "border-t border-white/10" : "";
-        const tabletDivider = `${index >= 2 ? "md:border-t" : "md:border-t-0"} ${
-          index % 2 !== 0 ? "md:border-l" : "md:border-l-0"
-        }`;
-        const desktopDivider = `${index >= 4 ? "lg:border-t" : "lg:border-t-0"} ${
-          index % 4 !== 0 ? "lg:border-l" : "lg:border-l-0"
-        }`;
+        const tabletDivider = `${index >= 2 ? "md:border-t" : "md:border-t-0"} ${index % 2 !== 0 ? "md:border-l" : "md:border-l-0"}`;
+        const desktopDivider = `${index >= 4 ? "lg:border-t" : "lg:border-t-0"} ${index % 4 !== 0 ? "lg:border-l" : "lg:border-l-0"}`;
 
         return (
-          <div
-            key={project.title}
-            className={`border-white/10 p-4 sm:p-5 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}
-          >
+          <div key={project.title} className={`border-white/10 p-4 sm:p-5 ${mobileDivider} ${tabletDivider} ${desktopDivider}`}>
             <ProjectCard project={project} />
           </div>
         );
@@ -270,7 +256,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="fixed inset-0 bg-black" />
-
       <div className="relative z-10">
         <Navbar />
 
@@ -278,42 +263,19 @@ export default function Home() {
           <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl">
             <div className="grid items-center gap-10 p-6 lg:grid-cols-2 lg:p-14">
               <div className="relative flex items-center justify-center overflow-hidden rounded-4xl border border-white/10 bg-black/40 p-4">
-                <div className="-translate-y-20 scale-100">
-                  <Hero />
-                </div>
+                <div className="-translate-y-20 scale-100"><Hero /></div>
               </div>
-
               <div>
-                <p className="text-sm uppercase tracking-[0.4em] text-white/50">
-                  Frontend Developer
-                </p>
-                <h1 className="mt-5 text-5xl font-bold leading-tight md:text-7xl">
-                  Modern Web Design with a Creative Edge
-                </h1>
+                <p className="text-sm uppercase tracking-[0.4em] text-white/50">Frontend Developer</p>
+                <h1 className="mt-5 text-5xl font-bold leading-tight md:text-7xl">Modern Web Design with a Creative Edge</h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-                  I build modern, responsive and visually engaging websites using
-                  React, Next.js and Tailwind CSS — with a strong interest in
-                  design, AI and creative digital experiences.
+                  I build modern, responsive and visually engaging websites using React, Next.js and Tailwind CSS — with a strong interest in design, AI and creative digital experiences.
                 </p>
-
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <Link
-                    href="/Projects"
-                    className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:scale-105"
-                  >
-                    View Projects
-                  </Link>
-                  <Link
-                    href="/About"
-                    className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white transition hover:bg-white/20"
-                  >
-                    About Me
-                  </Link>
+                  <Link href="/Projects" className="rounded-full bg-white px-6 py-3 font-medium text-black transition hover:scale-105">View Projects</Link>
+                  <Link href="/About" className="rounded-full border border-white/20 bg-white/10 px-6 py-3 font-medium text-white transition hover:bg-white/20">About Me</Link>
                 </div>
-
-                <p className="mt-5 text-sm uppercase tracking-[0.25em] text-white/55">
-                  Available for internship / frontend opportunities
-                </p>
+                <p className="mt-5 text-sm uppercase tracking-[0.25em] text-white/55">Available for internship / frontend opportunities</p>
               </div>
             </div>
           </div>
@@ -323,37 +285,18 @@ export default function Home() {
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
             <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <p className="text-sm uppercase tracking-[0.4em] text-white/60">
-                  Creative Showcase
-                </p>
-                <h2 className="mt-3 text-4xl font-bold md:text-5xl">
-                  Frontend, Design & Visual Projects
-                </h2>
-                <p className="mt-4 max-w-2xl text-white/60">
-                  A collection of frontend development, creative visuals, digital
-                  art and personal projects that reflect my passion for technology
-                  and design.
-                </p>
+                <p className="text-sm uppercase tracking-[0.4em] text-white/60">Creative Showcase</p>
+                <h2 className="mt-3 text-4xl font-bold md:text-5xl">Frontend, Design & Visual Projects</h2>
+                <p className="mt-4 max-w-2xl text-white/60">A collection of frontend development, creative visuals, digital art and personal projects that reflect my passion for technology and design.</p>
               </div>
-
-              <Link
-                href="/Projects"
-                className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white"
-              >
-                View all projects
-              </Link>
+              <Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">View all projects</Link>
             </div>
 
             <div>
               <div className="mb-8">
-                <p className="text-xs uppercase tracking-[0.38em] text-white/40">
-                  Selected work
-                </p>
-                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-                  Development
-                </h3>
+                <p className="text-xs uppercase tracking-[0.38em] text-white/40">Selected work</p>
+                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">Development</h3>
               </div>
-
               <ProjectGrid projects={developmentProjects} />
             </div>
 
@@ -361,14 +304,9 @@ export default function Home() {
 
             <div>
               <div className="mb-8">
-                <p className="text-xs uppercase tracking-[0.38em] text-white/40">
-                  Design & media
-                </p>
-                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
-                  Creative Visual
-                </h3>
+                <p className="text-xs uppercase tracking-[0.38em] text-white/40">Design & media</p>
+                <h3 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">Creative Visual</h3>
               </div>
-
               <ProjectGrid projects={creativeProjects} />
             </div>
           </div>
@@ -376,9 +314,7 @@ export default function Home() {
 
         <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl">
-            <div className="scale-95">
-              <Interests />
-            </div>
+            <div className="scale-95"><Interests /></div>
           </div>
         </section>
 
