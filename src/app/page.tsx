@@ -20,7 +20,7 @@ const musicVideos = [
 const developmentProjects = [
   {
     title: "Foyner",
-    image: "/projects/foyner-page.webp",
+    image: "/projects/foyner-page.png",
     text: "Modern photography portfolio built with Next.js, React and Tailwind CSS.",
     href: "https://www.foyner.no/",
     external: true,
