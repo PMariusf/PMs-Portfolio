@@ -56,6 +56,10 @@ const songs = [
      file: "/media/Stund er her.mp4", 
      gradient: "from-emerald-500/25 via-teal-500/15 to-black" 
   },
+   { title: "Far From Me", artist: "Marius", 
+     file: "/media/Far From Me.mp4", 
+     gradient: "from-emerald-500/25 via-teal-500/15 to-black" 
+  },
 ];
 
 export default function Music() {
