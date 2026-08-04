@@ -10,7 +10,7 @@ export default function Hero() {
         {/* Image */}
         <div className="-mt-10 w-fit rounded-4xl border border-white/20 bg-black/20 p-3 shadow-2xl backdrop-blur-md">
           <Image
-            src="/marius.png"
+            src="/p-marius.png"
             alt="Marius"
             width={254}
             height={254}
