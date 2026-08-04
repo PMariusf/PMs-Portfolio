@@ -23,7 +23,7 @@ const developmentProjects = [
     title: "Foyner",
     description:
       "A modern photography portfolio built with Next.js, React and Tailwind CSS, focusing on elegant typography, responsive layouts and smooth user interactions.",
-    image: "/projects/foyner-page.webp",
+    image: "/projects/foyner-page.png",
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Vercel"],
     github: "https://github.com/PMariusf/foyner",
     demo: "https://www.foyner.no/",
