@@ -1,4 +1,5 @@
 import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Music from "../../components/Music";
 
@@ -104,6 +105,9 @@ export default function RootLayout({
 
         {/* MUSIC PLAYER */}
         <Music />
+
+        {/* VERCEL WEB ANALYTICS */}
+        <Analytics />
       </body>
     </html>
   );
