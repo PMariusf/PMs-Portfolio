@@ -41,6 +41,8 @@ type HomeProject = {
 };
 
 const developmentProjects: HomeProject[] = [
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", year: "2026", href: "https://bergen-stupeklubb-r7xd.vercel.app/", external: true, glow: "cyan" },
+  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", year: "2026", href: "https://house-of-mambo.vercel.app/", external: true, glow: "purple" },
   { title: "Foyner", image: "/projects/foyner-page.png", text: "Modern photography portfolio built with Next.js, React and Tailwind CSS.", year: "2026", href: "https://www.foyner.no/", external: true, glow: "amber" },
   { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", year: "2026", href: "https://norhordaland-kampsport.vercel.app", external: true, glow: "green" },
   { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", year: "2026", glow: "blue" },
@@ -89,7 +91,7 @@ function ProjectCard({ project }: { project: HomeProject }) {
         ) : project.video ? (
           <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]" />
         ) : (
-          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Foyner" || project.title === "Nordhordaland Kampsport"} className="object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]" />
+          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "House of Mambo"} className="object-cover transition-transform duration-700 will-change-transform group-hover:scale-[1.04]" />
         )}
         <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75 transition-opacity duration-500 group-hover:opacity-100`} />
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/75 via-transparent to-white/[0.035]" />
