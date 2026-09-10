@@ -3,10 +3,9 @@
 import { useState } from "react";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
-import Image from "next/image";
-
 
 const cvFile = "/cv/Per_Marius_Foyner_CV.pdf";
+const cvPreviewFile = `${cvFile}?v=20260910`;
 
 const skills = [
   "HTML",
@@ -152,56 +151,51 @@ export default function CV() {
         </div>
       </section>
 
-    {/* CV SLIDE PREVIEW */}
-<div
-  className={`fixed inset-0 z-100 transition ${
-    isPreviewOpen ? "pointer-events-auto" : "pointer-events-none"
-  }`}
->
-  <div
-    onClick={() => setIsPreviewOpen(false)}
-    className={`absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity ${
-      isPreviewOpen ? "opacity-100" : "opacity-0"
-    }`}
-  />
-
-  <aside
-    className={`absolute right-0 top-0 h-full w-full border-l border-white/10 bg-black/95 shadow-2xl backdrop-blur-2xl transition-transform duration-500 md:w-[72vw] lg:w-[58vw] ${
-      isPreviewOpen ? "translate-x-0" : "translate-x-full"
-    }`}
-  >
-    <div className="flex h-20 items-center justify-between border-b border-white/10 px-4 md:px-6">
-      <div>
-        <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-          Preview
-        </p>
-        <h2 className="mt-1 text-lg font-bold md:text-2xl">
-          Per Marius Føyner CV
-        </h2>
-      </div>
-
-      <button
-        onClick={() => setIsPreviewOpen(false)}
-        className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
+      {/* CV SLIDE PREVIEW */}
+      <div
+        className={`fixed inset-0 z-100 transition ${
+          isPreviewOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
       >
-        Close
-      </button>
-    </div>
-
-    <div className="h-[calc(100vh-80px)] overflow-y-auto p-3 md:p-5">
-      <div className="flex min-h-full items-start justify-center">
-        <Image
-          src="/cv/Marius-CV.png"
-          alt="CV Preview"
-          width={1200}
-          height={1700}
-          className="h-auto w-full max-w-[62.5rem] rounded-2xl border border-white/10 object-contain"
-          priority
+        <div
+          onClick={() => setIsPreviewOpen(false)}
+          className={`absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity ${
+            isPreviewOpen ? "opacity-100" : "opacity-0"
+          }`}
         />
+
+        <aside
+          className={`absolute right-0 top-0 h-full w-full border-l border-white/10 bg-black/95 shadow-2xl backdrop-blur-2xl transition-transform duration-500 md:w-[72vw] lg:w-[58vw] ${
+            isPreviewOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex h-20 items-center justify-between border-b border-white/10 px-4 md:px-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/40">
+                Preview
+              </p>
+              <h2 className="mt-1 text-lg font-bold md:text-2xl">
+                Per Marius Føyner CV
+              </h2>
+            </div>
+
+            <button
+              onClick={() => setIsPreviewOpen(false)}
+              className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
+            >
+              Close
+            </button>
+          </div>
+
+          <div className="h-[calc(100vh-80px)] p-3 md:p-5">
+            <iframe
+              src={cvPreviewFile}
+              title="Per Marius Føyner CV preview"
+              className="h-full w-full rounded-2xl border border-white/10 bg-white"
+            />
+          </div>
+        </aside>
       </div>
-    </div>
-  </aside>
-</div>
 
       <Contact />
     </main>
