@@ -302,3 +302,30 @@ h3,
     transform: scale(1);
   }
 }
+
+
+@keyframes stoltzenCrossfade {
+  0%, 45% { opacity: 1; }
+  55%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.stoltzen-light {
+  animation: stoltzenCrossfade 9s ease-in-out infinite;
+}
+
+.stoltzen-dark {
+  animation: stoltzenCrossfade 9s ease-in-out infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stoltzen-light {
+    animation: none;
+    opacity: 1;
+  }
+
+  .stoltzen-dark {
+    animation: none;
+    opacity: 0;
+  }
+}
