@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -7,12 +8,55 @@ import LanguageProvider from "../../components/LanguageProvider";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
-export const metadata = { title: "PM Studio", description: "Premium Photo & Video Portfolio" };
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.p-marius.no"),
+  title: {
+    default: "Per Marius Føyner | Frontend Developer i Bergen",
+    template: "%s | Per Marius Føyner",
+  },
+  description: "Portfolio for Per Marius Føyner, frontend developer i Bergen. Nettsider og digitale løsninger bygget med React, Next.js, TypeScript og Tailwind CSS, kombinert med webdesign og kreativt visuelt innhold.",
+  keywords: ["Per Marius Føyner", "frontend developer Bergen", "frontend utvikler Bergen", "webutvikler Bergen", "Next.js", "React", "TypeScript", "Tailwind CSS", "webdesign", "portfolio"],
+  authors: [{ name: "Per Marius Føyner", url: "https://www.p-marius.no" }],
+  creator: "Per Marius Føyner",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "nb_NO",
+    url: "/",
+    siteName: "Per Marius Føyner Portfolio",
+    title: "Per Marius Føyner | Frontend Developer i Bergen",
+    description: "Frontend-utvikling, webdesign og kreative digitale prosjekter fra Bergen.",
+    images: [{ url: "/p-marius.png", alt: "Per Marius Føyner portfolio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Per Marius Føyner | Frontend Developer i Bergen",
+    description: "Frontend-utvikling, webdesign og kreative digitale prosjekter fra Bergen.",
+    images: ["/p-marius.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Per Marius Føyner",
+  url: "https://www.p-marius.no",
+  image: "https://www.p-marius.no/p-marius.png",
+  jobTitle: "Frontend Developer",
+  address: { "@type": "PostalAddress", addressLocality: "Bergen", addressCountry: "NO" },
+  knowsAbout: ["Frontend Development", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Design", "Figma"],
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nb" data-scroll-behavior="smooth" className={`${inter.variable} ${cormorant.variable} h-full antialiased`}>
       <body className="relative min-h-full overflow-x-hidden bg-black text-white">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }} />
         <style>{`
           main { background-color: transparent !important; }
           main > .fixed.inset-0.bg-black { display: none !important; }
