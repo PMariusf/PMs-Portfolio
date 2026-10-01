@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { RiOpenaiFill } from "react-icons/ri";
 import { SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiWordpress, SiSquarespace, SiWebflow, SiGithub, SiFigma, SiSupabase, SiClaude } from "react-icons/si";
 import Navbar from "../../../components/Navbar";
@@ -29,7 +30,19 @@ export default function About() {
   const no = language === "no";
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="relative isolate min-h-screen bg-black text-white">
+      <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <Image
+          src="/projects/Drawing/Amazonfighter.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_15%] opacity-[0.22] mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/75" />
+      </div>
+      <div className="relative z-10">
       <Navbar />
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-24">
         <h1 className="text-4xl font-bold leading-tight md:text-5xl">{no ? "Litt kode. Mye nysgjerrighet." : "A little code. A lot of curiosity."}</h1>
@@ -81,6 +94,7 @@ export default function About() {
         </div>
       </section>
       <Contact />
+      </div>
     </main>
   );
 }
