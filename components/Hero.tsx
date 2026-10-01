@@ -14,7 +14,7 @@ export default function Hero() {
             alt="Marius"
             width={254}
             height={254}
-            className="h-96 w-96 rounded-4xl object-contain object-top grayscale"
+            className="h-80 w-80 rounded-4xl object-contain object-top grayscale"
             priority
           />
         </div>
