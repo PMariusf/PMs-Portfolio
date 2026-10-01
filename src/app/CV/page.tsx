@@ -17,6 +17,7 @@ const skills = [
   "Tailwind CSS",
   "WordPress",
   "Squarespace",
+  "Webflow",
   "Supabase",
   "GitHub",
   "Figma",
@@ -28,18 +29,33 @@ const skills = [
 const timeline = [
   {
     title: "Frontend Development",
-    place: "Kodehode / Kodeverket",
-    text: "Studying modern frontend development with focus on React, Next.js, Tailwind CSS, responsive design and project-based learning. Experience with HTML, CSS, JavaScript, Squarespace and WordPress for building and maintaining modern websites.",
+    place: "Kodehode · 2022–2024",
+    text: "Studied frontend development with a focus on React, Next.js, Tailwind CSS, responsive design and project-based learning.",
   },
   {
-    title: "Internship / Practice",
-    place: "Gavne",
+    title: "Frontend Developer",
+    place: "Kodeverket · 2024–Present",
+    text: "Build and improve modern websites and digital solutions, with experience using Webflow, Squarespace and WordPress.",
+  },
+  {
+    title: "Creative Media, Event Production & Web Development",
+    place: "Varegg Arena · 2025–Present",
+    text: "Create visual content, promotional materials, event graphics, websites and digital experiences for sports and community events.",
+  },
+  {
+    title: "Frontend Developer with backend experience",
+    place: "Varegg Media · 2026–Present",
+    text: "Frontend-focused web work with some backend development.",
+  },
+  {
+    title: "Frontend Development Internship",
+    place: "Gavne · 2024–2025",
     text: "Worked with AI tools, Lovable, Supabase, frontend development, backend and modern digital workflows.",
   },
   {
     title: "Security / Operations",
-    place: "Securitas",
-    text: "Experience with responsibility, structure, communication, problem solving and working with people in active environments.",
+    place: "Securitas · 2007–2022",
+    text: "Experience with responsibility, structure, communication and working with people in active environments. Planned staffing, daily work schedules and routes across assignments.",
   },
 ];
 
