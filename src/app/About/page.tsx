@@ -35,10 +35,11 @@ export default function About() {
         <Image
           src="/projects/Drawing/Amazonfighter.png"
           alt=""
-          fill
+          width={1024}
+          height={1536}
           priority
-          sizes="100vw"
-          className="object-cover object-[center_15%] opacity-[0.22] mix-blend-screen"
+          sizes="(max-width: 640px) 92vw, 65vh"
+          className="absolute left-1/2 top-1/2 h-[82vh] w-auto max-w-[92vw] -translate-x-1/2 -translate-y-1/2 object-contain opacity-[0.22] mix-blend-screen sm:h-[110vh] sm:max-w-none lg:h-[130vh]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/55 to-black/75" />
       </div>
