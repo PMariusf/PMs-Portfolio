@@ -24,7 +24,7 @@ export default function About() {
     <main className="min-h-screen bg-black text-white">
       <Navbar />
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-24">
-        <h1 className="text-4xl font-bold leading-tight md:text-5xl">{no ? "Om meg" : "About me"}</h1>
+        <h1 className="text-4xl font-bold leading-tight md:text-5xl">{no ? "Litt kode. Mye nysgjerrighet." : "A little code. A lot of curiosity."}</h1>
 
         <div className="mt-10 grid grid-cols-1 gap-6">{cards.map((item) => <div key={item.number} className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-white/30"><p className="text-sm uppercase tracking-[0.35em] text-white/40">{item.number}</p><h2 className="mt-4 text-3xl font-bold">{item.title}</h2><p className="mt-4 leading-relaxed text-white/70">{item.text}</p></div>)}</div>
 
