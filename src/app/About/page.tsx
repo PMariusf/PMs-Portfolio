@@ -8,14 +8,10 @@ const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "
 
 const highlights = {
   en: [
-    { number: "01", title: "Frontend", text: "I build responsive websites with a clear structure." },
-    { number: "02", title: "Creative Work", text: "I explore ideas through images, video and music." },
-    { number: "03", title: "Problem Solving", text: "I test, learn and work towards solutions that function well." },
+    { number: "01", title: "Problem Solving", text: "I test, learn and work towards solutions that function well." },
   ],
   no: [
-    { number: "01", title: "Frontend", text: "Jeg bygger responsive nettsider med ryddig struktur." },
-    { number: "02", title: "Kreativt arbeid", text: "Jeg utforsker ideer gjennom bilde, video og musikk." },
-    { number: "03", title: "Problemløsning", text: "Jeg tester, lærer og jobber meg fram til løsninger som fungerer." },
+    { number: "01", title: "Problemløsning", text: "Jeg tester, lærer og jobber meg fram til løsninger som fungerer." },
   ],
 };
 
@@ -28,18 +24,16 @@ export default function About() {
     <main className="min-h-screen bg-black text-white">
       <Navbar />
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-24">
-        <p className="text-sm uppercase tracking-[0.4em] text-white/50">{no ? "Om meg" : "About Me"}</p>
-        <h1 className="mt-4 max-w-5xl text-5xl font-bold leading-tight md:text-7xl">{no ? "Frontend-utvikler med et kreativt tankesett" : "Frontend developer with a creative mindset"}</h1>
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/70">{no ? "Jeg er Marius, frontendutvikler fra Bergen med interesse for både kode og visuelt arbeid." : "I’m Marius, a frontend developer from Bergen, Norway, with an interest in both code and visual work."}</p>
+        <h1 className="text-4xl font-bold leading-tight md:text-5xl">{no ? "Om meg" : "About me"}</h1>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">{cards.map((item) => <div key={item.number} className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-white/30"><p className="text-sm uppercase tracking-[0.35em] text-white/40">{item.number}</p><h2 className="mt-4 text-3xl font-bold">{item.title}</h2><p className="mt-4 leading-relaxed text-white/70">{item.text}</p></div>)}</div>
+        <div className="mt-10 grid grid-cols-1 gap-6">{cards.map((item) => <div key={item.number} className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-white/30"><p className="text-sm uppercase tracking-[0.35em] text-white/40">{item.number}</p><h2 className="mt-4 text-3xl font-bold">{item.title}</h2><p className="mt-4 leading-relaxed text-white/70">{item.text}</p></div>)}</div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
             <p className="text-sm uppercase tracking-[0.35em] text-white/40">{no ? "Min reise" : "My Journey"}</p>
             <h2 className="mt-4 text-3xl font-bold">{no ? "Veien til frontend" : "Finding frontend"}</h2>
-            <p className="mt-4 leading-relaxed text-white/70">{no ? "Interessen for design og teknologi førte meg til frontendutvikling." : "An interest in design and technology led me to frontend development."}</p>
-            <p className="mt-4 leading-relaxed text-white/70">{no ? "Gjennom studier, praksis og egne prosjekter har jeg fått erfaring med både skreddersydde nettsider og publiseringsplattformer." : "Through studies, practice and personal projects, I have gained experience with both custom websites and publishing platforms."}</p>
+            <p className="mt-4 leading-relaxed text-white/70">{no ? "Jeg har lenge vært interessert i datamaskiner, fra PC-bygging til servere. I 2022 begynte jeg på frontendutdanning og har siden utviklet meg gjennom praksis hos Gavne og Kodeverket og egne prosjekter." : "I’ve long been interested in computers, from building PCs to working with servers. In 2022, I began studying frontend development and have since continued learning through placements at Gavne and Kodeverket and my own projects."}</p>
+            <p className="mt-4 leading-relaxed text-white/70">{no ? "Gjennom Kodeverket har jeg jobbet med nettsider, skjerminnhold, video og digitale løsninger ved Varegg Arena, og bidratt til arbeid for Åsane Arena og AdO. Arbeidet videreføres nå gjennom Varegg Media, en del av Varegg Arena." : "Through Kodeverket, I have worked on websites, screen content, video and digital solutions at Varegg Arena, and contributed to work for Åsane Arena and AdO. This work now continues through Varegg Media, part of Varegg Arena."}</p>
           </div>
 
           <div className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
