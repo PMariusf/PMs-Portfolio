@@ -1,10 +1,28 @@
 "use client";
 
+import { RiOpenaiFill } from "react-icons/ri";
+import { SiHtml5, SiCss, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiWordpress, SiSquarespace, SiWebflow, SiGithub, SiFigma, SiSupabase, SiClaude } from "react-icons/si";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import { useLanguage } from "../../../components/LanguageProvider";
 
-const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "WordPress", "Squarespace", "Webflow", "GitHub", "Figma", "Supabase", "ChatGPT", "Claude"];
+const skills = [
+  { name: "HTML", icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS", icon: SiCss, color: "#B794F4" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "TypeScript", icon: SiTypescript, color: "#60A5FA" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#FFFFFF" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38BDF8" },
+  { name: "WordPress", icon: SiWordpress, color: "#70B9DF" },
+  { name: "Squarespace", icon: SiSquarespace, color: "#FFFFFF" },
+  { name: "Webflow", icon: SiWebflow, color: "#739EFF" },
+  { name: "GitHub", icon: SiGithub, color: "#FFFFFF" },
+  { name: "Figma", icon: SiFigma, color: "#F28C73" },
+  { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+  { name: "ChatGPT", icon: RiOpenaiFill, color: "#FFFFFF" },
+  { name: "Claude", icon: SiClaude, color: "#DFA58D" },
+];
 
 const highlights = {
   en: [
@@ -47,7 +65,14 @@ export default function About() {
         <div className="mt-10 rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.35em] text-white/40">{no ? "Ferdigheter & teknologi" : "Skills & Technologies"}</p>
           <h2 className="mt-4 text-3xl font-bold">{no ? "Verktøy jeg jobber med" : "Tools I work with"}</h2>
-          <div className="mt-6 flex flex-wrap gap-3">{skills.map((skill) => <span key={skill} className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80">{skill}</span>)}</div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {skills.map(({ name, icon: Icon, color }) => (
+              <span key={name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/80">
+                <Icon aria-hidden="true" focusable="false" className="h-[18px] w-[18px] shrink-0" style={{ color }} />
+                {name}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
