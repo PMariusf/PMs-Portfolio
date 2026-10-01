@@ -4,7 +4,7 @@ import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import { useLanguage } from "../../../components/LanguageProvider";
 
-const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "WordPress", "Squarespace", "GitHub", "Figma", "Supabase", "AI Tools"];
+const skills = ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS", "WordPress", "Squarespace", "Webflow", "GitHub", "Figma", "Supabase", "AI Tools"];
 
 const highlights = {
   en: [
