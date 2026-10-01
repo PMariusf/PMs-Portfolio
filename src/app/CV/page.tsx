@@ -28,14 +28,9 @@ const skills = [
 
 const timeline = [
   {
-    title: "Frontend Development",
-    place: "Kodehode · 2022–2024",
-    text: "Studied frontend development with a focus on React, Next.js, Tailwind CSS, responsive design and project-based learning.",
-  },
-  {
-    title: "Frontend Developer",
-    place: "Kodeverket · 2024–Present",
-    text: "Build and improve modern websites and digital solutions, with experience using Webflow, Squarespace and WordPress.",
+    title: "Frontend Developer with backend experience",
+    place: "Varegg Media · 2026–Present",
+    text: "Frontend-focused web work with some backend development.",
   },
   {
     title: "Creative Media, Event Production & Web Development",
@@ -43,14 +38,19 @@ const timeline = [
     text: "Create visual content, promotional materials, event graphics, websites and digital experiences for sports and community events.",
   },
   {
-    title: "Frontend Developer with backend experience",
-    place: "Varegg Media · 2026–Present",
-    text: "Frontend-focused web work with some backend development.",
+    title: "Frontend Developer",
+    place: "Kodeverket · 2024–Present",
+    text: "Build and improve modern websites and digital solutions, with experience using Webflow, Squarespace and WordPress.",
   },
   {
     title: "Frontend Development Internship",
     place: "Gavne · 2024–2025",
     text: "Worked with AI tools, Lovable, Supabase, frontend development, backend and modern digital workflows.",
+  },
+  {
+    title: "Frontend Development",
+    place: "Kodehode · 2022–2024",
+    text: "Studied frontend development with a focus on React, Next.js, Tailwind CSS, responsive design and project-based learning.",
   },
   {
     title: "Security / Operations",
@@ -107,7 +107,7 @@ export default function CV() {
           {timeline.map((item) => (
             <div
               key={item.title}
-              className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-white/30"
+              className="rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl"
             >
               <p className="text-sm uppercase tracking-[0.3em] text-white/40">
                 {item.place}
