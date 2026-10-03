@@ -28,27 +28,27 @@ const skills = [
 
 const timeline = [
   {
-    title: "Frontend Developer with backend experience",
+    title: "Web Development & Digital Solutions",
     place: "Varegg Media · 2026–Present",
     text: "Frontend-focused web work with some backend development.",
   },
   {
-    title: "Creative Media, Event Production & Web Development",
+    title: "Creative Media, Events & Web",
     place: "Varegg Arena · 2025–Present",
     text: "Create visual content, promotional materials, event graphics, websites and digital experiences for sports and community events.",
   },
   {
-    title: "Frontend Developer",
+    title: "Web Developer",
     place: "Kodeverket · 2024–Present",
     text: "Build and improve modern websites and digital solutions, with experience using Webflow, Squarespace and WordPress.",
   },
   {
-    title: "Frontend Development Internship",
+    title: "Development Internship",
     place: "Gavne · 2024–2025",
     text: "Worked with AI tools, Lovable, Supabase, frontend development, backend and modern digital workflows.",
   },
   {
-    title: "Frontend Development",
+    title: "Web Development Studies",
     place: "Kodehode · 2022–2024",
     text: "Studied frontend development with a focus on React, Next.js, Tailwind CSS, responsive design and project-based learning.",
   },
