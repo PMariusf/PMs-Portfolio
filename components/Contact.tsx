@@ -51,6 +51,7 @@ export default function Contact() {
             <Link href="/" className="hover:text-white">{no ? "Hjem" : "Home"}</Link>
             <Link href="/About" className="hover:text-white">{no ? "Om meg" : "About"}</Link>
             <Link href="/Projects" className="hover:text-white">{no ? "Prosjekter" : "Projects"}</Link>
+            <Link href="/Freelance" className="hover:text-white">{no ? "Freelance" : "Hire Me"}</Link>
             <Link href="/CV" className="hover:text-white">CV</Link>
             <Link href="/Contact" className="hover:text-white">{no ? "Kontakt" : "Contact"}</Link>
           </div>
