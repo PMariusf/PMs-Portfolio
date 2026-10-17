@@ -27,23 +27,23 @@ type HomeProject = {
   caseStudy?: string;
   github?: string;
   demo?: string;
-  demoLabel?: "live" | "current";
+  demoLabel?: "live" | "current" | "preview";
   status?: ProjectStatus[];
 };
 
 const developmentProjects: HomeProject[] = [
-  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "https://bergen-stupeklubb-r7xd.vercel.app/", status: ["live", "case-study"], glow: "cyan" },
-  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", demo: "https://house-of-mambo.vercel.app/", status: ["live", "case-study"], glow: "purple" },
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "https://bergen-stupeklubb-r7xd.vercel.app/", demoLabel: "preview", status: ["case-study"], glow: "cyan" },
+  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", demo: "https://house-of-mambo.vercel.app/", demoLabel: "preview", status: ["case-study"], glow: "purple" },
   { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green" },
   { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue" },
   { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries and interactive artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier og interaktive artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live", "case-study"], glow: "amber" },
-  { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", demo: "https://norhordaland-kampsport.vercel.app", status: ["live"], glow: "green" },
+  { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", demo: "https://norhordaland-kampsport.vercel.app", demoLabel: "preview", glow: "green" },
   { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Modern website rebuild focused on UI/UX, accessibility, performance and responsive design.", textNo: "Moderne redesign av Stoltzen-nettsiden med fokus på UI/UX, tilgjengelighet, ytelse og responsivt design.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", status: ["live"], glow: "amber" },
-  { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", demo: "https://solsystem-peach.vercel.app", status: ["live"], glow: "blue" },
+  { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", demo: "https://solsystem-peach.vercel.app", demoLabel: "preview", glow: "blue" },
   { title: "Fjellveidager", image: "/projects/Varegg-Arena/fjellveidager.png", text: "Creative branding, posters and event visuals.", textNo: "Kreativ profilering, plakater og visuelt innhold for arrangement.", year: "2026", github: "https://github.com/PMariusf/fjellveidager-no", glow: "amber" },
-  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", status: ["live"], glow: "violet" },
+  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", demoLabel: "live", status: ["live"], glow: "violet" },
   { title: "PM-portfolio", image: "/p-marius.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
-  { title: "Sykkeldeler", image: "/sykkeldeler.png", text: "Future web concept for bicycle parts, focused on clear product presentation, navigation and a modern responsive frontend.", textNo: "Fremtidig nettkonsept for sykkeldeler, med fokus på tydelig produktvisning, navigasjon og en moderne responsiv frontend.", underConstruction: true, glow: "green" },
+  { title: "Sykkeldeler", image: "/sykkeldeler.png", text: "Bicycle-parts web concept with a responsive frontend, Supabase backend and CMS for managing products and content.", textNo: "Nettkonsept for sykkeldeler med responsiv frontend, Supabase-backend og CMS for administrasjon av produkter og innhold.", underConstruction: true, glow: "green" },
 ];
 
 const creativeProjects: HomeProject[] = [
@@ -78,7 +78,7 @@ const gradientStyles: Record<GlowTone, string> = {
 };
 
 const statusStyles: Record<ProjectStatus, string> = {
-  live: "border-emerald-300/30 bg-emerald-400/15 text-emerald-100",
+  live: "border-emerald-100 bg-emerald-950/90 text-emerald-50 shadow-[0_2px_14px_rgba(0,0,0,0.45)]",
   "case-study": "border-cyan-300/30 bg-cyan-400/15 text-cyan-100",
   webflow: "border-blue-300/30 bg-blue-400/15 text-blue-100",
   "coming-soon": "border-amber-300/30 bg-amber-400/15 text-amber-100",
@@ -94,7 +94,7 @@ function statusLabel(status: ProjectStatus, no: boolean) {
 function ProjectCard({ project, language }: { project: HomeProject; language: "no" | "en" }) {
   const no = language === "no";
   const hasLinks = Boolean(project.caseStudy || project.github || project.demo);
-  const demoText = project.demoLabel === "current" ? (no ? "Nåværende side" : "Current site") : (no ? "Live side" : "Live site");
+  const demoText = project.demoLabel === "current" ? (no ? "Nåværende side" : "Current site") : project.demoLabel === "preview" ? "Preview" : (no ? "Live side" : "Live site");
 
   return (
     <div className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}>
@@ -186,8 +186,8 @@ function CurrentWork({ no }: { no: boolean }) {
             <div className="relative flex items-start gap-4">
               <Settings className="mt-0.5 h-5 w-5 shrink-0 animate-[spin_8s_linear_infinite] text-emerald-200" />
               <div>
-                <div className="flex flex-wrap items-center gap-2"><h3 className="text-xl font-bold">Sykkeldeler</h3><span className="rounded-full border border-emerald-300/25 bg-emerald-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-emerald-100">NEXT.JS</span></div>
-                <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">{no ? "Nettkonsept for sykkeldeler med fokus på produktvisning, navigasjon og en responsiv frontend." : "Bicycle-parts web concept focused on product presentation, navigation and a responsive frontend."}</p>
+                <div className="flex flex-wrap items-center gap-2"><h3 className="text-xl font-bold">Sykkeldeler</h3><span className="rounded-full border border-emerald-300/25 bg-emerald-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-emerald-100">NEXT.JS · SUPABASE · CMS</span></div>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">{no ? "Nettkonsept for sykkeldeler med responsiv frontend, Supabase-backend og CMS for produkter og innhold." : "Bicycle-parts web concept with a responsive frontend, Supabase backend and CMS for products and content."}</p>
                 <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-emerald-200/80">{no ? "UNDER UTVIKLING" : "IN DEVELOPMENT"}</p>
               </div>
             </div>
