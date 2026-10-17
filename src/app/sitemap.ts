@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/Projects/house-of-mambo", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/Projects/foyner", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/Projects/varegg-arena", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/Freelance", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/hobby", priority: 0.5, changeFrequency: "monthly" as const },
     { path: "/Contact", priority: 0.7, changeFrequency: "monthly" as const },
   ];
