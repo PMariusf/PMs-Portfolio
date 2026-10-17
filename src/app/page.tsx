@@ -50,7 +50,7 @@ const creativeProjects: HomeProject[] = [
   { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", caseStudy: "/Projects/varegg-arena", status: ["case-study"], glow: "red" },
   { title: "AdO Arena", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", text: "Cinematic arena visuals, water, diving and event promotion.", textNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering.", year: "2026", glow: "cyan" },
   { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "Sports arena visuals, branding and creative promotional content.", textNo: "Visuelt innhold for sportsarena, profilering og kreativt markedsmateriell.", year: "2026", glow: "blue" },
-  { title: "Creative Music", image: "/Ayline-deck.png", video: musicVideos[0], text: "AI music production, cinematic sound design and creative media.", textNo: "AI-musikkproduksjon, cinematisk lyddesign og kreative medier.", year: "2025–2026", demo: "https://suno.com", glow: "orange" },
+  { title: "Creative Music", image: "/Ayline-deck.png", video: musicVideos[0], text: "Music, lyrics and visual artist worlds for Ayline and Elísa on Foyner.no.", textNo: "Musikk, sangtekster og visuelle artistunivers for Ayline og Elísa på Foyner.no.", year: "2025–2026", demo: "https://www.foyner.no/artists", status: ["live"], glow: "orange" },
 ];
 
 const glowStyles: Record<GlowTone, string> = {
@@ -156,6 +156,48 @@ function SectionDivider() {
   return <div className="flex items-center justify-center py-16"><div className="h-px w-1/2 max-w-2xl bg-linear-to-r from-transparent via-white/25 to-transparent" /></div>;
 }
 
+function CurrentWork({ no }: { no: boolean }) {
+  return (
+    <section className="fade-up mx-auto max-w-7xl px-6 pt-10 sm:pt-12">
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] shadow-2xl backdrop-blur-xl">
+        <div className="flex flex-col gap-4 border-b border-white/10 px-6 py-5 sm:px-8 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-white/45">{no ? "Akkurat nå" : "Right now"}</p>
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{no ? "Under utvikling" : "Currently building"}</h2>
+          </div>
+          <Link href="/Projects" className="w-fit rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-xs font-semibold text-white/70 transition hover:bg-white/[0.12] hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link>
+        </div>
+
+        <div className="grid md:grid-cols-2">
+          <div className="group relative overflow-hidden border-b border-white/10 p-6 transition hover:bg-white/[0.04] sm:p-8 md:border-b-0 md:border-r">
+            <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-full bg-blue-400/10 blur-3xl" />
+            <div className="relative flex items-start gap-4">
+              <span className="mt-1 flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-blue-300 shadow-[0_0_20px_rgba(147,197,253,0.75)]"><span className="h-3 w-3 animate-ping rounded-full bg-blue-300/70" /></span>
+              <div>
+                <div className="flex flex-wrap items-center gap-2"><h3 className="text-xl font-bold">Varegg Fotball</h3><span className="rounded-full border border-blue-300/25 bg-blue-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-blue-100">WEBFLOW</span></div>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">{no ? "Ny nettside med ryddigere navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur. Lanseres snart." : "New website with clearer navigation, club information and a modern responsive structure. Launching soon."}</p>
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-amber-200/80">{no ? "KOMMER SNART" : "COMING SOON"}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="group relative overflow-hidden p-6 transition hover:bg-white/[0.04] sm:p-8">
+            <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 rounded-full bg-emerald-400/10 blur-3xl" />
+            <div className="relative flex items-start gap-4">
+              <Settings className="mt-0.5 h-5 w-5 shrink-0 animate-[spin_8s_linear_infinite] text-emerald-200" />
+              <div>
+                <div className="flex flex-wrap items-center gap-2"><h3 className="text-xl font-bold">Sykkeldeler</h3><span className="rounded-full border border-emerald-300/25 bg-emerald-400/10 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-emerald-100">NEXT.JS</span></div>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">{no ? "Nettkonsept for sykkeldeler med fokus på produktvisning, navigasjon og en responsiv frontend." : "Bicycle-parts web concept focused on product presentation, navigation and a responsive frontend."}</p>
+                <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.24em] text-emerald-200/80">{no ? "UNDER UTVIKLING" : "IN DEVELOPMENT"}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const { language } = useLanguage();
   const no = language === "no";
@@ -183,6 +225,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <CurrentWork no={no} />
 
         <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
