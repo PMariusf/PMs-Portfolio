@@ -10,6 +10,8 @@ type GalleryItem = {
   altNo?: string;
   year?: number;
   type?: "image" | "video";
+  poster?: string;
+  controls?: boolean;
 };
 
 const categories: Record<
@@ -71,18 +73,41 @@ const categories: Record<
   },
 
   music: {
-    title: "Music",
-    titleNo: "Musikk",
+    title: "Music & Artist Worlds",
+    titleNo: "Musikk & artistunivers",
     images: [
-      { src: "/media/Far From Me.mp4", alt: "Far From Me", type: "video" },
-      { src: "/media/Set the Dark on Fire.mp4", alt: "Set the Dark on Fire", type: "video" },
-      { src: "/media/Enter the dragon.mp4", alt: "Enter the Dragon", type: "video" },
-      { src: "/media/Hungry Touch.mp4", alt: "Hungry Touch", type: "video" },
-      { src: "/media/Halfway Up.mp4", alt: "Halfway Up", type: "video" },
-      { src: "/media/Light breaks through the night.mp4", alt: "Light Breaks Through the Night", type: "video" },
-      { src: "/media/Itj Stopp Mæ.mp4", alt: "Itj Stopp Mæ", type: "video" },
-      { src: "/media/Rolig musikk fyller natten, (Remastered).mp4", alt: "Rolig musikk fyller natten (Remastered)", type: "video" },
-      { src: "/media/final night.mp4", alt: "Final Night", type: "video" },
+      {
+        src: "https://www.foyner.no/images/Ayline/Ayline-video.mp4",
+        poster: "https://www.foyner.no/images/Ayline/Aylina-landscape.webp",
+        alt: "Ayline · Artist World",
+        altNo: "Ayline · Artistunivers",
+        type: "video",
+        controls: false,
+      },
+      {
+        src: "https://www.foyner.no/videos/Ayline/rock-singer.mp4",
+        poster: "https://www.foyner.no/images/Ayline/Ayline-singing.webp",
+        alt: "Ayline · Performance",
+        altNo: "Ayline · Performance",
+        type: "video",
+        controls: false,
+      },
+      {
+        src: "https://www.foyner.no/images/Elisra/Elisra-wink.mp4",
+        poster: "https://www.foyner.no/images/Elisra/Rain-Soaked-Elisa-Profile.webp",
+        alt: "Elísa · Artist World",
+        altNo: "Elísa · Artistunivers",
+        type: "video",
+        controls: false,
+      },
+      {
+        src: "https://www.foyner.no/images/Elisra/generated-video-cover-art-1791220543938.mp4",
+        poster: "https://www.foyner.no/images/Elisra/Rain-Soaked-Elisa-Profile.webp",
+        alt: "Elísa · Cover Art",
+        altNo: "Elísa · Cover Art",
+        type: "video",
+        controls: false,
+      },
     ],
   },
 
@@ -151,11 +176,13 @@ export default function Projects() {
               <video
                 key={activeImage.src}
                 src={activeImage.src}
+                poster={activeImage.poster}
                 autoPlay
                 muted
                 loop
                 playsInline
-                controls
+                controls={activeImage.controls !== false}
+                preload="metadata"
                 className="h-full w-full animate-fadeImage object-contain transition-opacity duration-700 ease-out"
               />
             ) : (
@@ -219,6 +246,19 @@ export default function Projects() {
             />
           ))}
         </div>
+
+        {selected === "music" && (
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://www.foyner.no/artists"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/15 bg-white/[0.07] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-white/70 transition hover:bg-white/[0.14] hover:text-white"
+            >
+              {no ? "Utforsk Ayline & Elísa på Foyner.no ↗" : "Explore Ayline & Elísa on Foyner.no ↗"}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );
