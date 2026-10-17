@@ -114,6 +114,9 @@ export default function Projects() {
     return () => clearInterval(interval);
   }, [images.length, activeImage?.type]);
 
+  const previous = () => setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const next = () => setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
   return (
     <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-4xl border border-white/15 bg-white/[0.07] p-5 shadow-[0_25px_90px_rgba(0,0,0,0.55)] backdrop-blur-3xl">
       <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/12 via-transparent to-white/5" />
@@ -139,70 +142,76 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="relative flex min-h-125 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-linear-to-br from-white/8 via-zinc-900/50 to-black/50 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+        <div className="relative h-[28rem] overflow-hidden rounded-3xl border border-white/15 bg-linear-to-br from-white/8 via-zinc-900/50 to-black/50 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_20px_70px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:h-[32rem] lg:h-[36rem]">
           <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-black/30" />
           <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-linear-to-r from-transparent via-white/45 to-transparent" />
 
-          {activeImage.type === "video" ? (
-            <video
-              key={activeImage.src}
-              src={activeImage.src}
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              className="relative z-10 h-auto max-h-125 w-auto object-contain"
-            />
-          ) : (
-            <Image
-              key={activeImage.src}
-              src={activeImage.src}
-              alt={no ? activeImage.altNo ?? activeImage.alt : activeImage.alt}
-              width={1400}
-              height={800}
-              priority
-              className="relative z-10 h-auto max-h-125 w-auto animate-fadeImage object-contain transition duration-700 hover:scale-[1.02]"
-            />
+          <div className="absolute inset-6 sm:inset-8 lg:inset-10">
+            {activeImage.type === "video" ? (
+              <video
+                key={activeImage.src}
+                src={activeImage.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                className="h-full w-full animate-fadeImage object-contain transition-opacity duration-700 ease-out"
+              />
+            ) : (
+              <Image
+                key={activeImage.src}
+                src={activeImage.src}
+                alt={no ? activeImage.altNo ?? activeImage.alt : activeImage.alt}
+                fill
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 960px"
+                priority
+                className="animate-fadeImage object-contain transition-[opacity,transform] duration-700 ease-out hover:scale-[1.015]"
+              />
+            )}
+          </div>
+
+          <div className="absolute bottom-5 left-5 z-20 max-w-[calc(100%-2.5rem)] rounded-2xl border border-white/15 bg-black/55 px-4 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:bottom-6 sm:left-6 sm:px-5">
+            <p className="text-[10px] uppercase tracking-[0.24em] text-white/45 sm:text-sm sm:tracking-[0.25em]">{categoryTitle}</p>
+            <h3 className="mt-1 text-lg font-bold text-white sm:text-2xl">{no ? activeImage.altNo ?? activeImage.alt : activeImage.alt}</h3>
+            {activeImage.year && (
+              <p className="mt-1 text-xs text-white/55 sm:text-sm">
+                {no ? `Tegnet i ${activeImage.year}` : `Drawn in ${activeImage.year}`}
+              </p>
+            )}
+          </div>
+
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={previous}
+                className="absolute left-3 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition duration-300 hover:scale-105 hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] sm:left-5 sm:px-5 sm:py-3"
+                aria-label={no ? "Forrige element" : "Previous item"}
+                title={no ? "Forrige element" : "Previous item"}
+              >
+                ‹
+              </button>
+
+              <button
+                onClick={next}
+                className="absolute right-3 top-1/2 z-30 -translate-y-1/2 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition duration-300 hover:scale-105 hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)] sm:right-5 sm:px-5 sm:py-3"
+                aria-label={no ? "Neste element" : "Next item"}
+                title={no ? "Neste element" : "Next item"}
+              >
+                ›
+              </button>
+            </>
           )}
         </div>
 
-        <div className="absolute bottom-16 left-5 rounded-2xl border border-white/15 bg-black/40 px-5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
-          <p className="text-sm uppercase tracking-[0.25em] text-white/45">{categoryTitle}</p>
-          <h3 className="mt-1 text-2xl font-bold text-white">{no ? activeImage.altNo ?? activeImage.alt : activeImage.alt}</h3>
-          {activeImage.year && (
-            <p className="mt-1 text-sm text-white/55">
-              {no ? `Tegnet i ${activeImage.year}` : `Drawn in ${activeImage.year}`}
-            </p>
-          )}
-        </div>
-
-        <button
-          onClick={() => setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
-          className="absolute left-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
-          aria-label={no ? "Forrige element" : "Previous item"}
-          title={no ? "Forrige element" : "Previous item"}
-        >
-          ‹
-        </button>
-
-        <button
-          onClick={() => setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
-          className="absolute right-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-black/40 px-5 py-3 text-3xl text-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl transition hover:bg-white/15 hover:shadow-[0_0_30px_rgba(255,255,255,0.12)]"
-          aria-label={no ? "Neste element" : "Next item"}
-          title={no ? "Neste element" : "Next item"}
-        >
-          ›
-        </button>
-
-        <div className="mt-6 flex justify-center gap-3">
+        <div className="mt-6 flex min-h-3 justify-center gap-3">
           {images.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrent(index)}
               aria-label={`${no ? "Gå til bilde" : "Go to image"} ${index + 1}`}
               title={`${no ? "Gå til bilde" : "Go to image"} ${index + 1}`}
-              className={`h-3 w-3 rounded-full transition ${
+              className={`h-3 w-3 rounded-full transition duration-300 ${
                 current === index
                   ? "scale-125 bg-white shadow-[0_0_15px_rgba(255,255,255,0.45)]"
                   : "bg-white/30 hover:bg-white/60"
