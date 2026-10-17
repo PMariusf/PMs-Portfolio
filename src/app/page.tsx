@@ -10,10 +10,9 @@ import { Settings } from "lucide-react";
 import { useLanguage } from "../../components/LanguageProvider";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
-const musicVideos = ["/media/Far From Me.mp4", "/media/Set the Dark on Fire.mp4", "/media/Halfway Up.mp4", "/media/final night.mp4", "/media/Enter the dragon.mp4", "/media/Light breaks through the night.mp4"];
 
 type GlowTone = "green" | "blue" | "amber" | "violet" | "purple" | "red" | "cyan" | "orange" | "neutral";
-type ProjectStatus = "live" | "case-study" | "webflow" | "coming-soon";
+type ProjectStatus = "live" | "case-study" | "webflow" | "coming-soon" | "preview";
 
 type HomeProject = {
   title: string;
@@ -23,34 +22,37 @@ type HomeProject = {
   year?: string;
   video?: string;
   underConstruction?: boolean;
+  featured?: boolean;
   glow: GlowTone;
   caseStudy?: string;
   github?: string;
   demo?: string;
-  demoLabel?: "live" | "current";
+  demoLabel?: "live" | "current" | "preview";
   status?: ProjectStatus[];
 };
 
 const developmentProjects: HomeProject[] = [
-  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", status: ["case-study"], glow: "cyan" },
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", status: ["case-study"], glow: "cyan", featured: true },
   { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", status: ["case-study"], glow: "purple" },
-  { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green" },
-  { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue" },
-  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries and interactive artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier og interaktive artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live", "case-study"], glow: "amber" },
+  { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green", featured: true },
+  { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue", featured: true },
+  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries, songwriting and artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier, låtskriving og artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live", "case-study"], glow: "amber", featured: true },
   { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", glow: "green" },
-  { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Rebuild concept for Stoltzen combining modern UI/UX, accessibility and performance with supporting backend and data functionality.", textNo: "Rebuild-konsept for Stoltzen som kombinerer moderne UI/UX, tilgjengelighet og ytelse med backend- og datafunksjonalitet.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", status: ["live"], glow: "amber" },
+  { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Rebuild concept for Stoltzen combining modern UI/UX, accessibility and performance with supporting backend and data functionality.", textNo: "Rebuild-konsept for Stoltzen som kombinerer moderne UI/UX, tilgjengelighet og ytelse med backend- og datafunksjonalitet.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", demoLabel: "preview", status: ["preview"], glow: "amber", featured: true },
   { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", glow: "blue" },
   { title: "Fjellveidager", image: "/projects/Varegg-Arena/fjellveidager.png", text: "Creative branding, posters and event visuals.", textNo: "Kreativ profilering, plakater og visuelt innhold for arrangement.", year: "2026", github: "https://github.com/PMariusf/fjellveidager-no", glow: "amber" },
-  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", demoLabel: "live", status: ["live"], glow: "violet" },
+  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", demoLabel: "live", status: ["live"], glow: "violet", featured: true },
   { title: "PM-portfolio", image: "/p-marius.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
   { title: "Sykkeldeler", image: "/sykkeldeler.png", text: "Bicycle-parts web concept with a responsive frontend, Supabase backend and CMS for managing products and content.", textNo: "Nettkonsept for sykkeldeler med responsiv frontend, Supabase-backend og CMS for administrasjon av produkter og innhold.", underConstruction: true, glow: "green" },
 ];
+
+const featuredDevelopmentProjects = developmentProjects.filter((project) => project.featured);
 
 const creativeProjects: HomeProject[] = [
   { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", caseStudy: "/Projects/varegg-arena", status: ["case-study"], glow: "red" },
   { title: "AdO Arena", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", text: "Cinematic arena visuals, water, diving and event promotion.", textNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering.", year: "2026", glow: "cyan" },
   { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "Sports arena visuals, branding and creative promotional content.", textNo: "Visuelt innhold for sportsarena, profilering og kreativt markedsmateriell.", year: "2026", glow: "blue" },
-  { title: "Creative Music", image: "/Ayline-deck.png", video: musicVideos[0], text: "Music, lyrics and visual artist worlds for Ayline and Elísa on Foyner.no.", textNo: "Musikk, sangtekster og visuelle artistunivers for Ayline og Elísa på Foyner.no.", year: "2025–2026", demo: "https://www.foyner.no/artists", status: ["live"], glow: "orange" },
+  { title: "Music & Artist Worlds", image: "/ayline-elisa1.png", text: "Songwriting, musical direction, character design and visual artist worlds for Ayline and Elísa on Foyner.no.", textNo: "Låtskriving, musikalsk retning, karakterdesign og visuelle artistunivers for Ayline og Elísa på Foyner.no.", year: "2025–2026", demo: "https://www.foyner.no/artists", status: ["live"], glow: "orange" },
 ];
 
 const glowStyles: Record<GlowTone, string> = {
@@ -82,19 +84,25 @@ const statusStyles: Record<ProjectStatus, string> = {
   "case-study": "border-cyan-300/30 bg-cyan-400/15 text-cyan-100",
   webflow: "border-blue-300/30 bg-blue-400/15 text-blue-100",
   "coming-soon": "border-amber-300/30 bg-amber-400/15 text-amber-100",
+  preview: "border-violet-200/40 bg-violet-950/85 text-violet-50 shadow-[0_2px_14px_rgba(0,0,0,0.4)]",
 };
 
 function statusLabel(status: ProjectStatus, no: boolean) {
   if (status === "case-study") return "CASE STUDY";
   if (status === "webflow") return "WEBFLOW";
   if (status === "coming-soon") return no ? "KOMMER SNART" : "COMING SOON";
+  if (status === "preview") return "PREVIEW";
   return "LIVE";
 }
 
 function ProjectCard({ project, language }: { project: HomeProject; language: "no" | "en" }) {
   const no = language === "no";
   const hasLinks = Boolean(project.caseStudy || project.github || project.demo);
-  const demoText = project.demoLabel === "current" ? (no ? "Nåværende side" : "Current site") : (no ? "Live side" : "Live site");
+  const demoText = project.demoLabel === "current"
+    ? (no ? "Nåværende side" : "Current site")
+    : project.demoLabel === "preview"
+      ? "Preview"
+      : (no ? "Live side" : "Live site");
 
   return (
     <div className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}>
@@ -122,7 +130,7 @@ function ProjectCard({ project, language }: { project: HomeProject; language: "n
         ) : project.video ? (
           <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
         ) : (
-          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "House of Mambo"} className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "Varegg Arena – Webflow Upgrade"} className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
         )}
         <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75`} />
         {project.status?.length ? (
@@ -149,7 +157,7 @@ function ProjectCard({ project, language }: { project: HomeProject; language: "n
 }
 
 function ProjectGrid({ projects, language }: { projects: HomeProject[]; language: "no" | "en" }) {
-  return <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">{projects.map((project, index) => <div key={project.title} className={`h-full border-white/10 p-4 sm:p-5 ${index > 0 ? "border-t" : ""} ${index >= 2 ? "md:border-t" : "md:border-t-0"} ${index % 2 ? "md:border-l" : ""} ${index >= 4 ? "lg:border-t" : "lg:border-t-0"} ${index % 4 ? "lg:border-l" : "lg:border-l-0"}`}><ProjectCard project={project} language={language} /></div>)}</div>;
+  return <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-3">{projects.map((project, index) => <div key={project.title} className={`h-full border-white/10 p-4 sm:p-5 ${index > 0 ? "border-t" : ""} ${index >= 2 ? "md:border-t" : "md:border-t-0"} ${index % 2 ? "md:border-l" : ""} ${index >= 3 ? "lg:border-t" : "lg:border-t-0"} ${index % 3 ? "lg:border-l" : "lg:border-l-0"}`}><ProjectCard project={project} language={language} /></div>)}</div>;
 }
 
 function SectionDivider() {
@@ -210,16 +218,16 @@ export default function Home() {
         <section className="fade-up mx-auto max-w-[95%] pt-24 sm:pt-28">
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl sm:rounded-4xl">
             <div className="grid items-center gap-7 p-4 sm:gap-10 sm:p-6 lg:grid-cols-2 lg:p-14">
-              <div className="relative flex min-h-[330px] items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-2 sm:min-h-0 sm:rounded-4xl sm:p-4"><div className="-translate-y-8 scale-[0.88] sm:-translate-y-14 sm:scale-95 lg:-translate-y-20 lg:scale-100"><Hero /></div></div>
+              <div className="relative flex min-h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-2 sm:rounded-4xl sm:p-4"><Hero /></div>
               <div className="relative isolate overflow-hidden px-1 pb-3 sm:px-0 sm:pb-0 lg:pl-10 xl:pl-16">
                 <Image src="/art-backgrounds/dragon-girl-cutout.png" alt="" aria-hidden="true" fill priority sizes="(max-width: 1024px) 95vw, 45vw" className="pointer-events-none object-contain object-right opacity-[0.14]" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
                 <div className="relative z-10">
-                  <div className="inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 sm:px-4 sm:text-xs sm:tracking-[0.26em] lg:ml-4">Frontend Developer · Web Design · Creative</div>
+                  <div className="inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 sm:px-4 sm:text-xs sm:tracking-[0.26em] lg:ml-4">Frontend Developer · UI/UX · Creative Digital Designer</div>
                   <h1 className="mt-5 max-w-3xl text-[2.55rem] font-bold leading-[1.04] tracking-[-0.035em] sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">{no ? "Frontendutvikling med et kreativt preg" : "Frontend development with a creative touch"}</h1>
-                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">{no ? "Frontendutvikler i Bergen. Jeg lager nettsider med tydelig design som er enkle å bruke." : "Frontend developer in Bergen. I build websites with a focus on clear design and ease of use."}</p>
-                  <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4"><Link href="/Projects" className="rounded-full bg-white px-5 py-3 text-center font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] sm:px-6">{no ? "Se utvalgte prosjekter" : "View selected projects"}</Link><Link href="/Contact" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 text-center font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12] sm:px-6">{no ? "Kontakt meg" : "Contact me"}</Link></div>
-                  <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:gap-x-5 sm:text-xs sm:tracking-[0.2em]"><span>Next.js</span><span className="text-white/20">•</span><span>React</span><span className="text-white/20">•</span><span>TypeScript</span><span className="text-white/20">•</span><span>Figma</span></div>
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">{no ? "Jeg bygger moderne, responsive nettsider og digitale opplevelser med fokus på tydelig design, brukervennlighet og visuell identitet." : "I build modern, responsive websites and digital experiences with a focus on clear design, usability and visual identity."}</p>
+                  <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4"><Link href="/Projects" className="rounded-full bg-white px-5 py-3 text-center font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] sm:px-6">{no ? "Se utvalgte prosjekter" : "View selected projects"}</Link><Link href="/Freelance" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 text-center font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12] sm:px-6">{no ? "Freelance" : "Hire me"}</Link></div>
+                  <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:gap-x-5 sm:text-xs sm:tracking-[0.2em]"><span>Next.js</span><span className="text-white/20">•</span><span>Webflow</span><span className="text-white/20">•</span><span>Supabase</span><span className="text-white/20">•</span><span>Figma</span></div>
                 </div>
               </div>
             </div>
@@ -230,10 +238,10 @@ export default function Home() {
 
         <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
-            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="text-sm uppercase tracking-[0.4em] text-white/60">{no ? "Kreativt utvalg" : "Creative Showcase"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Frontend, design & visuelle prosjekter" : "Frontend, Design & Visual Projects"}</h2><p className="mt-4 max-w-2xl text-white/60">{no ? "Et utvalg frontend-utvikling, kreative visualer, digital kunst og personlige prosjekter som viser interessen min for teknologi og design." : "A collection of frontend development, creative visuals, digital art and personal projects that reflect my passion for technology and design."}</p></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link></div>
-            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Utvalgt arbeid" : "Selected work"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Utvikling" : "Development"}</h3></div><ProjectGrid projects={developmentProjects} language={language} /></div>
+            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="text-sm uppercase tracking-[0.4em] text-white/60">{no ? "Utvalgt arbeid" : "Featured Work"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Prosjekter som viser bredden" : "Projects that show the range"}</h2><p className="mt-4 max-w-2xl text-white/60">{no ? "Et kuratert utvalg av frontend, Webflow, UI/UX og kreative prosjekter. Hele prosjektarkivet ligger på Projects-siden." : "A curated selection of frontend, Webflow, UI/UX and creative work. The full project archive lives on the Projects page."}</p></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link></div>
+            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Utvalgte prosjekter" : "Featured projects"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Utvikling" : "Development"}</h3></div><ProjectGrid projects={featuredDevelopmentProjects} language={language} /></div>
             <SectionDivider />
-            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Design & media" : "Design & media"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Kreativt visuelt" : "Creative Visual"}</h3></div><ProjectGrid projects={creativeProjects} language={language} /></div>
+            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">Design & media</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Kreativt visuelt" : "Creative Visual"}</h3></div><ProjectGrid projects={creativeProjects} language={language} /></div>
           </div>
         </section>
 
