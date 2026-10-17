@@ -34,15 +34,17 @@ export default function Navbar() {
     { href: "/Freelance", label: "Hire Me", featured: true },
   ];
 
+  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
   const desktopLinkClass = (href: string, featured?: boolean) =>
     `group relative py-2 text-[12px] font-bold uppercase tracking-[0.22em] transition duration-300 ${
       featured ? "rounded-full border border-white/15 bg-white/[0.07] px-3.5 hover:bg-white/[0.12]" : ""
-    } ${pathname === href ? "text-white" : "text-white/55 hover:text-white"}`;
+    } ${isActive(href) ? "text-white" : "text-white/55 hover:text-white"}`;
 
   const mobileLinkClass = (href: string, featured?: boolean) =>
     `relative border-b border-white/10 px-1 py-4 text-lg transition duration-300 ${
       featured ? "mt-3 rounded-2xl border border-white/15 bg-white/[0.07] px-4" : ""
-    } ${pathname === href ? "text-white" : "text-white/60 hover:text-white"}`;
+    } ${isActive(href) ? "text-white" : "text-white/60 hover:text-white"}`;
 
   const LanguageSwitch = ({ mobile = false }: { mobile?: boolean }) => (
     <div
@@ -84,7 +86,7 @@ export default function Navbar() {
             <Link key={link.href} href={link.href} className={desktopLinkClass(link.href, link.featured)}>
               {link.label}
               {!link.featured && (
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${pathname === link.href ? "w-full" : "w-0 group-hover:w-full"}`} />
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-white transition-all duration-300 ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"}`} />
               )}
             </Link>
           ))}
@@ -115,7 +117,7 @@ export default function Navbar() {
               >
                 <span className="flex items-center gap-3">{link.label}</span>
                 {!link.featured && (
-                  <span className={`absolute bottom-2 left-1 h-0.5 bg-white transition-all duration-300 ${pathname === link.href ? "w-12" : "w-0"}`} />
+                  <span className={`absolute bottom-2 left-1 h-0.5 bg-white transition-all duration-300 ${isActive(link.href) ? "w-12" : "w-0"}`} />
                 )}
               </Link>
             ))}
