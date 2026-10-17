@@ -10,8 +10,11 @@ import { Settings } from "lucide-react";
 import { useLanguage } from "../../components/LanguageProvider";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
-const musicVideos = ["/media/Far From Me.mp4", "/media/Set the Dark on Fire.mp4", "/media/Halfway up.mp4", "/media/final night.mp4", "/media/Enter the dragon.mp4", "/media/Light breaks through the night.mp4"];
+const musicVideos = ["/media/Far From Me.mp4", "/media/Set the Dark on Fire.mp4", "/media/Halfway Up.mp4", "/media/final night.mp4", "/media/Enter the dragon.mp4", "/media/Light breaks through the night.mp4"];
+
 type GlowTone = "green" | "blue" | "amber" | "violet" | "purple" | "red" | "cyan" | "orange" | "neutral";
+type ProjectStatus = "live" | "case-study" | "webflow" | "coming-soon";
+
 type HomeProject = {
   title: string;
   image: string;
@@ -24,41 +27,175 @@ type HomeProject = {
   caseStudy?: string;
   github?: string;
   demo?: string;
+  demoLabel?: "live" | "current";
+  status?: ProjectStatus[];
 };
 
 const developmentProjects: HomeProject[] = [
-  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", glow: "cyan" },
-  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", glow: "purple" },
-  { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", glow: "green" },
-  { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", glow: "blue" },
-  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries and interactive artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier og interaktive artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", glow: "amber" },
-  { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", glow: "green" },
-  { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Modern website rebuild focused on UI/UX, accessibility, performance and responsive design.", textNo: "Moderne redesign av Stoltzen-nettsiden med fokus på UI/UX, tilgjengelighet, ytelse og responsivt design.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", glow: "amber" },
-  { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", glow: "blue" },
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "https://bergen-stupeklubb-r7xd.vercel.app/", status: ["live", "case-study"], glow: "cyan" },
+  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", demo: "https://house-of-mambo.vercel.app/", status: ["live", "case-study"], glow: "purple" },
+  { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green" },
+  { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue" },
+  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries and interactive artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier og interaktive artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live", "case-study"], glow: "amber" },
+  { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", demo: "https://norhordaland-kampsport.vercel.app", status: ["live"], glow: "green" },
+  { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Modern website rebuild focused on UI/UX, accessibility, performance and responsive design.", textNo: "Moderne redesign av Stoltzen-nettsiden med fokus på UI/UX, tilgjengelighet, ytelse og responsivt design.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", status: ["live"], glow: "amber" },
+  { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", demo: "https://solsystem-peach.vercel.app", status: ["live"], glow: "blue" },
   { title: "Fjellveidager", image: "/projects/Varegg-Arena/fjellveidager.png", text: "Creative branding, posters and event visuals.", textNo: "Kreativ profilering, plakater og visuelt innhold for arrangement.", year: "2026", github: "https://github.com/PMariusf/fjellveidager-no", glow: "amber" },
-  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", glow: "violet" },
-  { title: "PM-portfolio", image: "/projects/music.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
+  { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", status: ["live"], glow: "violet" },
+  { title: "PM-portfolio", image: "/p-marius.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
   { title: "Sykkeldeler", image: "/sykkeldeler.png", text: "Future web concept for bicycle parts, focused on clear product presentation, navigation and a modern responsive frontend.", textNo: "Fremtidig nettkonsept for sykkeldeler, med fokus på tydelig produktvisning, navigasjon og en moderne responsiv frontend.", underConstruction: true, glow: "green" },
 ];
+
 const creativeProjects: HomeProject[] = [
-  { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", caseStudy: "/Projects/varegg-arena", glow: "red" },
+  { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", caseStudy: "/Projects/varegg-arena", status: ["case-study"], glow: "red" },
   { title: "AdO Arena", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", text: "Cinematic arena visuals, water, diving and event promotion.", textNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering.", year: "2026", glow: "cyan" },
   { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "Sports arena visuals, branding and creative promotional content.", textNo: "Visuelt innhold for sportsarena, profilering og kreativt markedsmateriell.", year: "2026", glow: "blue" },
-  { title: "Creative Music", image: "/projects/music.png", video: musicVideos[0], text: "AI music production, cinematic sound design and creative media.", textNo: "AI-musikkproduksjon, cinematisk lyddesign og kreative medier.", year: "2025–2026", demo: "https://suno.com", glow: "orange" },
+  { title: "Creative Music", image: "/Ayline-deck.png", video: musicVideos[0], text: "AI music production, cinematic sound design and creative media.", textNo: "AI-musikkproduksjon, cinematisk lyddesign og kreative medier.", year: "2025–2026", demo: "https://suno.com", glow: "orange" },
 ];
-const glowStyles: Record<GlowTone,string> = { green:"hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18)]", blue:"hover:border-blue-300/25 hover:shadow-[0_24px_70px_rgba(59,130,246,0.18)]", amber:"hover:border-amber-300/25 hover:shadow-[0_24px_70px_rgba(245,158,11,0.16)]", violet:"hover:border-violet-300/25 hover:shadow-[0_24px_70px_rgba(139,92,246,0.17)]", purple:"hover:border-fuchsia-300/25 hover:shadow-[0_24px_70px_rgba(168,85,247,0.2)]", red:"hover:border-red-300/25 hover:shadow-[0_24px_70px_rgba(239,68,68,0.18)]", cyan:"hover:border-cyan-300/25 hover:shadow-[0_24px_70px_rgba(34,211,238,0.2)]", orange:"hover:border-orange-300/25 hover:shadow-[0_24px_70px_rgba(249,115,22,0.2)]", neutral:"hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08)]" };
-const gradientStyles: Record<GlowTone,string> = { green:"from-emerald-400/10 via-transparent to-black/80",blue:"from-blue-400/10 via-transparent to-black/80",amber:"from-amber-400/10 via-transparent to-black/80",violet:"from-violet-400/10 via-transparent to-black/80",purple:"from-fuchsia-400/10 via-transparent to-black/80",red:"from-red-400/10 via-transparent to-black/80",cyan:"from-cyan-400/10 via-transparent to-black/80",orange:"from-orange-400/10 via-transparent to-black/80",neutral:"from-white/5 via-transparent to-black/80" };
+
+const glowStyles: Record<GlowTone, string> = {
+  green: "hover:border-emerald-300/25 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18)]",
+  blue: "hover:border-blue-300/25 hover:shadow-[0_24px_70px_rgba(59,130,246,0.18)]",
+  amber: "hover:border-amber-300/25 hover:shadow-[0_24px_70px_rgba(245,158,11,0.16)]",
+  violet: "hover:border-violet-300/25 hover:shadow-[0_24px_70px_rgba(139,92,246,0.17)]",
+  purple: "hover:border-fuchsia-300/25 hover:shadow-[0_24px_70px_rgba(168,85,247,0.2)]",
+  red: "hover:border-red-300/25 hover:shadow-[0_24px_70px_rgba(239,68,68,0.18)]",
+  cyan: "hover:border-cyan-300/25 hover:shadow-[0_24px_70px_rgba(34,211,238,0.2)]",
+  orange: "hover:border-orange-300/25 hover:shadow-[0_24px_70px_rgba(249,115,22,0.2)]",
+  neutral: "hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08)]",
+};
+
+const gradientStyles: Record<GlowTone, string> = {
+  green: "from-emerald-400/10 via-transparent to-black/80",
+  blue: "from-blue-400/10 via-transparent to-black/80",
+  amber: "from-amber-400/10 via-transparent to-black/80",
+  violet: "from-violet-400/10 via-transparent to-black/80",
+  purple: "from-fuchsia-400/10 via-transparent to-black/80",
+  red: "from-red-400/10 via-transparent to-black/80",
+  cyan: "from-cyan-400/10 via-transparent to-black/80",
+  orange: "from-orange-400/10 via-transparent to-black/80",
+  neutral: "from-white/5 via-transparent to-black/80",
+};
+
+const statusStyles: Record<ProjectStatus, string> = {
+  live: "border-emerald-300/30 bg-emerald-400/15 text-emerald-100",
+  "case-study": "border-cyan-300/30 bg-cyan-400/15 text-cyan-100",
+  webflow: "border-blue-300/30 bg-blue-400/15 text-blue-100",
+  "coming-soon": "border-amber-300/30 bg-amber-400/15 text-amber-100",
+};
+
+function statusLabel(status: ProjectStatus, no: boolean) {
+  if (status === "case-study") return "CASE STUDY";
+  if (status === "webflow") return "WEBFLOW";
+  if (status === "coming-soon") return no ? "KOMMER SNART" : "COMING SOON";
+  return "LIVE";
+}
 
 function ProjectCard({ project, language }: { project: HomeProject; language: "no" | "en" }) {
   const no = language === "no";
   const hasLinks = Boolean(project.caseStudy || project.github || project.demo);
+  const demoText = project.demoLabel === "current" ? (no ? "Nåværende side" : "Current site") : (no ? "Live side" : "Live site");
 
-  return <div className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}><div className="relative h-48 shrink-0 overflow-hidden bg-black">{project.underConstruction ? <div className="absolute inset-0"><Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-55 transition-transform duration-700 group-hover:scale-[1.04]"/><div className="absolute inset-0 bg-black/55"/><div className="absolute inset-0 flex flex-col items-center justify-center gap-4"><Settings className="h-9 w-9 animate-[spin_8s_linear_infinite] text-yellow-300"/><h2 className="text-center text-base font-black uppercase tracking-[0.28em] text-yellow-300">{no ? "UNDER UTVIKLING" : "UNDER CONSTRUCTION"}</h2></div></div> : project.title === "PM-portfolio" ? <div className="absolute inset-0 bg-black"><Image src={project.image} alt={project.title} fill sizes="33vw" className="object-cover opacity-35"/><div className="matrix-rain opacity-75">{matrixColumns.map(c=><span key={c} className={`matrix-column matrix-column-${c}`}>{"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}</span>)}</div><div className="absolute inset-0 flex items-center justify-center"><h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em]">PM PORTFOLIO</h3></div></div> : project.title === "Stoltzen" ? <div className="relative h-full w-full"><Image src="/projects/Varegg-Arena/stoltzen-lys.png" alt="Stoltzen website light mode" fill sizes="(max-width: 768px) 100vw, 33vw" className="stoltzen-light object-cover"/><Image src="/projects/Varegg-Arena/stoltzen-mork.png" alt="Stoltzen website dark mode" fill sizes="(max-width: 768px) 100vw, 33vw" className="stoltzen-dark object-cover"/></div> : project.video ? <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"/> : <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "House of Mambo"} className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"/>}<div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75`}/></div><div className="relative z-20 flex min-h-48 flex-1 flex-col bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5"><div className="flex items-start justify-between gap-4"><h3 className="text-xl font-bold">{project.title}</h3>{project.year && <span className="shrink-0 text-xs tracking-[0.18em] text-white/40">{project.year}</span>}</div><p className="mt-3 text-sm font-normal leading-relaxed text-white/60">{no ? project.textNo ?? project.text : project.text}</p><div className="mt-auto pt-5"><div className="flex flex-wrap gap-2 border-t border-white/10 pt-4">{project.caseStudy && <Link href={project.caseStudy} className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjektside" : "Project page"}</Link>}{project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65 transition hover:bg-white/[0.12] hover:text-white">GitHub</a>}{project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-black transition hover:scale-[1.03]">{no ? "Live side" : "Live site"}</a>}{!hasLinks && !project.underConstruction && <Link href="/Projects" className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/75 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjekter" : "Projects"}</Link>}</div></div></div></div>
+  return (
+    <div className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}>
+      <div className="relative h-48 shrink-0 overflow-hidden bg-black">
+        {project.underConstruction ? (
+          <div className="absolute inset-0">
+            <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-55 transition-transform duration-700 group-hover:scale-[1.04]" />
+            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+              <Settings className="h-9 w-9 animate-[spin_8s_linear_infinite] text-yellow-300" />
+              <h2 className="text-center text-base font-black uppercase tracking-[0.28em] text-yellow-300">{no ? "UNDER UTVIKLING" : "UNDER CONSTRUCTION"}</h2>
+            </div>
+          </div>
+        ) : project.title === "PM-portfolio" ? (
+          <div className="absolute inset-0 bg-black">
+            <Image src={project.image} alt={project.title} fill sizes="33vw" className="object-cover opacity-35" />
+            <div className="matrix-rain opacity-75">{matrixColumns.map((column) => <span key={column} className={`matrix-column matrix-column-${column}`}>{"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}</span>)}</div>
+            <div className="absolute inset-0 flex items-center justify-center"><h3 className="text-center text-2xl font-bold uppercase tracking-[0.45em]">PM PORTFOLIO</h3></div>
+          </div>
+        ) : project.title === "Stoltzen" ? (
+          <div className="relative h-full w-full">
+            <Image src="/projects/Varegg-Arena/stoltzen-lys.png" alt="Stoltzen website light mode" fill sizes="(max-width: 768px) 100vw, 33vw" className="stoltzen-light object-cover" />
+            <Image src="/projects/Varegg-Arena/stoltzen-mork.png" alt="Stoltzen website dark mode" fill sizes="(max-width: 768px) 100vw, 33vw" className="stoltzen-dark object-cover" />
+          </div>
+        ) : project.video ? (
+          <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+        ) : (
+          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "House of Mambo"} className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+        )}
+        <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75`} />
+        {project.status?.length ? (
+          <div className="absolute left-3 top-3 z-20 flex flex-wrap gap-2">
+            {project.status.map((status) => <span key={status} className={`rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] backdrop-blur-md ${statusStyles[status]}`}>{statusLabel(status, no)}</span>)}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="relative z-20 flex min-h-48 flex-1 flex-col bg-linear-to-b from-white/[0.055] to-white/[0.018] p-5">
+        <div className="flex items-start justify-between gap-4"><h3 className="text-xl font-bold">{project.title}</h3>{project.year && <span className="shrink-0 text-xs tracking-[0.18em] text-white/40">{project.year}</span>}</div>
+        <p className="mt-3 text-sm font-normal leading-relaxed text-white/60">{no ? project.textNo ?? project.text : project.text}</p>
+        <div className="mt-auto pt-5">
+          <div className="flex flex-wrap gap-2 border-t border-white/10 pt-4">
+            {project.caseStudy && <Link href={project.caseStudy} className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjektside" : "Project page"}</Link>}
+            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65 transition hover:bg-white/[0.12] hover:text-white">GitHub</a>}
+            {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-black transition hover:scale-[1.03]">{demoText}</a>}
+            {!hasLinks && !project.underConstruction && <Link href="/Projects" className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/75 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjekter" : "Projects"}</Link>}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-function ProjectGrid({ projects, language }: { projects: HomeProject[]; language: "no" | "en" }) { return <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">{projects.map((p,i)=><div key={p.title} className={`h-full border-white/10 p-4 sm:p-5 ${i>0?"border-t":""} ${i>=2?"md:border-t":"md:border-t-0"} ${i%2?"md:border-l":""} ${i>=4?"lg:border-t":"lg:border-t-0"} ${i%4?"lg:border-l":"lg:border-l-0"}`}><ProjectCard project={p} language={language}/></div>)}</div> }
-function SectionDivider(){return <div className="flex items-center justify-center py-16"><div className="h-px w-1/2 max-w-2xl bg-linear-to-r from-transparent via-white/25 to-transparent"/></div>}
 
-export default function Home(){ const { language }=useLanguage(); const no=language==="no"; return <main className="min-h-screen bg-black text-white"><div className="fixed inset-0 bg-black"/><div className="relative z-10"><Navbar/>
-<section className="fade-up mx-auto max-w-[95%] pt-24 sm:pt-28"><div className="overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl sm:rounded-4xl"><div className="grid items-center gap-7 p-4 sm:gap-10 sm:p-6 lg:grid-cols-2 lg:p-14"><div className="relative flex min-h-[330px] items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-2 sm:min-h-0 sm:rounded-4xl sm:p-4"><div className="-translate-y-8 scale-[0.88] sm:-translate-y-14 sm:scale-95 lg:-translate-y-20 lg:scale-100"><Hero/></div></div><div className="relative isolate overflow-hidden px-1 pb-3 sm:px-0 sm:pb-0 lg:pl-10 xl:pl-16"><Image src="/art-backgrounds/dragon-girl-cutout.png" alt="" aria-hidden="true" fill priority sizes="(max-width: 1024px) 95vw, 45vw" className="pointer-events-none object-contain object-right opacity-[0.14]"/><div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"/><div className="relative z-10"><div className="inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 sm:px-4 sm:text-xs sm:tracking-[0.26em] lg:ml-4">Frontend Developer · Web Design · Creative</div><h1 className="mt-5 max-w-3xl text-[2.55rem] font-bold leading-[1.04] tracking-[-0.035em] sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">{no?"Frontendutvikling med et kreativt preg":"Frontend development with a creative touch"}</h1><p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">{no?"Frontendutvikler i Bergen. Jeg lager nettsider med tydelig design som er enkle å bruke.":"Frontend developer in Bergen. I build websites with a focus on clear design and ease of use."}</p><div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4"><Link href="/Projects" className="rounded-full bg-white px-5 py-3 text-center font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] sm:px-6">{no?"Se utvalgte prosjekter":"View selected projects"}</Link><Link href="/Contact" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 text-center font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12] sm:px-6">{no?"Kontakt meg":"Contact me"}</Link></div><div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:gap-x-5 sm:text-xs sm:tracking-[0.2em]"><span>Next.js</span><span className="text-white/20">•</span><span>React</span><span className="text-white/20">•</span><span>TypeScript</span><span className="text-white/20">•</span><span>Figma</span></div></div></div></div></div></section>
-<section className="fade-up mx-auto max-w-7xl px-6 pt-20"><div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10"><div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="text-sm uppercase tracking-[0.4em] text-white/60">{no?"Kreativt utvalg":"Creative Showcase"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no?"Frontend, design & visuelle prosjekter":"Frontend, Design & Visual Projects"}</h2><p className="mt-4 max-w-2xl text-white/60">{no?"Et utvalg frontend-utvikling, kreative visualer, digital kunst og personlige prosjekter som viser interessen min for teknologi og design.":"A collection of frontend development, creative visuals, digital art and personal projects that reflect my passion for technology and design."}</p></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no?"Se alle prosjekter":"View all projects"}</Link></div><div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no?"Utvalgt arbeid":"Selected work"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no?"Utvikling":"Development"}</h3></div><ProjectGrid projects={developmentProjects} language={language}/></div><SectionDivider/><div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no?"Design & media":"Design & media"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no?"Kreativt visuelt":"Creative Visual"}</h3></div><ProjectGrid projects={creativeProjects} language={language}/></div></div></section>
-<section className="fade-up mx-auto max-w-7xl px-6 pt-20"><div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl"><div className="scale-95"><Interests/></div></div></section><Contact/></div></main> }
+function ProjectGrid({ projects, language }: { projects: HomeProject[]; language: "no" | "en" }) {
+  return <div className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">{projects.map((project, index) => <div key={project.title} className={`h-full border-white/10 p-4 sm:p-5 ${index > 0 ? "border-t" : ""} ${index >= 2 ? "md:border-t" : "md:border-t-0"} ${index % 2 ? "md:border-l" : ""} ${index >= 4 ? "lg:border-t" : "lg:border-t-0"} ${index % 4 ? "lg:border-l" : "lg:border-l-0"}`}><ProjectCard project={project} language={language} /></div>)}</div>;
+}
+
+function SectionDivider() {
+  return <div className="flex items-center justify-center py-16"><div className="h-px w-1/2 max-w-2xl bg-linear-to-r from-transparent via-white/25 to-transparent" /></div>;
+}
+
+export default function Home() {
+  const { language } = useLanguage();
+  const no = language === "no";
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <div className="fixed inset-0 bg-black" />
+      <div className="relative z-10">
+        <Navbar />
+        <section className="fade-up mx-auto max-w-[95%] pt-24 sm:pt-28">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/4 shadow-2xl backdrop-blur-xl sm:rounded-4xl">
+            <div className="grid items-center gap-7 p-4 sm:gap-10 sm:p-6 lg:grid-cols-2 lg:p-14">
+              <div className="relative flex min-h-[330px] items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-2 sm:min-h-0 sm:rounded-4xl sm:p-4"><div className="-translate-y-8 scale-[0.88] sm:-translate-y-14 sm:scale-95 lg:-translate-y-20 lg:scale-100"><Hero /></div></div>
+              <div className="relative isolate overflow-hidden px-1 pb-3 sm:px-0 sm:pb-0 lg:pl-10 xl:pl-16">
+                <Image src="/art-backgrounds/dragon-girl-cutout.png" alt="" aria-hidden="true" fill priority sizes="(max-width: 1024px) 95vw, 45vw" className="pointer-events-none object-contain object-right opacity-[0.14]" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+                <div className="relative z-10">
+                  <div className="inline-flex max-w-full items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-white/65 sm:px-4 sm:text-xs sm:tracking-[0.26em] lg:ml-4">Frontend Developer · Web Design · Creative</div>
+                  <h1 className="mt-5 max-w-3xl text-[2.55rem] font-bold leading-[1.04] tracking-[-0.035em] sm:mt-6 sm:text-5xl md:text-6xl lg:text-7xl">{no ? "Frontendutvikling med et kreativt preg" : "Frontend development with a creative touch"}</h1>
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">{no ? "Frontendutvikler i Bergen. Jeg lager nettsider med tydelig design som er enkle å bruke." : "Frontend developer in Bergen. I build websites with a focus on clear design and ease of use."}</p>
+                  <div className="mt-7 grid gap-3 sm:mt-8 sm:flex sm:flex-wrap sm:gap-4"><Link href="/Projects" className="rounded-full bg-white px-5 py-3 text-center font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] sm:px-6">{no ? "Se utvalgte prosjekter" : "View selected projects"}</Link><Link href="/Contact" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 text-center font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.12] sm:px-6">{no ? "Kontakt meg" : "Contact me"}</Link></div>
+                  <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45 sm:gap-x-5 sm:text-xs sm:tracking-[0.2em]"><span>Next.js</span><span className="text-white/20">•</span><span>React</span><span className="text-white/20">•</span><span>TypeScript</span><span className="text-white/20">•</span><span>Figma</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
+          <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
+            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="text-sm uppercase tracking-[0.4em] text-white/60">{no ? "Kreativt utvalg" : "Creative Showcase"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Frontend, design & visuelle prosjekter" : "Frontend, Design & Visual Projects"}</h2><p className="mt-4 max-w-2xl text-white/60">{no ? "Et utvalg frontend-utvikling, kreative visualer, digital kunst og personlige prosjekter som viser interessen min for teknologi og design." : "A collection of frontend development, creative visuals, digital art and personal projects that reflect my passion for technology and design."}</p></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link></div>
+            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Utvalgt arbeid" : "Selected work"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Utvikling" : "Development"}</h3></div><ProjectGrid projects={developmentProjects} language={language} /></div>
+            <SectionDivider />
+            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Design & media" : "Design & media"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Kreativt visuelt" : "Creative Visual"}</h3></div><ProjectGrid projects={creativeProjects} language={language} /></div>
+          </div>
+        </section>
+
+        <section className="fade-up mx-auto max-w-7xl px-6 pt-20"><div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl"><div className="scale-95"><Interests /></div></div></section>
+        <Contact />
+      </div>
+    </main>
+  );
+}
