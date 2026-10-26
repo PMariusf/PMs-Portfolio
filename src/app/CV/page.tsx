@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import { useLanguage } from "../../../components/LanguageProvider";
 
-const cvFile = "/cv/Per_Marius_Foyner_CV.pdf";
-const cvPreviewFile = `${cvFile}?v=20260910`;
+const cvFile = "/cv/Per_Marius_CV.pdf";
+const cvPreviewFile = "/cv/PM-CV.png";
 
 const skills = [
   "HTML",
@@ -183,8 +184,15 @@ export default function CV() {
             </button>
           </div>
 
-          <div className="h-[calc(100vh-80px)] p-3 md:p-5">
-            <iframe src={cvPreviewFile} title="Per Marius Føyner CV preview" className="h-full w-full rounded-2xl border border-white/10 bg-white" />
+          <div className="h-[calc(100vh-80px)] overflow-y-auto p-3 md:p-5">
+            <Image
+              src={cvPreviewFile}
+              alt="Per Marius Føyner CV"
+              width={1086}
+              height={1448}
+              unoptimized
+              className="mx-auto h-auto w-full rounded-2xl border border-white/10"
+            />
           </div>
         </aside>
       </div>
