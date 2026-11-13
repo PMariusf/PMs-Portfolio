@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../../components/LanguageProvider";
 
 const skills = [
@@ -110,7 +110,6 @@ export default function MinimalPortfolio() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 transition hover:text-white/75"
             >
-              <Github className="h-3.5 w-3.5" />
               GitHub
             </a>
           </div>
