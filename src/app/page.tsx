@@ -117,8 +117,8 @@ export default function MinimalPortfolio() {
 
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
           <div className="group relative w-full max-w-107.5">
-            <div className="absolute -inset-5 rounded-[42%] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[42%] bg-white/[0.025] shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
+            <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/[0.025] shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
               <Image
                 src="/p-marius.png"
                 alt="Per Marius Føyner"
