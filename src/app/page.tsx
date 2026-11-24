@@ -118,7 +118,7 @@ export default function MinimalPortfolio() {
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
           <div className="group relative w-full max-w-107.5">
             <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/[0.025] shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
+            <div className="relative aspect-4/5 overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/2.5 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
               <Image
                 src="/p-marius.png"
                 alt="Per Marius Føyner"
@@ -127,7 +127,7 @@ export default function MinimalPortfolio() {
                 sizes="(max-width: 1024px) 80vw, 430px"
                 className="object-contain object-bottom grayscale transition duration-700 group-hover:scale-[1.018] group-hover:grayscale-0"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/[0.025]" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-white/[0.025]" />
               <div className="absolute bottom-5 left-5 rounded-full border border-white/10 bg-black/45 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/55 backdrop-blur-xl">
                 Frontend · UI/UX · Creative
               </div>
