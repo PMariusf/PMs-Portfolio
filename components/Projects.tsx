@@ -43,6 +43,8 @@ const categories: Record<
     title: "Digital Art",
     titleNo: "Digital kunst",
     images: [
+      { src: "/projects/Digital/350838D7-62BF-4352-BCE7-61FDE8B4C389_1_105_c.jpeg", alt: "Digital artwork", altNo: "Digitalt kunstverk" },
+      { src: "/projects/Digital/8994BE24-AF90-4A79-B8E1-B1E32112216E_1_105_c.jpeg", alt: "Digital artwork", altNo: "Digitalt kunstverk" },
       { src: "/projects/Digital/demonhunter.png", alt: "Female Horde Demonhunter", altNo: "Kvinnelig Horde Demon Hunter" },
       { src: "/projects/Digital/paladin.png", alt: "Female Alliance Paladin", altNo: "Kvinnelig Alliance Paladin" },
       { src: "/projects/Digital/pandamonk.png", alt: "Female Pandaren Monk", altNo: "Kvinnelig Pandaren Monk" },
