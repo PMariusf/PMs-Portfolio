@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import Music from "../../components/Music";
 import LanguageProvider from "../../components/LanguageProvider";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -75,7 +74,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
         <LanguageProvider>
           <div className="relative z-10 flex min-h-full flex-col">{children}</div>
-          <Music />
         </LanguageProvider>
         <Analytics />
       </body>
