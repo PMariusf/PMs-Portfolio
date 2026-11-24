@@ -63,7 +63,7 @@ const songs = [
 ];
 
 export default function Music() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [currentSong, setCurrentSong] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -208,7 +208,7 @@ export default function Music() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-sm sm:w-88">
+    <div className="w-full max-w-3xl">
       <div
         className={`overflow-hidden rounded-[26px] border border-white/8 bg-linear-to-br ${currentTrack.gradient} shadow-[0_18px_60px_rgba(0,0,0,0.48)] backdrop-blur-2xl transition-all duration-300`}
       >
