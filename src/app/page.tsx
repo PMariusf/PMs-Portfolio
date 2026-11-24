@@ -24,8 +24,8 @@ export default function MinimalPortfolio() {
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/[0.07] blur-[120px]" />
-        <div className="absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/[0.06] blur-[130px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
+        <div className="absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/6 blur-[130px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-size-[72px_72px] mask-[linear-gradient(to_bottom,black,transparent_85%)]" />
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 sm:px-8 lg:px-10">
@@ -90,7 +90,7 @@ export default function MinimalPortfolio() {
 
             <Link
               href="/portfolio"
-              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.045] px-6 py-3.5 text-sm font-semibold text-white/80 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.09] hover:text-white"
+              className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4.5 px-6 py-3.5 text-sm font-semibold text-white/80 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.09] hover:text-white"
             >
               {no ? "Full portfolio" : "Full portfolio"}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -116,8 +116,8 @@ export default function MinimalPortfolio() {
         </div>
 
         <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
-          <div className="group relative w-full max-w-[430px]">
-            <div className="absolute -inset-5 rounded-[2.8rem] bg-gradient-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
+          <div className="group relative w-full max-w-107.5">
+            <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/[0.025] shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
               <Image
                 src="/p-marius.png"
