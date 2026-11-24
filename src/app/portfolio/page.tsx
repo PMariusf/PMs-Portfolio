@@ -12,7 +12,7 @@ import { useLanguage } from "../../../components/LanguageProvider";
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
 type GlowTone = "green" | "blue" | "amber" | "violet" | "purple" | "red" | "cyan" | "orange" | "neutral";
-type ProjectStatus = "live" | "case-study" | "webflow" | "coming-soon" | "preview";
+type ProjectStatus = "live" | "webflow" | "coming-soon" | "preview";
 
 type HomeProject = {
   title: string;
@@ -24,7 +24,6 @@ type HomeProject = {
   underConstruction?: boolean;
   featured?: boolean;
   glow: GlowTone;
-  caseStudy?: string;
   github?: string;
   demo?: string;
   demoLabel?: "live" | "current" | "preview";
@@ -32,11 +31,11 @@ type HomeProject = {
 };
 
 const developmentProjects: HomeProject[] = [
-  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", caseStudy: "/Projects/bergen-stupeklubb", github: "https://github.com/PMariusf/bergen-stupeklubb", status: ["case-study"], glow: "cyan", featured: true },
-  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", caseStudy: "/Projects/house-of-mambo", github: "https://github.com/PMariusf/HouseOfMambo", status: ["case-study"], glow: "purple" },
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/bergen-stupeklubb", glow: "cyan", featured: true },
+  { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", github: "https://github.com/PMariusf/HouseOfMambo", glow: "purple" },
   { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green", featured: true },
   { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue", featured: true },
-  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries, songwriting and artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier, låtskriving og artistunivers for Ayline og Elísa.", year: "2026", caseStudy: "/Projects/foyner", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live", "case-study"], glow: "amber", featured: true },
+  { title: "Foyner.no", image: "/ayline-elisa1.png", text: "Creative personal platform combining photography, private galleries, songwriting and artist worlds for Ayline and Elísa.", textNo: "Kreativ personlig plattform som samler fotografi, private gallerier, låtskriving og artistunivers for Ayline og Elísa.", year: "2026", github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live"], glow: "amber", featured: true },
   { title: "Nordhordaland Kampsport", image: "/projects/nordhordaland-kampsport.png", text: "Modern responsive club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/norhordaland-kampsport", glow: "green" },
   { title: "Stoltzen", image: "/projects/Varegg-Arena/stoltzen-lys.png", text: "Rebuild concept for Stoltzen combining modern UI/UX, accessibility and performance with supporting backend and data functionality.", textNo: "Rebuild-konsept for Stoltzen som kombinerer moderne UI/UX, tilgjengelighet og ytelse med backend- og datafunksjonalitet.", year: "2026", github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", demoLabel: "preview", status: ["preview"], glow: "amber", featured: true },
   { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", glow: "blue" },
@@ -49,7 +48,7 @@ const developmentProjects: HomeProject[] = [
 const featuredDevelopmentProjects = developmentProjects.filter((project) => project.featured);
 
 const creativeProjects: HomeProject[] = [
-  { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", caseStudy: "/Projects/varegg-arena", status: ["case-study"], glow: "red" },
+  { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", glow: "red" },
   { title: "AdO Arena", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", text: "Cinematic arena visuals, water, diving and event promotion.", textNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering.", year: "2026", glow: "cyan" },
   { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "Sports arena visuals, branding and creative promotional content.", textNo: "Visuelt innhold for sportsarena, profilering og kreativt markedsmateriell.", year: "2026", glow: "blue" },
   { title: "Music & Artist Worlds", image: "/ayline-elisa1.png", text: "Songwriting, musical direction, character design and visual artist worlds for Ayline and Elísa on Foyner.no.", textNo: "Låtskriving, musikalsk retning, karakterdesign og visuelle artistunivers for Ayline og Elísa på Foyner.no.", year: "2025–2026", demo: "https://www.foyner.no/artists", status: ["live"], glow: "orange" },
@@ -81,14 +80,12 @@ const gradientStyles: Record<GlowTone, string> = {
 
 const statusStyles: Record<ProjectStatus, string> = {
   live: "border-emerald-100 bg-emerald-950/90 text-emerald-50 shadow-[0_2px_14px_rgba(0,0,0,0.45)]",
-  "case-study": "border-cyan-300/30 bg-cyan-400/15 text-cyan-100",
   webflow: "border-blue-300/30 bg-blue-400/15 text-blue-100",
   "coming-soon": "border-amber-300/30 bg-amber-400/15 text-amber-100",
   preview: "border-violet-200/40 bg-violet-950/85 text-violet-50 shadow-[0_2px_14px_rgba(0,0,0,0.4)]",
 };
 
 function statusLabel(status: ProjectStatus, no: boolean) {
-  if (status === "case-study") return "CASE STUDY";
   if (status === "webflow") return "WEBFLOW";
   if (status === "coming-soon") return no ? "KOMMER SNART" : "COMING SOON";
   if (status === "preview") return "PREVIEW";
@@ -97,7 +94,7 @@ function statusLabel(status: ProjectStatus, no: boolean) {
 
 function ProjectCard({ project, language }: { project: HomeProject; language: "no" | "en" }) {
   const no = language === "no";
-  const hasLinks = Boolean(project.caseStudy || project.github || project.demo);
+  const hasLinks = Boolean(project.github || project.demo);
   const demoText = project.demoLabel === "current"
     ? (no ? "Nåværende side" : "Current site")
     : project.demoLabel === "preview"
@@ -145,7 +142,6 @@ function ProjectCard({ project, language }: { project: HomeProject; language: "n
         <p className="mt-3 text-sm font-normal leading-relaxed text-white/60">{no ? project.textNo ?? project.text : project.text}</p>
         <div className="mt-auto pt-5">
           <div className="flex flex-wrap gap-2 border-t border-white/10 pt-4">
-            {project.caseStudy && <Link href={project.caseStudy} className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/80 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjektside" : "Project page"}</Link>}
             {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/15 bg-white/[0.05] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65 transition hover:bg-white/[0.12] hover:text-white">GitHub</a>}
             {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-black transition hover:scale-[1.03]">{demoText}</a>}
             {!hasLinks && !project.underConstruction && <Link href="/Projects" className="rounded-full border border-white/15 bg-white/[0.08] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/75 transition hover:bg-white/[0.14] hover:text-white">{no ? "Prosjekter" : "Projects"}</Link>}
