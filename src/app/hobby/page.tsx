@@ -3,6 +3,7 @@
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
 import Projects from "../../../components/Projects";
+import Music from "../../../components/Music";
 import { useLanguage } from "../../../components/LanguageProvider";
 
 const hobbies = [
@@ -94,7 +95,10 @@ export default function Hobby() {
               : "A collection of creative visuals, digital concepts, AI generated artwork and design experiments."}
           </p>
 
-          <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl">
+          <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-6">
+            <div className="mb-8 flex justify-center">
+              <Music />
+            </div>
             <Projects />
           </div>
         </section>
