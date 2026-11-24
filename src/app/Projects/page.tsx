@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Settings } from "lucide-react";
 import Navbar from "../../../components/Navbar";
 import Contact from "../../../components/Contact";
@@ -9,7 +8,7 @@ import { useLanguage } from "../../../components/LanguageProvider";
 
 const matrixColumns = Array.from({ length: 16 }, (_, index) => index);
 
-type ProjectStatus = "live" | "case-study" | "webflow" | "coming-soon" | "preview";
+type ProjectStatus = "live" | "webflow" | "coming-soon" | "preview";
 type Project = {
   title: string;
   description: string;
@@ -21,18 +20,16 @@ type Project = {
   year?: string;
   video?: string;
   underConstruction?: boolean;
-  caseStudy?: string;
-  caseTone?: "cyan" | "purple" | "amber" | "red";
   status?: ProjectStatus[];
   demoLabel?: "live" | "current" | "preview";
 };
 
 const developmentProjects: Project[] = [
-  { title: "Bergen Stupeklubb", year: "2026", description: "A modern, accessible and responsive website for Bergen Stupeklubb, designed to help visitors explore diving activities, courses, club information and registration.", descriptionNo: "En moderne, tilgjengelig og responsiv nettside for Bergen Stupeklubb, laget for å gjøre det enkelt å utforske stuping, kurs, klubbinformasjon og påmelding.", image: "/projects/stupeklubb.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "#", caseStudy: "/Projects/bergen-stupeklubb", caseTone: "cyan", status: ["case-study"] },
-  { title: "House of Mambo", year: "2026", description: "A modern and visually engaging dance website for House of Mambo, combining responsive frontend development, strong visual identity and accessibility-focused improvements.", descriptionNo: "En moderne og visuelt engasjerende dansenettside for House of Mambo, med responsiv frontend-utvikling, sterk visuell identitet og fokus på tilgjengelighet.", image: "/projects/mambo.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/HouseOfMambo", demo: "#", caseStudy: "/Projects/house-of-mambo", caseTone: "purple", status: ["case-study"] },
+  { title: "Bergen Stupeklubb", year: "2026", description: "A modern, accessible and responsive website for Bergen Stupeklubb, designed to help visitors explore diving activities, courses, club information and registration.", descriptionNo: "En moderne, tilgjengelig og responsiv nettside for Bergen Stupeklubb, laget for å gjøre det enkelt å utforske stuping, kurs, klubbinformasjon og påmelding.", image: "/projects/stupeklubb.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "#" },
+  { title: "House of Mambo", year: "2026", description: "A modern and visually engaging dance website for House of Mambo, combining responsive frontend development, strong visual identity and accessibility-focused improvements.", descriptionNo: "En moderne og visuelt engasjerende dansenettside for House of Mambo, med responsiv frontend-utvikling, sterk visuell identitet og fokus på tilgjengelighet.", image: "/projects/mambo.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/HouseOfMambo", demo: "#" },
   { title: "Varegg Arena – Webflow Upgrade", year: "2026", description: "A Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and a more polished responsive experience.", descriptionNo: "En oppgradering av Varegg Arena-nettsiden i Webflow, med fokus på tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og en mer gjennomført responsiv opplevelse.", image: "/projects/Varegg-Arena/Varegg.png", tech: ["Webflow", "UI/UX", "Responsive Design", "Web Design", "Content Structure"], github: "#", demo: "https://www.vareggarena.no/", status: ["live", "webflow"] },
   { title: "Varegg Fotball", year: "2026", description: "A new Varegg Fotball website is coming soon. It is currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure designed around players, parents and club activity.", descriptionNo: "Ny nettside for Varegg Fotball kommer snart. Den bygges nå i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur tilpasset spillere, foreldre og klubbaktivitet.", image: "/projects/Varegg-Arena/Vareggfotball.png", tech: ["Webflow", "UI/UX", "Responsive Design", "Web Design", "Content Structure"], github: "#", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"] },
-  { title: "Foyner.no", year: "2026", description: "A personal creative platform combining photography, private galleries, songwriting and interactive artist worlds for Ayline and Elísa, with music, lyrics and responsive UI.", descriptionNo: "En personlig kreativ plattform som samler fotografi, private gallerier, låtskriving og interaktive artistunivers for Ayline og Elísa, med musikk, sangtekster og responsivt grensesnitt.", image: "/ayline-elisa1.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Photography", "Songwriting", "Creative Direction", "Character Design", "Interactive UI", "Music", "Responsive Design", "Vercel"], github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", caseStudy: "/Projects/foyner", caseTone: "amber", status: ["live", "case-study"] },
+  { title: "Foyner.no", year: "2026", description: "A personal creative platform combining photography, private galleries, songwriting and interactive artist worlds for Ayline and Elísa, with music, lyrics and responsive UI.", descriptionNo: "En personlig kreativ plattform som samler fotografi, private gallerier, låtskriving og interaktive artistunivers for Ayline og Elísa, med musikk, sangtekster og responsivt grensesnitt.", image: "/ayline-elisa1.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Photography", "Songwriting", "Creative Direction", "Character Design", "Interactive UI", "Music", "Responsive Design", "Vercel"], github: "https://github.com/PMariusf/foyner", demo: "https://www.foyner.no/", status: ["live"] },
   { title: "Nordhordaland Kampsport", year: "2026", description: "A modern and responsive website for Nordhordaland Kampsport, designed to make it easy for visitors to explore the club, view martial arts activities, find training schedules and access membership information.", descriptionNo: "En moderne og responsiv klubbside bygget med Next.js, TypeScript og Tailwind CSS, laget for enkel tilgang til informasjon om klubben, kampsporttilbud, treningstider og medlemskap.", image: "/projects/nordhordaland-kampsport.png", tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Responsive Design", "Vercel", "Visual Image Creation"], github: "https://github.com/PMariusf/norhordaland-kampsport", demo: "#" },
   { title: "Solar System Explorer", year: "2026", description: "An immersive 3D Solar System experience built with Next.js, React Three Fiber and Three.js. Explore the planets through interactive scenes, realistic animations and educational content while showcasing modern frontend technologies.", descriptionNo: "En interaktiv 3D-opplevelse av solsystemet bygget med Next.js, React Three Fiber og Three.js. Utforsk planetene gjennom interaktive scener, realistiske animasjoner og lærerikt innhold.", image: "/projects/Solarsystem.png", tech: ["Next.js", "React", "TypeScript", "Three.js", "React Three Fiber", "Tailwind CSS", "GLTF Models", "Vercel"], github: "https://github.com/PMariusf/solsystem", demo: "#" },
   { title: "Stoltzen", year: "2026", description: "Rebuild concept for Stoltzen combining a modern frontend redesign with accessibility, performance and supporting backend/data functionality for structured race and archive data.", descriptionNo: "Rebuild-konsept for Stoltzen som kombinerer moderne frontend-redesign med tilgjengelighet, ytelse og backend-/datafunksjonalitet for strukturert løps- og arkivdata.", image: "/projects/Varegg-Arena/stoltzen-lys.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "Backend", "Data Handling", "UI/UX", "Accessibility", "Responsive Design", "Performance"], github: "https://github.com/PMariusf/stoltzen", demo: "https://stoltzen.vercel.app/", demoLabel: "preview", status: ["preview"] },
@@ -43,7 +40,7 @@ const developmentProjects: Project[] = [
 ];
 
 const creativeProjects: Project[] = [
-  { title: "Varegg Arena", year: "2025–2026", description: "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.", descriptionNo: "Kreativt design- og profileringsarbeid for Varegg Arena, inkludert sportsvisualer, arrangementsgrafikk, bannere, plakater og markedsmateriell for blant annet basketball, badminton, HYROX, fitness og Fjellveidager.", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", tech: ["Figma", "Branding", "Design", "AI Visuals", "Social Media", "Video Editing"], github: "#", demo: "#", caseStudy: "/Projects/varegg-arena", caseTone: "red", status: ["case-study"] },
+  { title: "Varegg Arena", year: "2025–2026", description: "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.", descriptionNo: "Kreativt design- og profileringsarbeid for Varegg Arena, inkludert sportsvisualer, arrangementsgrafikk, bannere, plakater og markedsmateriell for blant annet basketball, badminton, HYROX, fitness og Fjellveidager.", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", tech: ["Figma", "Branding", "Design", "AI Visuals", "Social Media", "Video Editing"], github: "#", demo: "#" },
   { title: "AdO Arena", year: "2026", description: "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.", descriptionNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering laget for AdO Arena.", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"], github: "#", demo: "#" },
   { title: "Åsane Arena", year: "2026", description: "Sports arena visuals, branding and creative promotional content for Åsane Arena.", descriptionNo: "Sportsvisualer, profilering og kreativt markedsmateriell for Åsane Arena.", image: "/projects/Varegg-Arena/Asanearena.png", tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"], github: "#", demo: "#" },
   { title: "Music & Artist Worlds", year: "2025–2026", description: "Songwriting, musical direction, character design and visual artist worlds for Ayline and Elísa, presented through Foyner.no.", descriptionNo: "Låtskriving, musikalsk retning, karakterdesign og visuelle artistunivers for Ayline og Elísa, presentert gjennom Foyner.no.", image: "/ayline-elisa1.png", tech: ["Songwriting", "Music Direction", "Character Design", "Storytelling", "Creative Design", "Artist Worlds"], github: "#", demo: "https://www.foyner.no/artists", status: ["live"] },
@@ -51,14 +48,12 @@ const creativeProjects: Project[] = [
 
 const statusStyles: Record<ProjectStatus, string> = {
   live: "border-emerald-100 bg-emerald-950/90 text-emerald-50 shadow-[0_2px_14px_rgba(0,0,0,0.45)]",
-  "case-study": "border-cyan-300/30 bg-cyan-400/15 text-cyan-100",
   webflow: "border-blue-300/30 bg-blue-400/15 text-blue-100",
   "coming-soon": "border-amber-300/30 bg-amber-400/15 text-amber-100",
   preview: "border-violet-200/40 bg-violet-950/85 text-violet-50 shadow-[0_2px_14px_rgba(0,0,0,0.4)]",
 };
 
 function statusLabel(status: ProjectStatus, no: boolean) {
-  if (status === "case-study") return "CASE STUDY";
   if (status === "webflow") return "WEBFLOW";
   if (status === "coming-soon") return no ? "KOMMER SNART" : "COMING SOON";
   if (status === "preview") return "PREVIEW";
@@ -68,7 +63,6 @@ function statusLabel(status: ProjectStatus, no: boolean) {
 export default function ProjectsPage() {
   const { language } = useLanguage();
   const no = language === "no";
-  const caseToneClass = (tone?: Project["caseTone"]) => tone === "purple" ? "bg-purple-300" : tone === "amber" ? "bg-amber-300" : tone === "red" ? "bg-red-300" : "bg-cyan-300";
 
   const renderProject = (project: Project) => {
     const demoText = project.demoLabel === "current"
@@ -101,7 +95,6 @@ export default function ProjectsPage() {
             <p className="mt-4 leading-relaxed text-white/65">{no ? project.descriptionNo : project.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">{project.tech.map((tech) => <span key={tech} className="rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 text-xs font-medium text-white/70">{tech}</span>)}</div>
             <div className="mt-auto flex flex-wrap gap-3 pt-8">
-              {project.caseStudy && <Link href={project.caseStudy} className={`rounded-full px-5 py-3 font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02] ${caseToneClass(project.caseTone)}`}>{no ? "Se case study" : "View case study"}</Link>}
               {project.github !== "#" && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 transition hover:bg-white/[0.12]">GitHub</a>}
               {project.demo !== "#" && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-5 py-3 text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]">{demoText}</a>}
             </div>
