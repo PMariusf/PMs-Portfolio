@@ -33,9 +33,15 @@ export default function MinimalPortfolio() {
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 sm:px-8 lg:px-10">
-        <Link href="/" aria-label={no ? "PM – forsiden" : "PM – home"} className="group relative inline-flex">
-          <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-6xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">PM</span>
+        <Link href="/" className="group flex items-center gap-2 sm:gap-4">
+          <div className="relative">
+            <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-4xl sm:text-6xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">PM</span>
             <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
+          </div>
+          <div className="transition duration-300 group-hover:translate-x-1">
+            <p className="logo-text text-2xl sm:text-[32px] leading-none tracking-wide text-white">Portfolio</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.13em] sm:text-xs sm:tracking-[0.36em] text-white/75">Frontend Developer</p>
+          </div>
         </Link>
 
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] p-1 backdrop-blur-xl">
