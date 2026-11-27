@@ -70,8 +70,8 @@ export default function MinimalPortfolio() {
 
           <p className="mt-7 max-w-xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
             {no
-              ? "Jeg er frontendutvikler i Bergen. Jeg bygger nettsider for lokale klubber og lager innhold til skjermene på Varegg Arena."
-              : "I’m a frontend developer in Bergen. I build websites for local clubs and create content for the screens at Varegg Arena."}
+              ? "Jeg er frontend- og fullstackutvikler i Bergen. Jeg bygger brukergrensesnitt med React og Next.js og bruker Supabase til innlogging og datalagring."
+              : "I’m a frontend and full-stack developer in Bergen. I build interfaces with React and Next.js and use Supabase for sign-in and data storage."}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
