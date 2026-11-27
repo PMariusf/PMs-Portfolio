@@ -12,8 +12,8 @@ export default function MinimalPortfolio() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/[0.07] blur-[120px]" />
-        <div className="absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/6 blur-[130px]" />
+        <div className="pm-aurora absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/[0.16] blur-[120px]" />
+        <div className="pm-aurora pm-aurora-cyan absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/12 blur-[130px]" />
         <div className="absolute inset-0 motion-safe:animate-[space-drift_38s_ease-in-out_infinite_alternate]">
           {Array.from({ length: 42 }, (_, index) => (
             <i
@@ -29,7 +29,26 @@ export default function MinimalPortfolio() {
             />
           ))}
         </div>
-        <style>{`@keyframes space-drift { to { transform: translate(6px, -12px); } }`}</style>
+        <div className="pm-meteor absolute left-[56%] top-[16%] h-px w-20 origin-right -rotate-[28deg] bg-linear-to-r from-slate-100/80 to-transparent opacity-0" />
+        <style>{`
+          @keyframes space-drift {
+            to { transform: translate(18px, -26px); }
+          }
+          @media (prefers-reduced-motion: no-preference) {
+            .pm-aurora { animation: pm-light 16s ease-in-out infinite alternate; }
+            .pm-aurora-cyan { animation-direction: alternate-reverse; animation-delay: -5s; }
+            .pm-meteor { animation: pm-shoot 14s linear 1s infinite; }
+          }
+          @keyframes pm-light {
+            from { transform: translate(-3vw, 1vh) scale(.95); opacity: .6; }
+            to { transform: translate(7vw, -4vh) scale(1.2); opacity: 1; }
+          }
+          @keyframes pm-shoot {
+            0% { translate: 0 0; opacity: 0; }
+            2% { opacity: .7; }
+            11%, 100% { translate: -24vw 12.8vw; opacity: 0; }
+          }
+        `}</style>
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 sm:px-8 lg:px-10">
