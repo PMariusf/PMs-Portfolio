@@ -12,7 +12,7 @@ export default function MinimalPortfolio() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="pm-aurora absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/[0.16] blur-[120px]" />
+        <div className="pm-aurora absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/16 blur-[120px]" />
         <div className="pm-aurora pm-aurora-cyan absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/12 blur-[130px]" />
         <div className="absolute inset-0 motion-safe:animate-[space-drift_38s_ease-in-out_infinite_alternate]">
           {Array.from({ length: 42 }, (_, index) => (
@@ -29,7 +29,7 @@ export default function MinimalPortfolio() {
             />
           ))}
         </div>
-        <div className="pm-meteor absolute left-[56%] top-[16%] h-px w-20 origin-right -rotate-[28deg] bg-linear-to-r from-slate-100/80 to-transparent opacity-0" />
+        <div className="pm-meteor absolute left-[56%] top-[16%] h-px w-20 origin-right rotate-[-28deg] bg-linear-to-r from-slate-100/80 to-transparent opacity-0" />
         <style>{`
           @keyframes space-drift {
             to { transform: translate(18px, -26px); }
