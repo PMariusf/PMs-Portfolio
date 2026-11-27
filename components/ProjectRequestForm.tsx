@@ -62,7 +62,7 @@ export default function ProjectRequestForm() {
 
           <label className="block text-sm font-semibold text-white/85">{no ? "Fortell om prosjektet ditt" : "Tell me about your project"} *<textarea name="message" required rows={7} placeholder={no ? "Hva ønsker du å bygge eller forbedre? Hva skal nettsiden hjelpe deg med å oppnå?" : "What are you looking to build or improve? What should the website help you achieve?"} className={`${inputClass} resize-y`} /></label>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-sm text-sm leading-6 text-white/65">{no ? "Helt uforpliktende — dette er bare første samtale om prosjektet." : "No commitment — this is simply a first conversation about your project."}</p><button type="submit" className="rounded-full bg-white px-7 py-3.5 font-semibold text-black transition duration-300 hover:scale-105 hover:bg-white/90">{no ? "Forbered prosjektforespørsel →" : "Prepare project request →"}</button></div>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between"><p className="max-w-sm text-sm leading-6 text-white/65">{no ? "Helt uforpliktende — dette er bare første samtale om prosjektet." : "No commitment — this is simply a first conversation about your project."}</p><button type="submit" className="rounded-full bg-white px-7 py-3.5 font-semibold text-black transition duration-300 hover:scale-105 hover:bg-white/90">{no ? "Åpne e-postutkast" : "Open email draft"}</button></div>
         </div>
       </div>
     </form>
