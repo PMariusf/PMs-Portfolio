@@ -11,16 +11,31 @@ export default function MinimalPortfolio() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
-      <div className="pointer-events-none absolute inset-0">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/[0.07] blur-[120px]" />
         <div className="absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/6 blur-[130px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-size-[72px_72px] mask-[linear-gradient(to_bottom,black,transparent_85%)]" />
+        <div className="absolute inset-0 motion-safe:animate-[space-drift_38s_ease-in-out_infinite_alternate]">
+          {Array.from({ length: 42 }, (_, index) => (
+            <i
+              key={index}
+              className="absolute rounded-full bg-slate-200"
+              style={{
+                left: `${(index * 61.8 + 3) % 100}%`,
+                top: `${(index * index * 1.73 + index * 7 + 2) % 100}%`,
+                width: index % 5 === 0 ? 2 : 1,
+                height: index % 5 === 0 ? 2 : 1,
+                opacity: 0.22 + (index % 4) * 0.09,
+              }}
+            />
+          ))}
+        </div>
+        <style>{`@keyframes space-drift { to { transform: translate(6px, -12px); } }`}</style>
       </div>
 
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 sm:px-8 lg:px-10">
-        <Link href="/" className="flex items-baseline gap-3">
-          <span className="text-2xl font-semibold tracking-[-0.04em]">PM</span>
-          <span className="hidden text-xs uppercase tracking-[0.28em] text-white/60 sm:inline">Portfolio</span>
+        <Link href="/" aria-label={no ? "PM – forsiden" : "PM – home"} className="group relative inline-flex">
+          <span className="logo-text bg-linear-to-r from-white via-zinc-300 to-white bg-clip-text text-6xl font-semibold tracking-tight text-transparent transition duration-300 group-hover:scale-105">PM</span>
+            <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-white/70 transition duration-500 group-hover:scale-x-100" />
         </Link>
 
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] p-1 backdrop-blur-xl">
@@ -107,23 +122,6 @@ export default function MinimalPortfolio() {
         </div>
       </section>
 
-      <section className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-6 pb-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
-        <div className="border-t border-white/15 pt-8">
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Varegg Arena</h2>
-          <p className="mt-5 max-w-lg leading-7 text-white/70">
-            {no
-              ? "Jeg bygget om treningssiden i Webflow, samlet medlemskapene på ett sted og flyttet trenerne høyere opp på siden."
-              : "I redesigned the fitness page in Webflow, brought the membership options together and moved the trainers closer to the top of the page."}
-          </p>
-          <a href="https://www.vareggarena.no/" className="mt-5 inline-flex items-center gap-2 py-2 font-medium underline underline-offset-4">
-            {no ? "Besøk Varegg Arena" : "Visit Varegg Arena"}
-            <ArrowRight aria-hidden="true" className="h-4 w-4" />
-          </a>
-        </div>
-        <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10">
-          <Image src="/projects/Varegg-Arena/Varegg.png" alt={no ? "Forsiden til Varegg Arena" : "The Varegg Arena homepage"} fill sizes="(min-width: 1280px) 570px, (min-width: 1024px) 45vw, 95vw" className="object-cover object-top" />
-        </div>
-      </section>
     </main>
   );
 }
