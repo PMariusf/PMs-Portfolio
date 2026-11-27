@@ -97,8 +97,8 @@ export default function CV() {
 
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/70">
           {no
-            ? "Frontendutvikler i Bergen. Jeg liker å bygge moderne, responsive og visuelt gjennomførte nettsider der design, funksjonalitet og brukeropplevelse spiller sammen."
-            : "Frontend developer based in Bergen, Norway. I enjoy building modern, responsive and visually polished websites where design, functionality and user experience work together."}
+            ? "Frontend- og fullstackutvikler i Bergen. Jeg liker å bygge moderne, responsive og visuelt gjennomførte nettsider der design, funksjonalitet og brukeropplevelse spiller sammen."
+            : "Frontend and full-stack developer based in Bergen, Norway. I enjoy building modern, responsive and visually polished websites where design, functionality and user experience work together."}
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">

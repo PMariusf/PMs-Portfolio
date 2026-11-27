@@ -60,7 +60,7 @@ export default function MinimalPortfolio() {
           </div>
           <div className="transition duration-300 group-hover:translate-x-1">
             <p className="logo-text text-2xl sm:text-[32px] leading-none tracking-wide text-white">Portfolio</p>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.13em] sm:text-xs sm:tracking-[0.36em] text-white/75">Frontend Developer</p>
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.13em] sm:text-xs sm:tracking-[0.36em] text-white/75">{no ? "Frontend & fullstack" : "Frontend & Full-Stack"}</p>
           </div>
         </Link>
 
@@ -84,7 +84,7 @@ export default function MinimalPortfolio() {
       <section className="relative z-10 mx-auto grid lg:min-h-[calc(100vh-92px)] w-full max-w-7xl items-center gap-10 px-6 pb-12 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-10 lg:pb-20">
         <div>
           <h1 className="max-w-3xl text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
-            Per Marius
+            Per Marius{" "}
             <span className="block text-white/42">Føyner</span>
           </h1>
 
@@ -121,7 +121,7 @@ export default function MinimalPortfolio() {
               CV
             </Link>
             <Link href="/portfolio" className="transition hover:text-white/75">
-              {no ? "Hele porteføljen" : "Full portfolio"}
+              {no ? "Mer om meg" : "More about me"}
             </Link>
             <a
               href="https://github.com/PMariusf"

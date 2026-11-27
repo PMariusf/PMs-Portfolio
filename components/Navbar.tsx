@@ -77,7 +77,7 @@ export default function Navbar() {
           </div>
           <div className="transition duration-300 group-hover:translate-x-1">
             <p className="logo-text text-[32px] leading-none tracking-wide text-white">Portfolio</p>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.36em] text-white/75">Frontend Developer</p>
+            <p className="mt-1 text-xs font-semibold uppercase tracking-[0.36em] text-white/75">{language === "no" ? "Frontend & fullstack" : "Frontend & Full-Stack"}</p>
           </div>
         </Link>
 

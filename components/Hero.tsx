@@ -30,7 +30,7 @@ export default function Hero() {
 
       <div className="relative mt-7">
         <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-white/45 sm:text-xs">
-          Bergen, Norway
+          {no ? "Bergen, Norge" : "Bergen, Norway"}
         </p>
         <h2 className="mt-3 text-4xl font-black leading-none tracking-[-0.035em] sm:text-5xl">
           {no ? "Hei, jeg er" : "Hi, I’m"}{" "}

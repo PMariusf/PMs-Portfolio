@@ -10,11 +10,11 @@ const cormorant = Cormorant_Garamond({ variable: "--font-cormorant", subsets: ["
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.p-marius.no"),
   title: {
-    default: "Per Marius Føyner | Frontend Developer i Bergen",
+    default: "Per Marius Føyner | Frontend- og fullstackutvikler i Bergen",
     template: "%s | Per Marius Føyner",
   },
-  description: "Portfolio for Per Marius Føyner, frontend developer i Bergen. Nettsider og digitale løsninger bygget med React, Next.js, TypeScript og Tailwind CSS, kombinert med webdesign og kreativt visuelt innhold.",
-  keywords: ["Per Marius Føyner", "frontend developer Bergen", "frontend utvikler Bergen", "webutvikler Bergen", "Next.js", "React", "TypeScript", "Tailwind CSS", "webdesign", "portfolio"],
+  description: "Portefølje for Per Marius Føyner, frontend- og fullstackutvikler i Bergen. Nettsider og digitale løsninger bygget med React, Next.js, TypeScript og Tailwind CSS, kombinert med webdesign og kreativt visuelt innhold.",
+  keywords: ["Per Marius Føyner", "frontendutvikler Bergen", "fullstackutvikler Bergen", "webutvikler Bergen", "Next.js", "React", "TypeScript", "Tailwind CSS", "webdesign", "portfolio"],
   authors: [{ name: "Per Marius Føyner", url: "https://www.p-marius.no" }],
   creator: "Per Marius Føyner",
   alternates: { canonical: "/" },
@@ -22,15 +22,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "nb_NO",
     url: "/",
-    siteName: "Per Marius Føyner Portfolio",
-    title: "Per Marius Føyner | Frontend Developer i Bergen",
-    description: "Frontend-utvikling, webdesign og kreative digitale prosjekter fra Bergen.",
-    images: [{ url: "/marius-profil.png", alt: "Per Marius Føyner portfolio" }],
+    siteName: "Per Marius Føyner",
+    title: "Per Marius Føyner | Frontend- og fullstackutvikler i Bergen",
+    description: "Frontend- og fullstackutvikling, webdesign og kreative digitale prosjekter fra Bergen.",
+    images: [{ url: "/marius-profil.png", width: 686, height: 1033, alt: "Per Marius Føyner" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Per Marius Føyner | Frontend Developer i Bergen",
-    description: "Frontend-utvikling, webdesign og kreative digitale prosjekter fra Bergen.",
+    title: "Per Marius Føyner | Frontend- og fullstackutvikler i Bergen",
+    description: "Frontend- og fullstackutvikling, webdesign og kreative digitale prosjekter fra Bergen.",
     images: ["/marius-profil.png"],
   },
   robots: {
@@ -46,9 +46,9 @@ const personJsonLd = {
   name: "Per Marius Føyner",
   url: "https://www.p-marius.no",
   image: "https://www.p-marius.no/marius-profil.png",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Frontend and Full-Stack Developer",
   address: { "@type": "PostalAddress", addressLocality: "Bergen", addressCountry: "NO" },
-  knowsAbout: ["Frontend Development", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Design", "Figma"],
+  knowsAbout: ["Frontend Development", "Full-Stack Development", "React", "Next.js", "TypeScript", "Tailwind CSS", "Web Design", "Figma"],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

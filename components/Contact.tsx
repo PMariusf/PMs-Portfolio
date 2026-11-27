@@ -16,8 +16,8 @@ export default function Contact() {
           <h3 className="text-2xl font-bold text-white">Marius Portfolio</h3>
           <p className="mt-4 leading-relaxed text-white/60">
             {no
-              ? "Frontend-utvikler med interesse for moderne webdesign, kreative digitale opplevelser, AI-verktøy og interaktive brukergrensesnitt."
-              : "Frontend developer passionate about modern web design, creative digital experiences, AI tools and interactive UI."}
+              ? "Frontend- og fullstackutvikler med interesse for moderne webdesign, kreative digitale opplevelser, AI-verktøy og interaktive brukergrensesnitt."
+              : "Frontend and full-stack developer passionate about modern web design, creative digital experiences, AI tools and interactive UI."}
           </p>
         </div>
 
