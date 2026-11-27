@@ -6,15 +6,6 @@ import Projects from "../../../components/Projects";
 import Music from "../../../components/Music";
 import { useLanguage } from "../../../components/LanguageProvider";
 
-const hobbies = [
-  { en: "Music", no: "Musikk" },
-  { en: "Drawing", no: "Tegning" },
-  { en: "Image Editing", no: "Bilderedigering" },
-  { en: "Video Editing", no: "Videoredigering" },
-  { en: "AI Art", no: "AI-kunst" },
-  { en: "Gaming", no: "Gaming" },
-];
-
 export default function Hobby() {
   const { language } = useLanguage();
   const no = language === "no";
@@ -34,53 +25,16 @@ export default function Hobby() {
 
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">
           {no
-            ? "Utenom frontendutvikling liker jeg å jobbe med musikk, tegning, bilde- og videoredigering og digitale konsepter."
-            : "Outside of frontend development, I enjoy music, drawing, image editing, video editing and creating digital concepts."}
+            ? "På fritiden lager jeg musikk, tegner, redigerer bilder og video, utforsker KI-kunst og spiller."
+            : "In my spare time I make music, draw, edit photos and videos, explore AI art and play games."}
         </p>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {hobbies.map((hobby) => (
-            <div
-              key={hobby.en}
-              className="group relative overflow-hidden rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition duration-500 hover:-translate-y-2 hover:border-white/30 hover:shadow-[0_0_60px_rgba(255,255,255,0.08)]"
-            >
-              <div className="pointer-events-none absolute left-0 top-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute left-0 top-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute left-0 top-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
-              </div>
-
-              <div className="pointer-events-none absolute right-0 top-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute right-0 top-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute right-0 top-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
-              </div>
-
-              <div className="pointer-events-none absolute bottom-0 left-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute bottom-0 left-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute bottom-0 left-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
-              </div>
-
-              <div className="pointer-events-none absolute bottom-0 right-0 h-20 w-20 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute bottom-0 right-0 h-0.5 w-14 bg-white/70 blur-[1px]" />
-                <div className="absolute bottom-0 right-0 h-14 w-0.5 bg-white/70 blur-[1px]" />
-              </div>
-
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-white/15 blur-[60px]" />
-                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10 blur-[60px]" />
-                <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-white/10 blur-[60px]" />
-                <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white/15 blur-[60px]" />
-                <div className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/8 blur-[90px] transition duration-300 group-hover:scale-125" />
-              </div>
-
-              <div className="relative z-10">
-                <h2 className="text-2xl font-bold">{no ? hobby.no : hobby.en}</h2>
-                <p className="mt-3 text-white/60">
-                  {no ? "Et kreativt område jeg liker å utforske og utvikle videre." : "A creative area I like to explore and improve."}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <section className="mt-12 max-w-2xl" aria-labelledby="featured-song">
+          <h2 id="featured-song" className="text-3xl font-bold">Elísa · Out of the Blue</h2>
+          <p className="mt-3 leading-7 text-white/75">{no ? "Her ville jeg fange øyeblikket når blikkene møtes på dansegulvet, med korte tekstlinjer og et refreng man kan synge med på." : "I wanted to capture that moment when two people catch each other’s eye on the dance floor, with short lines and a chorus you can sing along to."}</p>
+          <audio controls preload="none" aria-labelledby="featured-song" className="mt-5 w-full" src="https://foyner.no/images/music/ayline/Elisra/Out%20of%20the%20Blue.mp3" />
+          <a className="mt-4 inline-block underline underline-offset-4" href="https://foyner.no/elisa#music">{no ? "Mer musikk fra Elísa" : "More music from Elísa"}</a>
+        </section>
 
         <section className="mt-24">
           <p className="text-sm uppercase tracking-[0.4em] text-white/50">
@@ -96,12 +50,10 @@ export default function Hobby() {
           </p>
 
           <div className="mt-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-4 shadow-[0_20px_80px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-6">
-            <div className="mb-8 flex justify-center">
-              <Music />
-            </div>
             <Projects />
           </div>
         </section>
+        <div className="mt-12"><Music /></div>
       </section>
 
       <Contact />
