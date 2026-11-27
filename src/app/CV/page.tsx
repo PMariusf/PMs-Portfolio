@@ -152,7 +152,7 @@ export default function CV() {
 
         <div className="mt-8 rounded-4xl border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
           <p className="text-sm uppercase tracking-[0.35em] text-white/40">{no ? "Nåværende mål" : "Current Goal"}</p>
-          <h2 className="mt-4 text-3xl font-bold">{no ? "På jakt etter nye frontendmuligheter" : "Looking for frontend opportunities"}</h2>
+          <h2 className="mt-4 text-3xl font-bold">{no ? "Jeg søker roller innen frontend og fullstack" : "Looking for frontend and full-stack roles"}</h2>
           <p className="mt-4 max-w-4xl leading-relaxed text-white/70">
             {no
               ? "Målet mitt er å utvikle meg videre som frontendutvikler og jobbe med prosjekter der design, tilgjengelighet, interaktivitet og ytelse møtes. Jeg er spesielt interessert i moderne webutvikling, kreativ UI, AI-assisterte arbeidsflyter og digitale produkter med en tydelig visuell identitet."
