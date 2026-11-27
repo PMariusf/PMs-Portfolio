@@ -15,16 +15,15 @@ export default function Hero() {
 
       <div className="group relative w-full max-w-[330px]">
         <div className="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-br from-white/15 via-white/[0.025] to-cyan-300/10 opacity-70 blur-xl transition duration-700 group-hover:opacity-100" />
-        <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/15 bg-black/45 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-black/45 shadow-[0_28px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           <Image
             src={portrait}
             alt="Marius"
-            fill
             sizes="(max-width: 640px) 78vw, 330px"
-            className="object-contain object-top grayscale transition duration-700 group-hover:scale-[1.025] group-hover:grayscale-0"
+            className="block h-auto w-full"
             priority
           />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
+
         </div>
       </div>
 
