@@ -1,5 +1,6 @@
 "use client";
 
+import DivingStudy from "../../../components/DivingStudy";
 import Image from "next/image";
 import { Settings } from "lucide-react";
 import Navbar from "../../../components/Navbar";
@@ -25,7 +26,7 @@ type Project = {
 };
 
 const developmentProjects: Project[] = [
-  { title: "Bergen Stupeklubb", year: "2026", description: "A modern, accessible and responsive website for Bergen Stupeklubb, designed to help visitors explore diving activities, courses, club information and registration.", descriptionNo: "En moderne, tilgjengelig og responsiv nettside for Bergen Stupeklubb, laget for å gjøre det enkelt å utforske stuping, kurs, klubbinformasjon og påmelding.", image: "/projects/stupeklubb.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "#" },
+  { title: "Bergen Stupeklubb", year: "2026", description: "I used the five lines in the club logo as the starting point for a depth gauge. In the design, the diving heights mark your progress down the page.", descriptionNo: "De fem strekene i klubblogoen ga meg ideen til en dybdemåler. I designforslaget følger du stupehøydene mens du scroller nedover siden.", image: "/projects/stupeklubb.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/bergen-stupeklubb", demo: "#" },
   { title: "House of Mambo", year: "2026", description: "A modern and visually engaging dance website for House of Mambo, combining responsive frontend development, strong visual identity and accessibility-focused improvements.", descriptionNo: "En moderne og visuelt engasjerende dansenettside for House of Mambo, med responsiv frontend-utvikling, sterk visuell identitet og fokus på tilgjengelighet.", image: "/projects/mambo.png", tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Responsive Design", "Accessibility", "Vercel"], github: "https://github.com/PMariusf/HouseOfMambo", demo: "#" },
   { title: "Varegg Arena – Webflow Upgrade", year: "2026", description: "A Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and a more polished responsive experience.", descriptionNo: "En oppgradering av Varegg Arena-nettsiden i Webflow, med fokus på tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og en mer gjennomført responsiv opplevelse.", image: "/projects/Varegg-Arena/Varegg.png", tech: ["Webflow", "UI/UX", "Responsive Design", "Web Design", "Content Structure"], github: "#", demo: "https://www.vareggarena.no/", status: ["live", "webflow"] },
   { title: "Varegg Fotball", year: "2026", description: "A new Varegg Fotball website is coming soon. It is currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure designed around players, parents and club activity.", descriptionNo: "Ny nettside for Varegg Fotball kommer snart. Den bygges nå i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur tilpasset spillere, foreldre og klubbaktivitet.", image: "/projects/Varegg-Arena/Vareggfotball.png", tech: ["Webflow", "UI/UX", "Responsive Design", "Web Design", "Content Structure"], github: "#", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"] },
@@ -42,7 +43,7 @@ const developmentProjects: Project[] = [
 const creativeProjects: Project[] = [
   { title: "Varegg Arena", year: "2025–2026", description: "Creative design and branding work for Varegg Arena, including sports visuals, event graphics, banners, posters and promotional content for multiple activities such as basketball, badminton, HYROX, fitness and Fjellveidager.", descriptionNo: "Kreativt design- og profileringsarbeid for Varegg Arena, inkludert sportsvisualer, arrangementsgrafikk, bannere, plakater og markedsmateriell for blant annet basketball, badminton, HYROX, fitness og Fjellveidager.", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", tech: ["Figma", "Branding", "Design", "AI Visuals", "Social Media", "Video Editing"], github: "#", demo: "#" },
   { title: "AdO Arena", year: "2026", description: "Cinematic arena visuals, water, diving and event promotion created for AdO Arena.", descriptionNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering laget for AdO Arena.", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", tech: ["Design", "AI Visuals", "Video Editing", "Event Promo", "Branding"], github: "#", demo: "#" },
-  { title: "Åsane Arena", year: "2026", description: "Sports arena visuals, branding and creative promotional content for Åsane Arena.", descriptionNo: "Sportsvisualer, profilering og kreativt markedsmateriell for Åsane Arena.", image: "/projects/Varegg-Arena/Asanearena.png", tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"], github: "#", demo: "#" },
+  { title: "Åsane Arena", year: "2026", description: "I made an animated advert for the screens at Åsane Arena. The wide format shaped where I placed the text and how much could be read at a glance.", descriptionNo: "Jeg laget en animert reklame til skjermene i Åsane Arena. Det brede formatet styrte hvor jeg plasserte teksten og hvor mye man rekker å lese i forbifarten.", image: "/projects/Varegg-Arena/Asanearena.png", tech: ["Design", "Branding", "AI Visuals", "Sports Media", "Promotion"], github: "#", demo: "#" },
   { title: "Music & Artist Worlds", year: "2025–2026", description: "Songwriting, musical direction, character design and visual artist worlds for Ayline and Elísa, presented through Foyner.no.", descriptionNo: "Låtskriving, musikalsk retning, karakterdesign og visuelle artistunivers for Ayline og Elísa, presentert gjennom Foyner.no.", image: "/ayline-elisa1.png", tech: ["Songwriting", "Music Direction", "Character Design", "Storytelling", "Creative Design", "Artist Worlds"], github: "#", demo: "https://www.foyner.no/artists", status: ["live"] },
 ];
 
@@ -74,8 +75,10 @@ export default function ProjectsPage() {
     return (
       <div key={project.title} className="group overflow-hidden rounded-4xl border border-white/10 bg-white/[0.055] shadow-2xl backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.075]">
         <div className="grid md:grid-cols-2">
-          <div className="relative flex h-72 items-center justify-center overflow-hidden bg-black sm:h-80">
-            {project.underConstruction ? (
+          <div className={`relative shrink-0 overflow-hidden bg-black ${project.title === "Bergen Stupeklubb" ? "h-80" : project.title === "Åsane Arena" ? "aspect-[3/1]" : "h-72 sm:h-80"} `}>
+            {project.title === "Bergen Stupeklubb" ? (
+            <DivingStudy norwegian={no} />
+          ) : project.underConstruction ? (
               <div className="absolute inset-0"><Image src={project.image} alt={project.title} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-55 transition-transform duration-700 group-hover:scale-[1.02]"/><div className="absolute inset-0 bg-black/55"/><div className="absolute inset-0 flex flex-col items-center justify-center gap-5"><Settings className="h-14 w-14 animate-[spin_8s_linear_infinite] text-yellow-300"/><h3 className="text-center text-lg font-black uppercase tracking-[0.32em] text-yellow-300 sm:text-xl">{no ? "UNDER UTVIKLING" : "UNDER CONSTRUCTION"}</h3></div></div>
             ) : project.title === "PM Portfolio" ? (
               <div className="absolute inset-0 bg-black"><Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-25"/><div className="matrix-rain opacity-80">{matrixColumns.map((column) => <span key={column} className={`matrix-column matrix-column-${column}`}>{"01 PM NEXT REACT TAILWIND CODE ".repeat(8)}</span>)}</div><div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/40"/><div className="absolute inset-0 flex items-center justify-center"><h3 className="text-center text-3xl font-bold uppercase tracking-[0.45em]">PM PORTFOLIO</h3></div></div>
@@ -84,7 +87,7 @@ export default function ProjectsPage() {
             ) : project.video ? (
               <video src={project.video} autoPlay muted loop playsInline preload="metadata" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"/>
             ) : (
-              <Image src={project.image} alt={project.title} fill loading={project.title === "Bergen Stupeklubb" || project.title === "Åsane Arena" ? "eager" : "lazy"} sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"/>
+              <Image src={project.image} alt={project.title} fill loading={project.title === "Bergen Stupeklubb" || project.title === "Åsane Arena" ? "eager" : "lazy"} sizes="(max-width: 768px) 100vw, 50vw" className={project.title === "Åsane Arena" ? "object-contain" : "object-cover"}/>
             )}
 
             {project.status?.length ? <div className="absolute left-4 top-4 z-20 flex flex-wrap gap-2">{project.status.map((status) => <span key={status} className={`rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] backdrop-blur-md ${statusStyles[status]}`}>{statusLabel(status, no)}</span>)}</div> : null}
@@ -93,7 +96,7 @@ export default function ProjectsPage() {
           <div className="flex flex-col p-6 sm:p-8">
             <div className="flex items-start justify-between gap-5"><h2 className="text-2xl font-bold sm:text-3xl">{project.title}</h2>{project.year && <span className="shrink-0 pt-1 text-xs font-medium tracking-[0.18em] text-white/40 sm:pt-2 sm:text-sm sm:tracking-[0.2em]">{project.year}</span>}</div>
             <p className="mt-4 leading-relaxed text-white/65">{no ? project.descriptionNo : project.description}</p>
-            <div className="mt-5 flex flex-wrap gap-2">{project.tech.map((tech) => <span key={tech} className="rounded-full border border-white/15 bg-white/[0.07] px-3 py-1.5 text-xs font-medium text-white/70">{tech}</span>)}</div>
+            <p className="mt-4 text-sm leading-relaxed text-white/65">{project.tech.join(" · ")}</p>
             <div className="mt-auto flex flex-wrap gap-3 pt-8">
               {project.github !== "#" && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-full border border-white/20 bg-white/[0.07] px-5 py-3 transition hover:bg-white/[0.12]">GitHub</a>}
               {project.demo !== "#" && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-5 py-3 text-black transition duration-300 hover:-translate-y-0.5 hover:scale-[1.02]">{demoText}</a>}
@@ -108,17 +111,17 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-black text-white">
       <Navbar/>
       <section className="mx-auto max-w-7xl px-5 py-28 sm:px-6 sm:py-32">
-        <p className="text-xs uppercase tracking-[0.32em] text-white/50 sm:text-sm sm:tracking-[0.4em]">{no ? "Utvalgt arbeid" : "Selected Work"}</p>
+        
         <h1 className="mt-4 max-w-5xl text-4xl font-bold leading-tight sm:text-5xl">{no ? "Frontend, kreative & tekniske prosjekter" : "Frontend, Creative & Technical Projects"}</h1>
         <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/65 sm:text-lg">{no ? "En samling frontend-utvikling, kreative konsepter og tekniske prosjekter som viser design, interaktivitet og problemløsning." : "A collection of frontend development, creative concepts and technical projects showcasing design, interactivity and problem solving."}</p>
 
         <div className="mt-14">
-          <div className="mb-8 flex items-end justify-between gap-4"><div><p className="text-xs uppercase tracking-[0.32em] text-white/35">{no ? "Nettsider & frontend" : "Websites & frontend"}</p><h2 className="mt-2 text-3xl font-bold sm:text-4xl">{no ? "Utvikling" : "Development"}</h2></div></div>
+          <div className="mb-8 flex items-end justify-between gap-4"><div><h2 className="mt-2 text-3xl font-bold sm:text-4xl">{no ? "Utvikling" : "Development"}</h2></div></div>
           <div className="grid gap-6 sm:gap-8">{developmentProjects.map(renderProject)}</div>
         </div>
 
         <div className="mt-20 border-t border-white/10 pt-14">
-          <div className="mb-8"><p className="text-xs uppercase tracking-[0.32em] text-white/35">Design & media</p><h2 className="mt-2 text-3xl font-bold sm:text-4xl">{no ? "Kreativt visuelt" : "Creative Visual"}</h2></div>
+          <div className="mb-8"><h2 className="mt-2 text-3xl font-bold sm:text-4xl">{no ? "Design og media" : "Design and media"}</h2></div>
           <div className="grid gap-6 sm:gap-8">{creativeProjects.map(renderProject)}</div>
         </div>
       </section>
