@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import DivingStudy from "../../../components/DivingStudy";
 import Image from "next/image";
 import Navbar from "../../../components/Navbar";
 import Hero from "../../../components/Hero";
@@ -31,7 +32,7 @@ type HomeProject = {
 };
 
 const developmentProjects: HomeProject[] = [
-  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "Accessible and responsive sports club website built with Next.js, TypeScript and Tailwind CSS.", textNo: "Tilgjengelig og responsiv nettside for idrettsklubb, bygget med Next.js, TypeScript og Tailwind CSS.", year: "2026", github: "https://github.com/PMariusf/bergen-stupeklubb", glow: "cyan", featured: true },
+  { title: "Bergen Stupeklubb", image: "/projects/stupeklubb.png", text: "I used the five lines in the club logo as the starting point for a depth gauge. In the design, the diving heights mark your progress down the page.", textNo: "De fem strekene i klubblogoen ga meg ideen til en dybdemåler. I designforslaget følger du stupehøydene mens du scroller nedover siden.", year: "2026", github: "https://github.com/PMariusf/bergen-stupeklubb", glow: "cyan", featured: true },
   { title: "House of Mambo", image: "/projects/mambo.png", text: "Modern dance website with strong visual identity, responsive design and accessibility improvements.", textNo: "Moderne dansenettside med sterk visuell identitet, responsivt design og forbedret tilgjengelighet.", year: "2026", github: "https://github.com/PMariusf/HouseOfMambo", glow: "purple" },
   { title: "Varegg Arena – Webflow Upgrade", image: "/projects/Varegg-Arena/Varegg.png", text: "Webflow website upgrade for Varegg Arena focused on clearer navigation, stronger visual hierarchy, practical information and responsive presentation.", textNo: "Oppgradering av Varegg Arena-nettsiden i Webflow, med tydeligere navigasjon, bedre visuelt hierarki, praktisk informasjon og responsiv visning.", year: "2026", demo: "https://www.vareggarena.no/", status: ["live", "webflow"], glow: "green", featured: true },
   { title: "Varegg Fotball", image: "/projects/Varegg-Arena/Vareggfotball.png", text: "A new Varegg Fotball website is coming soon, currently being built in Webflow with improved navigation, clearer club information and a modern responsive structure.", textNo: "Ny nettside for Varegg Fotball kommer snart. Siden bygges i Webflow med forbedret navigasjon, tydelig klubbinformasjon og en moderne responsiv struktur.", year: "2026", demo: "https://vareggfotball.no/", demoLabel: "current", status: ["coming-soon", "webflow"], glow: "blue", featured: true },
@@ -50,7 +51,7 @@ const featuredDevelopmentProjects = developmentProjects.filter((project) => proj
 const creativeProjects: HomeProject[] = [
   { title: "Varegg Arena", image: "/projects/Varegg-Arena/fjellveidager.png", video: "/projects/Varegg-Arena/Varegg-Arena%20Sandvegg.mp4", text: "Sports visuals, branding and event graphics.", textNo: "Sportsvisualer, profilering og grafikk for arrangement.", year: "2025–2026", glow: "red" },
   { title: "AdO Arena", image: "/projects/ado-arena/ado.png", video: "/projects/ADO.mov", text: "Cinematic arena visuals, water, diving and event promotion.", textNo: "Cinematiske arenavisualer, vann, stuping og arrangementsprofilering.", year: "2026", glow: "cyan" },
-  { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "Sports arena visuals, branding and creative promotional content.", textNo: "Visuelt innhold for sportsarena, profilering og kreativt markedsmateriell.", year: "2026", glow: "blue" },
+  { title: "Åsane Arena", image: "/projects/Varegg-Arena/Asanearena.png", text: "I made an animated advert for the screens at Åsane Arena. The wide format shaped where I placed the text and how much could be read at a glance.", textNo: "Jeg laget en animert reklame til skjermene i Åsane Arena. Det brede formatet styrte hvor jeg plasserte teksten og hvor mye man rekker å lese i forbifarten.", year: "2026", glow: "blue" },
   { title: "Music & Artist Worlds", image: "/ayline-elisa1.png", text: "Songwriting, musical direction, character design and visual artist worlds for Ayline and Elísa on Foyner.no.", textNo: "Låtskriving, musikalsk retning, karakterdesign og visuelle artistunivers for Ayline og Elísa på Foyner.no.", year: "2025–2026", demo: "https://www.foyner.no/artists", status: ["live"], glow: "orange" },
 ];
 
@@ -66,17 +67,6 @@ const glowStyles: Record<GlowTone, string> = {
   neutral: "hover:border-white/20 hover:shadow-[0_24px_70px_rgba(255,255,255,0.08)]",
 };
 
-const gradientStyles: Record<GlowTone, string> = {
-  green: "from-emerald-400/10 via-transparent to-black/80",
-  blue: "from-blue-400/10 via-transparent to-black/80",
-  amber: "from-amber-400/10 via-transparent to-black/80",
-  violet: "from-violet-400/10 via-transparent to-black/80",
-  purple: "from-fuchsia-400/10 via-transparent to-black/80",
-  red: "from-red-400/10 via-transparent to-black/80",
-  cyan: "from-cyan-400/10 via-transparent to-black/80",
-  orange: "from-orange-400/10 via-transparent to-black/80",
-  neutral: "from-white/5 via-transparent to-black/80",
-};
 
 const statusStyles: Record<ProjectStatus, string> = {
   live: "border-emerald-100 bg-emerald-950/90 text-emerald-50 shadow-[0_2px_14px_rgba(0,0,0,0.45)]",
@@ -103,8 +93,10 @@ function ProjectCard({ project, language }: { project: HomeProject; language: "n
 
   return (
     <div className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-black/35 shadow-[0_18px_50px_rgba(0,0,0,0.38)] backdrop-blur-xl transition duration-500 hover:-translate-y-1 hover:bg-white/[0.07] ${glowStyles[project.glow]}`}>
-      <div className="relative h-48 shrink-0 overflow-hidden bg-black">
-        {project.underConstruction ? (
+      <div className={`relative shrink-0 overflow-hidden bg-black ${project.title === "Bergen Stupeklubb" ? "h-80" : project.title === "Åsane Arena" ? "aspect-[3/1]" : "h-48"} `}>
+        {project.title === "Bergen Stupeklubb" ? (
+            <DivingStudy norwegian={no} />
+          ) : project.underConstruction ? (
           <div className="absolute inset-0">
             <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover opacity-55 transition-transform duration-700 group-hover:scale-[1.04]" />
             <div className="absolute inset-0 bg-black/55" />
@@ -127,9 +119,8 @@ function ProjectCard({ project, language }: { project: HomeProject; language: "n
         ) : project.video ? (
           <video src={project.video} autoPlay muted loop playsInline className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
         ) : (
-          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "Varegg Arena – Webflow Upgrade"} className="object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+          <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, 33vw" priority={project.title === "Bergen Stupeklubb" || project.title === "Varegg Arena – Webflow Upgrade"} className={project.title === "Åsane Arena" ? "object-contain" : "object-cover"} />
         )}
-        <div className={`pointer-events-none absolute inset-0 bg-linear-to-br ${gradientStyles[project.glow]} opacity-75`} />
         {project.status?.length ? (
           <div className="absolute left-3 top-3 z-20 flex flex-wrap gap-2">
             {project.status.map((status) => <span key={status} className={`rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.16em] backdrop-blur-md ${statusStyles[status]}`}>{statusLabel(status, no)}</span>)}
@@ -234,10 +225,10 @@ export default function Home() {
 
         <section className="fade-up mx-auto max-w-7xl px-6 pt-20">
           <div className="rounded-4xl border border-white/10 bg-white/4 p-6 shadow-2xl backdrop-blur-xl md:p-10">
-            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><p className="text-sm uppercase tracking-[0.4em] text-white/60">{no ? "Utvalgt arbeid" : "Featured Work"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Prosjekter som viser bredden" : "Projects that show the range"}</h2><p className="mt-4 max-w-2xl text-white/60">{no ? "Et kuratert utvalg av frontend, Webflow, UI/UX og kreative prosjekter. Hele prosjektarkivet ligger på Projects-siden." : "A curated selection of frontend, Webflow, UI/UX and creative work. The full project archive lives on the Projects page."}</p></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link></div>
-            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">{no ? "Utvalgte prosjekter" : "Featured projects"}</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Utvikling" : "Development"}</h3></div><ProjectGrid projects={featuredDevelopmentProjects} language={language} /></div>
+            <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"><div><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Utvalgte prosjekter" : "Selected projects"}</h2></div><Link href="/Projects" className="w-fit rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white/70 transition hover:bg-white/20 hover:text-white">{no ? "Se alle prosjekter" : "View all projects"}</Link></div>
+            <div><div className="mb-8"><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Utvikling" : "Development"}</h3></div><ProjectGrid projects={featuredDevelopmentProjects} language={language} /></div>
             <SectionDivider />
-            <div><div className="mb-8"><p className="text-xs uppercase tracking-[0.38em] text-white/40">Design & media</p><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Kreativt visuelt" : "Creative Visual"}</h3></div><ProjectGrid projects={creativeProjects} language={language} /></div>
+            <div><div className="mb-8"><h3 className="mt-2 text-4xl font-bold md:text-5xl">{no ? "Design og media" : "Design and media"}</h3></div><ProjectGrid projects={creativeProjects} language={language} /></div>
           </div>
         </section>
 
