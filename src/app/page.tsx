@@ -5,17 +5,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../../components/LanguageProvider";
 
-const skills = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "Supabase",
-  "Webflow",
-  "Figma",
-  "UI/UX",
-];
-
 export default function MinimalPortfolio() {
   const { language, setLanguage } = useLanguage();
   const no = language === "no";
@@ -31,7 +20,7 @@ export default function MinimalPortfolio() {
       <header className="relative z-10 mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-7 sm:px-8 lg:px-10">
         <Link href="/" className="flex items-baseline gap-3">
           <span className="text-2xl font-semibold tracking-[-0.04em]">PM</span>
-          <span className="hidden text-xs uppercase tracking-[0.28em] text-white/35 sm:inline">Portfolio</span>
+          <span className="hidden text-xs uppercase tracking-[0.28em] text-white/60 sm:inline">Portfolio</span>
         </Link>
 
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] p-1 backdrop-blur-xl">
@@ -42,7 +31,7 @@ export default function MinimalPortfolio() {
               onClick={() => setLanguage(lang)}
               aria-pressed={language === lang}
               className={`rounded-full px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] transition ${
-                language === lang ? "bg-white text-black" : "text-white/40 hover:text-white"
+                language === lang ? "bg-white text-black" : "text-white/60 hover:text-white"
               }`}
             >
               {lang}
@@ -51,35 +40,20 @@ export default function MinimalPortfolio() {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto grid min-h-[calc(100vh-92px)] w-full max-w-7xl items-center gap-10 px-6 pb-12 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-10 lg:pb-20">
-        <div className="order-2 lg:order-1">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">
-            {no ? "Frontendutvikler · Bergen" : "Frontend Developer · Bergen"}
-          </p>
-
-          <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+      <section className="relative z-10 mx-auto grid lg:min-h-[calc(100vh-92px)] w-full max-w-7xl items-center gap-10 px-6 pb-12 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-20 lg:px-10 lg:pb-20">
+        <div>
+          <h1 className="max-w-3xl text-5xl font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
             Per Marius
             <span className="block text-white/42">Føyner</span>
           </h1>
 
           <p className="mt-7 max-w-xl text-base leading-7 text-white/55 sm:text-lg sm:leading-8">
             {no
-              ? "Jeg bygger moderne, responsive nettsider og digitale opplevelser der frontend, UI/UX og kreativt design møtes."
-              : "I build modern, responsive websites and digital experiences where frontend, UI/UX and creative design come together."}
+              ? "Jeg er frontendutvikler i Bergen. Jeg bygger nettsider for lokale klubber og lager innhold til skjermene på Varegg Arena."
+              : "I’m a frontend developer in Bergen. I build websites for local clubs and create content for the screens at Varegg Arena."}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 bg-white/[0.035] px-3.5 py-2 text-xs font-medium text-white/58 backdrop-blur-xl"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/Projects"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_35px_rgba(255,255,255,0.14)]"
@@ -89,20 +63,20 @@ export default function MinimalPortfolio() {
             </Link>
 
             <Link
-              href="/portfolio"
+              href="/Contact"
               className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/4.5 px-6 py-3.5 text-sm font-semibold text-white/80 backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.09] hover:text-white"
             >
-              {no ? "Full portfolio" : "Full portfolio"}
+              {no ? "Ta kontakt" : "Get in touch"}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-white/35">
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-white/60">
             <Link href="/CV" className="transition hover:text-white/75">
               CV
             </Link>
-            <Link href="/Contact" className="transition hover:text-white/75">
-              {no ? "Kontakt" : "Contact"}
+            <Link href="/portfolio" className="transition hover:text-white/75">
+              {no ? "Hele porteføljen" : "Full portfolio"}
             </Link>
             <a
               href="https://github.com/PMariusf"
@@ -115,7 +89,7 @@ export default function MinimalPortfolio() {
           </div>
         </div>
 
-        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+        <div className="flex justify-center lg:justify-end">
           <div className="group relative w-full max-w-107.5">
             <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
             <div className="relative aspect-4/5 overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/2.5 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
@@ -128,11 +102,26 @@ export default function MinimalPortfolio() {
                 className="object-contain object-bottom grayscale transition duration-700 group-hover:scale-[1.018] group-hover:grayscale-0"
               />
               <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-white/[0.025]" />
-              <div className="absolute bottom-5 left-5 rounded-full border border-white/10 bg-black/45 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-white/55 backdrop-blur-xl">
-                Frontend · UI/UX · Creative
-              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-6 pb-20 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:px-10">
+        <div className="border-t border-white/15 pt-8">
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">Varegg Arena</h2>
+          <p className="mt-5 max-w-lg leading-7 text-white/70">
+            {no
+              ? "Jeg bygget om treningssiden i Webflow, samlet medlemskapene på ett sted og flyttet trenerne høyere opp på siden."
+              : "I redesigned the fitness page in Webflow, brought the membership options together and moved the trainers closer to the top of the page."}
+          </p>
+          <a href="https://www.vareggarena.no/" className="mt-5 inline-flex items-center gap-2 py-2 font-medium underline underline-offset-4">
+            {no ? "Besøk Varegg Arena" : "Visit Varegg Arena"}
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </a>
+        </div>
+        <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/10">
+          <Image src="/projects/Varegg-Arena/Varegg.png" alt={no ? "Forsiden til Varegg Arena" : "The Varegg Arena homepage"} fill sizes="(min-width: 1280px) 570px, (min-width: 1024px) 45vw, 95vw" className="object-cover object-top" />
         </div>
       </section>
     </main>
