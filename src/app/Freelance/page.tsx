@@ -60,7 +60,7 @@ export default function FreelancePage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-6 py-12">
-          <div className="mb-10"><p className="text-xs font-medium uppercase tracking-[0.32em] text-white/65">{no ? "Dette kan jeg hjelpe med" : "What I can help with"}</p><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Tjenester" : "Services"}</h2></div>
+          <div className="mb-10"><h2 className="mt-3 text-4xl font-bold md:text-5xl">{no ? "Tjenester" : "Services"}</h2><p className="mt-4 max-w-2xl leading-7 text-white/75">{no ? "På treningssiden til Varegg Arena samlet jeg medlemskapene på ett sted og gjorde trenerne lettere å finne." : "On Varegg Arena’s fitness page, I brought the membership options together and made the trainers easier to find."}</p></div>
           <div className="grid gap-4 md:grid-cols-2">{services.map((service) => <div key={service.title} className="group rounded-3xl border border-white/15 bg-white/[0.055] p-7 backdrop-blur-xl transition duration-500 hover:border-white/25 hover:bg-white/[0.08] hover:shadow-[0_20px_60px_rgba(139,92,246,0.10)] md:p-9"><div className="flex items-start justify-between gap-6"><div><h3 className="text-2xl font-bold text-white">{service.title}</h3><p className="mt-4 max-w-xl text-base leading-7 text-white/78">{service.text}</p></div><span className="text-sm font-semibold tracking-[0.2em] text-white/45 transition group-hover:text-white/70">{service.number}</span></div></div>)}</div>
         </section>
 
