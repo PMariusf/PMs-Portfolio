@@ -42,7 +42,7 @@ const developmentProjects: HomeProject[] = [
   { title: "Solar System Explorer", image: "/projects/Solarsystem.png", text: "Interactive 3D Solar System built with React Three Fiber, Three.js and Next.js.", textNo: "Interaktivt 3D-solsystem bygget med React Three Fiber, Three.js og Next.js.", year: "2026", github: "https://github.com/PMariusf/solsystem", glow: "blue" },
   { title: "Fjellveidager", image: "/projects/Varegg-Arena/fjellveidager.png", text: "Creative branding, posters and event visuals.", textNo: "Kreativ profilering, plakater og visuelt innhold for arrangement.", year: "2026", github: "https://github.com/PMariusf/fjellveidager-no", glow: "amber" },
   { title: "Aivento", image: "/projects/Varegg-Arena/Aivento.png", text: "Modern responsive website built with Squarespace.", textNo: "Moderne responsiv nettside bygget med Squarespace.", year: "2025", demo: "https://www.aivento.no/", demoLabel: "live", status: ["live"], glow: "violet", featured: true },
-  { title: "PM-portfolio", image: "/p-marius.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
+  { title: "PM-portfolio", image: "/marius-profil.png", text: "Coding is Life.", textNo: "Kode er livet.", github: "https://github.com/PMariusf/PMs-Portfolio", glow: "purple" },
   { title: "Sykkeldeler", image: "/sykkeldeler.png", text: "Bicycle-parts web concept with a responsive frontend, Supabase backend and CMS for managing products and content.", textNo: "Nettkonsept for sykkeldeler med responsiv frontend, Supabase-backend og CMS for administrasjon av produkter og innhold.", underConstruction: true, glow: "green" },
 ];
 
