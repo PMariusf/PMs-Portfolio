@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import portrait from "../../public/marius-profil.png";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../../components/LanguageProvider";
@@ -138,7 +139,7 @@ export default function MinimalPortfolio() {
             <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
             <div className="relative aspect-4/5 overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/2.5 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
               <Image
-                src="/marius-profil.png"
+                src={portrait}
                 alt="Per Marius Føyner"
                 fill
                 priority
