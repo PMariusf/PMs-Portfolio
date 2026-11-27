@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-br from-white/15 via-white/[0.025] to-cyan-300/10 opacity-70 blur-xl transition duration-700 group-hover:opacity-100" />
         <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/15 bg-black/45 p-3 shadow-[0_28px_80px_rgba(0,0,0,0.5)] backdrop-blur-xl">
           <Image
-            src="/p-marius.png"
+            src="/marius-profil.png"
             alt="Marius"
             fill
             sizes="(max-width: 640px) 78vw, 330px"
