@@ -26,29 +26,11 @@ export default function ContactPage() {
             : "Feel free to contact me for frontend work, projects, creative ideas or collaboration."}
         </p>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
-          <a
-            href="mailto:marius28@live.no"
-            className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition hover:-translate-y-2 hover:bg-white/15"
-          >
-            <h2 className="text-2xl font-bold">E-post</h2>
-            <p className="mt-3 text-white/60">marius28@live.no</p>
-          </a>
-
-          <a
-            href="https://github.com/PMariusf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl transition hover:-translate-y-2 hover:bg-white/15"
-          >
-            <h2 className="text-2xl font-bold">GitHub</h2>
-            <p className="mt-3 text-white/60">PMariusf</p>
-          </a>
-
-          <div className="rounded-[2rem] border border-white/20 bg-white/10 p-8 shadow-2xl backdrop-blur-xl">
-            <h2 className="text-2xl font-bold">{no ? "Sted" : "Location"}</h2>
-            <p className="mt-3 text-white/60">{no ? "Bergen, Norge" : "Bergen, Norway"}</p>
-          </div>
+        <div className="mt-12">
+          <h2 className="text-sm text-white/70">{no ? "E-post" : "Email"}</h2>
+          <a href="mailto:marius28@live.no" className="mt-2 inline-block break-all text-3xl font-semibold underline decoration-white/30 underline-offset-8 hover:decoration-white sm:text-5xl">marius28@live.no</a>
+          <p className="mt-6 text-white/70">{no ? "Bergen, Norge" : "Bergen, Norway"}</p>
+          <a href="https://github.com/PMariusf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block underline underline-offset-4">GitHub · PMariusf</a>
         </div>
       </section>
     </main>
