@@ -121,14 +121,14 @@ export default function MinimalPortfolio() {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <div className="group relative w-full max-w-107.5">
+          <div className="group relative w-full max-w-68 sm:max-w-80 lg:max-w-88">
             <div className="absolute -inset-5 rounded-[2.8rem] bg-linear-to-br from-white/[0.09] via-transparent to-violet-400/[0.08] blur-2xl" />
             <div className="relative overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/2.5 shadow-[0_35px_120px_rgba(0,0,0,0.55)]">
               <Image
                 src={portrait}
                 alt="Per Marius Føyner"
                 priority
-                sizes="(max-width: 1024px) 80vw, 430px"
+                sizes="(max-width: 640px) 272px, 352px"
                 className="block h-auto w-full"
               />
 
