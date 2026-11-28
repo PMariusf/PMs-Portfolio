@@ -106,7 +106,7 @@ function StarLayer({ count, spread, size, speed, seed, animate }: StarLayerProps
       positions[i * 3 + 2] = -rand() * DEPTH;
       sizes[i] = size[0] + Math.pow(rand(), 3) * (size[1] - size[0]);
       phases[i] = rand();
-      const c = palette[rand() < 0.6 ? 0 : 1 + Math.floor(rand() * (palette.length - 1))];
+      const c = palette[rand() < 0.8 ? 0 : 1 + Math.floor(rand() * (palette.length - 1))];
       colors.set([c.r, c.g, c.b], i * 3);
     }
 
@@ -261,11 +261,11 @@ export default function StarfieldScene() {
       >
         <Nebulae animate={animate} />
         {/* Fjerne, små og mange */}
-        <StarLayer count={Math.round(2600 * scale)} spread={120} size={[0.6, 1.8]} speed={1.2} seed={11} animate={animate} />
+        <StarLayer count={Math.round(1300 * scale)} spread={120} size={[0.6, 1.8]} speed={1.2} seed={11} animate={animate} />
         {/* Midtlag */}
-        <StarLayer count={Math.round(900 * scale)} spread={80} size={[1.2, 3]} speed={2.4} seed={23} animate={animate} />
+        <StarLayer count={Math.round(450 * scale)} spread={80} size={[1.2, 3]} speed={2.4} seed={23} animate={animate} />
         {/* Noen få store, nære stjerner */}
-        <StarLayer count={Math.round(140 * scale)} spread={50} size={[2.6, 5.5]} speed={3.6} seed={37} animate={animate} />
+        <StarLayer count={Math.round(70 * scale)} spread={50} size={[2.6, 5.5]} speed={3.6} seed={37} animate={animate} />
         <CameraRig pointer={pointer} animate={animate} />
       </Canvas>
     </div>
