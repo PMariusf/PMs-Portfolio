@@ -8,6 +8,7 @@ import * as THREE from "three";
  * Bakgrunn for forsiden: et stjernerom med ekte dybde.
  * - Tre lag med stjerner som driver sakte mot kameraet og blinker svakt
  * - Myke tåkeskyer i violett og cyan langt bak
+ * - Bølgende nordlys som glir sakte over himmelen
  * - Kameraet følger musen litt (parallakse)
  * Respekterer prefers-reduced-motion (da står alt stille).
  */
@@ -207,6 +208,115 @@ function Nebulae({ animate }: { animate: boolean }) {
   );
 }
 
+const auroraVertex = /* glsl */ `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const auroraFragment = /* glsl */ `
+  uniform float uTime;
+  uniform float uOffset;
+  uniform float uHeight;
+  uniform float uIntensity;
+  uniform vec3 uLow;
+  uniform vec3 uHigh;
+  varying vec2 vUv;
+
+  float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+  float noise(vec2 p) {
+    vec2 i = floor(p), f = fract(p);
+    vec2 u = f * f * (3.0 - 2.0 * f);
+    return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),
+               mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+  }
+  float fbm(vec2 p) {
+    float v = 0.0, a = 0.5;
+    for (int i = 0; i < 4; i++) { v += a * noise(p); p *= 2.03; a *= 0.5; }
+    return v;
+  }
+
+  void main() {
+    float t = uTime * 0.12 + uOffset;
+    float x = vUv.x;
+
+    // Bølgende underkant av "gardinen"
+    float base = uHeight
+      + 0.09 * sin(x * 5.0 + t * 1.3)
+      + 0.05 * sin(x * 11.0 - t * 0.9 + uOffset)
+      + 0.08 * (fbm(vec2(x * 3.0 + t * 0.4, t * 0.2)) - 0.5);
+
+    float y = vUv.y - base;
+    // Skarp underkant, lang myk hale oppover
+    float curtain = smoothstep(-0.015, 0.02, y) * exp(-max(y, 0.0) * 4.2);
+
+    // Loddrette stråler som glir sidelengs
+    float rays = fbm(vec2(x * 38.0 + t * 1.5, vUv.y * 1.2 - t * 0.3));
+    rays = 0.35 + 0.9 * pow(rays, 1.6);
+
+    // Pulser i styrke langs båndet
+    float pulse = 0.55 + 0.45 * fbm(vec2(x * 2.2 - t * 0.6, t * 0.35));
+
+    // Myk fade mot kantene av planet
+    float edge = smoothstep(0.0, 0.18, x) * smoothstep(1.0, 0.82, x) * smoothstep(1.0, 0.75, vUv.y);
+
+    float a = curtain * rays * pulse * edge * uIntensity;
+    vec3 col = mix(uLow, uHigh, smoothstep(0.0, 0.35, y));
+    gl_FragColor = vec4(col, a);
+  }
+`;
+
+const auroraBands = [
+  { position: [0, 14, -95], rotation: -0.06, size: [300, 110], offset: 0, height: 0.5, intensity: 0.45, low: "#34d399", high: "#7c3aed" },
+  { position: [-20, 12, -120], rotation: 0.05, size: [320, 120], offset: 7.3, height: 0.56, intensity: 0.26, low: "#22d3ee", high: "#6366f1" },
+] as const;
+
+function Aurora({ animate }: { animate: boolean }) {
+  const materials = useRef<(THREE.ShaderMaterial | null)[]>([]);
+  const uniformSets = useMemo(
+    () =>
+      auroraBands.map((b) => ({
+        uTime: { value: 0 },
+        uOffset: { value: b.offset },
+        uHeight: { value: b.height },
+        uIntensity: { value: b.intensity },
+        uLow: { value: new THREE.Color(b.low) },
+        uHigh: { value: new THREE.Color(b.high) },
+      })),
+    [],
+  );
+
+  useFrame((_, delta) => {
+    if (!animate) return;
+    materials.current.forEach((m) => {
+      if (m) m.uniforms.uTime.value += Math.min(delta, 0.1);
+    });
+  });
+
+  return (
+    <group>
+      {auroraBands.map((b, i) => (
+        <mesh key={i} position={b.position as unknown as [number, number, number]} rotation={[0, 0, b.rotation]}>
+          <planeGeometry args={[b.size[0], b.size[1]]} />
+          <shaderMaterial
+            ref={(m) => {
+              materials.current[i] = m;
+            }}
+            vertexShader={auroraVertex}
+            fragmentShader={auroraFragment}
+            uniforms={uniformSets[i]}
+            transparent
+            depthWrite={false}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
 function CameraRig({ pointer, animate }: { pointer: React.RefObject<{ x: number; y: number }>; animate: boolean }) {
   const target = useMemo(() => new THREE.Vector3(0, 0, -60), []);
 
@@ -260,6 +370,7 @@ export default function StarfieldScene() {
         style={{ pointerEvents: "none" }}
       >
         <Nebulae animate={animate} />
+        <Aurora animate={animate} />
         {/* Fjerne, små og mange */}
         <StarLayer count={Math.round(1300 * scale)} spread={120} size={[0.6, 1.8]} speed={1.2} seed={11} animate={animate} />
         {/* Midtlag */}
