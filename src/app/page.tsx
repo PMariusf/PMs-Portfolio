@@ -4,7 +4,10 @@ import Image from "next/image";
 import portrait from "../../public/marius-profil.png";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import dynamic from "next/dynamic";
 import { useLanguage } from "../../components/LanguageProvider";
+
+const StarfieldScene = dynamic(() => import("../../components/StarfieldScene"), { ssr: false });
 
 export default function MinimalPortfolio() {
   const { language, setLanguage } = useLanguage();
@@ -15,26 +18,9 @@ export default function MinimalPortfolio() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="pm-aurora absolute left-[8%] top-[12%] h-72 w-72 rounded-full bg-violet-500/16 blur-[120px]" />
         <div className="pm-aurora pm-aurora-cyan absolute bottom-[8%] right-[8%] h-80 w-80 rounded-full bg-cyan-400/12 blur-[130px]" />
-        <div className="absolute inset-0 motion-safe:animate-[space-drift_38s_ease-in-out_infinite_alternate]">
-          {Array.from({ length: 42 }, (_, index) => (
-            <i
-              key={index}
-              className="absolute rounded-full bg-slate-200"
-              style={{
-                left: `${(index * 61.8 + 3) % 100}%`,
-                top: `${(index * index * 1.73 + index * 7 + 2) % 100}%`,
-                width: index % 5 === 0 ? 2 : 1,
-                height: index % 5 === 0 ? 2 : 1,
-                opacity: 0.22 + (index % 4) * 0.09,
-              }}
-            />
-          ))}
-        </div>
+        <StarfieldScene />
         <div className="pm-meteor absolute left-[56%] top-[16%] h-px w-20 origin-right rotate-[-28deg] bg-linear-to-r from-slate-100/80 to-transparent opacity-0" />
         <style>{`
-          @keyframes space-drift {
-            to { transform: translate(18px, -26px); }
-          }
           @media (prefers-reduced-motion: no-preference) {
             .pm-aurora { animation: pm-light 16s ease-in-out infinite alternate; }
             .pm-aurora-cyan { animation-direction: alternate-reverse; animation-delay: -5s; }
