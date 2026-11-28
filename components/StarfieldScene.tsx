@@ -6,10 +6,10 @@ import * as THREE from "three";
 
 /**
  * Bakgrunn for forsiden: et stjernerom med ekte dybde.
- * - Tre lag med stjerner som driver sakte mot kameraet og blinker svakt
+ * - Tre lag med stjerner som står stille på ulik dybde og blinker med et skimt av rødt/blått
  * - Myke tåkeskyer i violett og cyan langt bak
  * - Bølgende nordlys som glir sakte over himmelen
- * - Kameraet følger musen litt (parallakse)
+ * - Kameraet følger musen, så lagene forskyves mot hverandre (parallakse)
  * Respekterer prefers-reduced-motion (da står alt stille).
  */
 
@@ -35,14 +35,25 @@ const starVertex = /* glsl */ `
     gl_Position = projectionMatrix * mv;
 
     float dist = -mv.z;
-    gl_PointSize = aSize * uPixelRatio * (220.0 / max(dist, 1.0));
+    // Fast skjermstørrelse: alle stjerner er like små, uansett dybde
+    gl_PointSize = aSize * uPixelRatio;
 
     // Fade inn langt borte og ut helt nærme, så ingen stjerner "popper"
-    float farFade = smoothstep(${DEPTH.toFixed(1)}, ${(DEPTH * 0.7).toFixed(1)}, dist);
+    float farFade = 0.55 + 0.45 * smoothstep(${DEPTH.toFixed(1)}, ${(DEPTH * 0.6).toFixed(1)}, dist);
     float nearFade = smoothstep(0.5, 6.0, dist);
-    float twinkle = 0.72 + 0.28 * sin(uTime * (0.6 + aPhase * 1.4) + aPhase * 6.2831);
+    // Blinking: to bølger med ulik fart gir et urolig, naturlig glimt
+    float tw = sin(uTime * (0.9 + aPhase * 1.8) + aPhase * 40.0) * 0.6
+             + sin(uTime * (2.3 + aPhase * 2.7) + aPhase * 17.0) * 0.4;
+    float twinkle = 0.55 + 0.45 * tw;
 
-    vColor = aColor;
+    // Skimt av rødt/blått mens stjernen blinker (som når ekte stjerner "glitrer")
+    float shift = sin(uTime * (0.7 + aPhase * 1.3) + aPhase * 91.0);
+    vec3 red = vec3(1.0, 0.55, 0.5);
+    vec3 blue = vec3(0.55, 0.7, 1.0);
+    vec3 tint = shift > 0.0 ? blue : red;
+    float amount = smoothstep(0.55, 1.0, abs(shift)) * 0.7;
+
+    vColor = mix(aColor, tint, amount);
     vAlpha = farFade * nearFade * twinkle;
   }
 `;
@@ -54,9 +65,9 @@ const starFragment = /* glsl */ `
   void main() {
     vec2 uv = gl_PointCoord - 0.5;
     float d = length(uv);
-    // Skarp kjerne + myk glød
-    float core = smoothstep(0.18, 0.0, d);
-    float glow = smoothstep(0.5, 0.0, d) * 0.35;
+    // Liten, myk prikk
+    float core = smoothstep(0.5, 0.3, d);
+    float glow = 0.0;
     float a = (core + glow) * vAlpha;
     if (a < 0.003) discard;
     gl_FragColor = vec4(vColor, a);
@@ -104,7 +115,7 @@ function StarLayer({ count, spread, size, speed, seed, animate }: StarLayerProps
     for (let i = 0; i < count; i++) {
       positions[i * 3] = (rand() - 0.5) * spread * 2;
       positions[i * 3 + 1] = (rand() - 0.5) * spread * 1.3;
-      positions[i * 3 + 2] = -rand() * DEPTH;
+      positions[i * 3 + 2] = -12 - rand() * (DEPTH - 12); // ingen stjerner helt inntil kameraet
       sizes[i] = size[0] + Math.pow(rand(), 3) * (size[1] - size[0]);
       phases[i] = rand();
       const c = palette[rand() < 0.8 ? 0 : 1 + Math.floor(rand() * (palette.length - 1))];
@@ -321,12 +332,12 @@ function CameraRig({ pointer, animate }: { pointer: React.RefObject<{ x: number;
   const target = useMemo(() => new THREE.Vector3(0, 0, -60), []);
 
   useFrame((state, delta) => {
+    if (!animate) return;
     const cam = state.camera;
     const p = pointer.current ?? { x: 0, y: 0 };
-    const t = state.clock.elapsedTime;
-    // Langsom "pust" + parallakse fra musen
-    const tx = p.x * 3.2 + (animate ? Math.sin(t * 0.07) * 1.2 : 0);
-    const ty = p.y * 2.0 + (animate ? Math.cos(t * 0.05) * 0.8 : 0);
+    // Parallakse fra musen: nære stjerner flytter seg mer enn fjerne
+    const tx = p.x * 6;
+    const ty = p.y * 3.5;
     const k = 1 - Math.exp(-delta * 1.6);
     cam.position.x += (tx - cam.position.x) * k;
     cam.position.y += (ty - cam.position.y) * k;
@@ -372,11 +383,11 @@ export default function StarfieldScene() {
         <Nebulae animate={animate} />
         <Aurora animate={animate} />
         {/* Fjerne, små og mange */}
-        <StarLayer count={Math.round(1300 * scale)} spread={120} size={[0.6, 1.8]} speed={1.2} seed={11} animate={animate} />
+        <StarLayer count={Math.round(325 * scale)} spread={120} size={[2.0, 2.4]} speed={0} seed={11} animate={animate} />
         {/* Midtlag */}
-        <StarLayer count={Math.round(450 * scale)} spread={80} size={[1.2, 3]} speed={2.4} seed={23} animate={animate} />
+        <StarLayer count={Math.round(112 * scale)} spread={80} size={[2.0, 2.4]} speed={0} seed={23} animate={animate} />
         {/* Noen få store, nære stjerner */}
-        <StarLayer count={Math.round(70 * scale)} spread={50} size={[2.6, 5.5]} speed={3.6} seed={37} animate={animate} />
+        <StarLayer count={Math.round(18 * scale)} spread={50} size={[2.0, 2.4]} speed={0} seed={37} animate={animate} />
         <CameraRig pointer={pointer} animate={animate} />
       </Canvas>
     </div>
